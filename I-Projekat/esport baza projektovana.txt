@@ -1,0 +1,410 @@
+create table Osoba(
+    osobaid number not null primary key,
+    ime varchar2 (20) not null ,
+    prezime varchar2 (20) not null ,
+    datum_rodjenja date, 
+    drzava varchar2 (30),
+    email varchar2 (30),
+    datum_prvog_angazovanja date, 
+    status_angazmana varchar2 (20) CHECK (status_angazmana IN ('Aktivno', 'Neaktivno'))
+);
+
+CREATE TABLE Osoba_Telefon (
+    osobaid number not null,
+    telefon VARCHAR2(20),
+    CONSTRAINT pk_osoba_telefon PRIMARY KEY (osobaid, telefon),
+    CONSTRAINT fk_telefon_osoba FOREIGN KEY (osobaid) 
+        REFERENCES Osoba(osobaid) ON DELETE CASCADE
+);
+
+CREATE TABLE Igra (
+    igraid NUMBER PRIMARY KEY,
+    naziv VARCHAR2(100) NOT NULL UNIQUE, 
+    zanr VARCHAR2(30)   
+);
+
+
+CREATE TABLE Igrac (
+    osobaid NUMBER not null PRIMARY KEY,
+    nadimak VARCHAR2(30) NOT NULL,
+    primarna_uloga VARCHAR2(30),
+    sekundarna_uloga VARCHAR2(30),
+    dominantni_stil VARCHAR2(30),
+    rang VARCHAR2(30),
+    CONSTRAINT fk_igrac_osoba FOREIGN KEY (osobaid) 
+        REFERENCES Osoba(osobaid) ON DELETE CASCADE
+);
+
+CREATE TABLE Trener (
+    osobaid NUMBER PRIMARY KEY,
+    tip_uloge VARCHAR2(30) CHECK (tip_uloge IN ('Glavni', 'Pomoćni', 'Strateški')),
+    stil_rada VARCHAR2(50),
+    CONSTRAINT fk_trener_osoba FOREIGN KEY (osobaid) 
+        REFERENCES Osoba (osobaid) ON DELETE CASCADE
+);
+
+
+CREATE TABLE Analiticar (
+    osobaid NUMBER PRIMARY KEY,
+    oblast_analize VARCHAR2(50), 
+    alati VARCHAR2(100),
+    nivo_iskustva VARCHAR2(30),
+    CONSTRAINT fk_analiticar_osoba FOREIGN KEY (osobaid) 
+        REFERENCES Osoba (osobaid) ON DELETE CASCADE
+);
+
+
+CREATE TABLE Menadzer (
+    osobaid NUMBER PRIMARY KEY,
+    oblast_odgovornosti VARCHAR2(100),
+    CONSTRAINT fk_menadzer_osoba FOREIGN KEY (osobaid) 
+        REFERENCES Osoba(osobaid) ON DELETE CASCADE
+);
+
+
+CREATE TABLE Psiholog (
+    osobaid NUMBER PRIMARY KEY,
+    oblast_rada VARCHAR2(100),
+    periodi_dostupnosti VARCHAR2(100),
+    CONSTRAINT fk_psiholog_osoba FOREIGN KEY (osobaid) 
+        REFERENCES Osoba(osobaid) ON DELETE CASCADE
+);
+
+CREATE TABLE Fizioterapeut (
+    osobaid NUMBER PRIMARY KEY,
+    oblast_rada VARCHAR2(100),
+    periodi_dostupnosti VARCHAR2(100),
+    CONSTRAINT fk_fizioterapeut_osoba FOREIGN KEY (osobaid) 
+        REFERENCES Osoba(osobaid) ON DELETE CASCADE
+);
+
+CREATE TABLE Kreator_Sadrzaja (
+    osobaid NUMBER PRIMARY KEY,
+    CONSTRAINT fk_kreator_osoba FOREIGN KEY (osobaid) 
+        REFERENCES Osoba(osobaid) ON DELETE CASCADE
+);
+
+CREATE TABLE Skaut (
+    osobaid NUMBER PRIMARY KEY,
+    idigre NUMBER,
+    CONSTRAINT fk_skaut_osoba FOREIGN KEY (osobaid) 
+        REFERENCES Osoba(osobaid) ON DELETE CASCADE,
+    CONSTRAINT fk_skaut_igra FOREIGN KEY (idigre) 
+        REFERENCES Igra(igraid) ON DELETE SET NULL
+);
+
+CREATE TABLE Licenca (
+    licencaid NUMBER PRIMARY KEY,
+    osobaid NUMBER NOT NULL, 
+    naziv VARCHAR2(100) NOT NULL,
+    institucija_izdavac VARCHAR2(100) NOT NULL,
+    datum_sticanja DATE NOT NULL,
+    
+    CONSTRAINT fk_licenca_osoba FOREIGN KEY (osobaid) 
+        REFERENCES Osoba(osobaid) ON DELETE CASCADE
+);
+
+
+CREATE TABLE Tim (
+    timid NUMBER PRIMARY KEY,
+    naziv VARCHAR2(100) NOT NULL,
+    igra_id NUMBER NOT NULL,
+    datum_osnivanja DATE,
+    drzava_registracije VARCHAR2(50),
+    status_tima VARCHAR2(20) DEFAULT 'Aktivno' CHECK (status_tima IN ('Aktivno', 'Neaktivno', 'U izradi', 'Rasformiran')),
+    nivo_takmicenja VARCHAR2(30) CHECK (nivo_takmicenja IN ('Amaterski', 'Drzavno', 'Regionalni', 'Pro')),
+    
+    CONSTRAINT fk_tim_igra FOREIGN KEY (igra_id)
+        REFERENCES Igra(igraid)
+);
+
+
+
+CREATE TABLE Ugovor_Igraca (
+    ugovor_id NUMBER PRIMARY KEY,
+    igrac_id NUMBER NOT NULL,
+    tim_id NUMBER NOT NULL,
+    datum_od DATE NOT NULL,
+    datum_do DATE,
+    tip_ugovora VARCHAR2(50) CHECK (tip_ugovora IN ('Standardni', 'Privremeni')),
+    plata NUMBER(10, 2) NOT NULL,
+    bonusi NUMBER(10, 2) DEFAULT 0,
+    klauzula_otkup NUMBER(12, 2),
+    zabrana_nastupa VARCHAR2(200), 
+    
+    status_igraca VARCHAR2(20) NOT NULL CHECK (status_igraca IN ('Kapiten', 'Aktivni', 'Rezervni')),
+    
+    CONSTRAINT fk_ugovor_igrac FOREIGN KEY (igrac_id)
+        REFERENCES Igrac(osobaid) ON DELETE CASCADE,
+    CONSTRAINT fk_ugovor_tim FOREIGN KEY (tim_id)
+        REFERENCES Tim(timid) ON DELETE CASCADE,
+    CONSTRAINT chk_ugovor_datumi CHECK (datum_do IS NULL OR datum_do >= datum_od)
+);
+
+
+
+CREATE TABLE Transfer (
+    transfer_id NUMBER PRIMARY KEY,
+    igrac_id NUMBER NOT NULL,
+    prethodni_tim_id NUMBER, 
+    novi_tim_id NUMBER NOT NULL,
+    datum_prelaska DATE DEFAULT SYSDATE NOT NULL,
+    iznos_transfera NUMBER(12, 2) DEFAULT 0,
+    valuta VARCHAR2(3) DEFAULT 'EUR' CHECK (valuta IN ('RSD','EUR', 'USD')),
+    trajanje_ugovora_meseci NUMBER CHECK (trajanje_ugovora_meseci > 0),
+    posebne_klauzule VARCHAR2(200),
+    
+    CONSTRAINT fk_transfer_igrac FOREIGN KEY (igrac_id)
+        REFERENCES Igrac(osobaid) ON DELETE CASCADE,
+    CONSTRAINT fk_transfer_prethodni_tim FOREIGN KEY (prethodni_tim_id)
+        REFERENCES Tim(timid) ON DELETE SET NULL,
+    CONSTRAINT fk_transfer_novi_tim FOREIGN KEY (novi_tim_id)
+        REFERENCES Tim(timid) ON DELETE CASCADE,
+    CONSTRAINT chk_razliciti_timovi_transfer CHECK (prethodni_tim_id IS NULL OR prethodni_tim_id <> novi_tim_id)
+);
+
+
+CREATE TABLE Pozajmica (
+    pozajmica_id NUMBER PRIMARY KEY,
+    igrac_id NUMBER NOT NULL,
+    matični_tim_id NUMBER NOT NULL,
+    tim_na_pozajmici_id NUMBER NOT NULL,
+    datum_od DATE NOT NULL,
+    datum_do DATE NOT NULL,
+    finansijski_uslovi VARCHAR2(200),
+    pravo_otkupa NUMBER(1) DEFAULT 0 CHECK (pravo_otkupa IN (0, 1)), -- 0 = Ne, 1 = Da
+    
+    CONSTRAINT fk_pozajmica_igrac FOREIGN KEY (igrac_id)
+        REFERENCES Igrac(osobaid) ON DELETE CASCADE,
+    CONSTRAINT fk_pozajmica_maticni_tim FOREIGN KEY (matični_tim_id)
+        REFERENCES Tim(timid) ON DELETE CASCADE,
+    CONSTRAINT fk_pozajmica_tim_pozajmica FOREIGN KEY (tim_na_pozajmici_id)
+        REFERENCES Tim(timid) ON DELETE CASCADE,
+    CONSTRAINT chk_pozajmica_datumi CHECK (datum_do > datum_od),
+    CONSTRAINT chk_razliciti_timovi_pozajmica CHECK (matični_tim_id <> tim_na_pozajmici_id)
+);
+
+
+CREATE TABLE Takmicenje (
+    takmicenje_id NUMBER PRIMARY KEY,
+    naziv VARCHAR2(50) NOT NULL,
+    organizator VARCHAR2(100) NOT NULL,
+    tip_takmicenja VARCHAR2(20) NOT NULL CHECK (tip_takmicenja IN ('Liga', 'Turnir')),
+    igra_id NUMBER NOT NULL,
+    region VARCHAR2(50),
+    lokacija VARCHAR2(50),
+    format_takmicenja VARCHAR2(50),
+    datum_pocetka DATE NOT NULL,
+    datum_zavrsetka DATE NOT NULL,
+    nagradni_fond NUMBER(12, 2) DEFAULT 0,
+    valuta_nagrade VARCHAR2(3) DEFAULT 'USD',
+    status VARCHAR2(20) DEFAULT 'Najava' CHECK (status IN ('Najava', 'U toku', 'Završeno', 'Otkazano')),
+    
+    CONSTRAINT fk_takmicenje_igra FOREIGN KEY (igra_id)
+        REFERENCES Igra(igraid),
+    CONSTRAINT chk_takmicenje_datumi CHECK (datum_zavrsetka >= datum_pocetka)
+);
+
+
+
+CREATE TABLE Liga (
+    takmicenje_id NUMBER PRIMARY KEY,
+    sistem_bodovanja VARCHAR2(100) NOT NULL, 
+    
+    CONSTRAINT fk_liga_takmicenje FOREIGN KEY (takmicenje_id)
+        REFERENCES Takmicenje(takmicenje_id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE Turnir (
+    takmicenje_id NUMBER PRIMARY KEY,
+    tip_kostura VARCHAR2(50) NOT NULL, 
+    pravila_napredovanja VARCHAR2(200),
+    broj_meceva_po_rundi VARCHAR2(50), 
+    
+    CONSTRAINT fk_turnir_takmicenje FOREIGN KEY (takmicenje_id)
+        REFERENCES Takmicenje(takmicenje_id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE Faza_Takmicenja (
+    faza_id NUMBER PRIMARY KEY,
+    takmicenje_id NUMBER NOT NULL,
+    naziv_faze VARCHAR2(50) NOT NULL, 
+    redni_broj NUMBER NOT NULL,        
+    nadfaza_id NUMBER,
+    
+    CONSTRAINT fk_faza_takmicenje FOREIGN KEY (takmicenje_id)
+        REFERENCES Turnir(takmicenje_id) ON DELETE CASCADE,
+    CONSTRAINT fk_faza_nadfaza FOREIGN KEY (nadfaza_id)
+        REFERENCES Faza_Takmicenja(faza_id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE Ucesce_Tima_U_Fazi (
+    faza_id NUMBER NOT NULL,
+    tim_id NUMBER NOT NULL,
+    status VARCHAR2(30) DEFAULT 'Učestvuje' CHECK (status IN ('Učestvuje', 'Kvalifikovan', 'Eliminisan', 'Diskvalifikovan')),
+    ostvareni_rezultat VARCHAR2(100), 
+    broj_pobeda NUMBER DEFAULT 0 CHECK (broj_pobeda >= 0),
+    broj_poraza NUMBER DEFAULT 0 CHECK (broj_poraza >= 0),
+    osvojeni_bodovi NUMBER DEFAULT 0,
+    konacan_plasman NUMBER CHECK (konacan_plasman > 0),
+    
+    CONSTRAINT pk_ucesce_tima PRIMARY KEY (faza_id, tim_id),
+    CONSTRAINT fk_ucesce_faza FOREIGN KEY (faza_id)
+        REFERENCES Faza_Takmicenja(faza_id) ON DELETE CASCADE,
+    CONSTRAINT fk_ucesce_tim FOREIGN KEY (tim_id)
+        REFERENCES Tim(timid) ON DELETE CASCADE
+);
+
+
+CREATE TABLE Angazman_zaposlenih (
+    angazman_osoblja_id NUMBER PRIMARY KEY,
+    osobaid NUMBER NOT NULL,
+    timid NUMBER NOT NULL,
+    naziv_uloge VARCHAR2(30) NOT NULL CHECK (
+        naziv_uloge IN (
+            'Analiticar', 'Menadzer', 'Psiholog', 
+            'Fizioterapeut' ,'Skaut', 'Kreator sadrzaja'
+        )
+    ),
+    datum_od DATE NOT NULL,
+    datum_do DATE,
+    plata NUMBER(10, 2),
+    
+    CONSTRAINT fk_angazman_zaposlenih_osoba FOREIGN KEY (osobaid) 
+        REFERENCES Osoba(osobaid) ON DELETE CASCADE,
+    CONSTRAINT fk_angazman_zaposlenih_tim FOREIGN KEY (timid) 
+        REFERENCES Tim(timid) ON DELETE CASCADE,
+    CONSTRAINT chk_ang_zaposlenih_datumi CHECK (datum_do IS NULL OR datum_do >= datum_od)
+);
+
+
+CREATE TABLE Angazman_Trenera (
+    angazman_trenera_id NUMBER PRIMARY KEY,
+    trener_id NUMBER NOT NULL,
+    tim_id NUMBER NOT NULL,
+    tip_uloge VARCHAR2(30) NOT NULL CHECK (tip_uloge IN ('Glavni', 'Pomoćni', 'Strateški')),
+    datum_od DATE NOT NULL,
+    datum_do DATE, 
+    
+    CONSTRAINT fk_ang_trener FOREIGN KEY (trener_id) 
+        REFERENCES Trener(osobaid) ON DELETE CASCADE,
+    CONSTRAINT fk_ang_tim FOREIGN KEY (tim_id) 
+        REFERENCES Tim(timid) ON DELETE CASCADE,
+    CONSTRAINT chk_ang_trener_datumi CHECK (datum_do IS NULL OR datum_do >= datum_od)
+);
+
+
+CREATE TABLE Mec (
+    mec_id NUMBER PRIMARY KEY,
+    takmicenje_id NUMBER NOT NULL,
+    redni_broj NUMBER NOT NULL,
+    datum_vreme_pocetka TIMESTAMP NOT NULL,
+    format_meca VARCHAR2(20) NOT NULL, 
+    broj_odigranih_mapa NUMBER DEFAULT 0,
+    rezultat VARCHAR2(20), 
+    trajanje NUMBER,
+    lokacija_igranja VARCHAR2(100), 
+    sudije VARCHAR2(200),
+    status_meca VARCHAR2(20) DEFAULT 'Zakazan' CHECK (status_meca IN ('Zakazan', 'U toku', 'Završen', 'Odložen', 'Prekinut')),
+    
+    CONSTRAINT fk_mec_takmicenje FOREIGN KEY (takmicenje_id)
+        REFERENCES Takmicenje(takmicenje_id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE Statistika_Tima_Na_Mecu (
+    mec_id NUMBER NOT NULL,
+    tim_id NUMBER NOT NULL,
+    kills NUMBER DEFAULT 0 ,
+    deaths NUMBER DEFAULT 0,
+    assists NUMBER DEFAULT 0,
+    damage NUMBER DEFAULT 0 ,
+    objective_score NUMBER DEFAULT 0 ,
+    gold NUMBER DEFAULT 0,
+    
+    CONSTRAINT pk_statistika_meca PRIMARY KEY (mec_id, tim_id),
+    CONSTRAINT fk_stat_mec FOREIGN KEY (mec_id) 
+        REFERENCES Mec(mec_id) ON DELETE CASCADE,
+    CONSTRAINT fk_stat_tim FOREIGN KEY (tim_id) 
+        REFERENCES Tim(timid) ON DELETE CASCADE
+);
+
+
+
+CREATE TABLE Dogadjaj_Na_Mecu (
+    dogadjaj_id NUMBER PRIMARY KEY,
+    mec_id NUMBER NOT NULL,
+    tip_dogadjaja VARCHAR2(30) NOT NULL CHECK (
+        tip_dogadjaja IN ('Tehnički problem', 'Pauza', 'Žalba', 'Odluka sudije')
+    ),
+    vreme_dogadjaja TIMESTAMP DEFAULT SYSTIMESTAMP NOT NULL,
+    opis VARCHAR2(500) NOT NULL,
+    odluka_sudije VARCHAR2(500),
+    
+    CONSTRAINT fk_dogadjaj_mec FOREIGN KEY (mec_id) 
+        REFERENCES Mec(mec_id) ON DELETE CASCADE
+);
+
+CREATE TABLE Sponzor (
+    sponzor_id NUMBER PRIMARY KEY,
+    naziv VARCHAR2(100) NOT NULL UNIQUE,
+    drzava VARCHAR2(50),
+    tip_sponzora VARCHAR2(50),
+    oblast_poslovanja VARCHAR2(100)
+);
+
+CREATE TABLE Sponzor_Kontakt (
+    kontakt_id NUMBER PRIMARY KEY,
+    sponzor_id NUMBER NOT NULL,
+    ime VARCHAR2(20) NOT NULL,
+    prezime varchar2(20) NOT NULL,
+    telefon VARCHAR2(30),
+    email VARCHAR2(50),
+    
+    CONSTRAINT fk_kontakt_sponzor FOREIGN KEY (sponzor_id)
+        REFERENCES Sponzor(sponzor_id) ON DELETE CASCADE
+);
+
+CREATE TABLE Sponzorski_Ugovor (
+    ugovor_id NUMBER PRIMARY KEY,
+    sponzor_id NUMBER NOT NULL,
+    datum_od DATE NOT NULL,
+    datum_do DATE NOT NULL,
+    iznos NUMBER(12, 2) NOT NULL CHECK (iznos >= 0),
+    valuta VARCHAR2(3) DEFAULT 'EUR' CHECK (valuta IN ('RSD', 'EUR', 'USD')),
+    tip_podrske VARCHAR2(30) NOT NULL CHECK (tip_podrske IN ('Novčani', 'Oprema', 'Putni troškovi', 'Medijska promocija', 'Kombinovano')),
+    marketinske_obaveze VARCHAR2(500),
+    
+    CONSTRAINT fk_sponz_sponzor FOREIGN KEY (sponzor_id) 
+        REFERENCES Sponzor(sponzor_id) ON DELETE CASCADE,
+    CONSTRAINT chk_sponz_datumi CHECK (datum_do >= datum_od)
+);
+
+CREATE TABLE Ugovor_Subjekat (
+    ugovor_id NUMBER NOT NULL,
+    tip_subjekta VARCHAR2(20) NOT NULL CHECK (tip_subjekta IN ('TIM', 'IGRAC', 'TAKMICENJE', 'ORGANIZACIJA')),
+    ciljni_id NUMBER NOT NULL, 
+    
+    CONSTRAINT pk_ugovor_subjekat PRIMARY KEY (ugovor_id, tip_subjekta, ciljni_id),
+    
+    CONSTRAINT fk_us_ugovor FOREIGN KEY (ugovor_id) 
+        REFERENCES Sponzorski_Ugovor(ugovor_id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE Individualni_Rezultat (
+    rezultat_id NUMBER PRIMARY KEY,
+    igrac_id NUMBER NOT NULL,
+    naziv_priznanja VARCHAR2(100) NOT NULL, 
+    datum_ostvarivanja DATE,
+    takmicenje_id NUMBER,
+    opis VARCHAR2(500),
+    
+    CONSTRAINT fk_rezultat_igrac FOREIGN KEY (igrac_id) 
+        REFERENCES Igrac(osobaid) ON DELETE CASCADE,
+    CONSTRAINT fk_rezultat_takmicenje FOREIGN KEY (takmicenje_id) 
+        REFERENCES Takmicenje(takmicenje_id) ON DELETE SET NULL
+);

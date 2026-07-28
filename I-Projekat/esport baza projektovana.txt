@@ -384,14 +384,24 @@ CREATE TABLE Sponzorski_Ugovor (
 );
 
 CREATE TABLE Ugovor_Subjekat (
-    ugovor_id NUMBER NOT NULL,
-    tip_subjekta VARCHAR2(20) NOT NULL CHECK (tip_subjekta IN ('TIM', 'IGRAC', 'TAKMICENJE', 'ORGANIZACIJA')),
-    ciljni_id NUMBER NOT NULL, 
-    
-    CONSTRAINT pk_ugovor_subjekat PRIMARY KEY (ugovor_id, tip_subjekta, ciljni_id),
-    
-    CONSTRAINT fk_us_ugovor FOREIGN KEY (ugovor_id) 
-        REFERENCES Sponzorski_Ugovor(ugovor_id) ON DELETE CASCADE
+    ugovor_id NUMBER NOT NULL PRIMARY KEY,
+    tim_id NUMBER,
+    igrac_id NUMBER,
+    takmicenje_id NUMBER,
+
+    CONSTRAINT fk_us_ugovor FOREIGN KEY (ugovor_id)
+        REFERENCES Sponzorski_Ugovor(ugovor_id) ON DELETE CASCADE,
+    CONSTRAINT fk_us_tim FOREIGN KEY (tim_id)
+        REFERENCES Tim(timid),
+    CONSTRAINT fk_us_igrac FOREIGN KEY (igrac_id)
+        REFERENCES Igrac(osobaid),
+    CONSTRAINT fk_us_takmicenje FOREIGN KEY (takmicenje_id)
+        REFERENCES Takmicenje(takmicenje_id),
+    CONSTRAINT chk_tacno_jedan_subjekat CHECK (
+        (CASE WHEN tim_id IS NOT NULL THEN 1 ELSE 0 END +
+         CASE WHEN igrac_id IS NOT NULL THEN 1 ELSE 0 END +
+         CASE WHEN takmicenje_id IS NOT NULL THEN 1 ELSE 0 END) <= 1
+    )
 );
 
 

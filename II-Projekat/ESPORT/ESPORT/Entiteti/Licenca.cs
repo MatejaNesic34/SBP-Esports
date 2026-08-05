@@ -9,7 +9,7 @@ namespace ESPORT.Entiteti
     public class Licenca
     {
         public virtual int LicencaId { get; set; }
-        public virtual Osoba Osoba { get; set; }
+        public virtual Osoba OsobaId { get; set; }
         public virtual string Naziv { get; set; }
         public virtual string InstitucijaIzdavac { get; set; }
         public virtual DateTime DatumSticanja { get; set; }

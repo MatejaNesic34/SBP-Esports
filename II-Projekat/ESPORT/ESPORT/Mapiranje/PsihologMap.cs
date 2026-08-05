@@ -6,14 +6,18 @@ using System.Threading.Tasks;
 
 namespace ESPORT.Mapiranje
 {
-    public class PsihologMap : ClassMap<Psiholog>
+    public class PsihologMap : SubclassMap<Psiholog>
     {
         public PsihologMap()
         {
             Table("PSIHOLOG");
-            Map(x => x.OsobaId).Column("OSOBAID");
-            Map(x => x.OblastRada).Column("OBLAST_RADA");
-            Map(x => x.PeriodiDostupnosti).Column("PERIODI_DOSTUPNOSTI");
+
+            // Primarni ključ koji je ujedno strani ključ ka tabeli OSOBA
+            KeyColumn("OSOBAID");
+
+            // Specifična polja za Psihologa
+            Map(x => x.OblastRada).Column("OBLAST_RADA").Nullable();
+            Map(x => x.PeriodiDostupnosti).Column("PERIODI_DOSTUPNOSTI").Nullable();
         }
     }
 }

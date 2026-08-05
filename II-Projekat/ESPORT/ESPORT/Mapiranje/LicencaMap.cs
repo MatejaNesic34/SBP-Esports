@@ -11,11 +11,24 @@ namespace ESPORT.Mapiranje
         public LicencaMap()
         {
             Table("LICENCA");
-            Map(x => x.LicencaId).Column("LICENCAID");
-            Map(x => x.Osoba).Column("OSOBAID");
-            Map(x => x.Naziv).Column("NAZIV");
-            Map(x => x.InstitucijaIzdavac).Column("INSTITUCIJA_IZDAVAC");
-            Map(x => x.DatumSticanja).Column("DATUM_STICANJA");
+
+            // Primarni ključ
+            Id(x => x.LicencaId).Column("LICENCAID").GeneratedBy.TriggerIdentity();
+
+            // Obična polja / atributi
+            Map(x => x.Naziv).Column("NAZIV").Not.Nullable();
+            Map(x => x.InstitucijaIzdavac).Column("INSTITUCIJA_IZDAVAC").Not.Nullable();
+            Map(x => x.DatumSticanja).Column("DATUM_STICANJA").Not.Nullable();
+
+            // ----------------------------------------------------
+            // RELACIJA (Many-to-One)
+            // ----------------------------------------------------
+
+            // Povezivanje sa klasom Osoba preko stranog ključa OSOBAID
+            References(x => x.OsobaId)
+                .Column("OSOBAID")
+                .Not.Nullable()
+                .LazyLoad();
         }
     }
 }

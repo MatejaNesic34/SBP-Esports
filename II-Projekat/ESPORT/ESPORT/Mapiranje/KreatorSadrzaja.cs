@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ESPORT.Mapiranje
 {
-    internal class KreatorSadrzaja
+    public class KreatorSadrzaja
     {
     }
 }

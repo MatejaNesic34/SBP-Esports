@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace ESPORT.Mapiranje
 {
-    public class MenadzerMap : ClassMap<Menadzer>
+    public class MenadzerMap : SubclassMap<Menadzer>
     {
         public MenadzerMap()
         {
             Table("MENADZER");
-            Map(x => x.OsobaId).Column("OSOBAID");
-            Map(x => x.OblastOdgovornosti).Column("OBLAST_ODGOVORNOSTI");
+
+            // Povezivanje sa roditeljskom tabelom (Osoba)
+            KeyColumn("OSOBAID");
+
+            // Specifično polje za menadžera
+            Map(x => x.OblastOdgovornosti).Column("OBLAST_ODGOVORNOSTI").Nullable();
         }
     }
 }

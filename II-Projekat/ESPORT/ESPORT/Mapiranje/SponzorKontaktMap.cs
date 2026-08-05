@@ -12,12 +12,25 @@ namespace ESPORT.Mapiranje
         public SponzorKontaktMap()
         {
             Table("SPONZOR_KONTAKT");
-            Map(x => x.KontaktId).Column("KONTAKT_ID");
-            Map(x => x.Sponzor).Column("SPONZOR_ID");
-            Map(x => x.Ime).Column("IME");
-            Map(x => x.Prezime).Column("PREZIME");
-            Map(x => x.Telefon).Column("TELEFON");
-            Map(x => x.Email).Column("EMAIL");
+
+            // Primarni ključ
+            Id(x => x.KontaktId).Column("KONTAKT_ID").GeneratedBy.TriggerIdentity();
+
+            // Obična polja / atributi
+            Map(x => x.Ime).Column("IME").Not.Nullable();
+            Map(x => x.Prezime).Column("PREZIME").Not.Nullable();
+            Map(x => x.Telefon).Column("TELEFON").Nullable();
+            Map(x => x.Email).Column("EMAIL").Nullable();
+
+            // ----------------------------------------------------
+            // RELACIJE (Many-to-One)
+            // ----------------------------------------------------
+
+            // Strani ključ ka Sponzor (SPONZOR_ID)
+            References(x => x.Sponzor)
+                .Column("SPONZOR_ID")
+                .Not.Nullable()
+                .LazyLoad();
         }
     }
 }

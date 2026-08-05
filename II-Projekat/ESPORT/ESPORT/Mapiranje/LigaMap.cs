@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace ESPORT.Mapiranje
 {
-    public class LigaMap : ClassMap<Liga>
+    public class LigaMap : SubclassMap<Liga>
     {
         public LigaMap()
         {
             Table("LIGA");
-            Map(x => x.TakmicenjeId).Column("TAKMICENJE_ID");
-            Map(x => x.SistemBodovanja).Column("SISTEM_BODOVANJA");
+
+            // Povezivanje sa roditeljskom tabelom (Takmicenje) preko primarnog/stranog ključa
+            KeyColumn("TAKMICENJE_ID");
+
+            // Specifično polje za Ligu
+            Map(x => x.SistemBodovanja).Column("SISTEM_BODOVANJA").Not.Nullable();
         }
     }
 

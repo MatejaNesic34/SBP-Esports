@@ -11,9 +11,38 @@ namespace ESPORT.Mapiranje
         public IgraMap()
         {
             Table("IGRA");
-            Map(x => x.IgraId).Column("IGRAID");
-            Map(x => x.Naziv).Column("NAZIV");
-            Map(x => x.Zanr).Column("ZANR");
+
+            // Primarni ključ
+            Id(x => x.IgraId).Column("IGRAID").GeneratedBy.TriggerIdentity();
+
+            // Svojstva / Kolone
+            Map(x => x.Naziv).Column("NAZIV").Not.Nullable().Unique();
+            Map(x => x.Zanr).Column("ZANR").Nullable();
+
+            // ----------------------------------------------------
+            // VEZE / KOLEKCIJE (One-to-Many)
+            // ----------------------------------------------------
+
+            // 1. Igra -> Timovi
+            HasMany(x => x.Timovi)
+                .KeyColumn("IGRAID")
+                .LazyLoad()
+                .Cascade.All()
+                .Inverse();
+
+            // 2. Igra -> Takmicenja
+            HasMany(x => x.Takmicenja)
+                .KeyColumn("IGRAID")
+                .LazyLoad()
+                .Cascade.All()
+                .Inverse();
+
+            // 3. Igra -> Skauti
+            HasMany(x => x.Skauti)
+                .KeyColumn("IGRAID")
+                .LazyLoad()
+                .Cascade.All()
+                .Inverse();
         }
     }
 }

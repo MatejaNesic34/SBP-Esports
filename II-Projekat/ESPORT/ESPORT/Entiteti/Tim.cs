@@ -11,7 +11,7 @@ namespace ESPORT.Entiteti
     {
         public virtual int TimId { get; set; }
         public virtual string Naziv { get; set; }
-        public virtual Igra Igra { get; set; }
+        public virtual Igra IgraId { get; set; }
         public virtual DateTime? DatumOsnivanja { get; set; }
         public virtual string DrzavaRegistracije { get; set; }
         public virtual string StatusTima { get; set; }

@@ -6,13 +6,24 @@ using System.Threading.Tasks;
 
 namespace ESPORT.Mapiranje
 {
-    public class SkautMap : ClassMap<Skaut>
+    public class SkautMap : SubclassMap<Skaut>
     {
         public SkautMap()
         {
             Table("SKAUT");
-            Map(x => x.OsobaId).Column("OSOBAID");
-            Map(x => x.Igra).Column("IDIGRE");
+
+            // Primarni ključ koji je ujedno i strani ključ ka tabeli OSOBA
+            KeyColumn("OSOBAID");
+
+            // ----------------------------------------------------
+            // RELACIJE (Many-to-One)
+            // ----------------------------------------------------
+
+            // Strani ključ ka Igra (IDIGRE) - opcioni (ON DELETE SET NULL)
+            References(x => x.Igra)
+                .Column("IDIGRE")
+                .Nullable()
+                .LazyLoad();
         }
     }
 }

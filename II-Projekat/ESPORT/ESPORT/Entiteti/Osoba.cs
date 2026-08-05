@@ -19,7 +19,7 @@ namespace ESPORT.Entiteti
         public virtual string StatusAngazmana { get; set; }
 
         // Element Collection
-        public virtual IList<string> Telefoni { get; set; } = new List<string>();
+        public virtual IList<Telefon> Telefoni { get; set; } = new List<Telefon>();
 
         // One-to-Many
         public virtual IList<Licenca> Licence { get; set; } = new List<Licenca>();

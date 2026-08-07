@@ -1,0 +1,553 @@
+INSERT INTO Igra (igraid, naziv, zanr) VALUES (1, 'Counter-Strike 2', 'Tactical Shooter');
+INSERT INTO Igra (igraid, naziv, zanr) VALUES (2, 'League of Legends', 'MOBA');
+INSERT INTO Igra (igraid, naziv, zanr) VALUES (3, 'Dota 2', 'MOBA');
+INSERT INTO Igra (igraid, naziv, zanr) VALUES (4, 'Valorant', 'Tactical Shooter');
+INSERT INTO Igra (igraid, naziv, zanr) VALUES (5, 'PUBG', 'Battle Royale');
+
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (1, 'Oleksandr', 'Kostyliev', TO_DATE('1997-10-02', 'YYYY-MM-DD'), 'Ukraine', 's1mple@faze.com', TO_DATE('2021-01-15', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (2, 'Nikola', 'Kovač', TO_DATE('1997-02-16', 'YYYY-MM-DD'), 'Bosnia and Herzegovina', 'niko@faze.com', TO_DATE('2017-08-10', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (3, 'Helvijs', 'Saukants', TO_DATE('1999-06-21', 'YYYY-MM-DD'), 'Latvia', 'broky@faze.com', TO_DATE('2019-09-12', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (4, 'Finn', 'Andersen', TO_DATE('1994-08-12', 'YYYY-MM-DD'), 'Denmark', 'karrigan@faze.com', TO_DATE('2021-02-01', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (5, 'Robin', 'Kool', TO_DATE('1999-12-15', 'YYYY-MM-DD'), 'Estonia', 'ropz@faze.com', TO_DATE('2022-01-05', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (6, 'Filip', 'Kubski', TO_DATE('1987-06-10', 'YYYY-MM-DD'), 'Poland', 'neoscoach@faze.com', TO_DATE('2022-01-05', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (7, 'Tyson', 'Ngo', TO_DATE('2001-06-03', 'YYYY-MM-DD'), 'Canada', 'tenz@faze.com', TO_DATE('2021-05-10', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (8, 'Zachary', 'Patrone', TO_DATE('2002-01-01', 'YYYY-MM-DD'), 'United States', 'zekken@faze.com', TO_DATE('2022-06-15', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (9, 'Gustaf', 'Sjösson', TO_DATE('2000-11-20', 'YYYY-MM-DD'), 'Sweden', 'snygg@faze.com', TO_DATE('2023-01-10', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (10, 'Ayaz', 'Akhmetshin', TO_DATE('2003-03-25', 'YYYY-MM-DD'), 'Russia', 'nAts@faze.com', TO_DATE('2022-11-01', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (11, 'Timofey', 'Khromov', TO_DATE('1999-09-09', 'YYYY-MM-DD'), 'Russia', 'chronicle@faze.com', TO_DATE('2022-11-01', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (12, 'Danny', 'Soong', TO_DATE('1995-04-12', 'YYYY-MM-DD'), 'United States', 'monyetcoach@faze.com', TO_DATE('2023-02-15', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (13, 'Lee', 'Sang-hyeok', TO_DATE('1996-05-07', 'YYYY-MM-DD'), 'South Korea', 'faker@faze.com', TO_DATE('2013-01-01', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (14, 'Mun', 'Hyeon-jun', TO_DATE('2002-12-24', 'YYYY-MM-DD'), 'South Korea', 'oner@faze.com', TO_DATE('2020-11-01', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (15, 'Lee', 'Min-hyeong', TO_DATE('2002-02-06', 'YYYY-MM-DD'), 'South Korea', 'gumayusi@faze.com', TO_DATE('2018-12-01', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (16, 'Ryu', 'Min-seok', TO_DATE('2002-10-14', 'YYYY-MM-DD'), 'South Korea', 'keria@faze.com', TO_DATE('2020-11-01', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (17, 'Choi', 'Woo-je', TO_DATE('2004-01-31', 'YYYY-MM-DD'), 'South Korea', 'zeus@faze.com', TO_DATE('2019-01-01', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (18, 'Kim', 'Jeong-gyun', TO_DATE('1985-12-23', 'YYYY-MM-DD'), 'South Korea', 'kkoma@faze.com', TO_DATE('2013-01-01', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (19, 'Ceb', 'Debs', TO_DATE('1992-03-12', 'YYYY-MM-DD'), 'France', 'ceb@faze.com', TO_DATE('2018-03-01', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (20, 'Topias', 'Taavitsainen', TO_DATE('1998-08-11', 'YYYY-MM-DD'), 'Finland', 'topson@faze.com', TO_DATE('2018-06-01', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (21, 'Anathan', 'Pham', TO_DATE('1999-10-26', 'YYYY-MM-DD'), 'Australia', 'ana@faze.com', TO_DATE('2018-03-01', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (22, 'Jesse', 'Vainikka', TO_DATE('1992-08-17', 'YYYY-MM-DD'), 'Finland', 'jerax@faze.com', TO_DATE('2018-03-01', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (23, 'Johan', 'Sundstein', TO_DATE('1993-10-08', 'YYYY-MM-DD'), 'Denmark', 'notail@faze.com', TO_DATE('2017-01-01', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (24, 'Titus', 'Leung', TO_DATE('1985-01-01', 'YYYY-MM-DD'), 'Canada', 'dotacoach@faze.com', TO_DATE('2019-01-01', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (25, 'Patrik', 'Molnar', TO_DATE('1999-04-12', 'YYYY-MM-DD'), 'Hungary', 'pubg1@faze.com', TO_DATE('2021-01-01', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (26, 'Jordi', 'Ramos', TO_DATE('2000-05-15', 'YYYY-MM-DD'), 'Spain', 'pubg2@faze.com', TO_DATE('2021-01-01', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (27, 'Luigi', 'Rossi', TO_DATE('1998-09-20', 'YYYY-MM-DD'), 'Italy', 'pubg3@faze.com', TO_DATE('2022-03-01', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (28, 'Stefan', 'Stefanović', TO_DATE('2001-07-07', 'YYYY-MM-DD'), 'Serbia', 'pubg4@faze.com', TO_DATE('2022-03-01', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (29, 'Pera', 'Perić', TO_DATE('1985-05-14', 'YYYY-MM-DD'), 'Serbia', 'pera.menadzer@faze.com', TO_DATE('2018-03-01', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (30, 'Mika', 'Mikić', TO_DATE('1990-11-22', 'YYYY-MM-DD'), 'Serbia', 'mika.psiholog@faze.com', TO_DATE('2020-07-15', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (31, 'Ana', 'Anić', TO_DATE('1993-02-19', 'YYYY-MM-DD'), 'Croatia', 'ana.fizioterapeut@faze.com', TO_DATE('2021-09-10', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (32, 'Marko', 'Marković', TO_DATE('1988-12-05', 'YYYY-MM-DD'), 'Montenegro', 'marko.analiticar@faze.com', TO_DATE('2019-05-12', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (33, 'John', 'Doe', TO_DATE('1992-04-03', 'YYYY-MM-DD'), 'United States', 'john.skaut@faze.com', TO_DATE('2020-01-10', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (34, 'Jane', 'Smith', TO_DATE('1995-08-18', 'YYYY-MM-DD'), 'United Kingdom', 'jane.kreator@faze.com', TO_DATE('2021-06-01', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (35, 'Milan', 'Milanović', TO_DATE('1991-03-30', 'YYYY-MM-DD'), 'Serbia', 'milan.streamer@faze.com', TO_DATE('2022-01-15', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (36, 'Elena', 'Popova', TO_DATE('1996-07-14', 'YYYY-MM-DD'), 'Bulgaria', 'elena.menadzer@faze.com', TO_DATE('2022-05-20', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (37, 'Luka', 'Lukić', TO_DATE('1994-10-09', 'YYYY-MM-DD'), 'Serbia', 'luka.analiticar@faze.com', TO_DATE('2023-01-10', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (38, 'Sara', 'Sarić', TO_DATE('1997-01-25', 'YYYY-MM-DD'), 'Bosnia and Herzegovina', 'sara.psiholog@faze.com', TO_DATE('2023-03-01', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (39, 'David', 'Beck', TO_DATE('1989-11-11', 'YYYY-MM-DD'), 'Germany', 'david.skaut@faze.com', TO_DATE('2020-08-15', 'YYYY-MM-DD'), 'Aktivno');
+INSERT INTO Osoba (osobaid, ime, prezime, datum_rodjenja, drzava, email, datum_prvog_angazovanja, status_angazmana) VALUES (40, 'Nina', 'Ninić', TO_DATE('1998-06-06', 'YYYY-MM-DD'), 'Croatia', 'nina.kreator@faze.com', TO_DATE('2022-09-01', 'YYYY-MM-DD'), 'Aktivno');
+
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (1, '+381601111111');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (2, '+381602222222');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (3, '+381603333333');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (4, '+381604444444');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (5, '+381605555555');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (6, '+381606666666');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (7, '+381607777777');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (8, '+381608888888');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (9, '+381609999999');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (10, '+381601010101');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (11, '+381601212121');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (12, '+381601313131');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (13, '+381601414141');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (14, '+381601515151');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (15, '+381601616161');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (16, '+381601717171');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (17, '+381601818181');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (18, '+381601919191');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (19, '+381602020202');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (20, '+381602121212');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (21, '+381602222222');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (22, '+381602323232');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (23, '+381602424242');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (24, '+381602525252');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (25, '+381602626262');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (26, '+381602727272');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (27, '+381602828282');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (28, '+381602929292');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (29, '+381603030303');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (30, '+381603131313');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (31, '+381603232323');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (32, '+381603333333');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (33, '+381603434343');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (34, '+381603535353');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (35, '+381603636363');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (36, '+381603737373');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (37, '+381603838383');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (38, '+381603939393');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (39, '+381604040404');
+INSERT INTO Osoba_Telefon (osobaid, telefon) VALUES (40, '+381604141414');
+
+
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (1, 's1mple', 'AWP', 'Rifler', 'Agresivan', 'Global Elite');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (2, 'NiKo', 'Rifler', 'Entry Fragger', 'Agresivan', 'Global Elite');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (3, 'broky', 'AWP', 'Support', 'Pasivan', 'Global Elite');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (4, 'karrigan', 'IGL', 'Support', 'Takticki', 'Global Elite');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (5, 'ropz', 'Lurker', 'Rifler', 'Takticki', 'Global Elite');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (7, 'Tenz', 'Duelist', 'Flex', 'Agresivan', 'Radiant');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (8, 'Zekken', 'Duelist', 'Initiator', 'Agresivan', 'Radiant');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (9, 'Snygg', 'Controller', 'Sentinel', 'Takticki', 'Radiant');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (10, 'nAts', 'Sentinel', 'Lurker', 'Takticki', 'Radiant');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (11, 'Chronicle', 'Initiator', 'Flex', 'Takticki', 'Radiant');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (13, 'Faker', 'Mid', 'Top', 'Agresivan', 'Challenger');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (14, 'Oner', 'Jungle', 'Support', 'Agresivan', 'Challenger');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (15, 'Gumayusi', 'ADC', 'Mid', 'Agresivan', 'Challenger');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (16, 'Keria', 'Support', 'Jungle', 'Takticki', 'Challenger');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (17, 'Zeus', 'Top', 'Mid', 'Agresivan', 'Challenger');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (19, 'Ceb', 'Offlane', 'Support', 'Takticki', 'Titan');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (20, 'Topson', 'Mid', 'Offlane', 'Agresivan', 'Titan');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (21, 'Ana', 'Carry', 'Mid', 'Agresivan', 'Titan');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (22, 'Jerax', 'Support', 'Offlane', 'Takticki', 'Titan');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (23, 'N0tail', 'Support', 'Carry', 'Takticki', 'Titan');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (25, 'Molnar', 'Fragger', 'Support', 'Agresivan', 'Master');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (26, 'Ramos', 'Fragger', 'Scout', 'Agresivan', 'Master');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (27, 'Rossi', 'Support', 'Fragger', 'Takticki', 'Master');
+INSERT INTO Igrac (osobaid, nadimak, primarna_uloga, sekundarna_uloga, dominantni_stil, rang) VALUES (28, 'Stefan', 'Driver', 'Fragger', 'Takticki', 'Master');
+
+INSERT INTO Trener (osobaid, tip_uloge, stil_rada) VALUES (6, 'Glavni', 'Stroga disciplina i priprema mape');
+INSERT INTO Trener (osobaid, tip_uloge, stil_rada) VALUES (12, 'Glavni', 'Fokus na komunikaciju i utiliti');
+INSERT INTO Trener (osobaid, tip_uloge, stil_rada) VALUES (18, 'Glavni', 'Makro igra i kontrola objekata');
+INSERT INTO Trener (osobaid, tip_uloge, stil_rada) VALUES (24, 'Glavni', 'Timski balans i adaptacija u draftu');
+
+INSERT INTO Analiticar (osobaid, oblast_analize, alati, nivo_iskustva) VALUES (32, 'Protivnici i demo analiza', 'Leetify, Scope.gg', 'Senior');
+INSERT INTO Analiticar (osobaid, oblast_analize, alati, nivo_iskustva) VALUES (37, 'Meta i draft strategije', 'Ganked, Oracle''s Elixir', 'Medior');
+
+INSERT INTO Menadzer (osobaid, oblast_odgovornosti) 
+VALUES (29, 'Glavni operativni menadžer tima i logistika putovanja');
+INSERT INTO Menadzer (osobaid, oblast_odgovornosti) 
+VALUES (36, 'Koordinacija turnira i odnosi sa sponzorima');
+
+INSERT INTO Psiholog (osobaid, oblast_rada, periodi_dostupnosti) 
+VALUES (30, 'Mentalna priprema igrača i upravljanje stresom', 'Ponedeljak - Petak, 10:00 - 16:00');
+INSERT INTO Psiholog (osobaid, oblast_rada, periodi_dostupnosti) 
+VALUES (38, 'Timsku koheziju i prevenciju sagorevanja', 'Utorak - Subota, 12:00 - 18:00');
+
+INSERT INTO Fizioterapeut (osobaid, oblast_rada, periodi_dostupnosti) 
+VALUES (31, 'Ergonomija i prevencija povreda ruku i kičme', 'Svaki dan po dogovoru');
+
+INSERT INTO Kreator_Sadrzaja (osobaid) 
+VALUES (34);
+INSERT INTO Kreator_Sadrzaja (osobaid) 
+VALUES (40);
+INSERT INTO Kreator_Sadrzaja (osobaid) 
+VALUES (1);
+INSERT INTO Kreator_Sadrzaja (osobaid) 
+VALUES (28);
+INSERT INTO Kreator_Sadrzaja (osobaid) 
+VALUES (13);
+
+INSERT INTO Skaut (osobaid, idigre) 
+VALUES (33, 1);
+INSERT INTO Skaut (osobaid, idigre) 
+VALUES (39, 2);
+INSERT INTO Skaut (osobaid, idigre) 
+VALUES (35, 5);
+
+INSERT INTO Tim (timid, naziv, igra_id, datum_osnivanja, drzava_registracije, status_tima, nivo_takmicenja) VALUES (1, 'FaZe Clan CS2', 1, TO_DATE('2016-01-01','YYYY-MM-DD'), 'United States', 'Aktivno', 'Pro');
+INSERT INTO Tim (timid, naziv, igra_id, datum_osnivanja, drzava_registracije, status_tima, nivo_takmicenja) VALUES (2, 'FaZe Clan League of Legends', 2, TO_DATE('2023-06-01','YYYY-MM-DD'), 'United States', 'Aktivno', 'Pro');
+INSERT INTO Tim (timid, naziv, igra_id, datum_osnivanja, drzava_registracije, status_tima, nivo_takmicenja) VALUES (3, 'FaZe Clan Dota 2', 3, TO_DATE('2018-01-01','YYYY-MM-DD'), 'United States', 'Aktivno', 'Pro');
+INSERT INTO Tim (timid, naziv, igra_id, datum_osnivanja, drzava_registracije, status_tima, nivo_takmicenja) VALUES (4, 'FaZe Clan Valorant', 4, TO_DATE('2021-02-01','YYYY-MM-DD'), 'United States', 'Aktivno', 'Pro');
+INSERT INTO Tim (timid, naziv, igra_id, datum_osnivanja, drzava_registracije, status_tima, nivo_takmicenja) VALUES (5, 'FaZe Clan PUBG', 5, TO_DATE('2021-01-01','YYYY-MM-DD'), 'United States', 'Aktivno', 'Pro');
+
+
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (1, 1, 1, TO_DATE('2021-01-15', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 'Standardni', 25000.00, 5000.00, 1000000.00, 'Nema', 'Kapiten');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (2, 2, 1, TO_DATE('2017-08-10', 'YYYY-MM-DD'), TO_DATE('2025-12-31', 'YYYY-MM-DD'), 'Standardni', 30000.00, 6000.00, 1200000.00, 'Nema', 'Aktivni');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (3, 3, 1, TO_DATE('2019-09-12', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 'Standardni', 18000.00, 3000.00, 500000.00, 'Nema', 'Aktivni');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (4, 4, 1, TO_DATE('2021-02-01', 'YYYY-MM-DD'), TO_DATE('2025-12-31', 'YYYY-MM-DD'), 'Standardni', 22000.00, 4000.00, 800000.00, 'Nema', 'Aktivni');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (5, 5, 1, TO_DATE('2022-01-05', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 'Standardni', 20000.00, 3500.00, 750000.00, 'Nema', 'Aktivni');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (6, 13, 2, TO_DATE('2013-01-01', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 'Standardni', 40000.00, 10000.00, 3000000.00, 'Nema', 'Kapiten');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (7, 14, 2, TO_DATE('2020-11-01', 'YYYY-MM-DD'), TO_DATE('2025-12-31', 'YYYY-MM-DD'), 'Standardni', 25000.00, 5000.00, 1000000.00, 'Nema', 'Aktivni');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (8, 15, 2, TO_DATE('2018-12-01', 'YYYY-MM-DD'), TO_DATE('2025-12-31', 'YYYY-MM-DD'), 'Standardni', 25000.00, 5000.00, 1000000.00, 'Nema', 'Aktivni');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (9, 16, 2, TO_DATE('2020-11-01', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 'Standardni', 26000.00, 5000.00, 1100000.00, 'Nema', 'Aktivni');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (10, 17, 2, TO_DATE('2019-01-01', 'YYYY-MM-DD'), TO_DATE('2025-12-31', 'YYYY-MM-DD'), 'Standardni', 24000.00, 4500.00, 950000.00, 'Nema', 'Aktivni');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (11, 19, 3, TO_DATE('2018-03-01', 'YYYY-MM-DD'), TO_DATE('2025-12-31', 'YYYY-MM-DD'), 'Standardni', 22000.00, 4000.00, 800000.00, 'Nema', 'Kapiten');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (12, 20, 3, TO_DATE('2018-06-01', 'YYYY-MM-DD'), TO_DATE('2025-12-31', 'YYYY-MM-DD'), 'Standardni', 23000.00, 4500.00, 850000.00, 'Nema', 'Aktivni');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (13, 21, 3, TO_DATE('2018-03-01', 'YYYY-MM-DD'), TO_DATE('2025-12-31', 'YYYY-MM-DD'), 'Standardni', 24000.00, 5000.00, 900000.00, 'Nema', 'Aktivni');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (14, 22, 3, TO_DATE('2018-03-01', 'YYYY-MM-DD'), TO_DATE('2025-12-31', 'YYYY-MM-DD'), 'Standardni', 21000.00, 3500.00, 750000.00, 'Nema', 'Aktivni');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (15, 23, 3, TO_DATE('2017-01-01', 'YYYY-MM-DD'), TO_DATE('2025-12-31', 'YYYY-MM-DD'), 'Standardni', 22000.00, 4000.00, 800000.00, 'Nema', 'Aktivni');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (16, 7, 4, TO_DATE('2021-05-10', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 'Standardni', 20000.00, 3500.00, 700000.00, 'Nema', 'Kapiten');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (17, 8, 4, TO_DATE('2022-06-15', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 'Standardni', 19000.00, 3000.00, 650000.00, 'Nema', 'Aktivni');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (18, 9, 4, TO_DATE('2023-01-10', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 'Standardni', 18000.00, 3000.00, 600000.00, 'Nema', 'Aktivni');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (19, 10, 4, TO_DATE('2022-11-01', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 'Standardni', 19500.00, 3200.00, 680000.00, 'Nema', 'Aktivni');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (20, 11, 4, TO_DATE('2022-11-01', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 'Standardni', 19500.00, 3200.00, 680000.00, 'Nema', 'Aktivni');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (21, 25, 5, TO_DATE('2021-01-01', 'YYYY-MM-DD'), TO_DATE('2025-12-31', 'YYYY-MM-DD'), 'Standardni', 15000.00, 2500.00, 400000.00, 'Nema', 'Kapiten');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (22, 26, 5, TO_DATE('2021-01-01', 'YYYY-MM-DD'), TO_DATE('2025-12-31', 'YYYY-MM-DD'), 'Standardni', 15000.00, 2500.00, 400000.00, 'Nema', 'Aktivni');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (23, 27, 5, TO_DATE('2022-03-01', 'YYYY-MM-DD'), TO_DATE('2025-12-31', 'YYYY-MM-DD'), 'Standardni', 14000.00, 2000.00, 350000.00, 'Nema', 'Aktivni');
+INSERT INTO Ugovor_Igraca (ugovor_id, igrac_id, tim_id, datum_od, datum_do, tip_ugovora, plata, bonusi, klauzula_otkup, zabrana_nastupa, status_igraca) VALUES (24, 28, 5, TO_DATE('2022-03-01', 'YYYY-MM-DD'), TO_DATE('2025-12-31', 'YYYY-MM-DD'), 'Standardni', 14000.00, 2000.00, 350000.00, 'Nema', 'Aktivni');
+
+
+INSERT INTO Angazman_Trenera (angazman_trenera_id, trener_id, tim_id, tip_uloge, datum_od, datum_do) 
+VALUES (1, 6, 1, 'Glavni', TO_DATE('2022-01-05', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'));
+INSERT INTO Angazman_Trenera (angazman_trenera_id, trener_id, tim_id, tip_uloge, datum_od, datum_do) 
+VALUES (2, 12, 2, 'Glavni', TO_DATE('2023-06-01', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'));
+INSERT INTO Angazman_Trenera (angazman_trenera_id, trener_id, tim_id, tip_uloge, datum_od, datum_do) 
+VALUES (3, 18, 3, 'Glavni', TO_DATE('2018-01-01', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'));
+INSERT INTO Angazman_Trenera (angazman_trenera_id, trener_id, tim_id, tip_uloge, datum_od, datum_do) 
+VALUES (4, 24, 4, 'Glavni', TO_DATE('2021-02-01', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'));
+
+
+INSERT INTO Angazman_zaposlenih (angazman_osoblja_id, osobaid, timid, naziv_uloge, datum_od, datum_do, plata) 
+VALUES (1, 29, 1, 'Menadzer', TO_DATE('2018-03-01', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 3500.00);
+INSERT INTO Angazman_zaposlenih (angazman_osoblja_id, osobaid, timid, naziv_uloge, datum_od, datum_do, plata) 
+VALUES (2, 36, 2, 'Menadzer', TO_DATE('2022-05-20', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 3200.00);
+INSERT INTO Angazman_zaposlenih (angazman_osoblja_id, osobaid, timid, naziv_uloge, datum_od, datum_do, plata) 
+VALUES (3, 30, 1, 'Psiholog', TO_DATE('2020-07-15', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 3000.00);
+INSERT INTO Angazman_zaposlenih (angazman_osoblja_id, osobaid, timid, naziv_uloge, datum_od, datum_do, plata) 
+VALUES (4, 38, 3, 'Psiholog', TO_DATE('2023-03-01', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 2800.00);
+INSERT INTO Angazman_zaposlenih (angazman_osoblja_id, osobaid, timid, naziv_uloge, datum_od, datum_do, plata) 
+VALUES (5, 31, 1, 'Fizioterapeut', TO_DATE('2021-09-10', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 2500.00);
+INSERT INTO Angazman_zaposlenih (angazman_osoblja_id, osobaid, timid, naziv_uloge, datum_od, datum_do, plata) 
+VALUES (6, 32, 1, 'Analiticar', TO_DATE('2019-05-12', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 4000.00);
+INSERT INTO Angazman_zaposlenih (angazman_osoblja_id, osobaid, timid, naziv_uloge, datum_od, datum_do, plata) 
+VALUES (7, 37, 2, 'Analiticar', TO_DATE('2023-01-10', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 3500.00);
+INSERT INTO Angazman_zaposlenih (angazman_osoblja_id, osobaid, timid, naziv_uloge, datum_od, datum_do, plata) 
+VALUES (8, 33, 1, 'Skaut', TO_DATE('2020-01-10', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 2500.00);
+INSERT INTO Angazman_zaposlenih (angazman_osoblja_id, osobaid, timid, naziv_uloge, datum_od, datum_do, plata) 
+VALUES (9, 39, 2, 'Skaut', TO_DATE('2020-08-15', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 2500.00);
+INSERT INTO Angazman_zaposlenih (angazman_osoblja_id, osobaid, timid, naziv_uloge, datum_od, datum_do, plata) 
+VALUES (10, 34, 4, 'Kreator sadrzaja', TO_DATE('2021-06-01', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 2000.00);
+INSERT INTO Angazman_zaposlenih (angazman_osoblja_id, osobaid, timid, naziv_uloge, datum_od, datum_do, plata) 
+VALUES (11, 40, 4, 'Kreator sadrzaja', TO_DATE('2022-09-01', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 2000.00);
+INSERT INTO Angazman_zaposlenih (angazman_osoblja_id, osobaid, timid, naziv_uloge, datum_od, datum_do, plata) 
+VALUES (12, 35, 5, 'Skaut', TO_DATE('2022-09-01', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 2500.00);
+
+INSERT INTO Takmicenje (takmicenje_id, naziv, organizator, tip_takmicenja, igra_id, region, lokacija, format_takmicenja, datum_pocetka, datum_zavrsetka, nagradni_fond, valuta_nagrade, status) 
+VALUES (1, 'IEM Katowice 2026', 'ESL', 'Turnir', 1, 'Europe', 'Katowice, Poland', 'Double Elimination', TO_DATE('2026-02-01', 'YYYY-MM-DD'), TO_DATE('2026-02-15', 'YYYY-MM-DD'), 1000000.00, 'USD', 'Završeno');
+INSERT INTO Takmicenje (takmicenje_id, naziv, organizator, tip_takmicenja, igra_id, region, lokacija, format_takmicenja, datum_pocetka, datum_zavrsetka, nagradni_fond, valuta_nagrade, status) 
+VALUES (2, 'PGL Major Copenhagen 2026', 'PGL', 'Turnir', 1, 'Europe', 'Copenhagen, Denmark', 'Swiss System', TO_DATE('2026-03-10', 'YYYY-MM-DD'), TO_DATE('2026-03-31', 'YYYY-MM-DD'), 1250000.00, 'USD', 'Završeno');
+INSERT INTO Takmicenje (takmicenje_id, naziv, organizator, tip_takmicenja, igra_id, region, lokacija, format_takmicenja, datum_pocetka, datum_zavrsetka, nagradni_fond, valuta_nagrade, status) 
+VALUES (3, 'BLAST Premier World Final', 'BLAST', 'Turnir', 1, 'Global', 'Abu Dhabi, UAE', 'Single Elimination', TO_DATE('2026-11-15', 'YYYY-MM-DD'), TO_DATE('2026-11-20', 'YYYY-MM-DD'), 1000000.00, 'USD', 'Najava');
+INSERT INTO Takmicenje (takmicenje_id, naziv, organizator, tip_takmicenja, igra_id, region, lokacija, format_takmicenja, datum_pocetka, datum_zavrsetka, nagradni_fond, valuta_nagrade, status) 
+VALUES (4, 'ESL Pro League Season 23', 'ESL', 'Liga', 1, 'Europe', 'Online / Malta', 'Round Robin', TO_DATE('2026-04-01', 'YYYY-MM-DD'), TO_DATE('2026-05-15', 'YYYY-MM-DD'), 750000.00, 'USD', 'Završeno');
+INSERT INTO Takmicenje (takmicenje_id, naziv, organizator, tip_takmicenja, igra_id, region, lokacija, format_takmicenja, datum_pocetka, datum_zavrsetka, nagradni_fond, valuta_nagrade, status) 
+VALUES (5, 'LCK Spring 2026', 'Riot Games', 'Liga', 2, 'South Korea', 'Seoul, South Korea', 'Double Round Robin', TO_DATE('2026-01-15', 'YYYY-MM-DD'), TO_DATE('2026-04-10', 'YYYY-MM-DD'), 500000.00, 'USD', 'Završeno');
+INSERT INTO Takmicenje (takmicenje_id, naziv, organizator, tip_takmicenja, igra_id, region, lokacija, format_takmicenja, datum_pocetka, datum_zavrsetka, nagradni_fond, valuta_nagrade, status) 
+VALUES (6, 'Mid-Season Invitational 2026', 'Riot Games', 'Turnir', 2, 'Global', 'Chengdu, China', 'Double Elimination', TO_DATE('2026-05-01', 'YYYY-MM-DD'), TO_DATE('2026-05-20', 'YYYY-MM-DD'), 2500000.00, 'USD', 'Završeno');
+INSERT INTO Takmicenje (takmicenje_id, naziv, organizator, tip_takmicenja, igra_id, region, lokacija, format_takmicenja, datum_pocetka, datum_zavrsetka, nagradni_fond, valuta_nagrade, status) 
+VALUES (7, 'Esports World Cup LoL 2026', 'EWC Foundation', 'Turnir', 2, 'Global', 'Riyadh, Saudi Arabia', 'Single Elimination', TO_DATE('2026-07-05', 'YYYY-MM-DD'), TO_DATE('2026-07-15', 'YYYY-MM-DD'), 2000000.00, 'USD', 'Najava');
+INSERT INTO Takmicenje (takmicenje_id, naziv, organizator, tip_takmicenja, igra_id, region, lokacija, format_takmicenja, datum_pocetka, datum_zavrsetka, nagradni_fond, valuta_nagrade, status) 
+VALUES (8, 'LoL World Championship 2026', 'Riot Games', 'Turnir', 2, 'Global', 'USA', 'Swiss + Knockout', TO_DATE('2026-10-01', 'YYYY-MM-DD'), TO_DATE('2026-11-10', 'YYYY-MM-DD'), 5000000.00, 'USD', 'Najava');
+INSERT INTO Takmicenje (takmicenje_id, naziv, organizator, tip_takmicenja, igra_id, region, lokacija, format_takmicenja, datum_pocetka, datum_zavrsetka, nagradni_fond, valuta_nagrade, status) 
+VALUES (9, 'The International 2026', 'Valve', 'Turnir', 3, 'Global', 'Seattle, USA', 'Group Stage + Main Event', TO_DATE('2026-09-01', 'YYYY-MM-DD'), TO_DATE('2026-09-20', 'YYYY-MM-DD'), 3000000.00, 'USD', 'Najava');
+INSERT INTO Takmicenje (takmicenje_id, naziv, organizator, tip_takmicenja, igra_id, region, lokacija, format_takmicenja, datum_pocetka, datum_zavrsetka, nagradni_fond, valuta_nagrade, status) 
+VALUES (10, 'ESL One Birmingham 2026', 'ESL', 'Turnir', 3, 'Europe', 'Birmingham, UK', 'Double Elimination', TO_DATE('2026-04-20', 'YYYY-MM-DD'), TO_DATE('2026-04-28', 'YYYY-MM-DD'), 1000000.00, 'USD', 'Završeno');
+INSERT INTO Takmicenje (takmicenje_id, naziv, organizator, tip_takmicenja, igra_id, region, lokacija, format_takmicenja, datum_pocetka, datum_zavrsetka, nagradni_fond, valuta_nagrade, status) 
+VALUES (11, 'Riyadh Masters 2026', 'Gamers8', 'Turnir', 3, 'Global', 'Riyadh, Saudi Arabia', 'Group Stage + Playoffs', TO_DATE('2026-07-10', 'YYYY-MM-DD'), TO_DATE('2026-07-30', 'YYYY-MM-DD'), 5000000.00, 'USD', 'Najava');
+INSERT INTO Takmicenje (takmicenje_id, naziv, organizator, tip_takmicenja, igra_id, region, lokacija, format_takmicenja, datum_pocetka, datum_zavrsetka, nagradni_fond, valuta_nagrade, status) 
+VALUES (12, 'Dota Pro Circuit League 2026', 'Valve', 'Liga', 3, 'Global', 'Online', 'Round Robin', TO_DATE('2026-01-10', 'YYYY-MM-DD'), TO_DATE('2026-03-01', 'YYYY-MM-DD'), 500000.00, 'USD', 'Završeno');
+INSERT INTO Takmicenje (takmicenje_id, naziv, organizator, tip_takmicenja, igra_id, region, lokacija, format_takmicenja, datum_pocetka, datum_zavrsetka, nagradni_fond, valuta_nagrade, status) 
+VALUES (13, 'VCT Americas League 2026', 'Riot Games', 'Liga', 4, 'Americas', 'Los Angeles, USA', 'Group Stage + Playoffs', TO_DATE('2026-03-01', 'YYYY-MM-DD'), TO_DATE('2026-05-20', 'YYYY-MM-DD'), 250000.00, 'USD', 'Završeno');
+INSERT INTO Takmicenje (takmicenje_id, naziv, organizator, tip_takmicenja, igra_id, region, lokacija, format_takmicenja, datum_pocetka, datum_zavrsetka, nagradni_fond, valuta_nagrade, status) 
+VALUES (14, 'VCT Masters Shanghai 2026', 'Riot Games', 'Turnir', 4, 'Global', 'Shanghai, China', 'Double Elimination', TO_DATE('2026-06-01', 'YYYY-MM-DD'), TO_DATE('2026-06-20', 'YYYY-MM-DD'), 1000000.00, 'USD', 'Završeno');
+INSERT INTO Takmicenje (takmicenje_id, naziv, organizator, tip_takmicenja, igra_id, region, lokacija, format_takmicenja, datum_pocetka, datum_zavrsetka, nagradni_fond, valuta_nagrade, status) 
+VALUES (15, 'VCT Champions 2026', 'Riot Games', 'Turnir', 4, 'Global', 'Seoul, South Korea', 'Group Stage + Playoffs', TO_DATE('2026-08-10', 'YYYY-MM-DD'), TO_DATE('2026-08-30', 'YYYY-MM-DD'), 2250000.00, 'USD', 'Najava');
+INSERT INTO Takmicenje (takmicenje_id, naziv, organizator, tip_takmicenja, igra_id, region, lokacija, format_takmicenja, datum_pocetka, datum_zavrsetka, nagradni_fond, valuta_nagrade, status) 
+VALUES (16, 'VCT LOCK//IN 2026', 'Riot Games', 'Turnir', 4, 'Global', 'Sao Paulo, Brazil', 'Single Elimination', TO_DATE('2026-02-10', 'YYYY-MM-DD'), TO_DATE('2026-03-05', 'YYYY-MM-DD'), 500000.00, 'USD', 'Završeno');
+INSERT INTO Takmicenje (takmicenje_id, naziv, organizator, tip_takmicenja, igra_id, region, lokacija, format_takmicenja, datum_pocetka, datum_zavrsetka, nagradni_fond, valuta_nagrade, status) 
+VALUES (17, 'PUBG Global Championship 2026', 'Krafton', 'Turnir', 5, 'Global', 'Bangkok, Thailand', 'Group + Grand Finals', TO_DATE('2026-11-01', 'YYYY-MM-DD'), TO_DATE('2026-11-25', 'YYYY-MM-DD'), 2000000.00, 'USD', 'Najava');
+INSERT INTO Takmicenje (takmicenje_id, naziv, organizator, tip_takmicenja, igra_id, region, lokacija, format_takmicenja, datum_pocetka, datum_zavrsetka, nagradni_fond, valuta_nagrade, status) 
+VALUES (18, 'PUBG Global Series 1 2026', 'Krafton', 'Turnir', 5, 'Global', 'Berlin, Germany', 'Group + Finals', TO_DATE('2026-05-10', 'YYYY-MM-DD'), TO_DATE('2026-05-25', 'YYYY-MM-DD'), 500000.00, 'USD', 'Završeno');
+INSERT INTO Takmicenje (takmicenje_id, naziv, organizator, tip_takmicenja, igra_id, region, lokacija, format_takmicenja, datum_pocetka, datum_zavrsetka, nagradni_fond, valuta_nagrade, status) 
+VALUES (19, 'PUBG Global Series 2 2026', 'Krafton', 'Turnir', 5, 'Global', 'Kuala Lumpur, Malaysia', 'Group + Finals', TO_DATE('2026-09-10', 'YYYY-MM-DD'), TO_DATE('2026-09-25', 'YYYY-MM-DD'), 500000.00, 'USD', 'Najava');
+INSERT INTO Takmicenje (takmicenje_id, naziv, organizator, tip_takmicenja, igra_id, region, lokacija, format_takmicenja, datum_pocetka, datum_zavrsetka, nagradni_fond, valuta_nagrade, status) 
+VALUES (20, 'PUBG Europe Series 2026', 'Krafton', 'Liga', 5, 'Europe', 'Online', 'Points Round Robin', TO_DATE('2026-03-15', 'YYYY-MM-DD'), TO_DATE('2026-04-30', 'YYYY-MM-DD'), 300000.00, 'USD', 'Završeno');
+
+INSERT INTO Liga (takmicenje_id, sistem_bodovanja) VALUES (4, 'ESL Pro Tour Points System');
+INSERT INTO Liga (takmicenje_id, sistem_bodovanja) VALUES (5, 'LCK Championship Points & Standings');
+INSERT INTO Liga (takmicenje_id, sistem_bodovanja) VALUES (12, 'DPC Standard Win/Loss Points');
+INSERT INTO Liga (takmicenje_id, sistem_bodovanja) VALUES (13, 'VCT Standard Points');
+INSERT INTO Liga (takmicenje_id, sistem_bodovanja) VALUES (20, 'PUBG Super Ranking Point System (WWCD + Kills)');
+
+INSERT INTO Turnir (takmicenje_id, tip_kostura, pravila_napredovanja, broj_meceva_po_rundi) VALUES (1, 'Double Elimination', 'Top 8 prolazi u plej-of', 'BO3 / BO5 Finale');
+INSERT INTO Turnir (takmicenje_id, tip_kostura, pravila_napredovanja, broj_meceva_po_rundi) VALUES (2, 'Swiss System Stage', '3 pobede vode u plej-of, 3 poraza eliminišu', 'BO1 / BO3');
+INSERT INTO Turnir (takmicenje_id, tip_kostura, pravila_napredovanja, broj_meceva_po_rundi) VALUES (3, 'Single Elimination', 'Direktna eliminacija porazom', 'BO5');
+INSERT INTO Turnir (takmicenje_id, tip_kostura, pravila_napredovanja, broj_meceva_po_rundi) VALUES (6, 'Double Elimination', 'Gornji i donji kostur', 'BO3 / BO5 Finale');
+INSERT INTO Turnir (takmicenje_id, tip_kostura, pravila_napredovanja, broj_meceva_po_rundi) VALUES (7, 'Single Elimination', 'Kup sistem na ispadanje', 'BO3');
+INSERT INTO Turnir (takmicenje_id, tip_kostura, pravila_napredovanja, broj_meceva_po_rundi) VALUES (8, 'Swiss Stage + Knockout', 'Najboljih 8 u eliminacionu fazu', 'BO3 / BO5 Finale');
+INSERT INTO Turnir (takmicenje_id, tip_kostura, pravila_napredovanja, broj_meceva_po_rundi) VALUES (9, 'Group Stage + Double Elimination', 'Top timovi idu u Gornji kostur', 'BO2 / BO3 / BO5');
+INSERT INTO Turnir (takmicenje_id, tip_kostura, pravila_napredovanja, broj_meceva_po_rundi) VALUES (10, 'Double Elimination', 'Pobednici idu dalje', 'BO3');
+INSERT INTO Turnir (takmicenje_id, tip_kostura, pravila_napredovanja, broj_meceva_po_rundi) VALUES (11, 'Group Stage + Playoffs', 'Prolazak na osnovu plasmana u grupi', 'BO3');
+INSERT INTO Turnir (takmicenje_id, tip_kostura, pravila_napredovanja, broj_meceva_po_rundi) VALUES (14, 'Double Elimination', 'Playoffs kroz međusobne okršaje', 'BO3 / BO5');
+INSERT INTO Turnir (takmicenje_id, tip_kostura, pravila_napredovanja, broj_meceva_po_rundi) VALUES (15, 'Goup Stage + Double Elimination', 'Najboljih 4 u završnicu', 'BO3 / BO5');
+INSERT INTO Turnir (takmicenje_id, tip_kostura, pravila_napredovanja, broj_meceva_po_rundi) VALUES (16, 'Single Elimination', 'Kick-off turnir na ispadanje', 'BO3');
+INSERT INTO Turnir (takmicenje_id, tip_kostura, pravila_napredovanja, broj_meceva_po_rundi) VALUES (17, 'Multi-Stage Elimination', 'Plasman kroz finalne mape', 'Sistem bodova po rundama');
+INSERT INTO Turnir (takmicenje_id, tip_kostura, pravila_napredovanja, broj_meceva_po_rundi) VALUES (18, 'Group Stage + Grand Finals', 'Najbolji timovi prolaze u finale', 'Sistem bodova po rundama');
+INSERT INTO Turnir (takmicenje_id, tip_kostura, pravila_napredovanja, broj_meceva_po_rundi) VALUES (19, 'Group Stage + Grand Finals', 'Najbolji timovi prolaze u finale', 'Sistem bodova po rundama');
+
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (1, 1, 'CS2 Pro License', 'Valve Team', TO_DATE('2023-05-10', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (2, 2, 'CS2 Pro License', 'Valve Team', TO_DATE('2022-03-15', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (3, 3, 'CS2 Pro License', 'Valve Team', TO_DATE('2021-08-21', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (4, 4, 'CS2 Pro License', 'Valve Team', TO_DATE('2023-01-12', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (5, 5, 'CS2 Pro License', 'Valve Team', TO_DATE('2022-05-11', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (6, 7, 'LOL Pro License', 'RIOT Games', TO_DATE('2023-05-10', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (7, 8, 'LOL Pro License', 'RIOT Games', TO_DATE('2022-03-15', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (8, 9, 'LOL Pro License', 'RIOT Games', TO_DATE('2021-08-21', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (9, 10, 'LOL Pro License', 'RIOT Games', TO_DATE('2023-01-12', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (10, 11, 'LOL Pro License', 'RIOT Games', TO_DATE('2022-05-11', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (11, 13, 'Dota2 Pro License', 'Valve Team', TO_DATE('2023-05-10', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (12, 14, 'Dota2 Pro License', 'Valve Team', TO_DATE('2022-03-15', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (13, 15, 'Dota2 Pro License', 'Valve Team', TO_DATE('2021-08-21', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (14, 16, 'Dota2 Pro License', 'Valve Team', TO_DATE('2023-01-12', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (15, 17, 'Dota2 Pro License', 'Valve Team', TO_DATE('2022-05-11', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (16, 19, 'Valorant Pro License', 'RIOT Games', TO_DATE('2023-05-10', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (17, 20, 'Valorant Pro License', 'RIOT Games', TO_DATE('2022-03-15', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (18, 21, 'Valorant Pro License', 'RIOT Games', TO_DATE('2021-08-21', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (19, 22, 'Valorant Pro License', 'RIOT Games', TO_DATE('2023-01-12', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (20, 23, 'Valorant Pro License', 'RIOT Games', TO_DATE('2022-05-11', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (21, 25, 'PUBG Pro License', 'Krafton', TO_DATE('2023-05-10', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (22, 26, 'PUBG Pro License', 'Krafton', TO_DATE('2022-03-15', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (23, 27, 'PUBG Pro License', 'Krafton', TO_DATE('2021-08-21', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (24, 28, 'PUBG Pro License', 'Krafton', TO_DATE('2023-01-12', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (25, 6, 'CS2 Coach License', 'Valve Team', TO_DATE('2018-05-11', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (26, 12, 'LOL Coach License', 'RIOT Games', TO_DATE('2019-05-10', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (27, 18, 'Dota2 Coach License', 'Valve Team', TO_DATE('2017-03-15', 'YYYY-MM-DD'));
+INSERT INTO Licenca (licencaid, osobaid, naziv, institucija_izdavac, datum_sticanja) VALUES (28, 24, 'Valorant Coach License', 'RIOT Games', TO_DATE('2022-08-21', 'YYYY-MM-DD'));
+
+
+INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
+VALUES (1, 1, 'Grupna faza', 1, NULL);
+INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
+VALUES (2, 1, 'Plej-of', 2, 1);
+INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
+VALUES (3, 2, 'Grupna faza', 1, NULL);
+INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
+VALUES (4, 2, 'Plej-of', 2, 3);
+INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
+VALUES (5, 6, 'Grupna faza', 1, NULL);
+INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
+VALUES (6, 6, 'Plej-of', 2, 5);
+INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
+VALUES (7, 10, 'Grupna faza', 1, NULL);
+INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
+VALUES (8, 10, 'Plej-of', 2, 7);
+INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
+VALUES (9, 14, 'Grupna faza', 1, NULL);
+INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
+VALUES (10, 14, 'Plej-of', 2, 9);
+INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
+VALUES (11, 18, 'Grupna faza', 1, NULL);
+INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
+VALUES (12, 18, 'Plej-of', 2, 11);
+INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
+VALUES (13, 4, 'Regularni deo', 1, NULL);
+INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
+VALUES (14, 4, 'Plej-of', 2, 13);
+INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
+VALUES (15, 5, 'Regularni deo', 1, NULL);
+INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
+VALUES (16, 5, 'Plej-of', 2, 15);
+INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
+VALUES (17, 12, 'Regularni deo', 1, NULL);
+INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
+VALUES (18, 12, 'Plej-of', 2, 17);
+INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
+VALUES (19, 13, 'Regularni deo', 1, NULL);
+INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
+VALUES (20, 13, 'Plej-of', 2, 19);
+INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
+VALUES (21, 20, 'Regularni deo', 1, NULL);
+INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
+VALUES (22, 20, 'Plej-of', 2, 21);
+
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (1, 1, 1, TO_TIMESTAMP('2026-02-01 14:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '2:1', 145, 'Katowice Arena', 'Glavni sudija A', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (2, 1, 2, TO_TIMESTAMP('2026-02-03 17:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 2, '0:2', 82, 'Katowice Arena', 'Glavni sudija A', 'Završen'); 
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (3, 1, 3, TO_TIMESTAMP('2026-02-06 13:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '2:0', 95, 'Katowice Arena', 'Sudija B', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (4, 1, 4, TO_TIMESTAMP('2026-02-09 16:30:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '1:2', 155, 'Katowice Arena', 'Sudija B', 'Završen'); 
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (5, 1, 5, TO_TIMESTAMP('2026-02-12 18:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO5', 4, '3:1', 210, 'Katowice Arena', 'Glavni sudija', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (6, 2, 1, TO_TIMESTAMP('2026-03-10 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO1', 1, '13:7', 42, 'Royal Arena Kopenhagen', 'Admin 1', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (7, 2, 2, TO_TIMESTAMP('2026-03-11 15:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO1', 1, '9:13', 50, 'Royal Arena Kopenhagen', 'Admin 1', 'Završen'); 
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (8, 2, 3, TO_TIMESTAMP('2026-03-13 14:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 2, '2:0', 88, 'Royal Arena Kopenhagen', 'Admin 2', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (9, 2, 4, TO_TIMESTAMP('2026-03-16 16:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '2:1', 140, 'Royal Arena Kopenhagen', 'Admin 2', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (10, 2, 5, TO_TIMESTAMP('2026-03-20 19:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '1:2', 150, 'Royal Arena Kopenhagen', 'Glavni sudija', 'Završen'); 
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (11, 3, 1, TO_TIMESTAMP('2026-02-15 11:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO2', 2, '1:1', 110, 'Studio Stockholm', 'Admin CS', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (12, 3, 2, TO_TIMESTAMP('2026-02-17 14:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 2, '2:0', 90, 'Studio Stockholm', 'Admin CS', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (13, 3, 3, TO_TIMESTAMP('2026-02-20 13:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '0:2', 78, 'Studio Stockholm', 'Admin CS 2', 'Završen'); 
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (14, 3, 4, TO_TIMESTAMP('2026-02-22 16:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '2:1', 135, 'Studio Stockholm', 'Admin CS 2', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (15, 3, 5, TO_TIMESTAMP('2026-02-25 18:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO5', 4, '1:3', 190, 'Studio Stockholm', 'Glavni sudija', 'Završen'); 
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (16, 5, 1, TO_TIMESTAMP('2026-01-15 10:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 2, '2:0', 70, 'LoL Park Seoul', 'KR Ref 1', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (17, 5, 2, TO_TIMESTAMP('2026-01-22 10:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '1:2', 125, 'LoL Park Seoul', 'KR Ref 1', 'Završen'); 
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (18, 5, 3, TO_TIMESTAMP('2026-02-05 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 2, '2:1', 115, 'LoL Park Seoul', 'KR Ref 2', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (19, 5, 4, TO_TIMESTAMP('2026-02-18 10:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 2, '0:2', 68, 'LoL Park Seoul', 'KR Ref 2', 'Završen'); 
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (20, 5, 5, TO_TIMESTAMP('2026-03-02 14:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '2:1', 130, 'LoL Park Seoul', 'Glavni sudija', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (21, 6, 1, TO_TIMESTAMP('2026-05-01 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 2, '2:0', 75, 'Chengdu Arena', 'MSI Ref 1', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (22, 6, 2, TO_TIMESTAMP('2026-05-03 14:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '1:2', 140, 'Chengdu Arena', 'MSI Ref 1', 'Završen'); 
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (23, 6, 3, TO_TIMESTAMP('2026-05-07 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 2, '2:0', 80, 'Chengdu Arena', 'MSI Ref 2', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (24, 6, 4, TO_TIMESTAMP('2026-05-12 15:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO5', 5, '3:2', 220, 'Chengdu Arena', 'MSI Ref 2', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (25, 6, 5, TO_TIMESTAMP('2026-05-18 17:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO5', 4, '1:3', 185, 'Chengdu Arena', 'Glavni sudija', 'Završen'); 
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (26, 10, 1, TO_TIMESTAMP('2026-04-20 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 2, '2:0', 85, 'Birmingham UK', 'Dota Admin 1', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (27, 10, 2, TO_TIMESTAMP('2026-04-22 15:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '0:2', 95, 'Birmingham UK', 'Dota Admin 1', 'Završen'); 
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (28, 10, 3, TO_TIMESTAMP('2026-04-24 13:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '2:1', 150, 'Birmingham UK', 'Dota Admin 2', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (29, 10, 4, TO_TIMESTAMP('2026-04-26 14:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 2, '2:0', 80, 'Birmingham UK', 'Dota Admin 2', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (30, 10, 5, TO_TIMESTAMP('2026-04-29 16:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO5', 4, '3:1', 205, 'Birmingham UK', 'Glavni sudija', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (31, 12, 1, TO_TIMESTAMP('2026-01-10 15:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 2, '2:0', 92, 'Online DPC', 'DPC Admin 1', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (32, 12, 2, TO_TIMESTAMP('2026-01-18 15:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '1:2', 135, 'Online DPC', 'DPC Admin 1', 'Završen'); 
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (33, 12, 3, TO_TIMESTAMP('2026-01-25 15:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '2:1', 145, 'Online DPC', 'DPC Admin 2', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (34, 12, 4, TO_TIMESTAMP('2026-02-08 15:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 2, '0:2', 74, 'Online DPC', 'DPC Admin 2', 'Završen'); 
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (35, 12, 5, TO_TIMESTAMP('2026-02-22 17:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '2:0', 110, 'Online DPC', 'Glavni sudija', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (36, 13, 1, TO_TIMESTAMP('2026-03-01 20:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 2, '2:0', 78, 'Los Angeles Arena', 'Val Admin 1', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (37, 13, 2, TO_TIMESTAMP('2026-03-08 20:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '2:1', 120, 'Los Angeles Arena', 'Val Admin 1', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (38, 13, 3, TO_TIMESTAMP('2026-03-15 20:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 2, '0:2', 65, 'Los Angeles Arena', 'Val Admin 2', 'Završen'); 
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (39, 13, 4, TO_TIMESTAMP('2026-03-29 20:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '1:2', 130, 'Los Angeles Arena', 'Val Admin 2', 'Završen'); 
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (40, 13, 5, TO_TIMESTAMP('2026-04-12 21:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 2, '2:0', 82, 'Los Angeles Arena', 'Glavni sudija', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (41, 14, 1, TO_TIMESTAMP('2026-06-01 10:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 2, '2:0', 70, 'Shanghai Stage', 'Val Admin S1', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (42, 14, 2, TO_TIMESTAMP('2026-06-04 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '2:1', 125, 'Shanghai Stage', 'Val Admin S1', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (43, 14, 3, TO_TIMESTAMP('2026-06-07 10:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 2, '0:2', 60, 'Shanghai Stage', 'Val Admin S2', 'Završen'); 
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (44, 14, 4, TO_TIMESTAMP('2026-06-10 14:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '2:1', 140, 'Shanghai Stage', 'Val Admin S2', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (45, 14, 5, TO_TIMESTAMP('2026-06-15 16:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO5', 4, '3:1', 190, 'Shanghai Stage', 'Glavni sudija', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (46, 16, 1, TO_TIMESTAMP('2026-03-20 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 2, '2:0', 80, 'Katowice Studio', 'CS Admin 1', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (47, 16, 2, TO_TIMESTAMP('2026-03-22 15:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '1:2', 130, 'Katowice Studio', 'CS Admin 1', 'Završen'); 
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (48, 16, 3, TO_TIMESTAMP('2026-03-25 13:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '2:1', 142, 'Katowice Studio', 'CS Admin 2', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (49, 16, 4, TO_TIMESTAMP('2026-03-28 16:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 2, '0:2', 70, 'Katowice Studio', 'CS Admin 2', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (50, 16, 5, TO_TIMESTAMP('2026-04-02 18:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '2:1', 150, 'Katowice Studio', 'Glavni sudija', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (51, 18, 1, TO_TIMESTAMP('2026-05-10 13:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO1', 1, 'Top 3 / 10 Kills', 28, 'Berlin Arena', 'PUBG Admin 1', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (52, 18, 2, TO_TIMESTAMP('2026-05-11 13:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO1', 1, 'WWCD #1', 32, 'Berlin Arena', 'PUBG Admin 1', 'Završen'); 
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (53, 18, 3, TO_TIMESTAMP('2026-05-14 13:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO1', 1, 'Top 12 / 2 Kills', 18, 'Berlin Arena', 'PUBG Admin 2', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (54, 18, 4, TO_TIMESTAMP('2026-05-17 13:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO1', 1, 'Top 5 / 7 Kills', 26, 'Berlin Arena', 'PUBG Admin 2', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (55, 18, 5, TO_TIMESTAMP('2026-05-20 15:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO1', 1, 'WWCD #2', 35, 'Berlin Arena', 'Glavni sudija', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (56, 20, 1, TO_TIMESTAMP('2026-03-15 17:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO1', 1, 'Top 8 / 4 Kills', 22, 'Online Europe', 'EU Admin 1', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (57, 20, 2, TO_TIMESTAMP('2026-03-22 17:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO1', 1, 'WWCD #1', 30, 'Online Europe', 'EU Admin 1', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (58, 20, 3, TO_TIMESTAMP('2026-04-05 17:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO1', 1, 'Top 15 / 1 Kill', 15, 'Online Europe', 'EU Admin 2', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (59, 20, 4, TO_TIMESTAMP('2026-04-19 17:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO1', 1, 'Top 2 / 9 Kills', 29, 'Online Europe', 'EU Admin 2', 'Završen');
+INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
+VALUES (60, 20, 5, TO_TIMESTAMP('2026-04-30 18:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO1', 1, 'WWCD #2', 33, 'Online Europe', 'Glavni sudija', 'Završen');
+
+INSERT INTO Sponzor (sponzor_id, naziv, drzava, tip_sponzora, oblast_poslovanja) 
+VALUES (1, 'Red Bull', 'Austrija', 'Generalni sponzor', 'Energetska pića');
+INSERT INTO Sponzor (sponzor_id, naziv, drzava, tip_sponzora, oblast_poslovanja) 
+VALUES (2, 'Zowie (BenQ)', 'Tajvan', 'Timski partner', 'Gejming monitori i oprema');
+INSERT INTO Sponzor (sponzor_id, naziv, drzava, tip_sponzora, oblast_poslovanja) 
+VALUES (3, 'HyperX', 'SAD', 'Individualni sponzor', 'Gejming slušalice i periferije');
+INSERT INTO Sponzor (sponzor_id, naziv, drzava, tip_sponzora, oblast_poslovanja) 
+VALUES (4, 'Secretlab', 'Singapur', 'Zvanični partner', 'Gejming stolice');
+INSERT INTO Sponzor (sponzor_id, naziv, drzava, tip_sponzora, oblast_poslovanja) 
+VALUES (5, 'Logitech G', 'Sad', 'Glavni sponzor opreme', 'Gejming periferije');
+INSERT INTO Sponzor (sponzor_id, naziv, drzava, tip_sponzora, oblast_poslovanja) 
+VALUES (6, 'Intel', 'SAD', 'Tehnološki partner', 'Procesori i hardver');
+INSERT INTO Sponzor (sponzor_id, naziv, drzava, tip_sponzora, oblast_poslovanja) 
+VALUES (7, 'Mastercard', 'SAD', 'Finansijski partner', 'Finansijske usluge');
+INSERT INTO Sponzor (sponzor_id, naziv, drzava, tip_sponzora, oblast_poslovanja) 
+VALUES (8, 'Adidas', 'Nemačka', 'Sponzor garderobe', 'Sportska oprema i odeća');
+INSERT INTO Sponzor (sponzor_id, naziv, drzava, tip_sponzora, oblast_poslovanja) 
+VALUES (9, 'AMD', 'SAD', 'Partner tima', 'Hardver i grafičke kartice');
+INSERT INTO Sponzor (sponzor_id, naziv, drzava, tip_sponzora, oblast_poslovanja) 
+VALUES (10, 'AOC Gaming', 'Tajvan', 'Individualni sponzor', 'Gejming monitori');
+
+INSERT INTO Sponzor_Kontakt (kontakt_id, sponzor_id, ime, prezime, telefon, email) 
+VALUES (1, 1, 'Stefan', 'Wagner', '+43-664-55501', 'stefan.wagner@redbull.com');
+INSERT INTO Sponzor_Kontakt (kontakt_id, sponzor_id, ime, prezime, telefon, email) 
+VALUES (2, 2, 'Kenji', 'Sato', '+886-2-2727-88', 'kenji.sato@benq.com');
+INSERT INTO Sponzor_Kontakt (kontakt_id, sponzor_id, ime, prezime, telefon, email) 
+VALUES (3, 3, 'Sarah', 'Connor', '+1-555-4920', 'sconnor@hyperx.com');
+INSERT INTO Sponzor_Kontakt (kontakt_id, sponzor_id, ime, prezime, telefon, email) 
+VALUES (4, 4, 'Alvin', 'Tan', '+65-677-2211', 'alvin.tan@secretlab.co');
+INSERT INTO Sponzor_Kontakt (kontakt_id, sponzor_id, ime, prezime, telefon, email) 
+VALUES (5, 5, 'Mark', 'Miller', '+1-555-0192', 'mark.miller@logitech.com');
+INSERT INTO Sponzor_Kontakt (kontakt_id, sponzor_id, ime, prezime, telefon, email) 
+VALUES (6, 6, 'David', 'Chen', '+1-408-55512', 'david.chen@intel.com');
+INSERT INTO Sponzor_Kontakt (kontakt_id, sponzor_id, ime, prezime, telefon, email) 
+VALUES (7, 7, 'Elena', 'Rostova', '+1-914-55589', 'elena.rostova@mastercard.com');
+INSERT INTO Sponzor_Kontakt (kontakt_id, sponzor_id, ime, prezime, telefon, email) 
+VALUES (8, 8, 'Lukas', 'Weber', '+49-9132-840', 'lukas.weber@adidas.com');
+INSERT INTO Sponzor_Kontakt (kontakt_id, sponzor_id, ime, prezime, telefon, email) 
+VALUES (9, 9, 'Rachel', 'Adams', '+1-512-55533', 'rachel.adams@amd.com');
+INSERT INTO Sponzor_Kontakt (kontakt_id, sponzor_id, ime, prezime, telefon, email) 
+VALUES (10, 10, 'Thomas', 'Vance', '+886-2-8226-10', 'thomas.vance@aoc.com');
+
+INSERT INTO Sponzorski_Ugovor (ugovor_id, sponzor_id, datum_od, datum_do, iznos, valuta, tip_podrske, marketinske_obaveze) 
+VALUES (101, 1, TO_DATE('2026-01-01', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 300000.00, 'EUR', 'Novčani', 'Ekskluzivno prisustvo brenda na dresovima svih timova i u klupskoj kući');
+INSERT INTO Sponzorski_Ugovor (ugovor_id, sponzor_id, datum_od, datum_do, iznos, valuta, tip_podrske, marketinske_obaveze) 
+VALUES (102, 2, TO_DATE('2026-02-01', 'YYYY-MM-DD'), TO_DATE('2027-02-01', 'YYYY-MM-DD'), 75000.00, 'EUR', 'Oprema', 'Opremanje trening kampa CS2 tima monitorima');
+INSERT INTO Sponzorski_Ugovor (ugovor_id, sponzor_id, datum_od, datum_do, iznos, valuta, tip_podrske, marketinske_obaveze) 
+VALUES (103, 3, TO_DATE('2026-03-01', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 25000.00, 'USD', 'Kombinovano', 'Igrač koristi isključivo HyperX slušalice na strimovima');
+INSERT INTO Sponzorski_Ugovor (ugovor_id, sponzor_id, datum_od, datum_do, iznos, valuta, tip_podrske, marketinske_obaveze) 
+VALUES (104, 4, TO_DATE('2026-01-15', 'YYYY-MM-DD'), TO_DATE('2027-01-15', 'YYYY-MM-DD'), 50000.00, 'EUR', 'Oprema', 'Gejming stolice za sve igrače u klupskim prostorijama');
+INSERT INTO Sponzorski_Ugovor (ugovor_id, sponzor_id, datum_od, datum_do, iznos, valuta, tip_podrske, marketinske_obaveze) 
+VALUES (105, 5, TO_DATE('2026-01-01', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 120000.00, 'EUR', 'Oprema', 'Miševi i tastature za LoL tim');
+INSERT INTO Sponzorski_Ugovor (ugovor_id, sponzor_id, datum_od, datum_do, iznos, valuta, tip_podrske, marketinske_obaveze) 
+VALUES (106, 6, TO_DATE('2026-02-15', 'YYYY-MM-DD'), TO_DATE('2027-02-15', 'YYYY-MM-DD'), 200000.00, 'USD', 'Oprema', 'Svi računari u organizaciji koriste Intel procesore');
+INSERT INTO Sponzorski_Ugovor (ugovor_id, sponzor_id, datum_od, datum_do, iznos, valuta, tip_podrske, marketinske_obaveze) 
+VALUES (107, 7, TO_DATE('2026-04-01', 'YYYY-MM-DD'), TO_DATE('2027-04-01', 'YYYY-MM-DD'), 180000.00, 'EUR', 'Novčani', 'Logo na zvaničnom sajtu i finansijska podrška za putovanja');
+INSERT INTO Sponzorski_Ugovor (ugovor_id, sponzor_id, datum_od, datum_do, iznos, valuta, tip_podrske, marketinske_obaveze) 
+VALUES (108, 8, TO_DATE('2026-01-01', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 90000.00, 'EUR', 'Kombinovano', 'Izrada i distribucija zvaničnih klupskih dresova i dukseva');
+INSERT INTO Sponzorski_Ugovor (ugovor_id, sponzor_id, datum_od, datum_do, iznos, valuta, tip_podrske, marketinske_obaveze) 
+VALUES (109, 9, TO_DATE('2026-03-01', 'YYYY-MM-DD'), TO_DATE('2027-03-01', 'YYYY-MM-DD'), 60000.00, 'USD', 'Oprema', 'Grafičke kartice za Dota 2 timsku bazu');
+INSERT INTO Sponzorski_Ugovor (ugovor_id, sponzor_id, datum_od, datum_do, iznos, valuta, tip_podrske, marketinske_obaveze) 
+VALUES (110, 10, TO_DATE('2026-05-01', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 20000.00, 'USD', 'Oprema', 'Nagrade za giveaway');
+
+INSERT INTO Ugovor_Subjekat (ugovor_id, tim_id, igrac_id, takmicenje_id) VALUES (101, NULL, NULL, NULL);
+INSERT INTO Ugovor_Subjekat (ugovor_id, tim_id, igrac_id, takmicenje_id) VALUES (102, 1, NULL, NULL);
+INSERT INTO Ugovor_Subjekat (ugovor_id, tim_id, igrac_id, takmicenje_id) VALUES (103, NULL, 1, NULL);
+INSERT INTO Ugovor_Subjekat (ugovor_id, tim_id, igrac_id, takmicenje_id) VALUES (104, NULL, 2, NULL);
+INSERT INTO Ugovor_Subjekat (ugovor_id, tim_id, igrac_id, takmicenje_id) VALUES (105, 2, NULL, NULL);
+INSERT INTO Ugovor_Subjekat (ugovor_id, tim_id, igrac_id, takmicenje_id) VALUES (106, NULL, NULL, NULL);
+INSERT INTO Ugovor_Subjekat (ugovor_id, tim_id, igrac_id, takmicenje_id) VALUES (107, NULL, NULL, NULL);
+INSERT INTO Ugovor_Subjekat (ugovor_id, tim_id, igrac_id, takmicenje_id) VALUES (108, NULL, NULL, NULL);
+INSERT INTO Ugovor_Subjekat (ugovor_id, tim_id, igrac_id, takmicenje_id) VALUES (109, 3, NULL, NULL);
+INSERT INTO Ugovor_Subjekat (ugovor_id, tim_id, igrac_id, takmicenje_id) VALUES (110, NULL, 3, NULL);

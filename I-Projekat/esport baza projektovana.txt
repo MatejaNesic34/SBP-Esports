@@ -1,4 +1,4 @@
-create table Osoba(
+wcreate table Osoba(
     osobaid number not null primary key,
     ime varchar2 (20) not null ,
     prezime varchar2 (20) not null ,
@@ -235,7 +235,7 @@ CREATE TABLE Faza_Takmicenja (
     nadfaza_id NUMBER,
     
     CONSTRAINT fk_faza_takmicenje FOREIGN KEY (takmicenje_id)
-        REFERENCES Turnir(takmicenje_id) ON DELETE CASCADE,
+        REFERENCES Takmicenje(takmicenje_id) ON DELETE CASCADE,
     CONSTRAINT fk_faza_nadfaza FOREIGN KEY (nadfaza_id)
         REFERENCES Faza_Takmicenja(faza_id) ON DELETE CASCADE
 );

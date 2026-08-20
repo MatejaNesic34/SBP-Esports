@@ -95,6 +95,7 @@
             igrebtn.TabIndex = 5;
             igrebtn.Text = "Igre";
             igrebtn.UseVisualStyleBackColor = true;
+            igrebtn.Click += igrebtn_Click;
             // 
             // Form1
             // 

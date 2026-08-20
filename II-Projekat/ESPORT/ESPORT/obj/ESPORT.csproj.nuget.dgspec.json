@@ -59,6 +59,10 @@
             "NHibernate": {
               "target": "Package",
               "version": "[5.7.0, )"
+            },
+            "Oracle.ManagedDataAccess.Core": {
+              "target": "Package",
+              "version": "[23.26.300, )"
             }
           },
           "imports": [

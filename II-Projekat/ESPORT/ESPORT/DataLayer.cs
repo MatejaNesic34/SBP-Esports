@@ -56,7 +56,10 @@ namespace ESPORT
             }
             catch (Exception e)
             {
-                MessageBox.Show($"Greška pri povezivanju sa bazom: {e.Message}", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Hvatamo unutrašnju grešku koja sadrži tačan razlog pucanja mapiranja
+                string detalji = e.InnerException != null ? e.InnerException.Message : e.Message;
+
+                MessageBox.Show($"Greška pri povezivanju sa bazom:\n{detalji}", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }

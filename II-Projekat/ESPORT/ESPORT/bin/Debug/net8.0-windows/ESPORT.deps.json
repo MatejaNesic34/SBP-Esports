@@ -9,7 +9,8 @@
       "ESPORT/1.0.0": {
         "dependencies": {
           "FluentNHibernate": "3.4.1",
-          "NHibernate": "5.7.0"
+          "NHibernate": "5.7.0",
+          "Oracle.ManagedDataAccess.Core": "23.26.300"
         },
         "runtime": {
           "ESPORT.dll": {}
@@ -56,6 +57,18 @@
           }
         }
       },
+      "Oracle.ManagedDataAccess.Core/23.26.300": {
+        "dependencies": {
+          "System.Collections.Immutable": "10.0.3",
+          "System.DirectoryServices.Protocols": "8.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/Oracle.ManagedDataAccess.dll": {
+            "assemblyVersion": "23.1.0.0",
+            "fileVersion": "23.1.0.0"
+          }
+        }
+      },
       "Remotion.Linq/2.2.0": {
         "runtime": {
           "lib/netstandard1.0/Remotion.Linq.dll": {
@@ -72,6 +85,42 @@
           "lib/netstandard1.0/Remotion.Linq.EagerFetching.dll": {
             "assemblyVersion": "2.2.0.0",
             "fileVersion": "2.2.0.30000"
+          }
+        }
+      },
+      "System.Collections.Immutable/10.0.3": {
+        "runtime": {
+          "lib/net8.0/System.Collections.Immutable.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.326.7603"
+          }
+        }
+      },
+      "System.DirectoryServices.Protocols/8.0.2": {
+        "runtime": {
+          "lib/net8.0/System.DirectoryServices.Protocols.dll": {
+            "assemblyVersion": "8.0.0.2",
+            "fileVersion": "8.0.1725.26602"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux/lib/net8.0/System.DirectoryServices.Protocols.dll": {
+            "rid": "linux",
+            "assetType": "runtime",
+            "assemblyVersion": "8.0.0.2",
+            "fileVersion": "8.0.1725.26602"
+          },
+          "runtimes/osx/lib/net8.0/System.DirectoryServices.Protocols.dll": {
+            "rid": "osx",
+            "assetType": "runtime",
+            "assemblyVersion": "8.0.0.2",
+            "fileVersion": "8.0.1725.26602"
+          },
+          "runtimes/win/lib/net8.0/System.DirectoryServices.Protocols.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "8.0.0.2",
+            "fileVersion": "8.0.1725.26602"
           }
         }
       }
@@ -111,6 +160,13 @@
       "path": "nhibernate/5.7.0",
       "hashPath": "nhibernate.5.7.0.nupkg.sha512"
     },
+    "Oracle.ManagedDataAccess.Core/23.26.300": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5iRUVwLiw2+QgD1gp8ebFuS3xppoig9ogLcnTUfM5DcHEE6A9+Py/XAqZIVknOo9SaDJg+hOOSWZd+H8jgOprg==",
+      "path": "oracle.manageddataaccess.core/23.26.300",
+      "hashPath": "oracle.manageddataaccess.core.23.26.300.nupkg.sha512"
+    },
     "Remotion.Linq/2.2.0": {
       "type": "package",
       "serviceable": true,
@@ -124,6 +180,20 @@
       "sha512": "sha512-d6bkH5kROJPFsdvDy4yQved9I4ickamytPByPyuQcH9dk1ef4jciajo50vTQhheyOHeWOgLh97UvkiHV8QSgeQ==",
       "path": "remotion.linq.eagerfetching/2.2.0",
       "hashPath": "remotion.linq.eagerfetching.2.2.0.nupkg.sha512"
+    },
+    "System.Collections.Immutable/10.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gpKPycgDFS2oAPr0yaqwBmShE1ya4yMMkn3lxBPcXrsCI4KL10xSu0cSUzeajQ7LKjb3EsUAgjhBiPGrGU6vSQ==",
+      "path": "system.collections.immutable/10.0.3",
+      "hashPath": "system.collections.immutable.10.0.3.nupkg.sha512"
+    },
+    "System.DirectoryServices.Protocols/8.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7pSU+qkmdkwbikAvn4kpvClfyffaR7dYJw7ucBtO5d6m/7wgKZIULOZAGFLMIMOFFmg7xC67TYKptHxcbqQm+Q==",
+      "path": "system.directoryservices.protocols/8.0.2",
+      "hashPath": "system.directoryservices.protocols.8.0.2.nupkg.sha512"
     }
   }
 }

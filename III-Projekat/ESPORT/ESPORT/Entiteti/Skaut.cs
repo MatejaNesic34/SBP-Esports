@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ESPORT.Entiteti
+{
+    public class Skaut : Osoba
+    {
+        // Many-to-One
+        public virtual Igra Igra { get; set; }
+    }
+}

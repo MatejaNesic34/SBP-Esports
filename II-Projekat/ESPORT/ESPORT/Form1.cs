@@ -14,5 +14,11 @@ namespace ESPORT
             IgreForma forma = new IgreForma();
             forma.ShowDialog();
         }
+
+        private void osobebtn_Click(object sender, EventArgs e)
+        {
+            OsobaForma forma=new OsobaForma();
+            forma.ShowDialog();
+        }
     }
 }

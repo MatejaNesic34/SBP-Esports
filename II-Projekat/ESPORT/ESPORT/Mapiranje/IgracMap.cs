@@ -28,35 +28,35 @@ namespace ESPORT.Mapiranje
 
             // 1. Ugovori
             HasMany(x => x.Ugovori)
-                .KeyColumn("IGRACID") // ili OSOBAID, zavisi kako se zove FK u tabeli UGOVOR_IGRACA
+                .KeyColumn("IGRAC_ID") // ili OSOBAID, zavisi kako se zove FK u tabeli UGOVOR_IGRACA
                 .LazyLoad()
                 .Cascade.All()
                 .Inverse();
 
             // 2. Transferi
             HasMany(x => x.Transferi)
-                .KeyColumn("IGRACID")
+                .KeyColumn("IGRAC_ID")
                 .LazyLoad()
                 .Cascade.All()
                 .Inverse();
 
             // 3. Pozajmice
             HasMany(x => x.Pozajmice)
-                .KeyColumn("IGRACID")
+                .KeyColumn("IGRAC_ID")
                 .LazyLoad()
                 .Cascade.All()
                 .Inverse();
 
             // 4. IndividualniRezultati
             HasMany(x => x.IndividualniRezultati)
-                .KeyColumn("IGRACID")
+                .KeyColumn("IGRAC_ID")
                 .LazyLoad()
                 .Cascade.All()
                 .Inverse();
 
             // 5. SponzorskiUgovoriKaoSubjekat
             HasMany(x => x.SponzorskiUgovoriKaoSubjekat)
-                .KeyColumn("IGRACID")
+                .KeyColumn("IGRAC_ID")
                 .LazyLoad()
                 .Cascade.All()
                 .Inverse();

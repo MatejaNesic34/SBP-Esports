@@ -3,8 +3,64 @@
   "WorkspaceRootPath": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\pavle\\downloads\\sbp_esport_projekat\\sbp-esports\\ii-projekat\\esport\\esport\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\pavle\\downloads\\sbp_esport_projekat\\sbp-esports\\ii-projekat\\esport\\esport\\dtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\dtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\esport\\forme\\osobaforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\forme\\osobaforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\pavle\\downloads\\sbp_esport_projekat\\sbp-esports\\ii-projekat\\esport\\esport\\forme\\skautforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\forme\\skautforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\pavle\\downloads\\sbp_esport_projekat\\sbp-esports\\ii-projekat\\esport\\esport\\dtomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\dtomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\esport\\forme\\fizioterapeutforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\forme\\fizioterapeutforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\pavle\\downloads\\sbp_esport_projekat\\sbp-esports\\ii-projekat\\esport\\esport\\forme\\fizioterapeutforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\forme\\fizioterapeutforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\pavle\\downloads\\sbp_esport_projekat\\sbp-esports\\ii-projekat\\esport\\esport\\forme\\izmenifizioforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\forme\\izmenifizioforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\esport\\forme\\dodajfizioforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\forme\\dodajfizioforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\esport\\forme\\dodajpsihologaforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\forme\\dodajpsihologaforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\pavle\\downloads\\sbp_esport_projekat\\sbp-esports\\ii-projekat\\esport\\esport\\forme\\dodajpsihologaforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\forme\\dodajpsihologaforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\esport\\forme\\izmenipsihologaforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\forme\\izmenipsihologaforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\esport\\forme\\dodajmenadzeraforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\forme\\dodajmenadzeraforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\pavle\\downloads\\sbp_esport_projekat\\sbp-esports\\ii-projekat\\esport\\esport\\forme\\izmenianaliticaraform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\forme\\izmenianaliticaraform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\pavle\\downloads\\sbp_esport_projekat\\sbp-esports\\ii-projekat\\esport\\esport\\forme\\dodajanaliticaraform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\forme\\dodajanaliticaraform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\esport\\forme\\izmenimenadzerforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\forme\\izmenimenadzerforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,25 +70,187 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Form1.cs",
-              "RelativeDocumentMoniker": "ESPORT\\Form1.cs",
-              "ToolTip": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Form1.cs",
-              "RelativeToolTip": "ESPORT\\Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-19T16:13:30.751Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DTOs.cs",
+              "DocumentMoniker": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\DTOs.cs",
+              "RelativeDocumentMoniker": "ESPORT\\DTOs.cs",
+              "ToolTip": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\DTOs.cs",
+              "RelativeToolTip": "ESPORT\\DTOs.cs",
+              "ViewState": "AgIAAEICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-18T18:19:21.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DTOManager.cs",
+              "DocumentMoniker": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\DTOManager.cs",
+              "RelativeDocumentMoniker": "ESPORT\\DTOManager.cs",
+              "ToolTip": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\DTOManager.cs",
+              "RelativeToolTip": "ESPORT\\DTOManager.cs",
+              "ViewState": "AgIAABkGAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-18T18:17:34.45Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SkautForma.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\SkautForma.cs",
+              "RelativeDocumentMoniker": "ESPORT\\Forme\\SkautForma.cs",
+              "ToolTip": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\SkautForma.cs [Design]",
+              "RelativeToolTip": "ESPORT\\Forme\\SkautForma.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-18T17:42:28.844Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OsobaForma.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\OsobaForma.cs",
+              "RelativeDocumentMoniker": "ESPORT\\Forme\\OsobaForma.cs",
+              "ToolTip": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\OsobaForma.cs [Design]",
+              "RelativeToolTip": "ESPORT\\Forme\\OsobaForma.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-18T17:39:15.929Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Fizioterapeutforma.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\Fizioterapeutforma.cs",
+              "RelativeDocumentMoniker": "ESPORT\\Forme\\Fizioterapeutforma.cs",
+              "ToolTip": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\Fizioterapeutforma.cs [Design]",
+              "RelativeToolTip": "ESPORT\\Forme\\Fizioterapeutforma.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-18T17:32:01.63Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DodajFizioForma.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\DodajFizioForma.cs",
+              "RelativeDocumentMoniker": "ESPORT\\Forme\\DodajFizioForma.cs",
+              "ToolTip": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\DodajFizioForma.cs [Design]",
+              "RelativeToolTip": "ESPORT\\Forme\\DodajFizioForma.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-18T17:31:13.61Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Fizioterapeutforma.cs",
+              "DocumentMoniker": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\Fizioterapeutforma.cs",
+              "RelativeDocumentMoniker": "ESPORT\\Forme\\Fizioterapeutforma.cs",
+              "ToolTip": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\Fizioterapeutforma.cs",
+              "RelativeToolTip": "ESPORT\\Forme\\Fizioterapeutforma.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAArwEEAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-18T17:29:31.296Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IzmeniFizioForma.cs",
+              "DocumentMoniker": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\IzmeniFizioForma.cs",
+              "RelativeDocumentMoniker": "ESPORT\\Forme\\IzmeniFizioForma.cs",
+              "ToolTip": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\IzmeniFizioForma.cs",
+              "RelativeToolTip": "ESPORT\\Forme\\IzmeniFizioForma.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAEYAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-18T17:36:59.881Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DodajPsihologaForma.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\DodajPsihologaForma.cs",
+              "RelativeDocumentMoniker": "ESPORT\\Forme\\DodajPsihologaForma.cs",
+              "ToolTip": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\DodajPsihologaForma.cs [Design]",
+              "RelativeToolTip": "ESPORT\\Forme\\DodajPsihologaForma.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-18T17:17:30.074Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DodajPsihologaForma.cs",
+              "DocumentMoniker": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\DodajPsihologaForma.cs",
+              "RelativeDocumentMoniker": "ESPORT\\Forme\\DodajPsihologaForma.cs",
+              "ToolTip": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\DodajPsihologaForma.cs",
+              "RelativeToolTip": "ESPORT\\Forme\\DodajPsihologaForma.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAADwvzEAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-18T17:19:25.521Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IzmeniPsihologaForma.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\IzmeniPsihologaForma.cs",
+              "RelativeDocumentMoniker": "ESPORT\\Forme\\IzmeniPsihologaForma.cs",
+              "ToolTip": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\IzmeniPsihologaForma.cs [Design]",
+              "RelativeToolTip": "ESPORT\\Forme\\IzmeniPsihologaForma.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-18T17:09:54.865Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DodajMenadzeraForma.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\DodajMenadzeraForma.cs",
+              "RelativeDocumentMoniker": "ESPORT\\Forme\\DodajMenadzeraForma.cs",
+              "ToolTip": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\DodajMenadzeraForma.cs [Design]",
+              "RelativeToolTip": "ESPORT\\Forme\\DodajMenadzeraForma.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-18T15:50:38.923Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DodajAnaliticaraForm.cs",
+              "DocumentMoniker": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\DodajAnaliticaraForm.cs",
+              "RelativeDocumentMoniker": "ESPORT\\Forme\\DodajAnaliticaraForm.cs",
+              "ToolTip": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\DodajAnaliticaraForm.cs",
+              "RelativeToolTip": "ESPORT\\Forme\\DodajAnaliticaraForm.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAYwBMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-18T15:52:49.949Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IzmeniAnaliticaraForm.cs",
+              "DocumentMoniker": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\IzmeniAnaliticaraForm.cs",
+              "RelativeDocumentMoniker": "ESPORT\\Forme\\IzmeniAnaliticaraForm.cs",
+              "ToolTip": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\IzmeniAnaliticaraForm.cs",
+              "RelativeToolTip": "ESPORT\\Forme\\IzmeniAnaliticaraForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-18T16:03:55.848Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IzmeniMenadzerForma.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\IzmeniMenadzerForma.cs",
+              "RelativeDocumentMoniker": "ESPORT\\Forme\\IzmeniMenadzerForma.cs",
+              "ToolTip": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\IzmeniMenadzerForma.cs [Design]",
+              "RelativeToolTip": "ESPORT\\Forme\\IzmeniMenadzerForma.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-18T16:04:39.433Z"
             }
           ]
         }

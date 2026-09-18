@@ -12,14 +12,8 @@ namespace ESPORT.Mapiranje
         {
             Table("SKAUT");
 
-            // Primarni ključ koji je ujedno i strani ključ ka tabeli OSOBA
             KeyColumn("OSOBAID");
 
-            // ----------------------------------------------------
-            // RELACIJE (Many-to-One)
-            // ----------------------------------------------------
-
-            // Strani ključ ka Igra (IDIGRE) - opcioni (ON DELETE SET NULL)
             References(x => x.Igra)
                 .Column("IDIGRE")
                 .Nullable()

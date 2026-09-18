@@ -1,0 +1,184 @@
+﻿namespace ESPORT.Forme
+{
+    partial class IgracForma
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            listViewIgraci = new ListView();
+            ID = new ColumnHeader();
+            ime = new ColumnHeader();
+            prezime = new ColumnHeader();
+            nadimak = new ColumnHeader();
+            primarnauloga = new ColumnHeader();
+            sekundarna_uloga = new ColumnHeader();
+            dominantanstiligre = new ColumnHeader();
+            rang = new ColumnHeader();
+            telefon = new ColumnHeader();
+            drzava = new ColumnHeader();
+            email = new ColumnHeader();
+            status_aranzmana = new ColumnHeader();
+            dodajigracabtn = new Button();
+            izmeniigracabtn = new Button();
+            obrisiigracabtn = new Button();
+            SuspendLayout();
+            // 
+            // listViewIgraci
+            // 
+            listViewIgraci.Columns.AddRange(new ColumnHeader[] { ID, ime, prezime, nadimak, primarnauloga, sekundarna_uloga, dominantanstiligre, rang, telefon, drzava, email, status_aranzmana });
+            listViewIgraci.FullRowSelect = true;
+            listViewIgraci.Location = new Point(43, 105);
+            listViewIgraci.Name = "listViewIgraci";
+            listViewIgraci.Size = new Size(2338, 934);
+            listViewIgraci.TabIndex = 0;
+            listViewIgraci.UseCompatibleStateImageBehavior = false;
+            listViewIgraci.View = View.Details;
+            // 
+            // ID
+            // 
+            ID.Text = "ID";
+            ID.Width = 80;
+            // 
+            // ime
+            // 
+            ime.Text = "Ime";
+            ime.Width = 150;
+            // 
+            // prezime
+            // 
+            prezime.Text = "Prezime";
+            prezime.Width = 150;
+            // 
+            // nadimak
+            // 
+            nadimak.Text = "Nadimak";
+            nadimak.Width = 200;
+            // 
+            // primarnauloga
+            // 
+            primarnauloga.Text = "Primarna Uloga";
+            primarnauloga.Width = 200;
+            // 
+            // sekundarna_uloga
+            // 
+            sekundarna_uloga.Text = "Sekundarna Uloga";
+            sekundarna_uloga.Width = 200;
+            // 
+            // dominantanstiligre
+            // 
+            dominantanstiligre.Text = "Dominantan stil igre";
+            dominantanstiligre.Width = 300;
+            // 
+            // rang
+            // 
+            rang.Text = "Rang";
+            rang.Width = 200;
+            // 
+            // telefon
+            // 
+            telefon.Text = "Telefon";
+            telefon.Width = 200;
+            // 
+            // drzava
+            // 
+            drzava.Text = "Drzava";
+            drzava.Width = 220;
+            // 
+            // email
+            // 
+            email.Text = "Email";
+            email.Width = 220;
+            // 
+            // status_aranzmana
+            // 
+            status_aranzmana.Text = "Status aranzmana";
+            status_aranzmana.Width = 200;
+            // 
+            // dodajigracabtn
+            // 
+            dodajigracabtn.Location = new Point(2439, 143);
+            dodajigracabtn.Name = "dodajigracabtn";
+            dodajigracabtn.Size = new Size(221, 99);
+            dodajigracabtn.TabIndex = 1;
+            dodajigracabtn.Text = "Dodaj igraca";
+            dodajigracabtn.UseVisualStyleBackColor = true;
+            dodajigracabtn.Click += dodajigracabtn_Click;
+            // 
+            // izmeniigracabtn
+            // 
+            izmeniigracabtn.Location = new Point(2439, 286);
+            izmeniigracabtn.Name = "izmeniigracabtn";
+            izmeniigracabtn.Size = new Size(221, 99);
+            izmeniigracabtn.TabIndex = 2;
+            izmeniigracabtn.Text = "Izmeni igraca";
+            izmeniigracabtn.UseVisualStyleBackColor = true;
+            izmeniigracabtn.Click += izmeniigracabtn_Click;
+            // 
+            // obrisiigracabtn
+            // 
+            obrisiigracabtn.Location = new Point(2439, 430);
+            obrisiigracabtn.Name = "obrisiigracabtn";
+            obrisiigracabtn.Size = new Size(221, 99);
+            obrisiigracabtn.TabIndex = 3;
+            obrisiigracabtn.Text = "Obrisi igraca";
+            obrisiigracabtn.UseVisualStyleBackColor = true;
+            obrisiigracabtn.Click += obrisiigracabtn_Click;
+            // 
+            // IgracForma
+            // 
+            AutoScaleDimensions = new SizeF(17F, 41F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(2806, 1063);
+            Controls.Add(obrisiigracabtn);
+            Controls.Add(izmeniigracabtn);
+            Controls.Add(dodajigracabtn);
+            Controls.Add(listViewIgraci);
+            Name = "IgracForma";
+            Text = "IgracForma";
+            Load += IgracForma_Load;
+            ResumeLayout(false);
+        }
+
+        #endregion
+
+        private ListView listViewIgraci;
+        private ColumnHeader ID;
+        private ColumnHeader ime;
+        private ColumnHeader prezime;
+        private ColumnHeader nadimak;
+        private ColumnHeader primarnauloga;
+        private ColumnHeader sekundarna_uloga;
+        private ColumnHeader dominantanstiligre;
+        private ColumnHeader rang;
+        private ColumnHeader telefon;
+        private ColumnHeader drzava;
+        private ColumnHeader email;
+        private ColumnHeader status_aranzmana;
+        private Button dodajigracabtn;
+        private Button izmeniigracabtn;
+        private Button obrisiigracabtn;
+    }
+}

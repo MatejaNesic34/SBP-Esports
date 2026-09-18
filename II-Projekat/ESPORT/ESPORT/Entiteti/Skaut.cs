@@ -8,7 +8,6 @@ namespace ESPORT.Entiteti
 {
     public class Skaut : Osoba
     {
-        // Many-to-One
         public virtual Igra Igra { get; set; }
     }
 }

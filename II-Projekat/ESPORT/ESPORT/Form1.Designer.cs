@@ -38,60 +38,61 @@
             // 
             // osobebtn
             // 
-            osobebtn.Location = new Point(74, 51);
-            osobebtn.Margin = new Padding(1, 1, 1, 1);
+            osobebtn.Location = new Point(157, 105);
+            osobebtn.Margin = new Padding(2, 2, 2, 2);
             osobebtn.Name = "osobebtn";
-            osobebtn.Size = new Size(115, 28);
+            osobebtn.Size = new Size(244, 57);
             osobebtn.TabIndex = 0;
             osobebtn.Text = "Osobe";
             osobebtn.UseVisualStyleBackColor = true;
+            osobebtn.Click += osobebtn_Click;
             // 
             // timbtn
             // 
-            timbtn.Location = new Point(74, 103);
-            timbtn.Margin = new Padding(1, 1, 1, 1);
+            timbtn.Location = new Point(157, 211);
+            timbtn.Margin = new Padding(2, 2, 2, 2);
             timbtn.Name = "timbtn";
-            timbtn.Size = new Size(115, 28);
+            timbtn.Size = new Size(244, 57);
             timbtn.TabIndex = 1;
             timbtn.Text = "Tim";
             timbtn.UseVisualStyleBackColor = true;
             // 
             // takmicenjebtn
             // 
-            takmicenjebtn.Location = new Point(74, 156);
-            takmicenjebtn.Margin = new Padding(1, 1, 1, 1);
+            takmicenjebtn.Location = new Point(157, 320);
+            takmicenjebtn.Margin = new Padding(2, 2, 2, 2);
             takmicenjebtn.Name = "takmicenjebtn";
-            takmicenjebtn.Size = new Size(115, 28);
+            takmicenjebtn.Size = new Size(244, 57);
             takmicenjebtn.TabIndex = 2;
             takmicenjebtn.Text = "Takmicenje";
             takmicenjebtn.UseVisualStyleBackColor = true;
             // 
             // Mecbtn
             // 
-            Mecbtn.Location = new Point(74, 206);
-            Mecbtn.Margin = new Padding(1, 1, 1, 1);
+            Mecbtn.Location = new Point(157, 422);
+            Mecbtn.Margin = new Padding(2, 2, 2, 2);
             Mecbtn.Name = "Mecbtn";
-            Mecbtn.Size = new Size(115, 28);
+            Mecbtn.Size = new Size(244, 57);
             Mecbtn.TabIndex = 3;
             Mecbtn.Text = "Mec";
             Mecbtn.UseVisualStyleBackColor = true;
             // 
             // sponzorbtn
             // 
-            sponzorbtn.Location = new Point(75, 256);
-            sponzorbtn.Margin = new Padding(1, 1, 1, 1);
+            sponzorbtn.Location = new Point(159, 525);
+            sponzorbtn.Margin = new Padding(2, 2, 2, 2);
             sponzorbtn.Name = "sponzorbtn";
-            sponzorbtn.Size = new Size(114, 28);
+            sponzorbtn.Size = new Size(242, 57);
             sponzorbtn.TabIndex = 4;
             sponzorbtn.Text = "Sponzor";
             sponzorbtn.UseVisualStyleBackColor = true;
             // 
             // igrebtn
             // 
-            igrebtn.Location = new Point(76, 303);
-            igrebtn.Margin = new Padding(1, 1, 1, 1);
+            igrebtn.Location = new Point(162, 621);
+            igrebtn.Margin = new Padding(2, 2, 2, 2);
             igrebtn.Name = "igrebtn";
-            igrebtn.Size = new Size(113, 28);
+            igrebtn.Size = new Size(240, 57);
             igrebtn.TabIndex = 5;
             igrebtn.Text = "Igre";
             igrebtn.UseVisualStyleBackColor = true;
@@ -99,16 +100,16 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(553, 376);
+            ClientSize = new Size(1175, 771);
             Controls.Add(igrebtn);
             Controls.Add(sponzorbtn);
             Controls.Add(Mecbtn);
             Controls.Add(takmicenjebtn);
             Controls.Add(timbtn);
             Controls.Add(osobebtn);
-            Margin = new Padding(1, 1, 1, 1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);

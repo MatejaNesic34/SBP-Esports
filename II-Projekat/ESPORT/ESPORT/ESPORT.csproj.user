@@ -4,13 +4,73 @@
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\AnaliticarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajAnaliticaraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajFizioForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajIgracaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\DodajIgreForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajMenadzeraForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajPsihologaForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajTreneraForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\Fizioterapeutforma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IgracForma.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\IgreForma.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\IzmeniAnaliticaraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniFizioForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniIgracaForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\IzmeniIgruForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniMenadzerForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniPsihologaForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniTreneraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\MenadzerForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\OsobaForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\PsihologForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\SkautForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\TrenerForma.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

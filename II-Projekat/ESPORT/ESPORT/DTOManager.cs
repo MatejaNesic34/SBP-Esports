@@ -4,9 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static ESPORT.AnaliticarDTO;
-using static ESPORT.IgracDTO;
+using static ESPORT.DogadjajNaMecuDTO;
+using static ESPORT.FazaTakmicenjaDTO;
 using static ESPORT.IgraDTO;
+using static ESPORT.IgracDTO;
+using static ESPORT.LigaDTO;
+using static ESPORT.MecDTO;
 using static ESPORT.OsobaDTO;
+using static ESPORT.TakmicenjeDTO;
+using static ESPORT.TimDTO;
+using static ESPORT.TurnirDTO;
+using static ESPORT.UcesceTimaUFaziDTO;
 
 namespace ESPORT
 {
@@ -147,7 +155,7 @@ namespace ESPORT
                 MessageBox.Show($"Greška pri ažuriranju igre: {ec.Message}\nInner: {ec.InnerException?.Message}");
             }
 
-            
+
         }
 
         public static List<OsobaPregled> vratiSveOsobe()
@@ -1692,6 +1700,2487 @@ namespace ESPORT
                 MessageBox.Show($"Greška pri brisanju skauta: {ec.Message}\nInner: {ec.InnerException?.Message}");
             }
         }
+
+        public static List<TakmicenjePregled> vratiSvaTakmicenja()
+        {
+            List<TakmicenjePregled> takmicenja =
+                new List<TakmicenjePregled>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<ESPORT.Entiteti.Takmicenje> svaTakmicenja =
+                    from t in s.Query<ESPORT.Entiteti.Takmicenje>()
+                    select t;
+
+                foreach (ESPORT.Entiteti.Takmicenje t in svaTakmicenja)
+                {
+                    takmicenja.Add(
+                        new TakmicenjePregled(
+                            t.TakmicenjeId,
+                            t.Naziv,
+                            t.Organizator,
+                            t.TipTakmicenja,
+                            t.Igra != null ? t.Igra.Naziv : "",
+                            t.Region,
+                            t.Lokacija,
+                            t.FormatTakmicenja,
+                            t.DatumPocetka,
+                            t.DatumZavrsetka,
+                            t.NagradniFond,
+                            t.ValutaNagrade,
+                            t.Status
+                        )
+                    );
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška u DTOManager-u: {ec.Message}");
+            }
+
+            return takmicenja;
+        }
+
+        public static bool dodajTakmicenje(TakmicenjeDTO.TakmicenjeBasic t)
+        {
+            try
+            {
+                if (t == null)
+                {
+                    MessageBox.Show(
+                        "Podaci o takmičenju nisu prosleđeni.",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(t.Naziv))
+                {
+                    MessageBox.Show(
+                        "Naziv takmičenja je obavezan.",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(t.Organizator))
+                {
+                    MessageBox.Show(
+                        "Organizator je obavezan.",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(t.TipTakmicenja))
+                {
+                    MessageBox.Show(
+                        "Tip takmičenja je obavezan.",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (t.TipTakmicenja != "Liga" &&
+                    t.TipTakmicenja != "Turnir")
+                {
+                    MessageBox.Show(
+                        "Tip takmičenja mora biti 'Liga' ili 'Turnir'.",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (t.IgraId <= 0)
+                {
+                    MessageBox.Show(
+                        "Igra je obavezna.",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (t.DatumZavrsetka < t.DatumPocetka)
+                {
+                    MessageBox.Show(
+                        "Datum završetka ne može biti pre datuma početka.",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(t.Status))
+                {
+                    MessageBox.Show(
+                        "Status takmičenja je obavezan.",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (t.Status != "Najava" &&
+                    t.Status != "U toku" &&
+                    t.Status != "Završeno" &&
+                    t.Status != "Otkazano")
+                {
+                    MessageBox.Show(
+                        "Status mora biti 'Najava', 'U toku', 'Završeno' ili 'Otkazano'.",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Igra igra =
+                    s.Get<ESPORT.Entiteti.Igra>(t.IgraId);
+
+                if (igra == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Izabrana igra ne postoji.",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ESPORT.Entiteti.Takmicenje o =
+                    new ESPORT.Entiteti.Takmicenje();
+
+                o.Naziv = t.Naziv;
+                o.Organizator = t.Organizator;
+                o.TipTakmicenja = t.TipTakmicenja;
+                o.Region = t.Region;
+                o.Lokacija = t.Lokacija;
+                o.FormatTakmicenja = t.FormatTakmicenja;
+                o.DatumPocetka = t.DatumPocetka;
+                o.DatumZavrsetka = t.DatumZavrsetka;
+                o.NagradniFond = t.NagradniFond;
+                o.ValutaNagrade = t.ValutaNagrade;
+                o.Status = t.Status;
+                o.Igra = igra;
+
+                s.SaveOrUpdate(o);
+
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška pri dodavanju takmičenja: {ec.Message}\n" +
+                    $"Inner: {ec.InnerException?.Message}",
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static void obrisiTakmicenje(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Takmicenje o =
+                    s.Load<ESPORT.Entiteti.Takmicenje>(id);
+
+                s.Delete(o);
+
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška pri brisanju takmičenja: {ec.Message}\n" +
+                    $"Inner: {ec.InnerException?.Message}");
+            }
+        }
+
+        public static bool azurirajTakmicenje(
+    TakmicenjeDTO.TakmicenjeBasic t)
+        {
+            try
+            {
+                if (t == null)
+                {
+                    MessageBox.Show(
+                        "Podaci o takmičenju nisu prosleđeni.",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(t.Naziv))
+                {
+                    MessageBox.Show(
+                        "Naziv takmičenja je obavezan.",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(t.Organizator))
+                {
+                    MessageBox.Show(
+                        "Organizator je obavezan.",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(t.TipTakmicenja))
+                {
+                    MessageBox.Show(
+                        "Tip takmičenja je obavezan.",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (t.TipTakmicenja != "Liga" &&
+                    t.TipTakmicenja != "Turnir")
+                {
+                    MessageBox.Show(
+                        "Tip takmičenja mora biti 'Liga' ili 'Turnir'.",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (t.IgraId <= 0)
+                {
+                    MessageBox.Show(
+                        "Igra je obavezna.",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (t.DatumZavrsetka < t.DatumPocetka)
+                {
+                    MessageBox.Show(
+                        "Datum završetka ne može biti pre datuma početka.",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(t.Status))
+                {
+                    MessageBox.Show(
+                        "Status takmičenja je obavezan.",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (t.Status != "Najava" &&
+                    t.Status != "U toku" &&
+                    t.Status != "Završeno" &&
+                    t.Status != "Otkazano")
+                {
+                    MessageBox.Show(
+                        "Status mora biti 'Najava', 'U toku', 'Završeno' ili 'Otkazano'.",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Takmicenje o =
+                    s.Get<ESPORT.Entiteti.Takmicenje>(t.TakmicenjeId);
+
+                if (o == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Takmičenje ne postoji.",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ESPORT.Entiteti.Igra igra =
+                    s.Get<ESPORT.Entiteti.Igra>(t.IgraId);
+
+                if (igra == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Izabrana igra ne postoji.",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                o.Naziv = t.Naziv;
+                o.Organizator = t.Organizator;
+                o.TipTakmicenja = t.TipTakmicenja;
+                o.Region = t.Region;
+                o.Lokacija = t.Lokacija;
+                o.FormatTakmicenja = t.FormatTakmicenja;
+                o.DatumPocetka = t.DatumPocetka;
+                o.DatumZavrsetka = t.DatumZavrsetka;
+                o.NagradniFond = t.NagradniFond;
+                o.ValutaNagrade = t.ValutaNagrade;
+                o.Status = t.Status;
+                o.Igra = igra;
+
+                s.Update(o);
+
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška pri ažuriranju takmičenja: {ec.Message}\n" +
+                    $"Inner: {ec.InnerException?.Message}",
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static TakmicenjeDTO.TakmicenjeBasic vratiTakmicenje(int id)
+        {
+            TakmicenjeDTO.TakmicenjeBasic tb =
+                new TakmicenjeDTO.TakmicenjeBasic();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Takmicenje o =
+                    s.Load<ESPORT.Entiteti.Takmicenje>(id);
+
+                tb = new TakmicenjeDTO.TakmicenjeBasic(
+                    o.TakmicenjeId,
+                    o.Naziv,
+                    o.Organizator,
+                    o.TipTakmicenja,
+                    o.Igra != null ? o.Igra.IgraId : 0,
+                    o.Region,
+                    o.Lokacija,
+                    o.FormatTakmicenja,
+                    o.DatumPocetka,
+                    o.DatumZavrsetka,
+                    o.NagradniFond,
+                    o.ValutaNagrade,
+                    o.Status
+                );
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška pri učitavanju takmičenja: {ec.Message}");
+            }
+
+            return tb;
+        }
+
+        public static List<LigaDTO.LigaPregled> vratiSveLige()
+        {
+            List<LigaDTO.LigaPregled> lige = new List<LigaDTO.LigaPregled>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<ESPORT.Entiteti.Liga> sveLige =
+                    from l in s.Query<ESPORT.Entiteti.Liga>()
+                    where l.TipTakmicenja == "Liga"
+                    select l;
+
+                foreach (ESPORT.Entiteti.Liga l in sveLige)
+                {
+                    lige.Add(new LigaDTO.LigaPregled(
+                        l.TakmicenjeId,
+                        l.Naziv,
+                        l.Organizator,
+                        l.Igra.Naziv,
+                        l.Region,
+                        l.Lokacija,
+                        l.FormatTakmicenja,
+                        l.DatumPocetka,
+                        l.DatumZavrsetka,
+                        l.NagradniFond,
+                        l.ValutaNagrade,
+                        l.Status,
+                        l.SistemBodovanja));
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška pri učitavanju liga: {ec.Message}\n" +
+                    $"Inner: {ec.InnerException?.Message}",
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            return lige;
+        }
+
+        public static bool dodajLigu(LigaDTO.LigaBasic l)
+        {
+            try
+            {
+                if (l == null)
+                {
+                    MessageBox.Show(
+                        "Podaci o ligi nisu prosleđeni!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (l.TakmicenjeId <= 0)
+                {
+                    MessageBox.Show(
+                        "ID takmičenja mora biti pozitivan broj!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(l.SistemBodovanja))
+                {
+                    MessageBox.Show(
+                        "Sistem bodovanja je obavezan!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ISession s = DataLayer.GetSession();
+
+                string tipTakmicenja =
+                    s.CreateSQLQuery(
+                        "SELECT TIP_TAKMICENJA FROM TAKMICENJE WHERE TAKMICENJE_ID = :id")
+                    .SetParameter("id", l.TakmicenjeId)
+                    .UniqueResult<string>();
+
+                if (tipTakmicenja == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Takmičenje sa tim ID-em ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (tipTakmicenja != "Liga")
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Izabrano takmičenje nije tipa Liga!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                int postoji =
+                    Convert.ToInt32(
+                        s.CreateSQLQuery(
+                            "SELECT COUNT(*) FROM LIGA WHERE TAKMICENJE_ID = :id")
+                        .SetParameter("id", l.TakmicenjeId)
+                        .UniqueResult());
+
+                if (postoji > 0)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Ovo takmičenje je već dodato kao liga!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                s.CreateSQLQuery(
+                        "INSERT INTO LIGA (TAKMICENJE_ID, SISTEM_BODOVANJA) " +
+                        "VALUES (:id, :sistem)")
+                    .SetParameter("id", l.TakmicenjeId)
+                    .SetParameter("sistem", l.SistemBodovanja)
+                    .ExecuteUpdate();
+
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška pri dodavanju lige: {ec.Message}\n" +
+                    $"Inner: {ec.InnerException?.Message}",
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static LigaDTO.LigaBasic vratiLigu(int id)
+        {
+            LigaDTO.LigaBasic lb = new LigaDTO.LigaBasic();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Liga liga =
+                    s.Load<ESPORT.Entiteti.Liga>(id);
+
+                lb = new LigaDTO.LigaBasic(
+                    liga.TakmicenjeId,
+                    liga.SistemBodovanja);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška pri učitavanju liga: {ec.Message}\n" +
+                    $"Inner: {ec.InnerException?.Message}",
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            return lb;
+        }
+
+        public static void obrisiLigu(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Liga liga =
+                    s.Load<ESPORT.Entiteti.Liga>(id);
+
+                s.Delete(liga);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška pri brisanju lige: {ec.Message}\n" +
+                    $"Inner: {ec.InnerException?.Message}",
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        public static bool azurirajLigu(LigaDTO.LigaBasic l)
+        {
+            try
+            {
+                if (l == null)
+                {
+                    MessageBox.Show(
+                        "Podaci o ligi nisu prosleđeni!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (l.TakmicenjeId <= 0)
+                {
+                    MessageBox.Show(
+                        "ID takmičenja mora biti pozitivan broj!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(l.SistemBodovanja))
+                {
+                    MessageBox.Show(
+                        "Sistem bodovanja je obavezan!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Liga liga =
+                    s.Get<ESPORT.Entiteti.Liga>(l.TakmicenjeId);
+
+                if (liga == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Liga sa tim ID-em ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                liga.SistemBodovanja = l.SistemBodovanja;
+
+                s.Update(liga);
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška pri ažuriranju lige: {ec.Message}\n" +
+                    $"Inner: {ec.InnerException?.Message}",
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static List<TurnirDTO.TurnirPregled> vratiSveTurnire()
+        {
+            List<TurnirDTO.TurnirPregled> turniri =
+                new List<TurnirDTO.TurnirPregled>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<ESPORT.Entiteti.Turnir> sviTurniri =
+                    from t in s.Query<ESPORT.Entiteti.Turnir>()
+                    where t.TipTakmicenja == "Turnir"
+                    select t;
+
+                foreach (ESPORT.Entiteti.Turnir t in sviTurniri)
+                {
+                    turniri.Add(new TurnirDTO.TurnirPregled(
+                        t.TakmicenjeId,
+                        t.Naziv,
+                        t.Organizator,
+                        t.Igra.Naziv,
+                        t.Region,
+                        t.Lokacija,
+                        t.FormatTakmicenja,
+                        t.DatumPocetka,
+                        t.DatumZavrsetka,
+                        t.NagradniFond,
+                        t.ValutaNagrade,
+                        t.Status,
+                        t.TipKostura,
+                        t.PravilaNapredovanja,
+                        t.BrojMecevaPoRundi));
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            return turniri;
+        }
+
+        public static bool dodajTurnir(TurnirDTO.TurnirBasic t)
+        {
+            try
+            {
+                if (t == null)
+                {
+                    MessageBox.Show(
+                        "Podaci o turniru nisu prosleđeni!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (t.TakmicenjeId <= 0)
+                {
+                    MessageBox.Show(
+                        "ID takmičenja mora biti pozitivan broj!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(t.TipKostura))
+                {
+                    MessageBox.Show(
+                        "Tip kostura je obavezan!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ISession s = DataLayer.GetSession();
+
+                string tipTakmicenja =
+                    s.CreateSQLQuery(
+                        "SELECT TIP_TAKMICENJA FROM TAKMICENJE WHERE TAKMICENJE_ID = :id")
+                    .SetParameter("id", t.TakmicenjeId)
+                    .UniqueResult<string>();
+
+                if (tipTakmicenja == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Takmičenje sa tim ID-em ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (tipTakmicenja != "Turnir")
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Izabrano takmičenje nije tipa Turnir!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                int postoji =
+                    Convert.ToInt32(
+                        s.CreateSQLQuery(
+                            "SELECT COUNT(*) FROM TURNIR WHERE TAKMICENJE_ID = :id")
+                        .SetParameter("id", t.TakmicenjeId)
+                        .UniqueResult());
+
+                if (postoji > 0)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Ovo takmičenje je već dodato kao turnir!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                s.CreateSQLQuery(
+                        "INSERT INTO TURNIR " +
+                        "(TAKMICENJE_ID, TIP_KOSTURA, PRAVILA_NAPREDOVANJA, BROJ_MECEVA_PO_RUNDI) " +
+                        "VALUES (:id, :tipKostura, :pravila, :brojMeceva)")
+                    .SetParameter("id", t.TakmicenjeId)
+                    .SetParameter("tipKostura", t.TipKostura)
+                    .SetParameter("pravila", t.PravilaNapredovanja)
+                    .SetParameter("brojMeceva", t.BrojMecevaPoRundi)
+                    .ExecuteUpdate();
+
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška pri dodavanju turnira: {ec.Message}\n" +
+                    $"Inner: {ec.InnerException?.Message}",
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static TurnirDTO.TurnirBasic vratiTurnir(int id)
+        {
+            TurnirDTO.TurnirBasic tb = new TurnirDTO.TurnirBasic();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Turnir turnir =
+                    s.Load<ESPORT.Entiteti.Turnir>(id);
+
+                tb = new TurnirDTO.TurnirBasic(
+                    turnir.TakmicenjeId,
+                    turnir.TipKostura,
+                    turnir.PravilaNapredovanja,
+                    turnir.BrojMecevaPoRundi);
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška pri učitavanju turnira: {ec.Message}\n" +
+                    $"Inner: {ec.InnerException?.Message}",
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            return tb;
+        }
+
+        public static void obrisiTurnir(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Turnir turnir =
+                    s.Load<ESPORT.Entiteti.Turnir>(id);
+
+                s.Delete(turnir);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška pri brisanju turnira: {ec.Message}\n" +
+                    $"Inner: {ec.InnerException?.Message}",
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        public static bool azurirajTurnir(
+     TurnirDTO.TurnirBasic t)
+        {
+            try
+            {
+                if (t == null)
+                {
+                    MessageBox.Show(
+                        "Podaci o turniru nisu prosleđeni!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (t.TakmicenjeId <= 0)
+                {
+                    MessageBox.Show(
+                        "ID takmičenja mora biti pozitivan broj!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(t.TipKostura))
+                {
+                    MessageBox.Show(
+                        "Tip kostura je obavezan!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Turnir turnir =
+                    s.Get<ESPORT.Entiteti.Turnir>(t.TakmicenjeId);
+
+                if (turnir == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Turnir sa tim ID-em ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                turnir.TipKostura = t.TipKostura;
+                turnir.PravilaNapredovanja = t.PravilaNapredovanja;
+                turnir.BrojMecevaPoRundi = t.BrojMecevaPoRundi;
+
+                s.Update(turnir);
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška pri ažuriranju turnira: {ec.Message}\n" +
+                    $"Inner: {ec.InnerException?.Message}",
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static List<FazaTakmicenjaDTO.FazaTakmicenjaPregled> vratiSveFaze()
+        {
+            List<FazaTakmicenjaDTO.FazaTakmicenjaPregled> faze =
+                new List<FazaTakmicenjaDTO.FazaTakmicenjaPregled>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<ESPORT.Entiteti.FazaTakmicenja> sveFaze =
+                    from f in s.Query<ESPORT.Entiteti.FazaTakmicenja>()
+                    select f;
+
+                foreach (ESPORT.Entiteti.FazaTakmicenja f in sveFaze)
+                {
+                    faze.Add(
+                        new FazaTakmicenjaDTO.FazaTakmicenjaPregled(
+                            f.FazaId,
+                            f.Turnir.TakmicenjeId,
+                            f.Turnir.Naziv,
+                            f.NazivFaze,
+                            f.RedniBroj,
+                            f.Nadfaza != null
+                                ? f.Nadfaza.FazaId
+                                : (int?)null));
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            return faze;
+        }
+
+        public static FazaTakmicenjaDTO.FazaTakmicenjaBasic vratiFazu(int id)
+        {
+            FazaTakmicenjaDTO.FazaTakmicenjaBasic faza = null;
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.FazaTakmicenja f =
+                    s.Get<ESPORT.Entiteti.FazaTakmicenja>(id);
+
+                if (f != null)
+                {
+                    faza =
+                        new FazaTakmicenjaDTO.FazaTakmicenjaBasic(
+                            f.FazaId,
+                            f.Turnir.TakmicenjeId,
+                            f.NazivFaze,
+                            f.RedniBroj,
+                            f.Nadfaza != null
+                                ? f.Nadfaza.FazaId
+                                : (int?)null);
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            return faza;
+        }
+
+        public static bool dodajFazu(
+     FazaTakmicenjaDTO.FazaTakmicenjaBasic f)
+        {
+            try
+            {
+                if (f == null)
+                {
+                    MessageBox.Show(
+                        "Podaci o fazi nisu prosleđeni!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (f.TakmicenjeId <= 0)
+                {
+                    MessageBox.Show(
+                        "ID takmičenja mora biti pozitivan broj!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(f.NazivFaze))
+                {
+                    MessageBox.Show(
+                        "Naziv faze je obavezan!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (f.RedniBroj <= 0)
+                {
+                    MessageBox.Show(
+                        "Redni broj mora biti veći od 0!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ISession s = DataLayer.GetSession();
+
+                int postojiTurnir =
+                    Convert.ToInt32(
+                        s.CreateSQLQuery(
+                            "SELECT COUNT(*) " +
+                            "FROM TURNIR " +
+                            "WHERE TAKMICENJE_ID = :id")
+                        .SetParameter("id", f.TakmicenjeId)
+                        .UniqueResult());
+
+                if (postojiTurnir == 0)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Izabrano takmičenje nije turnir ili ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                int postojiFaza =
+                    Convert.ToInt32(
+                        s.CreateSQLQuery(
+                            "SELECT COUNT(*) " +
+                            "FROM FAZA_TAKMICENJA " +
+                            "WHERE FAZA_ID = :id")
+                        .SetParameter("id", f.FazaId)
+                        .UniqueResult());
+
+                if (postojiFaza > 0)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Faza sa tim ID-em već postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ESPORT.Entiteti.FazaTakmicenja novaFaza =
+                    new ESPORT.Entiteti.FazaTakmicenja();
+
+                novaFaza.NazivFaze = f.NazivFaze;
+                novaFaza.RedniBroj = f.RedniBroj;
+
+                novaFaza.Turnir =
+                    s.Get<ESPORT.Entiteti.Turnir>(f.TakmicenjeId);
+
+                if (f.NadfazaId.HasValue)
+                {
+                    if (f.NadfazaId.Value <= 0)
+                    {
+                        s.Close();
+
+                        MessageBox.Show(
+                            "ID nadfaze nije ispravan!",
+                            "Greška",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+
+                        return false;
+                    }
+
+                    novaFaza.Nadfaza =
+                        s.Get<ESPORT.Entiteti.FazaTakmicenja>(
+                            f.NadfazaId.Value);
+
+                    if (novaFaza.Nadfaza == null)
+                    {
+                        s.Close();
+
+                        MessageBox.Show(
+                            "Izabrana nadfaza ne postoji!",
+                            "Greška",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+
+                        return false;
+                    }
+
+                    if (novaFaza.Nadfaza.Turnir.TakmicenjeId !=
+                        f.TakmicenjeId)
+                    {
+                        s.Close();
+
+                        MessageBox.Show(
+                            "Nadfaza mora pripadati istom turniru!",
+                            "Greška",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+
+                        return false;
+                    }
+                }
+
+                s.Save(novaFaza);
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška pri dodavanju faze: {ec.Message}\n" +
+                    $"Inner: {ec.InnerException?.Message}",
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static bool azurirajFazu(
+     FazaTakmicenjaDTO.FazaTakmicenjaBasic f)
+        {
+            try
+            {
+                if (f == null)
+                {
+                    MessageBox.Show(
+                        "Podaci o fazi nisu prosleđeni!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (f.FazaId <= 0)
+                {
+                    MessageBox.Show(
+                        "ID faze mora biti pozitivan broj!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (f.TakmicenjeId <= 0)
+                {
+                    MessageBox.Show(
+                        "ID turnira mora biti pozitivan broj!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(f.NazivFaze))
+                {
+                    MessageBox.Show(
+                        "Naziv faze je obavezan!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (f.RedniBroj <= 0)
+                {
+                    MessageBox.Show(
+                        "Redni broj mora biti veći od 0!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.FazaTakmicenja faza =
+                    s.Get<ESPORT.Entiteti.FazaTakmicenja>(f.FazaId);
+
+                if (faza == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Faza ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                int postojiTurnir =
+                    Convert.ToInt32(
+                        s.CreateSQLQuery(
+                            "SELECT COUNT(*) " +
+                            "FROM TURNIR " +
+                            "WHERE TAKMICENJE_ID = :id")
+                        .SetParameter("id", f.TakmicenjeId)
+                        .UniqueResult());
+
+                if (postojiTurnir == 0)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Izabrano takmičenje nije turnir ili ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (f.NadfazaId.HasValue &&
+                    f.NadfazaId.Value == f.FazaId)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Faza ne može biti sama sebi nadfaza!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                faza.NazivFaze = f.NazivFaze;
+                faza.RedniBroj = f.RedniBroj;
+
+                if (f.NadfazaId.HasValue)
+                {
+                    faza.Nadfaza =
+                        s.Get<ESPORT.Entiteti.FazaTakmicenja>(
+                            f.NadfazaId.Value);
+
+                    if (faza.Nadfaza == null)
+                    {
+                        s.Close();
+
+                        MessageBox.Show(
+                            "Izabrana nadfaza ne postoji!",
+                            "Greška",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+
+                        return false;
+                    }
+
+                    if (faza.Nadfaza.Turnir.TakmicenjeId !=
+                        f.TakmicenjeId)
+                    {
+                        s.Close();
+
+                        MessageBox.Show(
+                            "Nadfaza mora pripadati istom turniru!",
+                            "Greška",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+
+                        return false;
+                    }
+                }
+                else
+                {
+                    faza.Nadfaza = null;
+                }
+
+                s.Update(faza);
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška pri ažuriranju faze: {ec.Message}\n" +
+                    $"Inner: {ec.InnerException?.Message}",
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static bool obrisiFazu(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.FazaTakmicenja faza =
+                    s.Get<ESPORT.Entiteti.FazaTakmicenja>(id);
+
+                if (faza == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Faza ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                s.Delete(faza);
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static List<MecDTO.MecPregled> vratiSveMeceve()
+        {
+            List<MecDTO.MecPregled> mecevi =
+                new List<MecDTO.MecPregled>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<ESPORT.Entiteti.Mec> sviMecevi =
+                    from m in s.Query<ESPORT.Entiteti.Mec>()
+                    select m;
+
+                foreach (ESPORT.Entiteti.Mec m in sviMecevi)
+                {
+                    mecevi.Add(
+                        new MecDTO.MecPregled(
+                            m.MecId,
+                            m.Takmicenje.TakmicenjeId,
+                            m.Takmicenje.Naziv,
+                            m.RedniBroj,
+                            m.DatumVremePocetka,
+                            m.FormatMeca,
+                            m.BrojOdigranihMapa,
+                            m.Rezultat,
+                            m.Trajanje,
+                            m.LokacijaIgranja,
+                            m.Sudije,
+                            m.StatusMeca));
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            return mecevi;
+        }
+
+        public static bool dodajMec(MecDTO.MecBasic m)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Takmicenje takmicenje =
+                    s.Get<ESPORT.Entiteti.Takmicenje>(
+                        m.TakmicenjeId);
+
+                if (takmicenje == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Takmičenje sa tim ID-em ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ESPORT.Entiteti.Mec noviMec =
+                    new ESPORT.Entiteti.Mec();
+
+                noviMec.Takmicenje = takmicenje;
+                noviMec.RedniBroj = m.RedniBroj;
+                noviMec.DatumVremePocetka = m.DatumVremePocetka;
+                noviMec.FormatMeca = m.FormatMeca;
+                noviMec.BrojOdigranihMapa = m.BrojOdigranihMapa;
+                noviMec.Rezultat = m.Rezultat;
+                noviMec.Trajanje = m.Trajanje;
+                noviMec.LokacijaIgranja = m.LokacijaIgranja;
+                noviMec.Sudije = m.Sudije;
+                noviMec.StatusMeca = m.StatusMeca;
+
+                s.Save(noviMec);
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.ToString(),
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static MecDTO.MecBasic vratiMec(int id)
+        {
+            MecDTO.MecBasic mec = null;
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Mec m =
+                    s.Get<ESPORT.Entiteti.Mec>(id);
+
+                if (m != null)
+                {
+                    mec =
+                        new MecDTO.MecBasic(
+                            m.MecId,
+                            m.Takmicenje.TakmicenjeId,
+                            m.RedniBroj,
+                            m.DatumVremePocetka,
+                            m.FormatMeca,
+                            m.BrojOdigranihMapa,
+                            m.Rezultat,
+                            m.Trajanje,
+                            m.LokacijaIgranja,
+                            m.Sudije,
+                            m.StatusMeca);
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            return mec;
+        }
+
+        public static bool azurirajMec(MecDTO.MecBasic m)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Mec mec =
+                    s.Get<ESPORT.Entiteti.Mec>(m.MecId);
+
+                if (mec == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Meč ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ESPORT.Entiteti.Takmicenje takmicenje =
+                    s.Get<ESPORT.Entiteti.Takmicenje>(
+                        m.TakmicenjeId);
+
+                if (takmicenje == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Takmičenje sa tim ID-em ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                mec.Takmicenje = takmicenje;
+                mec.RedniBroj = m.RedniBroj;
+                mec.DatumVremePocetka = m.DatumVremePocetka;
+                mec.FormatMeca = m.FormatMeca;
+                mec.BrojOdigranihMapa = m.BrojOdigranihMapa;
+                mec.Rezultat = m.Rezultat;
+                mec.Trajanje = m.Trajanje;
+                mec.LokacijaIgranja = m.LokacijaIgranja;
+                mec.Sudije = m.Sudije;
+                mec.StatusMeca = m.StatusMeca;
+
+                s.Update(mec);
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static bool obrisiMec(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Mec mec =
+                    s.Get<ESPORT.Entiteti.Mec>(id);
+
+                if (mec == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Meč ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                s.Delete(mec);
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static List<DogadjajNaMecuDTO.DogadjajNaMecuPregled> vratiSveDogadjajeNaMecu()
+        {
+            List<DogadjajNaMecuDTO.DogadjajNaMecuPregled> dogadjaji =
+                new List<DogadjajNaMecuDTO.DogadjajNaMecuPregled>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<ESPORT.Entiteti.DogadjajNaMecu> sviDogadjaji =
+                    from d in s.Query<ESPORT.Entiteti.DogadjajNaMecu>()
+                    select d;
+
+                foreach (ESPORT.Entiteti.DogadjajNaMecu d in sviDogadjaji)
+                {
+                    dogadjaji.Add(
+                        new DogadjajNaMecuDTO.DogadjajNaMecuPregled(
+                            d.DogadjajId,
+                            d.Mec.MecId,
+                            d.Mec.RedniBroj,
+                            d.TipDogadjaja,
+                            d.VremeDogadjaja,
+                            d.Opis,
+                            d.OdlukaSudije));
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            return dogadjaji;
+        }
+
+        public static bool dodajDogadjajNaMecu(DogadjajNaMecuDTO.DogadjajNaMecuBasic d)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Mec mec =
+                    s.Get<ESPORT.Entiteti.Mec>(d.MecId);
+
+                if (mec == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Meč sa tim ID-em ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ESPORT.Entiteti.DogadjajNaMecu noviDogadjaj =
+                    new ESPORT.Entiteti.DogadjajNaMecu();
+
+                noviDogadjaj.Mec = mec;
+                noviDogadjaj.TipDogadjaja = d.TipDogadjaja;
+                noviDogadjaj.VremeDogadjaja = d.VremeDogadjaja;
+                noviDogadjaj.Opis = d.Opis;
+                noviDogadjaj.OdlukaSudije = d.OdlukaSudije;
+
+                s.Save(noviDogadjaj);
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                string poruka = ec.Message;
+
+                if (ec.InnerException != null)
+                    poruka += "\n\nDetalji:\n" + ec.InnerException.Message;
+
+                if (ec.InnerException?.InnerException != null)
+                    poruka += "\n\nOracle:\n" + ec.InnerException.InnerException.Message;
+
+                MessageBox.Show(
+                    poruka,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static DogadjajNaMecuDTO.DogadjajNaMecuBasic vratiDogadjajNaMecu(int id)
+        {
+            DogadjajNaMecuDTO.DogadjajNaMecuBasic dogadjaj = null;
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.DogadjajNaMecu d =
+                    s.Get<ESPORT.Entiteti.DogadjajNaMecu>(id);
+
+                if (d != null)
+                {
+                    dogadjaj =
+                        new DogadjajNaMecuDTO.DogadjajNaMecuBasic(
+                            d.DogadjajId,
+                            d.Mec.MecId,
+                            d.TipDogadjaja,
+                            d.VremeDogadjaja,
+                            d.Opis,
+                            d.OdlukaSudije);
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            return dogadjaj;
+        }
+
+        public static bool azurirajDogadjajNaMecu(DogadjajNaMecuDTO.DogadjajNaMecuBasic d)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.DogadjajNaMecu dogadjaj =
+                    s.Get<ESPORT.Entiteti.DogadjajNaMecu>(d.DogadjajId);
+
+                if (dogadjaj == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Događaj ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ESPORT.Entiteti.Mec mec =
+                    s.Get<ESPORT.Entiteti.Mec>(d.MecId);
+
+                if (mec == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Meč sa tim ID-em ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                dogadjaj.Mec = mec;
+                dogadjaj.TipDogadjaja = d.TipDogadjaja;
+                dogadjaj.VremeDogadjaja = d.VremeDogadjaja;
+                dogadjaj.Opis = d.Opis;
+                dogadjaj.OdlukaSudije = d.OdlukaSudije;
+
+                s.Update(dogadjaj);
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static bool obrisiDogadjajNaMecu(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.DogadjajNaMecu dogadjaj =
+                    s.Get<ESPORT.Entiteti.DogadjajNaMecu>(id);
+
+                if (dogadjaj == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Događaj ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                s.Delete(dogadjaj);
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static List<UcesceTimaUFaziDTO.UcescePregled> vratiSvaUcesca()
+        {
+            List<UcesceTimaUFaziDTO.UcescePregled> ucesca =
+                new List<UcesceTimaUFaziDTO.UcescePregled>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<ESPORT.Entiteti.UcesceTimaUFazi> svaUcesca =
+                    from u in s.Query<ESPORT.Entiteti.UcesceTimaUFazi>()
+                    select u;
+
+                foreach (ESPORT.Entiteti.UcesceTimaUFazi u in svaUcesca)
+                {
+                    ucesca.Add(
+                        new UcesceTimaUFaziDTO.UcescePregled(
+                            u.FazaId.FazaId,
+                            u.TimId.TimId,
+                            u.FazaId.NazivFaze,
+                            u.TimId.Naziv,
+                            u.Status,
+                            u.OstvareniRezultat,
+                            u.BrojPobeda,
+                            u.BrojPoraza,
+                            u.OsvojeniBodovi,
+                            u.KonacanPlasman));
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            return ucesca;
+        }
+
+        public static bool dodajUcesce(
+    UcesceTimaUFaziDTO.UcesceBasic u)
+        {
+            try
+            {
+                if (u == null)
+                {
+                    MessageBox.Show(
+                        "Podaci o učešću nisu prosleđeni!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (u.FazaId <= 0)
+                {
+                    MessageBox.Show(
+                        "ID faze mora biti pozitivan broj!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (u.TimId <= 0)
+                {
+                    MessageBox.Show(
+                        "ID tima mora biti pozitivan broj!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (!string.IsNullOrWhiteSpace(u.Status) &&
+                    u.Status != "Učestvuje" &&
+                    u.Status != "Kvalifikovan" &&
+                    u.Status != "Eliminisan" &&
+                    u.Status != "Diskvalifikovan")
+                {
+                    MessageBox.Show(
+                        "Status učešća nije ispravan!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (u.BrojPobeda < 0)
+                {
+                    MessageBox.Show(
+                        "Broj pobeda ne može biti negativan!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (u.BrojPoraza < 0)
+                {
+                    MessageBox.Show(
+                        "Broj poraza ne može biti negativan!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (u.OsvojeniBodovi < 0)
+                {
+                    MessageBox.Show(
+                        "Broj osvojenih bodova ne može biti negativan!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (u.KonacanPlasman.HasValue &&
+                    u.KonacanPlasman.Value <= 0)
+                {
+                    MessageBox.Show(
+                        "Konačan plasman mora biti veći od 0!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.FazaTakmicenja faza =
+                    s.Get<ESPORT.Entiteti.FazaTakmicenja>(
+                        u.FazaId);
+
+                if (faza == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Faza sa tim ID-em ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ESPORT.Entiteti.Tim tim =
+                    s.Get<ESPORT.Entiteti.Tim>(
+                        u.TimId);
+
+                if (tim == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Tim sa tim ID-em ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ESPORT.Entiteti.UcesceTimaUFazi postoji =
+                    s.Query<ESPORT.Entiteti.UcesceTimaUFazi>()
+                     .FirstOrDefault(x =>
+                         x.FazaId.FazaId == u.FazaId &&
+                         x.TimId.TimId == u.TimId);
+
+                if (postoji != null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Ovaj tim već učestvuje u izabranoj fazi!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ESPORT.Entiteti.UcesceTimaUFazi novoUcesce =
+                    new ESPORT.Entiteti.UcesceTimaUFazi();
+
+                novoUcesce.FazaId = faza;
+                novoUcesce.TimId = tim;
+                novoUcesce.Status = u.Status;
+                novoUcesce.OstvareniRezultat = u.OstvareniRezultat;
+                novoUcesce.BrojPobeda = u.BrojPobeda;
+                novoUcesce.BrojPoraza = u.BrojPoraza;
+                novoUcesce.OsvojeniBodovi = u.OsvojeniBodovi;
+                novoUcesce.KonacanPlasman = u.KonacanPlasman;
+
+                s.Save(novoUcesce);
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška pri dodavanju učešća: {ec.Message}\n" +
+                    $"Inner: {ec.InnerException?.Message}",
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static UcesceTimaUFaziDTO.UcesceBasic vratiUcesce(
+    int fazaId,
+    int timId)
+        {
+            UcesceTimaUFaziDTO.UcesceBasic ucesce = null;
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.UcesceTimaUFazi u =
+                    s.Query<ESPORT.Entiteti.UcesceTimaUFazi>()
+                     .FirstOrDefault(x =>
+                         x.FazaId.FazaId == fazaId &&
+                         x.TimId.TimId == timId);
+
+                if (u != null)
+                {
+                    ucesce =
+                        new UcesceTimaUFaziDTO.UcesceBasic(
+                            u.FazaId.FazaId,
+                            u.TimId.TimId,
+                            u.Status,
+                            u.OstvareniRezultat,
+                            u.BrojPobeda,
+                            u.BrojPoraza,
+                            u.OsvojeniBodovi,
+                            u.KonacanPlasman);
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            return ucesce;
+        }
+
+        public static bool azurirajUcesce(
+     UcesceTimaUFaziDTO.UcesceBasic u)
+        {
+            try
+            {
+                if (u == null)
+                {
+                    MessageBox.Show(
+                        "Podaci o učešću nisu prosleđeni!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (u.FazaId <= 0)
+                {
+                    MessageBox.Show(
+                        "ID faze mora biti pozitivan broj!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (u.TimId <= 0)
+                {
+                    MessageBox.Show(
+                        "ID tima mora biti pozitivan broj!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (!string.IsNullOrWhiteSpace(u.Status) &&
+                    u.Status != "Učestvuje" &&
+                    u.Status != "Kvalifikovan" &&
+                    u.Status != "Eliminisan" &&
+                    u.Status != "Diskvalifikovan")
+                {
+                    MessageBox.Show(
+                        "Status učešća nije ispravan!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (u.BrojPobeda < 0)
+                {
+                    MessageBox.Show(
+                        "Broj pobeda ne može biti negativan!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (u.BrojPoraza < 0)
+                {
+                    MessageBox.Show(
+                        "Broj poraza ne može biti negativan!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (u.OsvojeniBodovi < 0)
+                {
+                    MessageBox.Show(
+                        "Broj osvojenih bodova ne može biti negativan!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (u.KonacanPlasman.HasValue &&
+                    u.KonacanPlasman.Value <= 0)
+                {
+                    MessageBox.Show(
+                        "Konačan plasman mora biti veći od 0!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.UcesceTimaUFazi ucesce =
+                    s.Query<ESPORT.Entiteti.UcesceTimaUFazi>()
+                     .FirstOrDefault(x =>
+                         x.FazaId.FazaId == u.FazaId &&
+                         x.TimId.TimId == u.TimId);
+
+                if (ucesce == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Učešće ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ucesce.Status = u.Status;
+                ucesce.OstvareniRezultat = u.OstvareniRezultat;
+                ucesce.BrojPobeda = u.BrojPobeda;
+                ucesce.BrojPoraza = u.BrojPoraza;
+                ucesce.OsvojeniBodovi = u.OsvojeniBodovi;
+                ucesce.KonacanPlasman = u.KonacanPlasman;
+
+                s.Update(ucesce);
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška pri ažuriranju učešća: {ec.Message}\n" +
+                    $"Inner: {ec.InnerException?.Message}",
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static bool obrisiUcesce(
+    int fazaId,
+    int timId)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.UcesceTimaUFazi ucesce =
+                    s.Query<ESPORT.Entiteti.UcesceTimaUFazi>()
+                     .FirstOrDefault(x =>
+                         x.FazaId.FazaId == fazaId &&
+                         x.TimId.TimId == timId);
+
+                if (ucesce == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Učešće ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                s.Delete(ucesce);
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static List<TimDTO.TimPregled> vratiSveTimove()
+        {
+            List<TimDTO.TimPregled> timovi =
+                new List<TimDTO.TimPregled>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<ESPORT.Entiteti.Tim> sviTimovi =
+                    from t in s.Query<ESPORT.Entiteti.Tim>()
+                    select t;
+
+                foreach (ESPORT.Entiteti.Tim t in sviTimovi)
+                {
+                    timovi.Add(
+                        new TimDTO.TimPregled(
+                            t.TimId,
+                            t.Naziv));
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            return timovi;
+        }
     }
 }
-

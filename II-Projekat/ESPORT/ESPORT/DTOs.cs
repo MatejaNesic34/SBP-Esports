@@ -641,6 +641,602 @@ namespace ESPORT
             NazivIgre = nazivIgre;
         }
     }
+
+    public class TakmicenjeDTO
+    {
+        public class TakmicenjePregled
+        {
+            public int TakmicenjeId { get; set; }
+            public string Naziv { get; set; }
+            public string Organizator { get; set; }
+            public string TipTakmicenja { get; set; }
+            public string Igra { get; set; }
+            public string Region { get; set; }
+            public string Lokacija { get; set; }
+            public string FormatTakmicenja { get; set; }
+            public DateTime DatumPocetka { get; set; }
+            public DateTime DatumZavrsetka { get; set; }
+            public decimal NagradniFond { get; set; }
+            public string ValutaNagrade { get; set; }
+            public string Status { get; set; }
+
+            public TakmicenjePregled()
+            {
+            }
+
+            public TakmicenjePregled(
+                int takmicenjeId,
+                string naziv,
+                string organizator,
+                string tipTakmicenja,
+                string igra,
+                string region,
+                string lokacija,
+                string formatTakmicenja,
+                DateTime datumPocetka,
+                DateTime datumZavrsetka,
+                decimal nagradniFond,
+                string valutaNagrade,
+                string status)
+            {
+                TakmicenjeId = takmicenjeId;
+                Naziv = naziv;
+                Organizator = organizator;
+                TipTakmicenja = tipTakmicenja;
+                Igra = igra;
+                Region = region;
+                Lokacija = lokacija;
+                FormatTakmicenja = formatTakmicenja;
+                DatumPocetka = datumPocetka;
+                DatumZavrsetka = datumZavrsetka;
+                NagradniFond = nagradniFond;
+                ValutaNagrade = valutaNagrade;
+                Status = status;
+            }
+        }
+
+        public class TakmicenjeBasic
+        {
+            public int TakmicenjeId { get; set; }
+            public string Naziv { get; set; }
+            public string Organizator { get; set; }
+            public string TipTakmicenja { get; set; }
+            public int IgraId { get; set; }
+            public string Region { get; set; }
+            public string Lokacija { get; set; }
+            public string FormatTakmicenja { get; set; }
+            public DateTime DatumPocetka { get; set; }
+            public DateTime DatumZavrsetka { get; set; }
+            public decimal NagradniFond { get; set; }
+            public string ValutaNagrade { get; set; }
+            public string Status { get; set; }
+
+            public TakmicenjeBasic()
+            {
+            }
+
+            public TakmicenjeBasic(
+                int takmicenjeId,
+                string naziv,
+                string organizator,
+                string tipTakmicenja,
+                int igraId,
+                string region,
+                string lokacija,
+                string formatTakmicenja,
+                DateTime datumPocetka,
+                DateTime datumZavrsetka,
+                decimal nagradniFond,
+                string valutaNagrade,
+                string status)
+            {
+                TakmicenjeId = takmicenjeId;
+                Naziv = naziv;
+                Organizator = organizator;
+                TipTakmicenja = tipTakmicenja;
+                IgraId = igraId;
+                Region = region;
+                Lokacija = lokacija;
+                FormatTakmicenja = formatTakmicenja;
+                DatumPocetka = datumPocetka;
+                DatumZavrsetka = datumZavrsetka;
+                NagradniFond = nagradniFond;
+                ValutaNagrade = valutaNagrade;
+                Status = status;
+            }
+        }
+    }
+
+    public class LigaDTO
+    {
+        public class LigaPregled
+        {
+            public int TakmicenjeId { get; set; }
+            public string NazivTakmicenja { get; set; }
+            public string Organizator { get; set; }
+            public string Igra { get; set; }
+            public string Region { get; set; }
+            public string Lokacija { get; set; }
+            public string FormatTakmicenja { get; set; }
+            public DateTime DatumPocetka { get; set; }
+            public DateTime DatumZavrsetka { get; set; }
+            public decimal NagradniFond { get; set; }
+            public string ValutaNagrade { get; set; }
+            public string Status { get; set; }
+            public string SistemBodovanja { get; set; }
+
+            public LigaPregled()
+            {
+            }
+
+            public LigaPregled(
+                int takmicenjeId,
+                string nazivTakmicenja,
+                string organizator,
+                string igra,
+                string region,
+                string lokacija,
+                string formatTakmicenja,
+                DateTime datumPocetka,
+                DateTime datumZavrsetka,
+                decimal nagradniFond,
+                string valutaNagrade,
+                string status,
+                string sistemBodovanja)
+            {
+                TakmicenjeId = takmicenjeId;
+                NazivTakmicenja = nazivTakmicenja;
+                Organizator = organizator;
+                Igra = igra;
+                Region = region;
+                Lokacija = lokacija;
+                FormatTakmicenja = formatTakmicenja;
+                DatumPocetka = datumPocetka;
+                DatumZavrsetka = datumZavrsetka;
+                NagradniFond = nagradniFond;
+                ValutaNagrade = valutaNagrade;
+                Status = status;
+                SistemBodovanja = sistemBodovanja;
+            }
+        }
+
+        public class LigaBasic
+        {
+            public int TakmicenjeId { get; set; }
+            public string SistemBodovanja { get; set; }
+
+            public LigaBasic()
+            {
+            }
+
+            public LigaBasic(int takmicenjeId, string sistemBodovanja)
+            {
+                TakmicenjeId = takmicenjeId;
+                SistemBodovanja = sistemBodovanja;
+            }
+        }
+    }
+
+    public class TurnirDTO
+    {
+        public class TurnirPregled
+        {
+            public int TakmicenjeId { get; set; }
+            public string NazivTakmicenja { get; set; }
+            public string Organizator { get; set; }
+            public string Igra { get; set; }
+            public string Region { get; set; }
+            public string Lokacija { get; set; }
+            public string FormatTakmicenja { get; set; }
+            public DateTime DatumPocetka { get; set; }
+            public DateTime DatumZavrsetka { get; set; }
+            public decimal NagradniFond { get; set; }
+            public string ValutaNagrade { get; set; }
+            public string Status { get; set; }
+
+            public string TipKostura { get; set; }
+            public string PravilaNapredovanja { get; set; }
+            public string BrojMecevaPoRundi { get; set; }
+
+            public TurnirPregled()
+            {
+            }
+
+            public TurnirPregled(
+                int takmicenjeId,
+                string nazivTakmicenja,
+                string organizator,
+                string igra,
+                string region,
+                string lokacija,
+                string formatTakmicenja,
+                DateTime datumPocetka,
+                DateTime datumZavrsetka,
+                decimal nagradniFond,
+                string valutaNagrade,
+                string status,
+                string tipKostura,
+                string pravilaNapredovanja,
+                string brojMecevaPoRundi)
+            {
+                TakmicenjeId = takmicenjeId;
+                NazivTakmicenja = nazivTakmicenja;
+                Organizator = organizator;
+                Igra = igra;
+                Region = region;
+                Lokacija = lokacija;
+                FormatTakmicenja = formatTakmicenja;
+                DatumPocetka = datumPocetka;
+                DatumZavrsetka = datumZavrsetka;
+                NagradniFond = nagradniFond;
+                ValutaNagrade = valutaNagrade;
+                Status = status;
+                TipKostura = tipKostura;
+                PravilaNapredovanja = pravilaNapredovanja;
+                BrojMecevaPoRundi = brojMecevaPoRundi;
+            }
+        }
+
+        public class TurnirBasic
+        {
+            public int TakmicenjeId { get; set; }
+            public string TipKostura { get; set; }
+            public string PravilaNapredovanja { get; set; }
+            public string BrojMecevaPoRundi { get; set; }
+
+            public TurnirBasic()
+            {
+            }
+
+            public TurnirBasic(
+                int takmicenjeId,
+                string tipKostura,
+                string pravilaNapredovanja,
+                string brojMecevaPoRundi)
+            {
+                TakmicenjeId = takmicenjeId;
+                TipKostura = tipKostura;
+                PravilaNapredovanja = pravilaNapredovanja;
+                BrojMecevaPoRundi = brojMecevaPoRundi;
+            }
+        }
+    }
+
+    public class FazaTakmicenjaDTO
+    {
+        public class FazaTakmicenjaPregled
+        {
+            public int FazaId { get; set; }
+            public int TakmicenjeId { get; set; }
+            public string NazivTakmicenja { get; set; }
+            public string NazivFaze { get; set; }
+            public int RedniBroj { get; set; }
+            public int? NadfazaId { get; set; }
+
+            public string Prikaz { get; set; }
+
+            public FazaTakmicenjaPregled()
+            {
+            }
+
+            public FazaTakmicenjaPregled(
+                int fazaId,
+                int takmicenjeId,
+                string nazivTakmicenja,
+                string nazivFaze,
+                int redniBroj,
+                int? nadfazaId)
+            {
+                FazaId = fazaId;
+                TakmicenjeId = takmicenjeId;
+                NazivTakmicenja = nazivTakmicenja;
+                NazivFaze = nazivFaze;
+
+                Prikaz = $"{NazivTakmicenja} - {NazivFaze}";
+
+                RedniBroj = redniBroj;
+                NadfazaId = nadfazaId;
+            }
+        }
+
+        public class FazaTakmicenjaBasic
+        {
+            public int FazaId { get; set; }
+            public int TakmicenjeId { get; set; }
+            public string NazivFaze { get; set; }
+            public int RedniBroj { get; set; }
+            public int? NadfazaId { get; set; }
+
+            public FazaTakmicenjaBasic()
+            {
+            }
+
+            public FazaTakmicenjaBasic(
+                int fazaId,
+                int takmicenjeId,
+                string nazivFaze,
+                int redniBroj,
+                int? nadfazaId)
+            {
+                FazaId = fazaId;
+                TakmicenjeId = takmicenjeId;
+                NazivFaze = nazivFaze;
+                RedniBroj = redniBroj;
+                NadfazaId = nadfazaId;
+            }
+        }
+    }
+
+    public class MecDTO
+    {
+        public class MecPregled
+        {
+            public int MecId { get; set; }
+            public int TakmicenjeId { get; set; }
+            public string NazivTakmicenja { get; set; }
+
+            public int RedniBroj { get; set; }
+            public DateTime DatumVremePocetka { get; set; }
+            public string FormatMeca { get; set; }
+            public int BrojOdigranihMapa { get; set; }
+            public string Rezultat { get; set; }
+            public int? Trajanje { get; set; }
+            public string LokacijaIgranja { get; set; }
+            public string Sudije { get; set; }
+            public string StatusMeca { get; set; }
+
+            public string Prikaz
+            {
+                get
+                {
+                    return "Meč " + MecId +
+                           " - " + NazivTakmicenja +
+                           " - redni broj " + RedniBroj;
+                }
+            }
+
+            public MecPregled()
+            {
+            }
+
+            public MecPregled(
+                int mecId,
+                int takmicenjeId,
+                string nazivTakmicenja,
+                int redniBroj,
+                DateTime datumVremePocetka,
+                string formatMeca,
+                int brojOdigranihMapa,
+                string rezultat,
+                int? trajanje,
+                string lokacijaIgranja,
+                string sudije,
+                string statusMeca)
+            {
+                MecId = mecId;
+                TakmicenjeId = takmicenjeId;
+                NazivTakmicenja = nazivTakmicenja;
+                RedniBroj = redniBroj;
+                DatumVremePocetka = datumVremePocetka;
+                FormatMeca = formatMeca;
+                BrojOdigranihMapa = brojOdigranihMapa;
+                Rezultat = rezultat;
+                Trajanje = trajanje;
+                LokacijaIgranja = lokacijaIgranja;
+                Sudije = sudije;
+                StatusMeca = statusMeca;
+            }
+        }
+
+        public class MecBasic
+        {
+            public int MecId { get; set; }
+            public int TakmicenjeId { get; set; }
+
+            public int RedniBroj { get; set; }
+            public DateTime DatumVremePocetka { get; set; }
+            public string FormatMeca { get; set; }
+            public int BrojOdigranihMapa { get; set; }
+            public string Rezultat { get; set; }
+            public int? Trajanje { get; set; }
+            public string LokacijaIgranja { get; set; }
+            public string Sudije { get; set; }
+            public string StatusMeca { get; set; }
+
+
+            public MecBasic()
+            {
+            }
+
+            public MecBasic(
+                int mecId,
+                int takmicenjeId,
+                int redniBroj,
+                DateTime datumVremePocetka,
+                string formatMeca,
+                int brojOdigranihMapa,
+                string rezultat,
+                int? trajanje,
+                string lokacijaIgranja,
+                string sudije,
+                string statusMeca)
+            {
+                MecId = mecId;
+                TakmicenjeId = takmicenjeId;
+                RedniBroj = redniBroj;
+                DatumVremePocetka = datumVremePocetka;
+                FormatMeca = formatMeca;
+                BrojOdigranihMapa = brojOdigranihMapa;
+                Rezultat = rezultat;
+                Trajanje = trajanje;
+                LokacijaIgranja = lokacijaIgranja;
+                Sudije = sudije;
+                StatusMeca = statusMeca;
+            }
+        }
+    }
+
+    public class DogadjajNaMecuDTO
+    {
+        public class DogadjajNaMecuPregled
+        {
+            public int DogadjajId { get; set; }
+            public int MecId { get; set; }
+            public int RedniBrojMeca { get; set; }
+            public string TipDogadjaja { get; set; }
+            public DateTime VremeDogadjaja { get; set; }
+            public string Opis { get; set; }
+            public string OdlukaSudije { get; set; }
+
+            public DogadjajNaMecuPregled()
+            {
+            }
+
+            public DogadjajNaMecuPregled(
+                int dogadjajId,
+                int mecId,
+                int redniBrojMeca,
+                string tipDogadjaja,
+                DateTime vremeDogadjaja,
+                string opis,
+                string odlukaSudije)
+            {
+                DogadjajId = dogadjajId;
+                MecId = mecId;
+                RedniBrojMeca = redniBrojMeca;
+                TipDogadjaja = tipDogadjaja;
+                VremeDogadjaja = vremeDogadjaja;
+                Opis = opis;
+                OdlukaSudije = odlukaSudije;
+            }
+        }
+
+        public class DogadjajNaMecuBasic
+        {
+            public int DogadjajId { get; set; }
+            public int MecId { get; set; }
+            public string TipDogadjaja { get; set; }
+            public DateTime VremeDogadjaja { get; set; }
+            public string Opis { get; set; }
+            public string OdlukaSudije { get; set; }
+
+            public DogadjajNaMecuBasic()
+            {
+            }
+
+            public DogadjajNaMecuBasic(
+                int dogadjajId,
+                int mecId,
+                string tipDogadjaja,
+                DateTime vremeDogadjaja,
+                string opis,
+                string odlukaSudije)
+            {
+                DogadjajId = dogadjajId;
+                MecId = mecId;
+                TipDogadjaja = tipDogadjaja;
+                VremeDogadjaja = vremeDogadjaja;
+                Opis = opis;
+                OdlukaSudije = odlukaSudije;
+            }
+        }
+    }
+
+    public class UcesceTimaUFaziDTO
+    {
+        public class UcescePregled
+        {
+            public int FazaId { get; set; }
+            public int TimId { get; set; }
+
+            public string NazivFaze { get; set; }
+            public string NazivTima { get; set; }
+
+            public string Status { get; set; }
+            public string OstvareniRezultat { get; set; }
+            public int BrojPobeda { get; set; }
+            public int BrojPoraza { get; set; }
+            public int OsvojeniBodovi { get; set; }
+            public int? KonacanPlasman { get; set; }
+
+            public UcescePregled(
+                int fazaId,
+                int timId,
+                string nazivFaze,
+                string nazivTima,
+                string status,
+                string ostvareniRezultat,
+                int brojPobeda,
+                int brojPoraza,
+                int osvojeniBodovi,
+                int? konacanPlasman)
+            {
+                FazaId = fazaId;
+                TimId = timId;
+                NazivFaze = nazivFaze;
+                NazivTima = nazivTima;
+                Status = status;
+                OstvareniRezultat = ostvareniRezultat;
+                BrojPobeda = brojPobeda;
+                BrojPoraza = brojPoraza;
+                OsvojeniBodovi = osvojeniBodovi;
+                KonacanPlasman = konacanPlasman;
+            }
+        }
+
+        public class UcesceBasic
+        {
+            public int FazaId { get; set; }
+            public int TimId { get; set; }
+
+            public string Status { get; set; }
+            public string OstvareniRezultat { get; set; }
+            public int BrojPobeda { get; set; }
+            public int BrojPoraza { get; set; }
+            public int OsvojeniBodovi { get; set; }
+            public int? KonacanPlasman { get; set; }
+
+            public UcesceBasic(
+                int fazaId,
+                int timId,
+                string status,
+                string ostvareniRezultat,
+                int brojPobeda,
+                int brojPoraza,
+                int osvojeniBodovi,
+                int? konacanPlasman)
+            {
+                FazaId = fazaId;
+                TimId = timId;
+                Status = status;
+                OstvareniRezultat = ostvareniRezultat;
+                BrojPobeda = brojPobeda;
+                BrojPoraza = brojPoraza;
+                OsvojeniBodovi = osvojeniBodovi;
+                KonacanPlasman = konacanPlasman;
+            }
+        }
+    }
+
+    public class TimDTO
+    {
+        public class TimPregled
+        {
+            public int TimId { get; set; }
+            public string Naziv { get; set; }
+
+            public TimPregled(
+                int timId,
+                string naziv)
+            {
+                TimId = timId;
+                Naziv = naziv;
+            }
+
+            public override string ToString()
+            {
+                return Naziv;
+            }
+        }
+    }
 }
-
-

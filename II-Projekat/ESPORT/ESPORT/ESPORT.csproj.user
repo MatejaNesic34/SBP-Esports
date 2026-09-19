@@ -10,6 +10,12 @@
     <Compile Update="Forme\DodajAnaliticaraForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\DodajDogadjajForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajFazuForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\DodajFizioForma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -19,13 +25,34 @@
     <Compile Update="Forme\DodajIgreForma.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\DodajLiguForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajMecForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\DodajMenadzeraForma.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\DodajPsihologaForma.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\DodajTakmicenjeForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\DodajTreneraForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajTurnirForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajUcesceForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DogadjajNaMecuForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\FazaTakmicenjaForma.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\Fizioterapeutforma.cs">
@@ -40,6 +67,12 @@
     <Compile Update="Forme\IzmeniAnaliticaraForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\IzmeniDogadjajForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniFazuForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\IzmeniFizioForma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -49,13 +82,34 @@
     <Compile Update="Forme\IzmeniIgruForma.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\IzmeniLiguForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniMecForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\IzmeniMenadzerForma.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\IzmeniPsihologaForma.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\IzmeniTakmicenjeForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\IzmeniTreneraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniTurnirForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniUcesceForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\LigaForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\MecForma.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\MenadzerForma.cs">
@@ -70,7 +124,16 @@
     <Compile Update="Forme\SkautForma.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\TakmicenjeForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\TrenerForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\TurnirForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\UcesceTimaUFaziForma.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

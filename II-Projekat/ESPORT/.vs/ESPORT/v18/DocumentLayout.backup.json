@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\mateja\\desktop\\sbp\\sbp-esports\\ii-projekat\\esport\\esport\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\mateja\\desktop\\sbp\\sbp-esports\\ii-projekat\\esport\\esport\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\mateja\\desktop\\sbp\\sbp-esports\\ii-projekat\\esport\\esport\\dtomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\dtomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\mateja\\desktop\\sbp\\sbp-esports\\ii-projekat\\esport\\esport\\dtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\dtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,11 +31,50 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Form1.cs",
+              "RelativeDocumentMoniker": "ESPORT\\Form1.cs",
+              "ToolTip": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Form1.cs",
+              "RelativeToolTip": "ESPORT\\Form1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-19T08:06:31.726Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DTOManager.cs",
+              "DocumentMoniker": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\DTOManager.cs",
+              "RelativeDocumentMoniker": "ESPORT\\DTOManager.cs",
+              "ToolTip": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\DTOManager.cs",
+              "RelativeToolTip": "ESPORT\\DTOManager.cs",
+              "ViewState": "AgIAAEcQAAAAAAAAAAAqwFkQAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-19T08:05:17.044Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DTOs.cs",
+              "DocumentMoniker": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\DTOs.cs",
+              "RelativeDocumentMoniker": "ESPORT\\DTOs.cs",
+              "ToolTip": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\DTOs.cs",
+              "RelativeToolTip": "ESPORT\\DTOs.cs",
+              "ViewState": "AgIAAMUEAAAAAAAAAAAUwNkEAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-19T08:04:28.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Form1.cs",
               "RelativeDocumentMoniker": "ESPORT\\Form1.cs",
-              "ToolTip": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Form1.cs [Design]*",
-              "RelativeToolTip": "ESPORT\\Form1.cs [Design]*",
+              "ToolTip": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Form1.cs [Design]",
+              "RelativeToolTip": "ESPORT\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-05T14:41:42.029Z",
               "EditorCaption": " [Design]"

@@ -17,7 +17,19 @@ namespace ESPORT
 
         private void osobebtn_Click(object sender, EventArgs e)
         {
-            OsobaForma forma=new OsobaForma();
+            OsobaForma forma = new OsobaForma();
+            forma.ShowDialog();
+        }
+
+        private void takmicenjebtn_Click(object sender, EventArgs e)
+        {
+            TakmicenjeForma forma = new TakmicenjeForma();
+            forma.ShowDialog();
+        }
+
+        private void Mecbtn_Click(object sender, EventArgs e)
+        {
+            MecForma forma = new MecForma();
             forma.ShowDialog();
         }
     }

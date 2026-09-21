@@ -4148,6 +4148,8 @@ namespace ESPORT
             }
         }
 
+        // ===================== TIM =====================
+
         public static List<TimDTO.TimPregled> vratiSveTimove()
         {
             List<TimDTO.TimPregled> timovi =
@@ -4155,21 +4157,29 @@ namespace ESPORT
 
             try
             {
-                ISession s = DataLayer.GetSession();
-
-                IEnumerable<ESPORT.Entiteti.Tim> sviTimovi =
-                    from t in s.Query<ESPORT.Entiteti.Tim>()
-                    select t;
-
-                foreach (ESPORT.Entiteti.Tim t in sviTimovi)
+                using (ISession s = DataLayer.GetSession())
                 {
-                    timovi.Add(
-                        new TimDTO.TimPregled(
-                            t.TimId,
-                            t.Naziv));
-                }
+                    if (s == null) return timovi;
 
-                s.Close();
+                    IList<ESPORT.Entiteti.Tim> sviTimovi =
+                        s.Query<ESPORT.Entiteti.Tim>()
+                         .OrderBy(t => t.TimId)
+                         .ToList();
+
+                    foreach (ESPORT.Entiteti.Tim t in sviTimovi)
+                    {
+                        timovi.Add(
+                            new TimDTO.TimPregled(
+                                t.TimId,
+                                t.Naziv,
+                                t.IgraId.IgraId,
+                                t.IgraId.Naziv,
+                                t.DatumOsnivanja,
+                                t.DrzavaRegistracije,
+                                t.StatusTima,
+                                t.NivoTakmicenja));
+                    }
+                }
             }
             catch (Exception ec)
             {
@@ -4181,6 +4191,803 @@ namespace ESPORT
             }
 
             return timovi;
+        }
+
+        public static bool dodajTim(TimDTO.TimBasic t)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return false;
+
+                    ESPORT.Entiteti.Igra igra =
+                        s.Get<ESPORT.Entiteti.Igra>(t.IgraId);
+
+                    if (igra == null)
+                    {
+                        MessageBox.Show(
+                            "Igra sa tim ID-em ne postoji!",
+                            "Greška",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+
+                        return false;
+                    }
+
+                    using (ITransaction tx = s.BeginTransaction())
+                    {
+                        ESPORT.Entiteti.Tim noviTim =
+                            new ESPORT.Entiteti.Tim();
+
+                        noviTim.Naziv = t.Naziv;
+                        noviTim.IgraId = igra;
+                        noviTim.DatumOsnivanja = t.DatumOsnivanja;
+                        noviTim.DrzavaRegistracije = t.DrzavaRegistracije;
+                        noviTim.StatusTima = t.StatusTima;
+                        noviTim.NivoTakmicenja = t.NivoTakmicenja;
+
+                        s.Save(noviTim);
+                        tx.Commit();
+                    }
+
+                    return true;
+                }
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška pri dodavanju tima: {ec.Message}\nInner: {ec.InnerException?.Message}",
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static TimDTO.TimBasic vratiTim(int id)
+        {
+            TimDTO.TimBasic tim = null;
+
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return null;
+
+                    ESPORT.Entiteti.Tim t =
+                        s.Get<ESPORT.Entiteti.Tim>(id);
+
+                    if (t != null)
+                    {
+                        tim =
+                            new TimDTO.TimBasic(
+                                t.TimId,
+                                t.Naziv,
+                                t.IgraId.IgraId,
+                                t.DatumOsnivanja,
+                                t.DrzavaRegistracije,
+                                t.StatusTima,
+                                t.NivoTakmicenja);
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška pri preuzimanju tima: {ec.Message}",
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            return tim;
+        }
+
+        public static bool azurirajTim(TimDTO.TimBasic t)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return false;
+
+                    ESPORT.Entiteti.Tim tim =
+                        s.Get<ESPORT.Entiteti.Tim>(t.TimId);
+
+                    if (tim == null)
+                    {
+                        MessageBox.Show(
+                            "Tim sa tim ID-em ne postoji!",
+                            "Greška",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+
+                        return false;
+                    }
+
+                    ESPORT.Entiteti.Igra igra =
+                        s.Get<ESPORT.Entiteti.Igra>(t.IgraId);
+
+                    if (igra == null)
+                    {
+                        MessageBox.Show(
+                            "Igra sa tim ID-em ne postoji!",
+                            "Greška",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+
+                        return false;
+                    }
+
+                    using (ITransaction tx = s.BeginTransaction())
+                    {
+                        tim.Naziv = t.Naziv;
+                        tim.IgraId = igra;
+                        tim.DatumOsnivanja = t.DatumOsnivanja;
+                        tim.DrzavaRegistracije = t.DrzavaRegistracije;
+                        tim.StatusTima = t.StatusTima;
+                        tim.NivoTakmicenja = t.NivoTakmicenja;
+
+                        s.Update(tim);
+                        tx.Commit();
+                    }
+
+                    return true;
+                }
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška pri ažuriranju tima: {ec.Message}\nInner: {ec.InnerException?.Message}",
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static bool obrisiTim(int id)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return false;
+
+                    ESPORT.Entiteti.Tim tim =
+                        s.Get<ESPORT.Entiteti.Tim>(id);
+
+                    if (tim == null)
+                    {
+                        MessageBox.Show(
+                            "Tim sa tim ID-em ne postoji!",
+                            "Greška",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+
+                        return false;
+                    }
+
+                    using (ITransaction tx = s.BeginTransaction())
+                    {
+                        s.Delete(tim);
+                        tx.Commit();
+                    }
+
+                    return true;
+                }
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška pri brisanju tima: {ec.Message}\nInner: {ec.InnerException?.Message}",
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        // =========================================================================
+        // SPONZORI - METODE
+        // =========================================================================
+
+        public static List<SponzorDTO.Sponzor> vratiSveSponzore()
+        {
+            List<SponzorDTO.Sponzor> sponzori = new List<SponzorDTO.Sponzor>();
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return sponzori;
+
+                    List<ESPORT.Entiteti.Sponzor> sviSponzori = s.Query<ESPORT.Entiteti.Sponzor>()
+                                                                   .OrderBy(sp => sp.SponzorId)
+                                                                   .ToList();
+
+                    foreach (ESPORT.Entiteti.Sponzor sp in sviSponzori)
+                    {
+                        sponzori.Add(new SponzorDTO.Sponzor(
+                            sp.SponzorId,
+                            sp.Naziv,
+                            sp.Drzava,
+                            sp.TipSponzora,
+                            sp.OblastPoslovanja
+                        ));
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška pri preuzimanju sponzora: {ec.Message}");
+            }
+            return sponzori;
+        }
+
+        public static SponzorDTO.SponzorBasic vratiSponzora(int id)
+        {
+            SponzorDTO.SponzorBasic sb = null;
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return null;
+
+                    ESPORT.Entiteti.Sponzor sp = s.Get<ESPORT.Entiteti.Sponzor>(id);
+                    if (sp == null) return null;
+
+                    sb = new SponzorDTO.SponzorBasic(
+                        sp.SponzorId,
+                        sp.Naziv,
+                        sp.Drzava,
+                        sp.TipSponzora,
+                        sp.OblastPoslovanja
+                    );
+
+                    foreach (var k in sp.Kontakti)
+                    {
+                        sb.Kontakti.Add(new SponzorDTO.SponzorKontaktBasic(
+                            k.KontaktId,
+                            sp.SponzorId,
+                            k.Ime,
+                            k.Prezime,
+                            k.Telefon,
+                            k.Email
+                        ));
+                    }
+
+                    foreach (var u in sp.Ugovori)
+                    {
+                        sb.Ugovori.Add(new SponzorDTO.SponzorskiUgovorBasic(
+                            u.UgovorId,
+                            sp.SponzorId,
+                            u.DatumOd,
+                            u.DatumDo,
+                            u.Iznos,
+                            u.Valuta,
+                            u.TipPodrske,
+                            u.MarketinskeObaveze
+                        ));
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška pri preuzimanju detalja sponzora: {ec.Message}");
+            }
+            return sb;
+        }
+
+        public static bool dodajSponzora(SponzorDTO.SponzorBasic sb)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return false;
+
+                    using (ITransaction tx = s.BeginTransaction())
+                    {
+                        ESPORT.Entiteti.Sponzor sp = new ESPORT.Entiteti.Sponzor
+                        {
+                            Naziv = sb.Naziv,
+                            Drzava = sb.Drzava,
+                            TipSponzora = sb.TipSponzora,
+                            OblastPoslovanja = sb.OblastPoslovanja
+                        };
+
+                        s.Save(sp);
+                        tx.Commit();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška pri dodavanju sponzora: {ec.Message}\nInner: {ec.InnerException?.Message}");
+                return false;
+            }
+        }
+
+        public static bool azurirajSponzora(SponzorDTO.SponzorBasic sb)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return false;
+
+                    using (ITransaction tx = s.BeginTransaction())
+                    {
+                        ESPORT.Entiteti.Sponzor sp = s.Load<ESPORT.Entiteti.Sponzor>(sb.SponzorId);
+                        if (sp == null) return false;
+
+                        sp.Naziv = sb.Naziv;
+                        sp.Drzava = sb.Drzava;
+                        sp.TipSponzora = sb.TipSponzora;
+                        sp.OblastPoslovanja = sb.OblastPoslovanja;
+
+                        s.Update(sp);
+                        tx.Commit();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška pri ažuriranju sponzora: {ec.Message}\nInner: {ec.InnerException?.Message}");
+                return false;
+            }
+        }
+
+        public static void obrisiSponzora(int id)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return;
+
+                    using (ITransaction tx = s.BeginTransaction())
+                    {
+                        ESPORT.Entiteti.Sponzor sp = s.Load<ESPORT.Entiteti.Sponzor>(id);
+                        s.Delete(sp);
+                        tx.Commit();
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška pri brisanju sponzora: {ec.Message}\nInner: {ec.InnerException?.Message}");
+            }
+        }
+
+        // =========================================================================
+        // SPONZOR KONTAKT - METODE
+        // =========================================================================
+
+        public static bool dodajSponzorKontakt(SponzorDTO.SponzorKontaktBasic kb)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return false;
+
+                    using (ITransaction tx = s.BeginTransaction())
+                    {
+                        ESPORT.Entiteti.Sponzor sponzor = s.Get<ESPORT.Entiteti.Sponzor>(kb.SponzorId);
+                        if (sponzor == null) return false;
+
+                        ESPORT.Entiteti.SponzorKontakt kontakt = new ESPORT.Entiteti.SponzorKontakt
+                        {
+                            Sponzor = sponzor,
+                            Ime = kb.Ime,
+                            Prezime = kb.Prezime,
+                            Telefon = kb.Telefon,
+                            Email = kb.Email
+                        };
+
+                        s.Save(kontakt);
+                        tx.Commit();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška pri dodavanju kontakta: {ec.Message}");
+                return false;
+            }
+        }
+
+        public static bool azurirajSponzorKontakt(SponzorDTO.SponzorKontaktBasic kb)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return false;
+
+                    using (ITransaction tx = s.BeginTransaction())
+                    {
+                        ESPORT.Entiteti.SponzorKontakt kontakt = s.Load<ESPORT.Entiteti.SponzorKontakt>(kb.KontaktId);
+                        if (kontakt == null) return false;
+
+                        kontakt.Ime = kb.Ime;
+                        kontakt.Prezime = kb.Prezime;
+                        kontakt.Telefon = kb.Telefon;
+                        kontakt.Email = kb.Email;
+
+                        s.Update(kontakt);
+                        tx.Commit();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška pri ažuriranju kontakta: {ec.Message}");
+                return false;
+            }
+        }
+
+        public static void obrisiSponzorKontakt(int kontaktId)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return;
+
+                    using (ITransaction tx = s.BeginTransaction())
+                    {
+                        ESPORT.Entiteti.SponzorKontakt kontakt = s.Load<ESPORT.Entiteti.SponzorKontakt>(kontaktId);
+                        s.Delete(kontakt);
+                        tx.Commit();
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška pri brisanju kontakta: {ec.Message}");
+            }
+        }
+
+        // =========================================================================
+        // SPONZORSKI UGOVOR - METODE
+        // =========================================================================
+
+        public static bool dodajSponzorskiUgovor(SponzorDTO.SponzorskiUgovorBasic ub)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return false;
+
+                    using (ITransaction tx = s.BeginTransaction())
+                    {
+                        ESPORT.Entiteti.Sponzor sponzor = s.Get<ESPORT.Entiteti.Sponzor>(ub.SponzorId);
+                        if (sponzor == null) return false;
+
+                        ESPORT.Entiteti.SponzorskiUgovor ugovor = new ESPORT.Entiteti.SponzorskiUgovor
+                        {
+                            Sponzor = sponzor,
+                            DatumOd = ub.DatumOd,
+                            DatumDo = ub.DatumDo,
+                            Iznos = ub.Iznos,
+                            Valuta = ub.Valuta,
+                            TipPodrske = ub.TipPodrske,
+                            MarketinskeObaveze = ub.MarketinskeObaveze
+                        };
+
+                        s.Save(ugovor);
+                        tx.Commit();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška pri dodavanju ugovora: {ec.Message}");
+                return false;
+            }
+        }
+
+        public static bool azurirajSponzorskiUgovor(SponzorDTO.SponzorskiUgovorBasic ub)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return false;
+
+                    using (ITransaction tx = s.BeginTransaction())
+                    {
+                        ESPORT.Entiteti.SponzorskiUgovor ugovor = s.Load<ESPORT.Entiteti.SponzorskiUgovor>(ub.UgovorId);
+                        if (ugovor == null) return false;
+
+                        ugovor.DatumOd = ub.DatumOd;
+                        ugovor.DatumDo = ub.DatumDo;
+                        ugovor.Iznos = ub.Iznos;
+                        ugovor.Valuta = ub.Valuta;
+                        ugovor.TipPodrske = ub.TipPodrske;
+                        ugovor.MarketinskeObaveze = ub.MarketinskeObaveze;
+
+                        s.Update(ugovor);
+                        tx.Commit();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška pri ažuriranju ugovora: {ec.Message}");
+                return false;
+            }
+        }
+
+        public static void obrisiSponzorskiUgovor(int ugovorId)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return;
+
+                    using (ITransaction tx = s.BeginTransaction())
+                    {
+                        ESPORT.Entiteti.SponzorskiUgovor ugovor = s.Load<ESPORT.Entiteti.SponzorskiUgovor>(ugovorId);
+                        s.Delete(ugovor);
+                        tx.Commit();
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška pri brisanju ugovora: {ec.Message}");
+            }
+        }
+
+        // =========================================================================
+        // UGOVORI IGRAČA - METODE
+        // =========================================================================
+
+        public static List<UgovorDTO.UgovorIgracaBasic> vratiSveUgovoreIgraca()
+        {
+            List<UgovorDTO.UgovorIgracaBasic> lista = new List<UgovorDTO.UgovorIgracaBasic>();
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return lista;
+
+                    var ugovori = s.Query<ESPORT.Entiteti.UgovorIgraca>().ToList();
+
+                    foreach (var u in ugovori)
+                    {
+                        lista.Add(new UgovorDTO.UgovorIgracaBasic(
+                            u.UgovorId,
+                            u.Igrac?.OsobaId ?? 0,
+                            u.Igrac != null ? $"{u.Igrac.Ime} {u.Igrac.Prezime}" : "",
+                            u.Tim?.TimId ?? 0,
+                            u.Tim?.Naziv ?? "",
+                            u.DatumOd,
+                            u.DatumDo,
+                            u.TipUgovora,
+                            u.Plata,
+                            u.Bonusi,
+                            u.KlauzulaOtkup,
+                            u.ZabranaNastupa,
+                            u.StatusIgraca
+                        ));
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška pri preuzimanju ugovora igrača: {ec.Message}");
+            }
+            return lista;
+        }
+
+        public static bool dodajUgovorIgraca(UgovorDTO.UgovorIgracaBasic ub)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return false;
+
+                    using (ITransaction tx = s.BeginTransaction())
+                    {
+                        var igrac = s.Get<ESPORT.Entiteti.Igrac>(ub.IgracId);
+                        var tim = s.Get<ESPORT.Entiteti.Tim>(ub.TimId);
+
+                        if (igrac == null || tim == null)
+                        {
+                            MessageBox.Show("Izabrani igrač ili tim ne postoje!");
+                            return false;
+                        }
+
+                        ESPORT.Entiteti.UgovorIgraca novi = new ESPORT.Entiteti.UgovorIgraca
+                        {
+                            Igrac = igrac,
+                            Tim = tim,
+                            DatumOd = ub.DatumOd,
+                            DatumDo = ub.DatumDo,
+                            TipUgovora = ub.TipUgovora,
+                            Plata = ub.Plata,
+                            Bonusi = ub.Bonusi,
+                            KlauzulaOtkup = ub.KlauzulaOtkup,
+                            ZabranaNastupa = ub.ZabranaNastupa,
+                            StatusIgraca = ub.StatusIgraca
+                        };
+
+                        s.Save(novi);
+                        tx.Commit();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška pri dodavanju ugovora igrača: {ec.Message}");
+                return false;
+            }
+        }
+
+        public static bool azurirajUgovorIgraca(UgovorDTO.UgovorIgracaBasic ub)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return false;
+
+                    using (ITransaction tx = s.BeginTransaction())
+                    {
+                        var ugovor = s.Load<ESPORT.Entiteti.UgovorIgraca>(ub.UgovorId);
+                        var igrac = s.Get<ESPORT.Entiteti.Igrac>(ub.IgracId);
+                        var tim = s.Get<ESPORT.Entiteti.Tim>(ub.TimId);
+
+                        if (ugovor == null || igrac == null || tim == null) return false;
+
+                        ugovor.Igrac = igrac;
+                        ugovor.Tim = tim;
+                        ugovor.DatumOd = ub.DatumOd;
+                        ugovor.DatumDo = ub.DatumDo;
+                        ugovor.TipUgovora = ub.TipUgovora;
+                        ugovor.Plata = ub.Plata;
+                        ugovor.Bonusi = ub.Bonusi;
+                        ugovor.KlauzulaOtkup = ub.KlauzulaOtkup;
+                        ugovor.ZabranaNastupa = ub.ZabranaNastupa;
+                        ugovor.StatusIgraca = ub.StatusIgraca;
+
+                        s.Update(ugovor);
+                        tx.Commit();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška pri ažuriranju ugovora igrača: {ec.Message}");
+                return false;
+            }
+        }
+
+        public static void obrisiUgovorIgraca(int ugovorId)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return;
+
+                    using (ITransaction tx = s.BeginTransaction())
+                    {
+                        var ugovor = s.Load<ESPORT.Entiteti.UgovorIgraca>(ugovorId);
+                        s.Delete(ugovor);
+                        tx.Commit();
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška pri brisanju ugovora igrača: {ec.Message}");
+            }
+        }
+
+
+        // =========================================================================
+        // UGOVOR SUBJEKAT - METODE
+        // =========================================================================
+
+        public static UgovorDTO.UgovorSubjekatBasic vratiUgovorSubjekat(int ugovorId)
+        {
+            UgovorDTO.UgovorSubjekatBasic subjekat = null;
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return null;
+
+                    var us = s.Get<ESPORT.Entiteti.UgovorSubjekat>(ugovorId);
+                    if (us != null)
+                    {
+                        subjekat = new UgovorDTO.UgovorSubjekatBasic(
+                            us.UgovorId,
+                            us.Tim?.TimId,
+                            us.Tim?.Naziv,
+                            us.Igrac?.OsobaId,
+                            us.Igrac != null ? $"{us.Igrac.Ime} {us.Igrac.Prezime}" : null,
+                            us.Takmicenje?.TakmicenjeId,
+                            us.Takmicenje?.Naziv
+                        );
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška pri učitavanju subjekta ugovora: {ec.Message}");
+            }
+            return subjekat;
+        }
+
+        public static bool sacuvajUgovorSubjekat(UgovorDTO.UgovorSubjekatBasic sb)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return false;
+
+                    using (ITransaction tx = s.BeginTransaction())
+                    {
+                        var sponzorskiUgovor = s.Get<ESPORT.Entiteti.SponzorskiUgovor>(sb.UgovorId);
+                        if (sponzorskiUgovor == null)
+                        {
+                            MessageBox.Show("Glavni sponzorski ugovor ne postoji!");
+                            return false;
+                        }
+
+                        var us = s.Get<ESPORT.Entiteti.UgovorSubjekat>(sb.UgovorId);
+                        bool novi = (us == null);
+
+                        if (novi)
+                        {
+                            us = new ESPORT.Entiteti.UgovorSubjekat
+                            {
+                                UgovorId = sb.UgovorId,
+                                Ugovor = sponzorskiUgovor
+                            };
+                        }
+
+                        us.Tim = sb.TimId.HasValue && sb.TimId.Value > 0 ? s.Get<ESPORT.Entiteti.Tim>(sb.TimId.Value) : null;
+                        us.Igrac = sb.IgracId.HasValue && sb.IgracId.Value > 0 ? s.Get<ESPORT.Entiteti.Igrac>(sb.IgracId.Value) : null;
+                        us.Takmicenje = sb.TakmicenjeId.HasValue && sb.TakmicenjeId.Value > 0 ? s.Get<ESPORT.Entiteti.Takmicenje>(sb.TakmicenjeId.Value) : null;
+
+                        if (novi)
+                            s.Save(us);
+                        else
+                            s.Update(us);
+
+                        tx.Commit();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška pri čuvanju subjekta ugovora: {ec.Message}");
+                return false;
+            }
         }
     }
 }

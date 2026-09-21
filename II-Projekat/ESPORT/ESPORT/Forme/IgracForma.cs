@@ -115,5 +115,25 @@ namespace ESPORT.Forme
                 popuniPodacima();
             }
         }
+
+        private void btnUgovoriIgraca_Click(object sender, EventArgs e)
+        {
+            if (listViewIgraci.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Molimo vas da izaberete igrača čije ugovore želite da pogledate!",
+                                "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 2. Preuzimanje ID-ja i imena/nadimka izabranog igrača
+            int idIgraca = int.Parse(listViewIgraci.SelectedItems[0].SubItems[0].Text);
+            string imeIgraca = listViewIgraci.SelectedItems[0].SubItems[1].Text;
+            string prezimeIgraca = listViewIgraci.SelectedItems[0].SubItems[2].Text;
+
+            // 3. Otvaranje forme za ugovore igrača (možeš prilagoditi formu da prima idIgraca, 
+            // kako bi prikazala samo ugovore vezane za tog specifičnog igrača)
+            UgovoriIgracaForma forma = new UgovoriIgracaForma(idIgraca, $"{imeIgraca} {prezimeIgraca}");
+            forma.ShowDialog();
+        }
     }
 }

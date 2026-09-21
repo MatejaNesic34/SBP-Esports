@@ -44,15 +44,17 @@
             dodajigracabtn = new Button();
             izmeniigracabtn = new Button();
             obrisiigracabtn = new Button();
+            btnUgovoriIgraca = new Button();
             SuspendLayout();
             // 
             // listViewIgraci
             // 
             listViewIgraci.Columns.AddRange(new ColumnHeader[] { ID, ime, prezime, nadimak, primarnauloga, sekundarna_uloga, dominantanstiligre, rang, telefon, drzava, email, status_aranzmana });
             listViewIgraci.FullRowSelect = true;
-            listViewIgraci.Location = new Point(43, 105);
+            listViewIgraci.Location = new Point(20, 51);
+            listViewIgraci.Margin = new Padding(1, 1, 1, 1);
             listViewIgraci.Name = "listViewIgraci";
-            listViewIgraci.Size = new Size(2338, 934);
+            listViewIgraci.Size = new Size(1102, 458);
             listViewIgraci.TabIndex = 0;
             listViewIgraci.UseCompatibleStateImageBehavior = false;
             listViewIgraci.View = View.Details;
@@ -119,9 +121,10 @@
             // 
             // dodajigracabtn
             // 
-            dodajigracabtn.Location = new Point(2439, 143);
+            dodajigracabtn.Location = new Point(1148, 70);
+            dodajigracabtn.Margin = new Padding(1, 1, 1, 1);
             dodajigracabtn.Name = "dodajigracabtn";
-            dodajigracabtn.Size = new Size(221, 99);
+            dodajigracabtn.Size = new Size(104, 48);
             dodajigracabtn.TabIndex = 1;
             dodajigracabtn.Text = "Dodaj igraca";
             dodajigracabtn.UseVisualStyleBackColor = true;
@@ -129,9 +132,10 @@
             // 
             // izmeniigracabtn
             // 
-            izmeniigracabtn.Location = new Point(2439, 286);
+            izmeniigracabtn.Location = new Point(1148, 140);
+            izmeniigracabtn.Margin = new Padding(1, 1, 1, 1);
             izmeniigracabtn.Name = "izmeniigracabtn";
-            izmeniigracabtn.Size = new Size(221, 99);
+            izmeniigracabtn.Size = new Size(104, 48);
             izmeniigracabtn.TabIndex = 2;
             izmeniigracabtn.Text = "Izmeni igraca";
             izmeniigracabtn.UseVisualStyleBackColor = true;
@@ -139,23 +143,37 @@
             // 
             // obrisiigracabtn
             // 
-            obrisiigracabtn.Location = new Point(2439, 430);
+            obrisiigracabtn.Location = new Point(1148, 210);
+            obrisiigracabtn.Margin = new Padding(1, 1, 1, 1);
             obrisiigracabtn.Name = "obrisiigracabtn";
-            obrisiigracabtn.Size = new Size(221, 99);
+            obrisiigracabtn.Size = new Size(104, 48);
             obrisiigracabtn.TabIndex = 3;
             obrisiigracabtn.Text = "Obrisi igraca";
             obrisiigracabtn.UseVisualStyleBackColor = true;
             obrisiigracabtn.Click += obrisiigracabtn_Click;
             // 
+            // btnUgovoriIgraca
+            // 
+            btnUgovoriIgraca.Location = new Point(1148, 285);
+            btnUgovoriIgraca.Margin = new Padding(1);
+            btnUgovoriIgraca.Name = "btnUgovoriIgraca";
+            btnUgovoriIgraca.Size = new Size(104, 48);
+            btnUgovoriIgraca.TabIndex = 4;
+            btnUgovoriIgraca.Text = "Ugovori Igraca";
+            btnUgovoriIgraca.UseVisualStyleBackColor = true;
+            btnUgovoriIgraca.Click += btnUgovoriIgraca_Click;
+            // 
             // IgracForma
             // 
-            AutoScaleDimensions = new SizeF(17F, 41F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2806, 1063);
+            ClientSize = new Size(1320, 519);
+            Controls.Add(btnUgovoriIgraca);
             Controls.Add(obrisiigracabtn);
             Controls.Add(izmeniigracabtn);
             Controls.Add(dodajigracabtn);
             Controls.Add(listViewIgraci);
+            Margin = new Padding(1, 1, 1, 1);
             Name = "IgracForma";
             Text = "IgracForma";
             Load += IgracForma_Load;
@@ -180,5 +198,6 @@
         private Button dodajigracabtn;
         private Button izmeniigracabtn;
         private Button obrisiigracabtn;
+        private Button btnUgovoriIgraca;
     }
 }

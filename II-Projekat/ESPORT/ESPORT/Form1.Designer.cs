@@ -56,6 +56,7 @@
             timbtn.TabIndex = 1;
             timbtn.Text = "Tim";
             timbtn.UseVisualStyleBackColor = true;
+            timbtn.Click += timbtn_Click;
             // 
             // takmicenjebtn
             // 
@@ -88,6 +89,7 @@
             sponzorbtn.TabIndex = 4;
             sponzorbtn.Text = "Sponzor";
             sponzorbtn.UseVisualStyleBackColor = true;
+            sponzorbtn.Click += sponzorbtn_Click;
             // 
             // igrebtn
             // 

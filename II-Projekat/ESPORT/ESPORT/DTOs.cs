@@ -1224,7 +1224,18 @@ namespace ESPORT
         {
             public int TimId { get; set; }
             public string Naziv { get; set; }
+            public int IgraId { get; set; }
+            public string Igra { get; set; }
+            public DateTime? DatumOsnivanja { get; set; }
+            public string DrzavaRegistracije { get; set; }
+            public string StatusTima { get; set; }
+            public string NivoTakmicenja { get; set; }
 
+            public TimPregled()
+            {
+            }
+
+            // Zadržan zbog postojećih combobox-ova (Naziv se prikazuje preko ToString)
             public TimPregled(
                 int timId,
                 string naziv)
@@ -1233,9 +1244,223 @@ namespace ESPORT
                 Naziv = naziv;
             }
 
+            public TimPregled(
+                int timId,
+                string naziv,
+                int igraId,
+                string igra,
+                DateTime? datumOsnivanja,
+                string drzavaRegistracije,
+                string statusTima,
+                string nivoTakmicenja)
+            {
+                TimId = timId;
+                Naziv = naziv;
+                IgraId = igraId;
+                Igra = igra;
+                DatumOsnivanja = datumOsnivanja;
+                DrzavaRegistracije = drzavaRegistracije;
+                StatusTima = statusTima;
+                NivoTakmicenja = nivoTakmicenja;
+            }
+
             public override string ToString()
             {
                 return Naziv;
+            }
+        }
+
+        public class TimBasic
+        {
+            public int TimId { get; set; }
+            public string Naziv { get; set; }
+            public int IgraId { get; set; }
+            public DateTime? DatumOsnivanja { get; set; }
+            public string DrzavaRegistracije { get; set; }
+            public string StatusTima { get; set; }
+            public string NivoTakmicenja { get; set; }
+
+            public TimBasic()
+            {
+            }
+
+            public TimBasic(
+                int timId,
+                string naziv,
+                int igraId,
+                DateTime? datumOsnivanja,
+                string drzavaRegistracije,
+                string statusTima,
+                string nivoTakmicenja)
+            {
+                TimId = timId;
+                Naziv = naziv;
+                IgraId = igraId;
+                DatumOsnivanja = datumOsnivanja;
+                DrzavaRegistracije = drzavaRegistracije;
+                StatusTima = statusTima;
+                NivoTakmicenja = nivoTakmicenja;
+            }
+        }
+    }
+
+    public class SponzorDTO
+    {
+        public class Sponzor
+        {
+            public int SponzorId { get; set; }
+            public string Naziv { get; set; }
+            public string Drzava { get; set; }
+            public string TipSponzora { get; set; }
+            public string OblastPoslovanja { get; set; }
+
+            public Sponzor() { }
+
+            public Sponzor(int id, string naziv, string drzava, string tipSponzora, string oblastPoslovanja)
+            {
+                SponzorId = id;
+                Naziv = naziv;
+                Drzava = drzava;
+                TipSponzora = tipSponzora;
+                OblastPoslovanja = oblastPoslovanja;
+            }
+        }
+
+        public class SponzorBasic
+        {
+            public int SponzorId { get; set; }
+            public string Naziv { get; set; }
+            public string Drzava { get; set; }
+            public string TipSponzora { get; set; }
+            public string OblastPoslovanja { get; set; }
+
+            public List<SponzorKontaktBasic> Kontakti { get; set; } = new List<SponzorKontaktBasic>();
+            public List<SponzorskiUgovorBasic> Ugovori { get; set; } = new List<SponzorskiUgovorBasic>();
+
+            public SponzorBasic() { }
+
+            public SponzorBasic(int id, string naziv, string drzava, string tipSponzora, string oblastPoslovanja)
+            {
+                SponzorId = id;
+                Naziv = naziv;
+                Drzava = drzava;
+                TipSponzora = tipSponzora;
+                OblastPoslovanja = oblastPoslovanja;
+            }
+        }
+
+        public class SponzorKontaktBasic
+        {
+            public int KontaktId { get; set; }
+            public int SponzorId { get; set; }
+            public string Ime { get; set; }
+            public string Prezime { get; set; }
+            public string Telefon { get; set; }
+            public string Email { get; set; }
+
+            public SponzorKontaktBasic() { }
+
+            public SponzorKontaktBasic(int kontaktId, int sponzorId, string ime, string prezime, string telefon, string email)
+            {
+                KontaktId = kontaktId;
+                SponzorId = sponzorId;
+                Ime = ime;
+                Prezime = prezime;
+                Telefon = telefon;
+                Email = email;
+            }
+        }
+
+        public class SponzorskiUgovorBasic
+        {
+            public int UgovorId { get; set; }
+            public int SponzorId { get; set; }
+            public DateTime DatumOd { get; set; }
+            public DateTime DatumDo { get; set; }
+            public decimal Iznos { get; set; }
+            public string Valuta { get; set; }
+            public string TipPodrske { get; set; }
+            public string MarketinskeObaveze { get; set; }
+
+            public SponzorskiUgovorBasic() { }
+
+            public SponzorskiUgovorBasic(int ugovorId, int sponzorId, DateTime datumOd, DateTime datumDo, decimal iznos, string valuta, string tipPodrske, string marketinskeObaveze)
+            {
+                UgovorId = ugovorId;
+                SponzorId = sponzorId;
+                DatumOd = datumOd;
+                DatumDo = datumDo;
+                Iznos = iznos;
+                Valuta = valuta;
+                TipPodrske = tipPodrske;
+                MarketinskeObaveze = marketinskeObaveze;
+            }
+        }
+    }
+
+    public class UgovorDTO
+    {
+        // ================= UGOVOR IGRAČA =================
+        public class UgovorIgracaBasic
+        {
+            public int UgovorId { get; set; }
+            public int IgracId { get; set; }
+            public string ImePrezimeIgraca { get; set; }
+            public int TimId { get; set; }
+            public string NazivTima { get; set; }
+            public DateTime DatumOd { get; set; }
+            public DateTime? DatumDo { get; set; }
+            public string TipUgovora { get; set; }
+            public decimal Plata { get; set; }
+            public decimal Bonusi { get; set; }
+            public decimal? KlauzulaOtkup { get; set; }
+            public string ZabranaNastupa { get; set; }
+            public string StatusIgraca { get; set; }
+
+            public UgovorIgracaBasic() { }
+
+            public UgovorIgracaBasic(int ugovorId, int igracId, string imePrezimeIgraca, int timId, string nazivTima,
+                                     DateTime datumOd, DateTime? datumDo, string tipUgovora, decimal plata,
+                                     decimal bonusi, decimal? klauzulaOtkup, string zabranaNastupa, string statusIgraca)
+            {
+                UgovorId = ugovorId;
+                IgracId = igracId;
+                ImePrezimeIgraca = imePrezimeIgraca;
+                TimId = timId;
+                NazivTima = nazivTima;
+                DatumOd = datumOd;
+                DatumDo = datumDo;
+                TipUgovora = tipUgovora;
+                Plata = plata;
+                Bonusi = bonusi;
+                KlauzulaOtkup = klauzulaOtkup;
+                ZabranaNastupa = zabranaNastupa;
+                StatusIgraca = statusIgraca;
+            }
+        }
+
+        // ================= UGOVOR SUBJEKAT (Sponzorski subjekti) =================
+        public class UgovorSubjekatBasic
+        {
+            public int UgovorId { get; set; } // Istovremeno ID sponzorskog ugovora
+            public int? TimId { get; set; }
+            public string NazivTima { get; set; }
+            public int? IgracId { get; set; }
+            public string ImePrezimeIgraca { get; set; }
+            public int? TakmicenjeId { get; set; }
+            public string NazivTakmicenja { get; set; }
+
+            public UgovorSubjekatBasic() { }
+
+            public UgovorSubjekatBasic(int ugovorId, int? timId, string nazivTima, int? igracId, string imePrezimeIgraca, int? takmicenjeId, string nazivTakmicenja)
+            {
+                UgovorId = ugovorId;
+                TimId = timId;
+                NazivTima = nazivTima;
+                IgracId = igracId;
+                ImePrezimeIgraca = imePrezimeIgraca;
+                TakmicenjeId = takmicenjeId;
+                NazivTakmicenja = nazivTakmicenja;
             }
         }
     }

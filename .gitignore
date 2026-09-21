@@ -1,0 +1,15 @@
+# Visual Studio privremeni fajlovi i keš
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build i kompajlirani izlaz
+**/bin/
+**/obj/
+
+# NuGet paketi
+packages/
+*.nuget.props
+*.nuget.targets

@@ -13,7 +13,7 @@ namespace ESPORT.Mapiranje
             Table("SPONZOR");
 
             // Primarni ključ
-            Id(x => x.SponzorId).Column("SPONZOR_ID").GeneratedBy.TriggerIdentity();
+            Id(x => x.SponzorId).Column("SPONZOR_ID").GeneratedBy.Increment();
 
             // Obična polja / atributi
             Map(x => x.Naziv).Column("NAZIV").Not.Nullable().Unique();

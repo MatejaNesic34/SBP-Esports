@@ -14,7 +14,7 @@ namespace ESPORT.Mapiranje
             Table("UGOVOR_IGRACA");
 
             // Primarni ključ
-            Id(x => x.UgovorId).Column("UGOVOR_ID").GeneratedBy.TriggerIdentity();
+            Id(x => x.UgovorId).Column("UGOVOR_ID").GeneratedBy.Increment();
 
             // Obična polja / atributi
             Map(x => x.DatumOd).Column("DATUM_OD").Not.Nullable();

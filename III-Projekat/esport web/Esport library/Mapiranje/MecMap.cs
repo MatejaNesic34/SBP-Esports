@@ -13,7 +13,7 @@ namespace ESPORT.Mapiranje
             Table("MEC");
 
             // Primarni ključ
-            Id(x => x.MecId).Column("MEC_ID").GeneratedBy.TriggerIdentity();
+            Id(x => x.MecId).Column("MEC_ID").GeneratedBy.Increment();
 
             // Obična polja / atributi
             Map(x => x.RedniBroj).Column("REDNI_BROJ").Not.Nullable();

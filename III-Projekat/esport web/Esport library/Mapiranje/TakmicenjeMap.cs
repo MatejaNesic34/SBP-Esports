@@ -13,7 +13,7 @@ namespace ESPORT.Mapiranje
             Table("TAKMICENJE");
 
             // Primarni ključ
-            Id(x => x.TakmicenjeId).Column("TAKMICENJE_ID").GeneratedBy.TriggerIdentity();
+            Id(x => x.TakmicenjeId).Column("TAKMICENJE_ID").GeneratedBy.Increment();
 
             // Obična polja / atributi
             Map(x => x.Naziv).Column("NAZIV").Not.Nullable();

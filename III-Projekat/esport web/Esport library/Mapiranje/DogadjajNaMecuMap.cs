@@ -14,7 +14,7 @@ namespace ESPORT.Mapiranje
             Table("DOGADJAJ_NA_MECU");
 
             // Primarni ključ
-            Id(x => x.DogadjajId).Column("DOGADJAJ_ID").GeneratedBy.TriggerIdentity();
+            Id(x => x.DogadjajId).Column("DOGADJAJ_ID").GeneratedBy.Increment();
 
             // Obična polja / atributi
             Map(x => x.TipDogadjaja).Column("TIP_DOGADJAJA").Not.Nullable();

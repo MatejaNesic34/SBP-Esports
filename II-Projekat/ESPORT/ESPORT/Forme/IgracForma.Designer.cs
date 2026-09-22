@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -41,15 +42,35 @@
             drzava = new ColumnHeader();
             email = new ColumnHeader();
             status_aranzmana = new ColumnHeader();
+
             dodajigracabtn = new Button();
             izmeniigracabtn = new Button();
             obrisiigracabtn = new Button();
             btnUgovoriIgraca = new Button();
+            btnTransferi = new Button();
+            btnPozajmice = new Button();
+
             SuspendLayout();
+
             // 
             // listViewIgraci
             // 
-            listViewIgraci.Columns.AddRange(new ColumnHeader[] { ID, ime, prezime, nadimak, primarnauloga, sekundarna_uloga, dominantanstiligre, rang, telefon, drzava, email, status_aranzmana });
+            listViewIgraci.Columns.AddRange(new ColumnHeader[]
+            {
+                ID,
+                ime,
+                prezime,
+                nadimak,
+                primarnauloga,
+                sekundarna_uloga,
+                dominantanstiligre,
+                rang,
+                telefon,
+                drzava,
+                email,
+                status_aranzmana
+            });
+
             listViewIgraci.FullRowSelect = true;
             listViewIgraci.Location = new Point(20, 51);
             listViewIgraci.Margin = new Padding(1, 1, 1, 1);
@@ -58,66 +79,79 @@
             listViewIgraci.TabIndex = 0;
             listViewIgraci.UseCompatibleStateImageBehavior = false;
             listViewIgraci.View = View.Details;
+
             // 
             // ID
             // 
             ID.Text = "ID";
             ID.Width = 80;
+
             // 
             // ime
             // 
             ime.Text = "Ime";
             ime.Width = 150;
+
             // 
             // prezime
             // 
             prezime.Text = "Prezime";
             prezime.Width = 150;
+
             // 
             // nadimak
             // 
             nadimak.Text = "Nadimak";
             nadimak.Width = 200;
+
             // 
             // primarnauloga
             // 
             primarnauloga.Text = "Primarna Uloga";
             primarnauloga.Width = 200;
+
             // 
             // sekundarna_uloga
             // 
             sekundarna_uloga.Text = "Sekundarna Uloga";
             sekundarna_uloga.Width = 200;
+
             // 
             // dominantanstiligre
             // 
             dominantanstiligre.Text = "Dominantan stil igre";
             dominantanstiligre.Width = 300;
+
             // 
             // rang
             // 
             rang.Text = "Rang";
             rang.Width = 200;
+
             // 
             // telefon
             // 
             telefon.Text = "Telefon";
             telefon.Width = 200;
+
             // 
             // drzava
             // 
             drzava.Text = "Drzava";
             drzava.Width = 220;
+
             // 
             // email
             // 
             email.Text = "Email";
             email.Width = 220;
+
             // 
             // status_aranzmana
             // 
             status_aranzmana.Text = "Status aranzmana";
             status_aranzmana.Width = 200;
+
             // 
             // dodajigracabtn
             // 
@@ -129,6 +163,7 @@
             dodajigracabtn.Text = "Dodaj igraca";
             dodajigracabtn.UseVisualStyleBackColor = true;
             dodajigracabtn.Click += dodajigracabtn_Click;
+
             // 
             // izmeniigracabtn
             // 
@@ -140,6 +175,7 @@
             izmeniigracabtn.Text = "Izmeni igraca";
             izmeniigracabtn.UseVisualStyleBackColor = true;
             izmeniigracabtn.Click += izmeniigracabtn_Click;
+
             // 
             // obrisiigracabtn
             // 
@@ -151,6 +187,7 @@
             obrisiigracabtn.Text = "Obrisi igraca";
             obrisiigracabtn.UseVisualStyleBackColor = true;
             obrisiigracabtn.Click += obrisiigracabtn_Click;
+
             // 
             // btnUgovoriIgraca
             // 
@@ -162,13 +199,40 @@
             btnUgovoriIgraca.Text = "Ugovori Igraca";
             btnUgovoriIgraca.UseVisualStyleBackColor = true;
             btnUgovoriIgraca.Click += btnUgovoriIgraca_Click;
+
+            // 
+            // btnTransferi
+            // 
+            btnTransferi.Location = new Point(1148, 355);
+            btnTransferi.Margin = new Padding(1);
+            btnTransferi.Name = "btnTransferi";
+            btnTransferi.Size = new Size(104, 48);
+            btnTransferi.TabIndex = 5;
+            btnTransferi.Text = "Transferi";
+            btnTransferi.UseVisualStyleBackColor = true;
+            btnTransferi.Click += btnTransferi_Click;
+
+            // 
+            // btnPozajmice
+            // 
+            btnPozajmice.Location = new Point(1148, 425);
+            btnPozajmice.Margin = new Padding(1);
+            btnPozajmice.Name = "btnPozajmice";
+            btnPozajmice.Size = new Size(104, 48);
+            btnPozajmice.TabIndex = 6;
+            btnPozajmice.Text = "Pozajmice";
+            btnPozajmice.UseVisualStyleBackColor = true;
+            btnPozajmice.Click += btnPozajmice_Click;
+
             // 
             // IgracForma
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1320, 519);
+            Controls.Add(btnPozajmice);
             Controls.Add(btnUgovoriIgraca);
+            Controls.Add(btnTransferi);
             Controls.Add(obrisiigracabtn);
             Controls.Add(izmeniigracabtn);
             Controls.Add(dodajigracabtn);
@@ -177,6 +241,7 @@
             Name = "IgracForma";
             Text = "IgracForma";
             Load += IgracForma_Load;
+
             ResumeLayout(false);
         }
 
@@ -195,9 +260,12 @@
         private ColumnHeader drzava;
         private ColumnHeader email;
         private ColumnHeader status_aranzmana;
+
         private Button dodajigracabtn;
         private Button izmeniigracabtn;
         private Button obrisiigracabtn;
         private Button btnUgovoriIgraca;
+        private Button btnTransferi;
+        private Button btnPozajmice;
     }
 }

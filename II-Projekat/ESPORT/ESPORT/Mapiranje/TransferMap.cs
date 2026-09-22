@@ -13,7 +13,7 @@ namespace ESPORT.Mapiranje
             Table("TRANSFER");
 
             // Primarni ključ
-            Id(x => x.TransferId).Column("TRANSFER_ID").GeneratedBy.TriggerIdentity();
+            Id(x => x.TransferId).Column("TRANSFER_ID").GeneratedBy.Increment();
 
             // Obična polja / atributi
             Map(x => x.DatumPrelaska).Column("DATUM_PRELASKA").Not.Nullable();

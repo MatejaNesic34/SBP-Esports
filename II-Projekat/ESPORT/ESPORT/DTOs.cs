@@ -1465,4 +1465,193 @@ namespace ESPORT
             }
         }
     }
+
+    public class TransferDTO
+    {
+        public class TransferPregled
+        {
+            public int TransferId { get; set; }
+            public int IgracId { get; set; }
+            public string Igrac { get; set; }
+            public int? PrethodniTimId { get; set; }
+            public string PrethodniTim { get; set; }
+            public int NoviTimId { get; set; }
+            public string NoviTim { get; set; }
+            public DateTime DatumPrelaska { get; set; }
+            public decimal IznosTransfera { get; set; }
+            public string Valuta { get; set; }
+            public int? TrajanjeUgovoraMeseci { get; set; }
+            public string PosebneKlauzule { get; set; }
+
+            public TransferPregled()
+            {
+            }
+
+            public TransferPregled(
+                int transferId,
+                int igracId,
+                string igrac,
+                int? prethodniTimId,
+                string prethodniTim,
+                int noviTimId,
+                string noviTim,
+                DateTime datumPrelaska,
+                decimal iznosTransfera,
+                string valuta,
+                int? trajanjeUgovoraMeseci,
+                string posebneKlauzule)
+            {
+                TransferId = transferId;
+                IgracId = igracId;
+                Igrac = igrac;
+                PrethodniTimId = prethodniTimId;
+                PrethodniTim = prethodniTim;
+                NoviTimId = noviTimId;
+                NoviTim = noviTim;
+                DatumPrelaska = datumPrelaska;
+                IznosTransfera = iznosTransfera;
+                Valuta = valuta;
+                TrajanjeUgovoraMeseci = trajanjeUgovoraMeseci;
+                PosebneKlauzule = posebneKlauzule;
+            }
+        }
+
+        public class TransferBasic
+        {
+            public int TransferId { get; set; }
+            public int IgracId { get; set; }
+            public int? PrethodniTimId { get; set; }
+            public int NoviTimId { get; set; }
+            public DateTime DatumPrelaska { get; set; }
+            public decimal IznosTransfera { get; set; }
+            public string Valuta { get; set; }
+            public int? TrajanjeUgovoraMeseci { get; set; }
+            public string PosebneKlauzule { get; set; }
+
+            public TransferBasic()
+            {
+            }
+
+            public TransferBasic(
+                int transferId,
+                int igracId,
+                int? prethodniTimId,
+                int noviTimId,
+                DateTime datumPrelaska,
+                decimal iznosTransfera,
+                string valuta,
+                int? trajanjeUgovoraMeseci,
+                string posebneKlauzule)
+            {
+                TransferId = transferId;
+                IgracId = igracId;
+                PrethodniTimId = prethodniTimId;
+                NoviTimId = noviTimId;
+                DatumPrelaska = datumPrelaska;
+                IznosTransfera = iznosTransfera;
+                Valuta = valuta;
+                TrajanjeUgovoraMeseci = trajanjeUgovoraMeseci;
+                PosebneKlauzule = posebneKlauzule;
+            }
+        }
+    }
+
+    public class PozajmicaDTO
+    {
+        public class PozajmicaPregled
+        {
+            public int PozajmicaId { get; set; }
+
+            public int IgracId { get; set; }
+            public string Igrac { get; set; }
+
+            public int MaticniTimId { get; set; }
+            public string MaticniTim { get; set; }
+
+            public int TimNaPozajmiciId { get; set; }
+            public string TimNaPozajmici { get; set; }
+
+            public DateTime DatumOd { get; set; }
+            public DateTime DatumDo { get; set; }
+
+            public string FinansijskiUslovi { get; set; }
+            public int PravoOtkupa { get; set; }
+
+            public PozajmicaPregled()
+            {
+            }
+
+            public PozajmicaPregled(
+                int pozajmicaId,
+                int igracId,
+                string igrac,
+                int maticniTimId,
+                string maticniTim,
+                int timNaPozajmiciId,
+                string timNaPozajmici,
+                DateTime datumOd,
+                DateTime datumDo,
+                string finansijskiUslovi,
+                int pravoOtkupa)
+            {
+                PozajmicaId = pozajmicaId;
+                IgracId = igracId;
+                Igrac = igrac;
+
+                MaticniTimId = maticniTimId;
+                MaticniTim = maticniTim;
+
+                TimNaPozajmiciId = timNaPozajmiciId;
+                TimNaPozajmici = timNaPozajmici;
+
+                DatumOd = datumOd;
+                DatumDo = datumDo;
+
+                FinansijskiUslovi = finansijskiUslovi;
+                PravoOtkupa = pravoOtkupa;
+            }
+        }
+
+        public class PozajmicaBasic
+        {
+            public int PozajmicaId { get; set; }
+
+            public int IgracId { get; set; }
+            public int MaticniTimId { get; set; }
+            public int TimNaPozajmiciId { get; set; }
+
+            public DateTime DatumOd { get; set; }
+            public DateTime DatumDo { get; set; }
+
+            public string FinansijskiUslovi { get; set; }
+            public int PravoOtkupa { get; set; }
+
+            public PozajmicaBasic()
+            {
+            }
+
+            public PozajmicaBasic(
+                int pozajmicaId,
+                int igracId,
+                int maticniTimId,
+                int timNaPozajmiciId,
+                DateTime datumOd,
+                DateTime datumDo,
+                string finansijskiUslovi,
+                int pravoOtkupa)
+            {
+                PozajmicaId = pozajmicaId;
+
+                IgracId = igracId;
+                MaticniTimId = maticniTimId;
+                TimNaPozajmiciId = timNaPozajmiciId;
+
+                DatumOd = datumOd;
+                DatumDo = datumDo;
+
+                FinansijskiUslovi = finansijskiUslovi;
+                PravoOtkupa = pravoOtkupa;
+            }
+        }
+    }
 }

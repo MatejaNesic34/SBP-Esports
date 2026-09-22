@@ -64,54 +64,62 @@ namespace ESPORT.Forme
                                 "Upozorenje",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
-                return; // Prekida metodu, forma za izmenu se NE otvara
+                return;
             }
 
-            // 2. Uzimanje ID-ja selektovanog igrača (prva kolona / SubItem[0])
-            int idIgraca = int.Parse(listViewIgraci.SelectedItems[0].SubItems[0].Text);
+            int idIgraca = int.Parse(
+                listViewIgraci.SelectedItems[0].SubItems[0].Text);
 
-            // 3. Učitavanje podataka i otvaranje forme
-            IgracBasic odabraniIgrac = DTOManager.vratiIgraca(idIgraca);
+            IgracBasic odabraniIgrac =
+                DTOManager.vratiIgraca(idIgraca);
 
             if (odabraniIgrac != null)
             {
-                IzmeniIgracaForma forma = new IzmeniIgracaForma(odabraniIgrac);
+                IzmeniIgracaForma forma =
+                    new IzmeniIgracaForma(odabraniIgrac);
+
                 if (forma.ShowDialog() == DialogResult.OK)
                 {
-                    popuniPodacima(); // Osvežava tabelu nakon uspešne izmene
+                    popuniPodacima();
                 }
             }
         }
 
         private void obrisiigracabtn_Click(object sender, EventArgs e)
         {
-            // 1. OGRANIČENJE: Provera da li je bar jedan igrač selektovan u ListView-u
             if (listViewIgraci.SelectedItems.Count == 0)
             {
-                MessageBox.Show("Molimo vas da izaberete igrača koga želite da obrišete!",
-                                "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Molimo vas da izaberete igrača koga želite da obrišete!",
+                    "Upozorenje",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 return;
             }
 
-            // 2. Preuzimanje ID-ja i nadimka selektovanog igrača iz tabele
-            int idIgraca = int.Parse(listViewIgraci.SelectedItems[0].SubItems[0].Text);
-            string nadimak = listViewIgraci.SelectedItems[0].SubItems[3].Text; // SubItems[3] pretpostavlja da je nadimak u 4. koloni
+            int idIgraca = int.Parse(
+                listViewIgraci.SelectedItems[0].SubItems[0].Text);
 
-            // 3. Potvrda pre samog brisanja
-            DialogResult potvrdio = MessageBox.Show($"Da li ste sigurni da želite da obrišete igrača '{nadimak}'?",
-                                                      "Potvrda brisanja",
-                                                      MessageBoxButtons.YesNo,
-                                                      MessageBoxIcon.Question);
+            string nadimak =
+                listViewIgraci.SelectedItems[0].SubItems[3].Text;
+
+            DialogResult potvrdio = MessageBox.Show(
+                $"Da li ste sigurni da želite da obrišete igrača '{nadimak}'?",
+                "Potvrda brisanja",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
 
             if (potvrdio == DialogResult.Yes)
             {
-                // 4. Poziv DTOManager-a za brisanje iz baze
                 DTOManager.obrisiIgraca(idIgraca);
 
-                MessageBox.Show("Igrač je uspešno obrisan!", "Obaveštenje",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(
+                    "Igrač je uspešno obrisan!",
+                    "Obaveštenje",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
 
-                // 5. Osvežavanje prikaza u ListView-u
                 popuniPodacima();
             }
         }
@@ -120,19 +128,41 @@ namespace ESPORT.Forme
         {
             if (listViewIgraci.SelectedItems.Count == 0)
             {
-                MessageBox.Show("Molimo vas da izaberete igrača čije ugovore želite da pogledate!",
-                                "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Molimo vas da izaberete igrača čije ugovore želite da pogledate!",
+                    "Upozorenje",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 return;
             }
 
-            // 2. Preuzimanje ID-ja i imena/nadimka izabranog igrača
-            int idIgraca = int.Parse(listViewIgraci.SelectedItems[0].SubItems[0].Text);
-            string imeIgraca = listViewIgraci.SelectedItems[0].SubItems[1].Text;
-            string prezimeIgraca = listViewIgraci.SelectedItems[0].SubItems[2].Text;
+            int idIgraca = int.Parse(
+                listViewIgraci.SelectedItems[0].SubItems[0].Text);
 
-            // 3. Otvaranje forme za ugovore igrača (možeš prilagoditi formu da prima idIgraca, 
-            // kako bi prikazala samo ugovore vezane za tog specifičnog igrača)
-            UgovoriIgracaForma forma = new UgovoriIgracaForma(idIgraca, $"{imeIgraca} {prezimeIgraca}");
+            string imeIgraca =
+                listViewIgraci.SelectedItems[0].SubItems[1].Text;
+
+            string prezimeIgraca =
+                listViewIgraci.SelectedItems[0].SubItems[2].Text;
+
+            UgovoriIgracaForma forma =
+                new UgovoriIgracaForma(
+                    idIgraca,
+                    $"{imeIgraca} {prezimeIgraca}");
+
+            forma.ShowDialog();
+        }
+
+        private void btnTransferi_Click(object sender, EventArgs e)
+        {
+            TransferForma forma = new TransferForma();
+            forma.ShowDialog();
+        }
+
+        private void btnPozajmice_Click(object sender, EventArgs e)
+        {
+            PozajmicaForma forma = new PozajmicaForma();
             forma.ShowDialog();
         }
     }

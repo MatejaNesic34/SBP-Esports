@@ -15,6 +15,8 @@ using static ESPORT.TakmicenjeDTO;
 using static ESPORT.TimDTO;
 using static ESPORT.TurnirDTO;
 using static ESPORT.UcesceTimaUFaziDTO;
+using static ESPORT.TransferDTO;
+using static ESPORT.PozajmicaDTO;
 
 namespace ESPORT
 {
@@ -5082,5 +5084,676 @@ namespace ESPORT
             }
         }
 
+        public static List<TransferDTO.TransferPregled> vratiSveTransfere()
+        {
+            List<TransferDTO.TransferPregled> transferi =
+                new List<TransferDTO.TransferPregled>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<ESPORT.Entiteti.Transfer> sviTransferi =
+                    from t in s.Query<ESPORT.Entiteti.Transfer>()
+                    select t;
+
+                foreach (ESPORT.Entiteti.Transfer t in sviTransferi)
+                {
+                    transferi.Add(
+                        new TransferDTO.TransferPregled(
+                            t.TransferId,
+                            t.Igrac.OsobaId,
+                            t.Igrac.Ime + " " + t.Igrac.Prezime,
+                            t.PrethodniTim != null ? t.PrethodniTim.TimId : (int?)null,
+                            t.PrethodniTim != null ? t.PrethodniTim.Naziv : null,
+                            t.NoviTim.TimId,
+                            t.NoviTim.Naziv,
+                            t.DatumPrelaska,
+                            t.IznosTransfera,
+                            t.Valuta,
+                            t.TrajanjeUgovoraMeseci,
+                            t.PosebneKlauzule));
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            return transferi;
+        }
+
+        public static bool dodajTransfer(TransferDTO.TransferBasic t)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Igrac igrac =
+                    s.Get<ESPORT.Entiteti.Igrac>(t.IgracId);
+
+                if (igrac == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Igrač sa tim ID-em ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ESPORT.Entiteti.Tim noviTim =
+                    s.Get<ESPORT.Entiteti.Tim>(t.NoviTimId);
+
+                if (noviTim == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Novi tim sa tim ID-em ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ESPORT.Entiteti.Tim prethodniTim = null;
+
+                if (t.PrethodniTimId.HasValue)
+                {
+                    prethodniTim =
+                        s.Get<ESPORT.Entiteti.Tim>(t.PrethodniTimId.Value);
+
+                    if (prethodniTim == null)
+                    {
+                        s.Close();
+
+                        MessageBox.Show(
+                            "Prethodni tim sa tim ID-em ne postoji!",
+                            "Greška",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+
+                        return false;
+                    }
+                }
+
+                ESPORT.Entiteti.Transfer noviTransfer =
+                    new ESPORT.Entiteti.Transfer();
+
+                noviTransfer.Igrac = igrac;
+                noviTransfer.PrethodniTim = prethodniTim;
+                noviTransfer.NoviTim = noviTim;
+                noviTransfer.DatumPrelaska = t.DatumPrelaska;
+                noviTransfer.IznosTransfera = t.IznosTransfera;
+                noviTransfer.Valuta = t.Valuta;
+                noviTransfer.TrajanjeUgovoraMeseci = t.TrajanjeUgovoraMeseci;
+                noviTransfer.PosebneKlauzule = t.PosebneKlauzule;
+
+                s.Save(noviTransfer);
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static TransferDTO.TransferBasic vratiTransfer(int id)
+        {
+            TransferDTO.TransferBasic transfer = null;
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Transfer t =
+                    s.Get<ESPORT.Entiteti.Transfer>(id);
+
+                if (t != null)
+                {
+                    transfer =
+                        new TransferDTO.TransferBasic(
+                            t.TransferId,
+                            t.Igrac.OsobaId,
+                            t.PrethodniTim != null ? t.PrethodniTim.TimId : (int?)null,
+                            t.NoviTim.TimId,
+                            t.DatumPrelaska,
+                            t.IznosTransfera,
+                            t.Valuta,
+                            t.TrajanjeUgovoraMeseci,
+                            t.PosebneKlauzule);
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            return transfer;
+        }
+
+        public static bool azurirajTransfer(TransferDTO.TransferBasic t)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Transfer transfer =
+                    s.Get<ESPORT.Entiteti.Transfer>(t.TransferId);
+
+                if (transfer == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Transfer ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ESPORT.Entiteti.Igrac igrac =
+                    s.Get<ESPORT.Entiteti.Igrac>(t.IgracId);
+
+                if (igrac == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Igrač sa tim ID-em ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ESPORT.Entiteti.Tim noviTim =
+                    s.Get<ESPORT.Entiteti.Tim>(t.NoviTimId);
+
+                if (noviTim == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Novi tim sa tim ID-em ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ESPORT.Entiteti.Tim prethodniTim = null;
+
+                if (t.PrethodniTimId.HasValue)
+                {
+                    prethodniTim =
+                        s.Get<ESPORT.Entiteti.Tim>(t.PrethodniTimId.Value);
+
+                    if (prethodniTim == null)
+                    {
+                        s.Close();
+
+                        MessageBox.Show(
+                            "Prethodni tim sa tim ID-em ne postoji!",
+                            "Greška",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+
+                        return false;
+                    }
+                }
+
+                transfer.Igrac = igrac;
+                transfer.PrethodniTim = prethodniTim;
+                transfer.NoviTim = noviTim;
+                transfer.DatumPrelaska = t.DatumPrelaska;
+                transfer.IznosTransfera = t.IznosTransfera;
+                transfer.Valuta = t.Valuta;
+                transfer.TrajanjeUgovoraMeseci = t.TrajanjeUgovoraMeseci;
+                transfer.PosebneKlauzule = t.PosebneKlauzule;
+
+                s.Update(transfer);
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static bool obrisiTransfer(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Transfer transfer =
+                    s.Get<ESPORT.Entiteti.Transfer>(id);
+
+                if (transfer == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Transfer ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                s.Delete(transfer);
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static List<PozajmicaDTO.PozajmicaPregled> vratiSvePozajmice()
+        {
+            List<PozajmicaDTO.PozajmicaPregled> lista =
+                new List<PozajmicaDTO.PozajmicaPregled>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<ESPORT.Entiteti.Pozajmica> pozajmice =
+                    from p in s.Query<ESPORT.Entiteti.Pozajmica>()
+                    select p;
+
+                foreach (ESPORT.Entiteti.Pozajmica p in pozajmice)
+                {
+                    lista.Add(
+                        new PozajmicaDTO.PozajmicaPregled(
+                            p.PozajmicaId,
+                            p.Igrac.OsobaId,
+                            p.Igrac.Ime + " " + p.Igrac.Prezime,
+                            p.MaticniTim.TimId,
+                            p.MaticniTim.Naziv,
+                            p.TimNaPozajmici.TimId,
+                            p.TimNaPozajmici.Naziv,
+                            p.DatumOd,
+                            p.DatumDo,
+                            p.FinansijskiUslovi,
+                            p.PravoOtkupa
+                        ));
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            return lista;
+        }
+
+        public static bool dodajPozajmicu(PozajmicaDTO.PozajmicaBasic p)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Igrac igrac =
+                    s.Get<ESPORT.Entiteti.Igrac>(p.IgracId);
+
+                if (igrac == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Izabrani igrač ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ESPORT.Entiteti.Tim maticniTim =
+                    s.Get<ESPORT.Entiteti.Tim>(p.MaticniTimId);
+
+                if (maticniTim == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Izabrani matični tim ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ESPORT.Entiteti.Tim timNaPozajmici =
+                    s.Get<ESPORT.Entiteti.Tim>(p.TimNaPozajmiciId);
+
+                if (timNaPozajmici == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Izabrani tim na pozajmici ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (p.DatumDo < p.DatumOd)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Datum završetka pozajmice ne može biti pre datuma početka!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    return false;
+                }
+
+                if (p.PravoOtkupa != 0 && p.PravoOtkupa != 1)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Pravo otkupa mora biti 0 ili 1!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    return false;
+                }
+
+                ESPORT.Entiteti.Pozajmica novaPozajmica =
+                    new ESPORT.Entiteti.Pozajmica();
+
+                novaPozajmica.Igrac = igrac;
+                novaPozajmica.MaticniTim = maticniTim;
+                novaPozajmica.TimNaPozajmici = timNaPozajmici;
+                novaPozajmica.DatumOd = p.DatumOd;
+                novaPozajmica.DatumDo = p.DatumDo;
+                novaPozajmica.FinansijskiUslovi = p.FinansijskiUslovi;
+                novaPozajmica.PravoOtkupa = p.PravoOtkupa;
+
+                s.Save(novaPozajmica);
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.ToString(),
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static PozajmicaDTO.PozajmicaBasic vratiPozajmicu(int id)
+        {
+            PozajmicaDTO.PozajmicaBasic pozajmica = null;
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Pozajmica p =
+                    s.Get<ESPORT.Entiteti.Pozajmica>(id);
+
+                if (p != null)
+                {
+                    pozajmica =
+                        new PozajmicaDTO.PozajmicaBasic(
+                            p.PozajmicaId,
+                            p.Igrac.OsobaId,
+                            p.MaticniTim.TimId,
+                            p.TimNaPozajmici.TimId,
+                            p.DatumOd,
+                            p.DatumDo,
+                            p.FinansijskiUslovi,
+                            p.PravoOtkupa
+                        );
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            return pozajmica;
+        }
+
+        public static bool azurirajPozajmicu(PozajmicaDTO.PozajmicaBasic p)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Pozajmica pozajmica =
+                    s.Get<ESPORT.Entiteti.Pozajmica>(p.PozajmicaId);
+
+                if (pozajmica == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Pozajmica ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ESPORT.Entiteti.Igrac igrac =
+                    s.Get<ESPORT.Entiteti.Igrac>(p.IgracId);
+
+                if (igrac == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Izabrani igrač ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ESPORT.Entiteti.Tim maticniTim =
+                    s.Get<ESPORT.Entiteti.Tim>(p.MaticniTimId);
+
+                if (maticniTim == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Izabrani matični tim ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                ESPORT.Entiteti.Tim timNaPozajmici =
+                    s.Get<ESPORT.Entiteti.Tim>(p.TimNaPozajmiciId);
+
+                if (timNaPozajmici == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Izabrani tim na pozajmici ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                if (p.DatumDo < p.DatumOd)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Datum završetka pozajmice ne može biti pre datuma početka!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    return false;
+                }
+
+                if (p.PravoOtkupa != 0 && p.PravoOtkupa != 1)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Pravo otkupa mora biti 0 ili 1!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    return false;
+                }
+
+                pozajmica.Igrac = igrac;
+                pozajmica.MaticniTim = maticniTim;
+                pozajmica.TimNaPozajmici = timNaPozajmici;
+                pozajmica.DatumOd = p.DatumOd;
+                pozajmica.DatumDo = p.DatumDo;
+                pozajmica.FinansijskiUslovi = p.FinansijskiUslovi;
+                pozajmica.PravoOtkupa = p.PravoOtkupa;
+
+                s.Update(pozajmica);
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static bool obrisiPozajmicu(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ESPORT.Entiteti.Pozajmica pozajmica =
+                    s.Get<ESPORT.Entiteti.Pozajmica>(id);
+
+                if (pozajmica == null)
+                {
+                    s.Close();
+
+                    MessageBox.Show(
+                        "Pozajmica ne postoji!",
+                        "Greška",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return false;
+                }
+
+                s.Delete(pozajmica);
+                s.Flush();
+                s.Close();
+
+                return true;
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    ec.Message,
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
     }
 }

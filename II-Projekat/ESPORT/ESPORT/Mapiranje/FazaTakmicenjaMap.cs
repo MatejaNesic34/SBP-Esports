@@ -14,7 +14,7 @@ namespace ESPORT.Mapiranje
             Table("FAZA_TAKMICENJA");
 
             // Primarni ključ
-            Id(x => x.FazaId).Column("FAZA_ID").GeneratedBy.TriggerIdentity();
+            Id(x => x.FazaId).Column("FAZA_ID").GeneratedBy.Increment();
 
             // Obična polja / atributi
             Map(x => x.NazivFaze).Column("NAZIV_FAZE").Not.Nullable();

@@ -26,7 +26,7 @@ namespace ESPORT.Mapiranje
 
             // 1. Faze (FazaTakmicenja)
             HasMany(x => x.Faze)
-                .KeyColumn("TURNIR_ID") // ili TAKMICENJE_ID, u zavisnosti od naziva FK kolone u tabeli FAZA_TAKMICENJA
+                .KeyColumn("TAKMICENJE_ID") // ili TAKMICENJE_ID, u zavisnosti od naziva FK kolone u tabeli FAZA_TAKMICENJA
                 .LazyLoad()
                 .Cascade.All()
                 .Inverse();

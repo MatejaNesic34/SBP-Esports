@@ -14,7 +14,7 @@ namespace ESPORT.Mapiranje
             Table("SPONZOR_KONTAKT");
 
             // Primarni ključ
-            Id(x => x.KontaktId).Column("KONTAKT_ID").GeneratedBy.TriggerIdentity();
+            Id(x => x.KontaktId).Column("KONTAKT_ID").GeneratedBy.Increment();
 
             // Obična polja / atributi
             Map(x => x.Ime).Column("IME").Not.Nullable();

@@ -82,5 +82,26 @@ namespace ESPORT.Forme
                 popuniPodacima();
             }
         }
+
+        private void btnSubjekatUgovor_Click(object sender, EventArgs e)
+        {
+            if (listViewUgovori.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Izaberite sponzorski ugovor čiji subjekat želite da definišete/izmenite!", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int ugovorId = int.Parse(listViewUgovori.SelectedItems[0].SubItems[0].Text);
+            string datumOd = listViewUgovori.SelectedItems[0].SubItems[1].Text;
+            string datumDo = listViewUgovori.SelectedItems[0].SubItems[2].Text;
+            string nazivUgovoraZaPrikaz = $"{sponzorNaziv} ({datumOd} - {datumDo})";
+
+            UgovorSubjekatForma forma = new UgovorSubjekatForma(ugovorId, nazivUgovoraZaPrikaz);
+
+            if (forma.ShowDialog() == DialogResult.OK)
+            {
+                popuniPodacima();
+            }
+        }
     }
 }

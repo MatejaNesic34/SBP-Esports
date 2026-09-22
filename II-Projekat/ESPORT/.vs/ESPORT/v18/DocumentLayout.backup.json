@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\mateja\\desktop\\sbp\\sbp-esports\\ii-projekat\\esport\\esport\\forme\\izmeniugovorigracaforma.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\forme\\izmeniugovorigracaforma.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\mateja\\desktop\\sbp\\sbp-esports\\ii-projekat\\esport\\esport\\forme\\igracforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\forme\\igracforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\mateja\\desktop\\sbp\\sbp-esports\\ii-projekat\\esport\\esport\\dtomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\dtomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\mateja\\desktop\\sbp\\sbp-esports\\ii-projekat\\esport\\esport\\dtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\dtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\mateja\\desktop\\sbp\\sbp-esports\\ii-projekat\\esport\\esport\\mapiranje\\ugovorsubjekatmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\mapiranje\\ugovorsubjekatmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,51 +19,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "IzmeniUgovorIgracaForma.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\IzmeniUgovorIgracaForma.Designer.cs",
-              "RelativeDocumentMoniker": "ESPORT\\Forme\\IzmeniUgovorIgracaForma.Designer.cs",
-              "ToolTip": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\IzmeniUgovorIgracaForma.Designer.cs",
-              "RelativeToolTip": "ESPORT\\Forme\\IzmeniUgovorIgracaForma.Designer.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAIwEkAAAABAAAAAAAAAA==",
+              "Title": "UgovorSubjekatMap.cs",
+              "DocumentMoniker": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Mapiranje\\UgovorSubjekatMap.cs",
+              "RelativeDocumentMoniker": "ESPORT\\Mapiranje\\UgovorSubjekatMap.cs",
+              "ToolTip": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Mapiranje\\UgovorSubjekatMap.cs",
+              "RelativeToolTip": "ESPORT\\Mapiranje\\UgovorSubjekatMap.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-19T11:02:56.932Z",
+              "WhenOpened": "2026-09-22T11:30:38.217Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IgracForma.cs",
-              "DocumentMoniker": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\IgracForma.cs",
-              "RelativeDocumentMoniker": "ESPORT\\Forme\\IgracForma.cs",
-              "ToolTip": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\IgracForma.cs",
-              "RelativeToolTip": "ESPORT\\Forme\\IgracForma.cs",
-              "ViewState": "AgIAAF8AAAAAAAAAAADwv4cAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-19T10:53:23.249Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DTOs.cs",
-              "DocumentMoniker": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\DTOs.cs",
-              "RelativeDocumentMoniker": "ESPORT\\DTOs.cs",
-              "ToolTip": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\DTOs.cs",
-              "RelativeToolTip": "ESPORT\\DTOs.cs",
-              "ViewState": "AgIAAKoFAAAAAAAAAAAswHcFAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-19T10:19:02.904Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DTOManager.cs",
-              "DocumentMoniker": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\DTOManager.cs",
-              "RelativeDocumentMoniker": "ESPORT\\DTOManager.cs",
-              "ToolTip": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\DTOManager.cs",
-              "RelativeToolTip": "ESPORT\\DTOManager.cs",
-              "ViewState": "AgIAAFITAAAAAAAAAAAIwH4TAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-19T10:18:41.724Z"
             }
           ]
         }

@@ -30,6 +30,7 @@
             btnObrisiUgovor = new Button();
             btnIzmeniUgovor = new Button();
             btnDodajUgovor = new Button();
+            btnSubjekatUgovor = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -38,10 +39,11 @@
             // 
             listViewUgovori.Columns.AddRange(new ColumnHeader[] { columnHeaderId, columnHeaderDatumOd, columnHeaderDatumDo, columnHeaderIznos, columnHeaderValuta, columnHeaderTipPodrske, columnHeaderMarketinskeObaveze });
             listViewUgovori.FullRowSelect = true;
-            listViewUgovori.Location = new Point(24, 56);
+            listViewUgovori.Location = new Point(11, 27);
+            listViewUgovori.Margin = new Padding(1, 1, 1, 1);
             listViewUgovori.MultiSelect = false;
             listViewUgovori.Name = "listViewUgovori";
-            listViewUgovori.Size = new Size(1250, 659);
+            listViewUgovori.Size = new Size(590, 324);
             listViewUgovori.TabIndex = 0;
             listViewUgovori.UseCompatibleStateImageBehavior = false;
             listViewUgovori.View = View.Details;
@@ -84,30 +86,36 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(listViewUgovori);
-            groupBox1.Location = new Point(40, 64);
+            groupBox1.Location = new Point(19, 31);
+            groupBox1.Margin = new Padding(1, 1, 1, 1);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1300, 745);
+            groupBox1.Padding = new Padding(1, 1, 1, 1);
+            groupBox1.Size = new Size(612, 363);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Lista sponzorskih ugovora";
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(btnSubjekatUgovor);
             groupBox2.Controls.Add(btnObrisiUgovor);
             groupBox2.Controls.Add(btnIzmeniUgovor);
             groupBox2.Controls.Add(btnDodajUgovor);
-            groupBox2.Location = new Point(1380, 80);
+            groupBox2.Location = new Point(649, 39);
+            groupBox2.Margin = new Padding(1, 1, 1, 1);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(350, 494);
+            groupBox2.Padding = new Padding(1, 1, 1, 1);
+            groupBox2.Size = new Size(165, 343);
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "Akcije sa ugovorima";
             // 
             // btnObrisiUgovor
             // 
-            btnObrisiUgovor.Location = new Point(54, 320);
+            btnObrisiUgovor.Location = new Point(25, 156);
+            btnObrisiUgovor.Margin = new Padding(1, 1, 1, 1);
             btnObrisiUgovor.Name = "btnObrisiUgovor";
-            btnObrisiUgovor.Size = new Size(243, 77);
+            btnObrisiUgovor.Size = new Size(114, 38);
             btnObrisiUgovor.TabIndex = 2;
             btnObrisiUgovor.Text = "Obriši ugovor";
             btnObrisiUgovor.UseVisualStyleBackColor = true;
@@ -115,9 +123,10 @@
             // 
             // btnIzmeniUgovor
             // 
-            btnIzmeniUgovor.Location = new Point(54, 200);
+            btnIzmeniUgovor.Location = new Point(25, 98);
+            btnIzmeniUgovor.Margin = new Padding(1, 1, 1, 1);
             btnIzmeniUgovor.Name = "btnIzmeniUgovor";
-            btnIzmeniUgovor.Size = new Size(243, 76);
+            btnIzmeniUgovor.Size = new Size(114, 37);
             btnIzmeniUgovor.TabIndex = 1;
             btnIzmeniUgovor.Text = "Izmeni ugovor";
             btnIzmeniUgovor.UseVisualStyleBackColor = true;
@@ -125,21 +134,34 @@
             // 
             // btnDodajUgovor
             // 
-            btnDodajUgovor.Location = new Point(54, 76);
+            btnDodajUgovor.Location = new Point(25, 37);
+            btnDodajUgovor.Margin = new Padding(1, 1, 1, 1);
             btnDodajUgovor.Name = "btnDodajUgovor";
-            btnDodajUgovor.Size = new Size(243, 76);
+            btnDodajUgovor.Size = new Size(114, 37);
             btnDodajUgovor.TabIndex = 0;
             btnDodajUgovor.Text = "Dodaj ugovor";
             btnDodajUgovor.UseVisualStyleBackColor = true;
             btnDodajUgovor.Click += btnDodajUgovor_Click;
             // 
+            // btnSubjekatUgovor
+            // 
+            btnSubjekatUgovor.Location = new Point(25, 221);
+            btnSubjekatUgovor.Margin = new Padding(1);
+            btnSubjekatUgovor.Name = "btnSubjekatUgovor";
+            btnSubjekatUgovor.Size = new Size(114, 63);
+            btnSubjekatUgovor.TabIndex = 3;
+            btnSubjekatUgovor.Text = "Subjekat Ugovora";
+            btnSubjekatUgovor.UseVisualStyleBackColor = true;
+            btnSubjekatUgovor.Click += btnSubjekatUgovor_Click;
+            // 
             // SponzorskiUgovoriForma
             // 
-            AutoScaleDimensions = new SizeF(17F, 41F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1780, 900);
+            ClientSize = new Size(838, 439);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
+            Margin = new Padding(1, 1, 1, 1);
             Name = "SponzorskiUgovoriForma";
             Text = "Sponzorski Ugovori";
             Load += SponzorskiUgovoriForma_Load;
@@ -163,5 +185,6 @@
         private Button btnObrisiUgovor;
         private Button btnIzmeniUgovor;
         private Button btnDodajUgovor;
+        private Button btnSubjekatUgovor;
     }
 }

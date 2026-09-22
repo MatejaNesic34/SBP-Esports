@@ -4754,6 +4754,49 @@ namespace ESPORT
             }
         }
 
+        public static List<SponzorDTO.SponzorskiUgovorBasic> vratiSveSponzorskeUgovore()
+        {
+            List<SponzorDTO.SponzorskiUgovorBasic> lista =
+                new List<SponzorDTO.SponzorskiUgovorBasic>();
+
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return lista;
+
+                    IList<ESPORT.Entiteti.SponzorskiUgovor> ugovori =
+                        s.Query<ESPORT.Entiteti.SponzorskiUgovor>()
+                         .OrderBy(u => u.UgovorId)
+                         .ToList();
+
+                    foreach (ESPORT.Entiteti.SponzorskiUgovor u in ugovori)
+                    {
+                        SponzorDTO.SponzorskiUgovorBasic ub =
+                            new SponzorDTO.SponzorskiUgovorBasic(
+                                u.UgovorId,
+                                u.Sponzor.SponzorId,
+                                u.DatumOd,
+                                u.DatumDo,
+                                u.Iznos,
+                                u.Valuta,
+                                u.TipPodrske,
+                                u.MarketinskeObaveze);
+
+                        ub.NazivSponzora = $"{u.Sponzor.Naziv} ({u.DatumOd:dd.MM.yyyy} - {u.DatumDo:dd.MM.yyyy})";
+
+                        lista.Add(ub);
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška pri preuzimanju sponzorskih ugovora: {ec.Message}");
+            }
+
+            return lista;
+        }
+
         // =========================================================================
         // UGOVORI IGRAČA - METODE
         // =========================================================================
@@ -4989,5 +5032,55 @@ namespace ESPORT
                 return false;
             }
         }
+
+        // dodajUgovorSubjekat / azurirajUgovorSubjekat su uklonjeni - bili su nedovršeni
+        // (nisu ni postavljali Tim/Igrac/Takmicenje, a "UgovorSubjekat" tip nije
+        // ni imao potreban using ESPORT.Entiteti, pa se nisu ni kompajlirali).
+        // Umesto njih koristi vratiUgovorSubjekat / sacuvajUgovorSubjekat iznad -
+        // sacuvajUgovorSubjekat radi i dodavanje i izmenu (upsert po UgovorId).
+
+        public static bool obrisiUgovorSubjekat(int ugovorId)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return false;
+
+                    ESPORT.Entiteti.UgovorSubjekat us =
+                        s.Get<ESPORT.Entiteti.UgovorSubjekat>(ugovorId);
+
+                    if (us == null)
+                    {
+                        MessageBox.Show(
+                            "Subjekat za ovaj ugovor ne postoji!",
+                            "Greška",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+
+                        return false;
+                    }
+
+                    using (ITransaction tx = s.BeginTransaction())
+                    {
+                        s.Delete(us);
+                        tx.Commit();
+                    }
+
+                    return true;
+                }
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(
+                    $"Greška pri brisanju subjekta ugovora: {ec.Message}",
+                    "Greška",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
     }
 }

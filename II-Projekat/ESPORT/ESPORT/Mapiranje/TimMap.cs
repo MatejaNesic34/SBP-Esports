@@ -13,7 +13,7 @@ namespace ESPORT.Mapiranje
             Table("TIM");
 
             // Primarni ključ
-            Id(x => x.TimId).Column("TIMID").GeneratedBy.TriggerIdentity();
+            Id(x => x.TimId).Column("TIMID").GeneratedBy.Increment();
 
             // Obična polja / atributi
             Map(x => x.Naziv).Column("NAZIV").Not.Nullable();

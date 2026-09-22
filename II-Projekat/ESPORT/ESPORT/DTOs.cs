@@ -1381,6 +1381,7 @@ namespace ESPORT
             public string Valuta { get; set; }
             public string TipPodrske { get; set; }
             public string MarketinskeObaveze { get; set; }
+            public string NazivSponzora { get; set; }
 
             public SponzorskiUgovorBasic() { }
 

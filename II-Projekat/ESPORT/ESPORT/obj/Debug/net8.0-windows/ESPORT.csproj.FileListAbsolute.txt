@@ -169,3 +169,6 @@ C:\Users\MATEJA\Desktop\SBP\SBP-Esports\II-Projekat\ESPORT\ESPORT\obj\Debug\net8
 C:\Users\MATEJA\Desktop\SBP\SBP-Esports\II-Projekat\ESPORT\ESPORT\obj\Debug\net8.0-windows\ESPORT.Forme.DodajUgovorIgracaForma.resources
 C:\Users\MATEJA\Desktop\SBP\SBP-Esports\II-Projekat\ESPORT\ESPORT\obj\Debug\net8.0-windows\ESPORT.Forme.IzmeniUgovorIgracaForma.resources
 C:\Users\MATEJA\Desktop\SBP\SBP-Esports\II-Projekat\ESPORT\ESPORT\obj\Debug\net8.0-windows\ESPORT.Forme.UgovoriIgracaForma.resources
+C:\Users\MATEJA\Desktop\SBP\SBP-Esports\II-Projekat\ESPORT\ESPORT\obj\Debug\net8.0-windows\ESPORT.Forme.UgovorSubjekatForma.resources
+C:\Users\MATEJA\Desktop\SBP\SBP-Esports\II-Projekat\ESPORT\ESPORT\obj\Debug\net8.0-windows\ESPORT.Forme.DodajUgovorSubjekatForma.resources
+C:\Users\MATEJA\Desktop\SBP\SBP-Esports\II-Projekat\ESPORT\ESPORT\obj\Debug\net8.0-windows\ESPORT.Forme.IzmeniUgovorSubjekatForma.resources

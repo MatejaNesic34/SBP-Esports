@@ -2974,5 +2974,1017 @@ namespace Esport_library
             }
             catch (Exception ex) { }
         }
+
+        // --- TIM CRUD ---
+
+        public static List<TimDTO> VratiSveTimove()
+        {
+            List<TimDTO> spisak = new List<TimDTO>();
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    var timovi = s.QueryOver<Tim>().List();
+                    foreach (var t in timovi)
+                    {
+                        spisak.Add(new TimDTO(
+                            t.TimId,
+                            t.Naziv,
+                            t.IgraId != null ? t.IgraId.IgraId : 0,
+                            t.IgraId != null ? t.IgraId.Naziv : "",
+                            t.DatumOsnivanja,
+                            t.DrzavaRegistracije,
+                            t.StatusTima,
+                            t.NivoTakmicenja
+                        ));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Obrada izuzetaka
+            }
+            return spisak;
+        }
+
+        public static TimDTO VratiTim(int id)
+        {
+            TimDTO dto = null;
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    var t = s.Get<Tim>(id);
+                    if (t != null)
+                    {
+                        dto = new TimDTO(
+                            t.TimId,
+                            t.Naziv,
+                            t.IgraId != null ? t.IgraId.IgraId : 0,
+                            t.IgraId != null ? t.IgraId.Naziv : "",
+                            t.DatumOsnivanja,
+                            t.DrzavaRegistracije,
+                            t.StatusTima,
+                            t.NivoTakmicenja
+                        );
+                    }
+                }
+            }
+            catch (Exception ex) { }
+            return dto;
+        }
+
+        public static void DodajTim(TimDTO p)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    Tim t = new Tim();
+                    t.Naziv = p.Naziv;
+                    t.DatumOsnivanja = p.DatumOsnivanja;
+                    t.DrzavaRegistracije = p.DrzavaRegistracije;
+                    t.StatusTima = p.StatusTima;
+                    t.NivoTakmicenja = p.NivoTakmicenja;
+
+                    if (p.IgraId > 0)
+                    {
+                        t.IgraId = s.Get<Igra>(p.IgraId);
+                    }
+
+                    s.Save(t);
+                    s.Flush();
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        public static void IzmeniTim(TimDTO p)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    Tim t = s.Get<Tim>(p.TimId);
+                    if (t != null)
+                    {
+                        t.Naziv = p.Naziv;
+                        t.DatumOsnivanja = p.DatumOsnivanja;
+                        t.DrzavaRegistracije = p.DrzavaRegistracije;
+                        t.StatusTima = p.StatusTima;
+                        t.NivoTakmicenja = p.NivoTakmicenja;
+
+                        if (p.IgraId > 0)
+                        {
+                            t.IgraId = s.Get<Igra>(p.IgraId);
+                        }
+
+                        s.Update(t);
+                        s.Flush();
+                    }
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        public static void ObrisiTim(int id)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    Tim t = s.Get<Tim>(id);
+                    if (t != null)
+                    {
+                        s.Delete(t);
+                        s.Flush();
+                    }
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        // --- TRANSFER CRUD ---
+
+        public static List<TransferDTO> VratiSveTransfere()
+        {
+            List<TransferDTO> spisak = new List<TransferDTO>();
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    var transferi = s.QueryOver<Transfer>().List();
+                    foreach (var tr in transferi)
+                    {
+                        spisak.Add(new TransferDTO(
+                            tr.TransferId,
+                            tr.Igrac != null ? tr.Igrac.OsobaId : 0,
+                            tr.Igrac != null ? $"{tr.Igrac.Ime} {tr.Igrac.Prezime}" : "",
+                            tr.PrethodniTim != null ? tr.PrethodniTim.TimId : (int?)null,
+                            tr.PrethodniTim != null ? tr.PrethodniTim.Naziv : "",
+                            tr.NoviTim != null ? tr.NoviTim.TimId : 0,
+                            tr.NoviTim != null ? tr.NoviTim.Naziv : "",
+                            tr.DatumPrelaska,
+                            tr.IznosTransfera,
+                            tr.Valuta,
+                            tr.TrajanjeUgovoraMeseci,
+                            tr.PosebneKlauzule
+                        ));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Obrada izuzetaka
+            }
+            return spisak;
+        }
+
+        public static TransferDTO VratiTransfer(int id)
+        {
+            TransferDTO dto = null;
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    var tr = s.Get<Transfer>(id);
+                    if (tr != null)
+                    {
+                        dto = new TransferDTO(
+                            tr.TransferId,
+                            tr.Igrac != null ? tr.Igrac.OsobaId : 0,
+                            tr.Igrac != null ? $"{tr.Igrac.Ime} {tr.Igrac.Prezime}" : "",
+                            tr.PrethodniTim != null ? tr.PrethodniTim.TimId : (int?)null,
+                            tr.PrethodniTim != null ? tr.PrethodniTim.Naziv : "",
+                            tr.NoviTim != null ? tr.NoviTim.TimId : 0,
+                            tr.NoviTim != null ? tr.NoviTim.Naziv : "",
+                            tr.DatumPrelaska,
+                            tr.IznosTransfera,
+                            tr.Valuta,
+                            tr.TrajanjeUgovoraMeseci,
+                            tr.PosebneKlauzule
+                        );
+                    }
+                }
+            }
+            catch (Exception ex) { }
+            return dto;
+        }
+
+        public static void DodajTransfer(TransferDTO p)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    Transfer tr = new Transfer();
+                    tr.DatumPrelaska = p.DatumPrelaska;
+                    tr.IznosTransfera = p.IznosTransfera;
+                    tr.Valuta = p.Valuta;
+                    tr.TrajanjeUgovoraMeseci = p.TrajanjeUgovoraMeseci;
+                    tr.PosebneKlauzule = p.PosebneKlauzule;
+
+                    if (p.IgracId > 0)
+                    {
+                        tr.Igrac = s.Get<Igrac>(p.IgracId);
+                    }
+                    if (p.PrethodniTimId.HasValue && p.PrethodniTimId.Value > 0)
+                    {
+                        tr.PrethodniTim = s.Get<Tim>(p.PrethodniTimId.Value);
+                    }
+                    if (p.NoviTimId > 0)
+                    {
+                        tr.NoviTim = s.Get<Tim>(p.NoviTimId);
+                    }
+
+                    s.Save(tr);
+                    s.Flush();
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        public static void IzmeniTransfer(TransferDTO p)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    Transfer tr = s.Get<Transfer>(p.TransferId);
+                    if (tr != null)
+                    {
+                        tr.DatumPrelaska = p.DatumPrelaska;
+                        tr.IznosTransfera = p.IznosTransfera;
+                        tr.Valuta = p.Valuta;
+                        tr.TrajanjeUgovoraMeseci = p.TrajanjeUgovoraMeseci;
+                        tr.PosebneKlauzule = p.PosebneKlauzule;
+
+                        if (p.IgracId > 0)
+                        {
+                            tr.Igrac = s.Get<Igrac>(p.IgracId);
+                        }
+                        if (p.PrethodniTimId.HasValue && p.PrethodniTimId.Value > 0)
+                        {
+                            tr.PrethodniTim = s.Get<Tim>(p.PrethodniTimId.Value);
+                        }
+                        else
+                        {
+                            tr.PrethodniTim = null;
+                        }
+                        if (p.NoviTimId > 0)
+                        {
+                            tr.NoviTim = s.Get<Tim>(p.NoviTimId);
+                        }
+
+                        s.Update(tr);
+                        s.Flush();
+                    }
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        public static void ObrisiTransfer(int id)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    Transfer tr = s.Get<Transfer>(id);
+                    if (tr != null)
+                    {
+                        s.Delete(tr);
+                        s.Flush();
+                    }
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        // --- TRENER CRUD ---
+
+        public static List<TrenerDTO> VratiSveTreinere()
+        {
+            List<TrenerDTO> spisak = new List<TrenerDTO>();
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    var treneri = s.QueryOver<Trener>().List();
+                    foreach (var t in treneri)
+                    {
+                        spisak.Add(new TrenerDTO(
+                            t.OsobaId,
+                            t.Ime,
+                            t.Prezime,
+                            "",
+                            t.TipUloge,
+                            t.StilRada,
+                            t.StatusAngazmana
+                        ));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Obrada izuzetaka
+            }
+            return spisak;
+        }
+
+        public static TrenerDTO VratiTrenera(int id)
+        {
+            TrenerDTO dto = null;
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    var t = s.Get<Trener>(id);
+                    if (t != null)
+                    {
+                        dto = new TrenerDTO(
+                            t.OsobaId,
+                            t.Ime,
+                            t.Prezime,
+                            "",
+                            t.TipUloge,
+                            t.StilRada,
+                            t.StatusAngazmana
+                        );
+                    }
+                }
+            }
+            catch (Exception ex) { }
+            return dto;
+        }
+
+        public static void DodajTrenera(TrenerDTO p)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    Trener t = new Trener();
+                    t.Ime = p.Ime;
+                    t.Prezime = p.Prezime;
+                    t.TipUloge = p.TipUloge;
+                    t.StilRada = p.StilRada;
+                    t.StatusAngazmana = p.StatusAngazmana;
+
+                    s.Save(t);
+                    s.Flush();
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        public static void IzmeniTrenera(TrenerDTO p)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    Trener t = s.Get<Trener>(p.OsobaId);
+                    if (t != null)
+                    {
+                        t.Ime = p.Ime;
+                        t.Prezime = p.Prezime;
+                        t.TipUloge = p.TipUloge;
+                        t.StilRada = p.StilRada;
+                        t.StatusAngazmana = p.StatusAngazmana;
+
+                        s.Update(t);
+                        s.Flush();
+                    }
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        public static void ObrisiTrenera(int id)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    Trener t = s.Get<Trener>(id);
+                    if (t != null)
+                    {
+                        s.Delete(t);
+                        s.Flush();
+                    }
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        // --- TURNIR CRUD ---
+
+        public static List<TurnirDTO> VratiSveTurnire()
+        {
+            List<TurnirDTO> spisak = new List<TurnirDTO>();
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    var turniri = s.QueryOver<Turnir>().List();
+                    foreach (var t in turniri)
+                    {
+                        spisak.Add(new TurnirDTO(
+                            t.TakmicenjeId,
+                            t.Naziv,
+                            t.Organizator,
+                            t.Igra != null ? t.Igra.Naziv : "",
+                            t.Region,
+                            t.Lokacija,
+                            t.FormatTakmicenja,
+                            t.DatumPocetka,
+                            t.DatumZavrsetka,
+                            t.NagradniFond,
+                            t.ValutaNagrade,
+                            t.Status,
+                            t.TipKostura,
+                            t.PravilaNapredovanja,
+                            t.BrojMecevaPoRundi
+                        ));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Obrada izuzetaka
+            }
+            return spisak;
+        }
+
+        public static TurnirDTO VratiTurnir(int id)
+        {
+            TurnirDTO dto = null;
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    var t = s.Get<Turnir>(id);
+                    if (t != null)
+                    {
+                        dto = new TurnirDTO(
+                            t.TakmicenjeId,
+                            t.Naziv,
+                            t.Organizator,
+                            t.Igra != null ? t.Igra.Naziv : "",
+                            t.Region,
+                            t.Lokacija,
+                            t.FormatTakmicenja,
+                            t.DatumPocetka,
+                            t.DatumZavrsetka,
+                            t.NagradniFond,
+                            t.ValutaNagrade,
+                            t.Status,
+                            t.TipKostura,
+                            t.PravilaNapredovanja,
+                            t.BrojMecevaPoRundi
+                        );
+                    }
+                }
+            }
+            catch (Exception ex) { }
+            return dto;
+        }
+
+        public static void DodajTurnir(TurnirDTO p)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    Turnir t = new Turnir();
+                    t.Naziv = p.NazivTakmicenja;
+                    t.Organizator = p.Organizator;
+                    t.Region = p.Region;
+                    t.Lokacija = p.Lokacija;
+                    t.FormatTakmicenja = p.FormatTakmicenja;
+                    t.DatumPocetka = p.DatumPocetka;
+                    t.DatumZavrsetka = p.DatumZavrsetka;
+                    t.NagradniFond = p.NagradniFond;
+                    t.ValutaNagrade = p.ValutaNagrade;
+                    t.Status = p.Status;
+                    t.TipKostura = p.TipKostura;
+                    t.PravilaNapredovanja = p.PravilaNapredovanja;
+                    t.BrojMecevaPoRundi = p.BrojMecevaPoRundi;
+
+                    if (!string.IsNullOrEmpty(p.Igra))
+                    {
+                        var igra = s.QueryOver<Igra>().Where(i => i.Naziv == p.Igra).SingleOrDefault();
+                        if (igra != null)
+                        {
+                            t.Igra = igra;
+                        }
+                    }
+
+                    s.Save(t);
+                    s.Flush();
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        public static void IzmeniTurnir(TurnirDTO p)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    Turnir t = s.Get<Turnir>(p.TakmicenjeId);
+                    if (t != null)
+                    {
+                        t.Naziv = p.NazivTakmicenja;
+                        t.Organizator = p.Organizator;
+                        t.Region = p.Region;
+                        t.Lokacija = p.Lokacija;
+                        t.FormatTakmicenja = p.FormatTakmicenja;
+                        t.DatumPocetka = p.DatumPocetka;
+                        t.DatumZavrsetka = p.DatumZavrsetka;
+                        t.NagradniFond = p.NagradniFond;
+                        t.ValutaNagrade = p.ValutaNagrade;
+                        t.Status = p.Status;
+                        t.TipKostura = p.TipKostura;
+                        t.PravilaNapredovanja = p.PravilaNapredovanja;
+                        t.BrojMecevaPoRundi = p.BrojMecevaPoRundi;
+
+                        if (!string.IsNullOrEmpty(p.Igra))
+                        {
+                            var igra = s.QueryOver<Igra>().Where(i => i.Naziv == p.Igra).SingleOrDefault();
+                            if (igra != null)
+                            {
+                                t.Igra = igra;
+                            }
+                        }
+
+                        s.Update(t);
+                        s.Flush();
+                    }
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        public static void ObrisiTurnir(int id)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    Turnir t = s.Get<Turnir>(id);
+                    if (t != null)
+                    {
+                        s.Delete(t);
+                        s.Flush();
+                    }
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        // --- UČEŠĆE TIMA U FAZI CRUD ---
+
+        public static List<UcesceTimaUFaziDTO> VratiSvaUcescaTimovaUFazi()
+        {
+            List<UcesceTimaUFaziDTO> spisak = new List<UcesceTimaUFaziDTO>();
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    var ucesca = s.QueryOver<UcesceTimaUFazi>().List();
+                    foreach (var u in ucesca)
+                    {
+                        spisak.Add(new UcesceTimaUFaziDTO(
+                            u.FazaId != null ? u.FazaId.FazaId : 0,
+                            u.TimId != null ? u.TimId.TimId : 0,
+                            u.FazaId != null ? u.FazaId.NazivFaze : "",
+                            u.TimId != null ? u.TimId.Naziv : "",
+                            u.Status,
+                            u.OstvareniRezultat,
+                            u.BrojPobeda,
+                            u.BrojPoraza,
+                            u.OsvojeniBodovi,
+                            u.KonacanPlasman
+                        ));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Obrada izuzetaka
+            }
+            return spisak;
+        }
+
+        public static UcesceTimaUFaziDTO VratiUcesceTimaUFazi(int fazaId, int timId)
+        {
+            UcesceTimaUFaziDTO dto = null;
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    var faza = s.Get<FazaTakmicenja>(fazaId);
+                    var tim = s.Get<Tim>(timId);
+
+                    if (faza != null && tim != null)
+                    {
+                        var kljuc = new UcesceTimaUFazi { FazaId = faza, TimId = tim };
+                        var u = s.Get<UcesceTimaUFazi>(kljuc);
+
+                        if (u != null)
+                        {
+                            dto = new UcesceTimaUFaziDTO(
+                                u.FazaId != null ? u.FazaId.FazaId : 0,
+                                u.TimId != null ? u.TimId.TimId : 0,
+                                u.FazaId != null ? u.FazaId.NazivFaze : "",
+                                u.TimId != null ? u.TimId.Naziv : "",
+                                u.Status,
+                                u.OstvareniRezultat,
+                                u.BrojPobeda,
+                                u.BrojPoraza,
+                                u.OsvojeniBodovi,
+                                u.KonacanPlasman
+                            );
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { }
+            return dto;
+        }
+
+        public static void DodajUcesceTimaUFazi(UcesceTimaUFaziDTO p)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    UcesceTimaUFazi u = new UcesceTimaUFazi();
+                    u.Status = p.Status;
+                    u.OstvareniRezultat = p.OstvareniRezultat;
+                    u.BrojPobeda = p.BrojPobeda;
+                    u.BrojPoraza = p.BrojPoraza;
+                    u.OsvojeniBodovi = p.OsvojeniBodovi;
+                    u.KonacanPlasman = p.KonacanPlasman;
+
+                    if (p.FazaId > 0)
+                    {
+                        u.FazaId = s.Get<FazaTakmicenja>(p.FazaId);
+                    }
+                    if (p.TimId > 0)
+                    {
+                        u.TimId = s.Get<Tim>(p.TimId);
+                    }
+
+                    s.Save(u);
+                    s.Flush();
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        public static void IzmeniUcesceTimaUFazi(UcesceTimaUFaziDTO p)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    var faza = s.Get<FazaTakmicenja>(p.FazaId);
+                    var tim = s.Get<Tim>(p.TimId);
+
+                    if (faza != null && tim != null)
+                    {
+                        var kljuc = new UcesceTimaUFazi { FazaId = faza, TimId = tim };
+                        var u = s.Get<UcesceTimaUFazi>(kljuc);
+
+                        if (u != null)
+                        {
+                            u.Status = p.Status;
+                            u.OstvareniRezultat = p.OstvareniRezultat;
+                            u.BrojPobeda = p.BrojPobeda;
+                            u.BrojPoraza = p.BrojPoraza;
+                            u.OsvojeniBodovi = p.OsvojeniBodovi;
+                            u.KonacanPlasman = p.KonacanPlasman;
+
+                            s.Update(u);
+                            s.Flush();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        public static void ObrisiUcesceTimaUFazi(int fazaId, int timId)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    var faza = s.Get<FazaTakmicenja>(fazaId);
+                    var tim = s.Get<Tim>(timId);
+
+                    if (faza != null && tim != null)
+                    {
+                        var kljuc = new UcesceTimaUFazi { FazaId = faza, TimId = tim };
+                        var u = s.Get<UcesceTimaUFazi>(kljuc);
+
+                        if (u != null)
+                        {
+                            s.Delete(u);
+                            s.Flush();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        // --- UGOVOR IGRAČA CRUD ---
+
+        public static List<UgovorIgracaDTO> VratiSveUgovoreIgraca()
+        {
+            List<UgovorIgracaDTO> spisak = new List<UgovorIgracaDTO>();
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    var ugovori = s.QueryOver<UgovorIgraca>().List();
+                    foreach (var u in ugovori)
+                    {
+                        spisak.Add(new UgovorIgracaDTO(
+                            u.UgovorId,
+                            u.Igrac != null ? u.Igrac.OsobaId : 0,
+                            u.Igrac != null ? $"{u.Igrac.Ime} {u.Igrac.Prezime}" : "",
+                            u.Tim != null ? u.Tim.TimId : 0,
+                            u.Tim != null ? u.Tim.Naziv : "",
+                            u.DatumOd,
+                            u.DatumDo,
+                            u.TipUgovora,
+                            u.Plata,
+                            u.Bonusi,
+                            u.KlauzulaOtkup,
+                            u.ZabranaNastupa,
+                            u.StatusIgraca
+                        ));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Obrada izuzetaka
+            }
+            return spisak;
+        }
+
+        public static UgovorIgracaDTO VratiUgovorIgraca(int id)
+        {
+            UgovorIgracaDTO dto = null;
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    var u = s.Get<UgovorIgraca>(id);
+                    if (u != null)
+                    {
+                        dto = new UgovorIgracaDTO(
+                            u.UgovorId,
+                            u.Igrac != null ? u.Igrac.OsobaId : 0,
+                            u.Igrac != null ? $"{u.Igrac.Ime} {u.Igrac.Prezime}" : "",
+                            u.Tim != null ? u.Tim.TimId : 0,
+                            u.Tim != null ? u.Tim.Naziv : "",
+                            u.DatumOd,
+                            u.DatumDo,
+                            u.TipUgovora,
+                            u.Plata,
+                            u.Bonusi,
+                            u.KlauzulaOtkup,
+                            u.ZabranaNastupa,
+                            u.StatusIgraca
+                        );
+                    }
+                }
+            }
+            catch (Exception ex) { }
+            return dto;
+        }
+
+        public static void DodajUgovorIgraca(UgovorIgracaDTO p)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    UgovorIgraca u = new UgovorIgraca();
+                    u.DatumOd = p.DatumOd;
+                    u.DatumDo = p.DatumDo;
+                    u.TipUgovora = p.TipUgovora;
+                    u.Plata = p.Plata;
+                    u.Bonusi = p.Bonusi;
+                    u.KlauzulaOtkup = p.KlauzulaOtkup;
+                    u.ZabranaNastupa = p.ZabranaNastupa;
+                    u.StatusIgraca = p.StatusIgraca;
+
+                    if (p.IgracId > 0)
+                    {
+                        u.Igrac = s.Get<Igrac>(p.IgracId);
+                    }
+                    if (p.TimId > 0)
+                    {
+                        u.Tim = s.Get<Tim>(p.TimId);
+                    }
+
+                    s.Save(u);
+                    s.Flush();
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        public static void IzmeniUgovorIgraca(UgovorIgracaDTO p)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    UgovorIgraca u = s.Get<UgovorIgraca>(p.UgovorId);
+                    if (u != null)
+                    {
+                        u.DatumOd = p.DatumOd;
+                        u.DatumDo = p.DatumDo;
+                        u.TipUgovora = p.TipUgovora;
+                        u.Plata = p.Plata;
+                        u.Bonusi = p.Bonusi;
+                        u.KlauzulaOtkup = p.KlauzulaOtkup;
+                        u.ZabranaNastupa = p.ZabranaNastupa;
+                        u.StatusIgraca = p.StatusIgraca;
+
+                        if (p.IgracId > 0)
+                        {
+                            u.Igrac = s.Get<Igrac>(p.IgracId);
+                        }
+                        if (p.TimId > 0)
+                        {
+                            u.Tim = s.Get<Tim>(p.TimId);
+                        }
+
+                        s.Update(u);
+                        s.Flush();
+                    }
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        public static void ObrisiUgovorIgraca(int id)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    UgovorIgraca u = s.Get<UgovorIgraca>(id);
+                    if (u != null)
+                    {
+                        s.Delete(u);
+                        s.Flush();
+                    }
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        // --- UGOVOR SUBJEKAT CRUD ---
+
+        public static List<UgovorSubjekatDTO> VratiSveUgovoreSubjekte()
+        {
+            List<UgovorSubjekatDTO> spisak = new List<UgovorSubjekatDTO>();
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    var subjekti = s.QueryOver<UgovorSubjekat>().List();
+                    foreach (var us in subjekti)
+                    {
+                        spisak.Add(new UgovorSubjekatDTO(
+                            us.UgovorId,
+                            us.Tim != null ? us.Tim.TimId : (int?)null,
+                            us.Tim != null ? us.Tim.Naziv : "",
+                            us.Igrac != null ? us.Igrac.OsobaId : (int?)null,
+                            us.Igrac != null ? $"{us.Igrac.Ime} {us.Igrac.Prezime}" : "",
+                            us.Takmicenje != null ? us.Takmicenje.TakmicenjeId : (int?)null,
+                            us.Takmicenje != null ? us.Takmicenje.Naziv : ""
+                        ));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Obrada izuzetaka
+            }
+            return spisak;
+        }
+
+        public static UgovorSubjekatDTO VratiUgovorSubjekat(int id)
+        {
+            UgovorSubjekatDTO dto = null;
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    var us = s.Get<UgovorSubjekat>(id);
+                    if (us != null)
+                    {
+                        dto = new UgovorSubjekatDTO(
+                            us.UgovorId,
+                            us.Tim != null ? us.Tim.TimId : (int?)null,
+                            us.Tim != null ? us.Tim.Naziv : "",
+                            us.Igrac != null ? us.Igrac.OsobaId : (int?)null,
+                            us.Igrac != null ? $"{us.Igrac.Ime} {us.Igrac.Prezime}" : "",
+                            us.Takmicenje != null ? us.Takmicenje.TakmicenjeId : (int?)null,
+                            us.Takmicenje != null ? us.Takmicenje.Naziv : ""
+                        );
+                    }
+                }
+            }
+            catch (Exception ex) { }
+            return dto;
+        }
+
+        public static void DodajUgovorSubjekat(UgovorSubjekatDTO p)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    // Budući da je UgovorSubjekat u 1:1 vezi preko primarnog ključa sa SponzorskiUgovor,
+                    // moramo pronaći i dodeliti postojeći SponzorskiUgovor po ID-ju.
+                    var ugovor = s.Get<SponzorskiUgovor>(p.UgovorId);
+                    if (ugovor != null)
+                    {
+                        UgovorSubjekat us = new UgovorSubjekat();
+                        us.UgovorId = p.UgovorId;
+                        us.Ugovor = ugovor;
+
+                        if (p.TimId.HasValue && p.TimId.Value > 0)
+                        {
+                            us.Tim = s.Get<Tim>(p.TimId.Value);
+                        }
+                        if (p.IgracId.HasValue && p.IgracId.Value > 0)
+                        {
+                            us.Igrac = s.Get<Igrac>(p.IgracId.Value);
+                        }
+                        if (p.TakmicenjeId.HasValue && p.TakmicenjeId.Value > 0)
+                        {
+                            us.Takmicenje = s.Get<Takmicenje>(p.TakmicenjeId.Value);
+                        }
+
+                        s.Save(us);
+                        s.Flush();
+                    }
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        public static void IzmeniUgovorSubjekat(UgovorSubjekatDTO p)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    UgovorSubjekat us = s.Get<UgovorSubjekat>(p.UgovorId);
+                    if (us != null)
+                    {
+                        us.Tim = (p.TimId.HasValue && p.TimId.Value > 0) ? s.Get<Tim>(p.TimId.Value) : null;
+                        us.Igrac = (p.IgracId.HasValue && p.IgracId.Value > 0) ? s.Get<Igrac>(p.IgracId.Value) : null;
+                        us.Takmicenje = (p.TakmicenjeId.HasValue && p.TakmicenjeId.Value > 0) ? s.Get<Takmicenje>(p.TakmicenjeId.Value) : null;
+
+                        s.Update(us);
+                        s.Flush();
+                    }
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        public static void ObrisiUgovorSubjekat(int id)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    UgovorSubjekat us = s.Get<UgovorSubjekat>(id);
+                    if (us != null)
+                    {
+                        s.Delete(us);
+                        s.Flush();
+                    }
+                }
+            }
+            catch (Exception ex) { }
+        }
     }
 }

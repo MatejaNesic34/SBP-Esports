@@ -551,3 +551,126 @@ INSERT INTO Ugovor_Subjekat (ugovor_id, tim_id, igrac_id, takmicenje_id) VALUES 
 INSERT INTO Ugovor_Subjekat (ugovor_id, tim_id, igrac_id, takmicenje_id) VALUES (108, NULL, NULL, NULL);
 INSERT INTO Ugovor_Subjekat (ugovor_id, tim_id, igrac_id, takmicenje_id) VALUES (109, 3, NULL, NULL);
 INSERT INTO Ugovor_Subjekat (ugovor_id, tim_id, igrac_id, takmicenje_id) VALUES (110, NULL, 3, NULL);
+
+INSERT INTO Statistika_Tima_Na_Mecu (mec_id, tim_id, kills, deaths, assists, damage, objective_score, gold) 
+VALUES (1, 1, 65, 52, 38, 14200, 12, 0);
+INSERT INTO Statistika_Tima_Na_Mecu (mec_id, tim_id, kills, deaths, assists, damage, objective_score, gold) 
+VALUES (2, 1, 28, 40, 15, 6800, 4, 0);
+INSERT INTO Statistika_Tima_Na_Mecu (mec_id, tim_id, kills, deaths, assists, damage, objective_score, gold) 
+VALUES (5, 1, 88, 71, 55, 18900, 16, 0);
+INSERT INTO Statistika_Tima_Na_Mecu (mec_id, tim_id, kills, deaths, assists, damage, objective_score, gold) 
+VALUES (16, 2, 45, 30, 92, 65000, 8, 58400);
+INSERT INTO Statistika_Tima_Na_Mecu (mec_id, tim_id, kills, deaths, assists, damage, objective_score, gold) 
+VALUES (17, 2, 38, 18, 80, 52000, 7, 49200);
+INSERT INTO Statistika_Tima_Na_Mecu (mec_id, tim_id, kills, deaths, assists, damage, objective_score, gold) 
+VALUES (18, 3, 52, 68, 110, 84000, 4, 61000);
+INSERT INTO Statistika_Tima_Na_Mecu (mec_id, tim_id, kills, deaths, assists, damage, objective_score, gold) 
+VALUES (19, 4, 72, 48, 34, 15600, 10, 0);
+INSERT INTO Statistika_Tima_Na_Mecu (mec_id, tim_id, kills, deaths, assists, damage, objective_score, gold) 
+VALUES (20, 5, 12, 4, 18, 3100, 2, 0);
+INSERT INTO Statistika_Tima_Na_Mecu (mec_id, tim_id, kills, deaths, assists, damage, objective_score, gold) 
+VALUES (1, 2, 52, 65, 41, 13800, 10, 0);
+INSERT INTO Statistika_Tima_Na_Mecu (mec_id, tim_id, kills, deaths, assists, damage, objective_score, gold) 
+VALUES (2, 3, 40, 28, 22, 7100, 6, 0);
+INSERT INTO Statistika_Tima_Na_Mecu (mec_id, tim_id, kills, deaths, assists, damage, objective_score, gold) 
+VALUES (3, 1, 45, 33, 29, 11200, 9, 0);
+INSERT INTO Statistika_Tima_Na_Mecu (mec_id, tim_id, kills, deaths, assists, damage, objective_score, gold) 
+VALUES (4, 4, 60, 58, 48, 16400, 11, 0);
+INSERT INTO Statistika_Tima_Na_Mecu (mec_id, tim_id, kills, deaths, assists, damage, objective_score, gold) 
+VALUES (5, 5, 71, 88, 42, 17500, 14, 0);
+INSERT INTO Statistika_Tima_Na_Mecu (mec_id, tim_id, kills, deaths, assists, damage, objective_score, gold) 
+VALUES (16, 3, 30, 45, 60, 54000, 5, 51200);
+INSERT INTO Statistika_Tima_Na_Mecu (mec_id, tim_id, kills, deaths, assists, damage, objective_score, gold) 
+VALUES (17, 4, 18, 38, 35, 41000, 3, 38500);
+INSERT INTO Statistika_Tima_Na_Mecu (mec_id, tim_id, kills, deaths, assists, damage, objective_score, gold) 
+VALUES (18, 2, 68, 52, 125, 91000, 8, 67800);
+INSERT INTO Statistika_Tima_Na_Mecu (mec_id, tim_id, kills, deaths, assists, damage, objective_score, gold) 
+VALUES (19, 5, 48, 72, 25, 12300, 6, 0);
+INSERT INTO Statistika_Tima_Na_Mecu (mec_id, tim_id, kills, deaths, assists, damage, objective_score, gold) 
+VALUES (20, 1, 4, 12, 6, 1900, 0, 0);
+
+
+INSERT INTO Ucesce_Tima_U_Fazi (faza_id, tim_id, status, ostvareni_rezultat, broj_pobeda, broj_poraza, osvojeni_bodovi, konacan_plasman) 
+VALUES (1, 1, 'Kvalifikovan', 'Prolaz u plej-of', 3, 1, 9, 1);
+INSERT INTO Ucesce_Tima_U_Fazi (faza_id, tim_id, status, ostvareni_rezultat, broj_pobeda, broj_poraza, osvojeni_bodovi, konacan_plasman) 
+VALUES (2, 1, 'Kvalifikovan', 'Pobednik turnira', 3, 0, 9, 1);
+INSERT INTO Ucesce_Tima_U_Fazi (faza_id, tim_id, status, ostvareni_rezultat, broj_pobeda, broj_poraza, osvojeni_bodovi, konacan_plasman) 
+VALUES (3, 1, 'Kvalifikovan', 'Prolaz u 1/4 finala', 3, 2, 9, 2);
+INSERT INTO Ucesce_Tima_U_Fazi (faza_id, tim_id, status, ostvareni_rezultat, broj_pobeda, broj_poraza, osvojeni_bodovi, konacan_plasman) 
+VALUES (15, 2, 'Kvalifikovan', 'Prvo mesto u grupi', 14, 4, 42, 1);
+INSERT INTO Ucesce_Tima_U_Fazi (faza_id, tim_id, status, ostvareni_rezultat, broj_pobeda, broj_poraza, osvojeni_bodovi, konacan_plasman) 
+VALUES (16, 2, 'Kvalifikovan', 'Šampion lige', 3, 1, 9, 1);
+INSERT INTO Ucesce_Tima_U_Fazi (faza_id, tim_id, status, ostvareni_rezultat, broj_pobeda, broj_poraza, osvojeni_bodovi, konacan_plasman) 
+VALUES (7, 3, 'Eliminisan', 'Ispadanje u grupnoj fazi', 1, 2, 3, 5);
+INSERT INTO Ucesce_Tima_U_Fazi (faza_id, tim_id, status, ostvareni_rezultat, broj_pobeda, broj_poraza, osvojeni_bodovi, konacan_plasman) 
+VALUES (9, 4, 'Kvalifikovan', 'Prolaz u polufinale', 2, 0, 6, 2);
+INSERT INTO Ucesce_Tima_U_Fazi (faza_id, tim_id, status, ostvareni_rezultat, broj_pobeda, broj_poraza, osvojeni_bodovi, konacan_plasman) 
+VALUES (10, 4, 'Eliminisan', 'Treće mesto', 1, 1, 3, 3);
+INSERT INTO Ucesce_Tima_U_Fazi (faza_id, tim_id, status, ostvareni_rezultat, broj_pobeda, broj_poraza, osvojeni_bodovi, konacan_plasman) 
+VALUES (11, 5, 'Kvalifikovan', 'Prolaz u finale', 5, 2, 15, 4);
+INSERT INTO Ucesce_Tima_U_Fazi (faza_id, tim_id, status, ostvareni_rezultat, broj_pobeda, broj_poraza, osvojeni_bodovi, konacan_plasman) 
+VALUES (12, 5, 'Kvalifikovan', 'Drugo mesto', 3, 2, 9, 2);
+
+
+INSERT INTO Individualni_Rezultat (rezultat_id, igrac_id, naziv_priznanja, datum_ostvarivanja, takmicenje_id, opis) 
+VALUES (1, 1, 'CSGO MVP 2026', TO_DATE('2026-02-15', 'YYYY-MM-DD'), 1, 'Najbolji igrač turnira sa 1.35 ratingom');
+INSERT INTO Individualni_Rezultat (rezultat_id, igrac_id, naziv_priznanja, datum_ostvarivanja, takmicenje_id, opis) 
+VALUES (2, 2, 'HLTV Major All-Star Team', TO_DATE('2026-03-31', 'YYYY-MM-DD'), 2, 'Izabran za najboljeg entry fraggera turnira');
+INSERT INTO Individualni_Rezultat (rezultat_id, igrac_id, naziv_priznanja, datum_ostvarivanja, takmicenje_id, opis) 
+VALUES (3, 13, 'LCK Spring MVP', TO_DATE('2026-04-10', 'YYYY-MM-DD'), 5, 'Najnagrađivaniji igrač regularnog dela sezone');
+INSERT INTO Individualni_Rezultat (rezultat_id, igrac_id, naziv_priznanja, datum_ostvarivanja, takmicenje_id, opis) 
+VALUES (4, 7, 'VCT Masters Top Fragger', TO_DATE('2026-06-20', 'YYYY-MM-DD'), 14, 'Najviše napravljenih kills-a tokom turnira');
+INSERT INTO Individualni_Rezultat (rezultat_id, igrac_id, naziv_priznanja, datum_ostvarivanja, takmicenje_id, opis) 
+VALUES (5, 25, 'PUBG Europe Most Kills', TO_DATE('2026-04-30', 'YYYY-MM-DD'), 20, 'Najbolji strelac ligaškog dela');
+
+
+INSERT INTO Transfer (transfer_id, igrac_id, prethodni_tim_id, novi_tim_id, datum_prelaska, iznos_transfera, valuta, trajanje_ugovora_meseci, posebne_klauzule) 
+VALUES (1, 1, NULL, 1, TO_DATE('2021-01-15', 'YYYY-MM-DD'), 500000.00, 'EUR', 24, 'Bonus u slučaju osvajanja Majora');
+INSERT INTO Transfer (transfer_id, igrac_id, prethodni_tim_id, novi_tim_id, datum_prelaska, iznos_transfera, valuta, trajanje_ugovora_meseci, posebne_klauzule) 
+VALUES (2, 2, NULL, 1, TO_DATE('2017-08-10', 'YYYY-MM-DD'), 1000000.00, 'EUR', 36, 'Procenat od naredne prodaje 10%');
+INSERT INTO Transfer (transfer_id, igrac_id, prethodni_tim_id, novi_tim_id, datum_prelaska, iznos_transfera, valuta, trajanje_ugovora_meseci, posebne_klauzule) 
+VALUES (3, 7, NULL, 4, TO_DATE('2021-05-10', 'YYYY-MM-DD'), 1250000.00, 'USD', 24, 'Pravo na korišćenje ličnog brenda');
+INSERT INTO Transfer (transfer_id, igrac_id, prethodni_tim_id, novi_tim_id, datum_prelaska, iznos_transfera, valuta, trajanje_ugovora_meseci, posebne_klauzule) 
+VALUES (4, 3, NULL, 1, TO_DATE('2022-03-01', 'YYYY-MM-DD'), 850000.00, 'EUR', 36, 'Bonus za MVP nagrade');
+INSERT INTO Transfer (transfer_id, igrac_id, prethodni_tim_id, novi_tim_id, datum_prelaska, iznos_transfera, valuta, trajanje_ugovora_meseci, posebne_klauzule) 
+VALUES (5, 4, NULL, 1, TO_DATE('2022-06-15', 'YYYY-MM-DD'), 300000.00, 'EUR', 18, 'Bez posebne otkupne klauzule');
+INSERT INTO Transfer (transfer_id, igrac_id, prethodni_tim_id, novi_tim_id, datum_prelaska, iznos_transfera, valuta, trajanje_ugovora_meseci, posebne_klauzule) 
+VALUES (6, 8, NULL, 4, TO_DATE('2023-01-20', 'YYYY-MM-DD'), 450000.00, 'USD', 12, 'Automatsko produženje na još 12 meseci');
+
+
+INSERT INTO Pozajmica (pozajmica_id, igrac_id, matični_tim_id, tim_na_pozajmici_id, datum_od, datum_do, finansijski_uslovi, pravo_otkupa) 
+VALUES (1, 5, 1, 5, TO_DATE('2026-01-01', 'YYYY-MM-DD'), TO_DATE('2026-06-30', 'YYYY-MM-DD'), 'Tim na pozajmici pokriva 50% mesečne plate igrača', 1);
+INSERT INTO Pozajmica (pozajmica_id, igrac_id, matični_tim_id, tim_na_pozajmici_id, datum_od, datum_do, finansijski_uslovi, pravo_otkupa) 
+VALUES (2, 10, 4, 1, TO_DATE('2026-03-01', 'YYYY-MM-DD'), TO_DATE('2026-09-01', 'YYYY-MM-DD'), 'Fiksna naknada za pozajmicu od 15.000 EUR plaćena unapred', 0);
+INSERT INTO Pozajmica (pozajmica_id, igrac_id, matični_tim_id, tim_na_pozajmici_id, datum_od, datum_do, finansijski_uslovi, pravo_otkupa) 
+VALUES (4, 9, 4, 5, TO_DATE('2026-04-01', 'YYYY-MM-DD'), TO_DATE('2026-10-01', 'YYYY-MM-DD'), 'Matični tim pokriva 30% plate', 0);
+INSERT INTO Pozajmica (pozajmica_id, igrac_id, matični_tim_id, tim_na_pozajmici_id, datum_od, datum_do, finansijski_uslovi, pravo_otkupa) 
+VALUES (5, 3, 1, 2, TO_DATE('2026-05-01', 'YYYY-MM-DD'), TO_DATE('2026-11-01', 'YYYY-MM-DD'), 'Fiksna mesečna naknada od 5.000 EUR', 1);
+INSERT INTO Pozajmica (pozajmica_id, igrac_id, matični_tim_id, tim_na_pozajmici_id, datum_od, datum_do, finansijski_uslovi, pravo_otkupa) 
+VALUES (6, 4, 1, 4, TO_DATE('2026-06-01', 'YYYY-MM-DD'), TO_DATE('2026-12-31', 'YYYY-MM-DD'), 'Bez naknade uz obavezu nastupa na svim turnirima', 0);
+
+
+INSERT INTO Dogadjaj_Na_Mecu (dogadjaj_id, mec_id, tip_dogadjaja, vreme_dogadjaja, opis, odluka_sudije) 
+VALUES (1, 1, 'Tehnički problem', TO_TIMESTAMP('2026-02-01 14:35:00', 'YYYY-MM-DD HH24:MI:SS'), 'Gubitak konekcije igrača u 12. rundi', 'Pauza odobrena, runda se nastavlja nakon tehničkog reseta.');
+INSERT INTO Dogadjaj_Na_Mecu (dogadjaj_id, mec_id, tip_dogadjaja, vreme_dogadjaja, opis, odluka_sudije) 
+VALUES (3, 2, 'Žalba', TO_TIMESTAMP('2026-02-05 16:20:00', 'YYYY-MM-DD HH24:MI:SS'), 'Prigovor na potencijalni vizuelni bag na mapi', 'Pregledan snimak, žalba odbijena kao neosnovana.');
+INSERT INTO Dogadjaj_Na_Mecu (dogadjaj_id, mec_id, tip_dogadjaja, vreme_dogadjaja, opis, odluka_sudije) 
+VALUES (4, 3, 'Odluka sudije', TO_TIMESTAMP('2026-02-10 18:05:00', 'YYYY-MM-DD HH24:MI:SS'), 'Neovlašćeno pauziranje meča bez najave', 'Igraču dodeljeno službeno upozorenje.');
+INSERT INTO Dogadjaj_Na_Mecu (dogadjaj_id, mec_id, tip_dogadjaja, vreme_dogadjaja, opis, odluka_sudije) 
+VALUES (7, 20, 'Tehnički problem', TO_TIMESTAMP('2026-04-02 13:50:00', 'YYYY-MM-DD HH24:MI:SS'), 'Pad servera tokom odlučujuće runde', 'Runda se poništava i ponovo odigrava od početka.');
+INSERT INTO Dogadjaj_Na_Mecu (dogadjaj_id, mec_id, tip_dogadjaja, vreme_dogadjaja, opis, odluka_sudije) 
+VALUES (11, 47, 'Tehnički problem', TO_TIMESTAMP('2026-05-25 14:10:00', 'YYYY-MM-DD HH24:MI:SS'), 'Problem sa mikrofonom i komunikacijom u timu', 'Odobrena kratka pauza od 3 minuta za zamenu kabla.');
+INSERT INTO Dogadjaj_Na_Mecu (dogadjaj_id, mec_id, tip_dogadjaja, vreme_dogadjaja, opis, odluka_sudije) 
+VALUES (13, 33, 'Odluka sudije', TO_TIMESTAMP('2026-06-10 18:20:00', 'YYYY-MM-DD HH24:MI:SS'), 'Korišćenje nedozvoljene pozicije na mapi (pixel walk)', 'Runda se poništava i dodeljuje protivničkom timu.');
+INSERT INTO Dogadjaj_Na_Mecu (dogadjaj_id, mec_id, tip_dogadjaja, vreme_dogadjaja, opis, odluka_sudije) 
+VALUES (14, 16, 'Žalba', TO_TIMESTAMP('2026-06-18 21:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'Prigovor na neispravno podešene FPS limite na računaru', 'Sudije proverile podešavanja, meč nastavljen bez izmena.');
+INSERT INTO Dogadjaj_Na_Mecu (dogadjaj_id, mec_id, tip_dogadjaja, vreme_dogadjaja, opis, odluka_sudije) 
+VALUES (15, 39, 'Tehnički problem', TO_TIMESTAMP('2026-07-02 12:30:00', 'YYYY-MM-DD HH24:MI:SS'), 'Iznenadni pad FPS-a kod više igrača istovremeno', 'Svršen restart klijenta i nastavak igre od početka runde.');
+INSERT INTO Dogadjaj_Na_Mecu (dogadjaj_id, mec_id, tip_dogadjaja, vreme_dogadjaja, opis, odluka_sudije) 
+VALUES (9, 6, 'Pauza', TO_TIMESTAMP('2026-02-01 15:10:00', 'YYYY-MM-DD HH24:MI:SS'), 'Zahtev za taktičku pauzu tima A', 'Pauza odobrena u trajanju od 30 sekundi.');
+INSERT INTO Dogadjaj_Na_Mecu (dogadjaj_id, mec_id, tip_dogadjaja, vreme_dogadjaja, opis, odluka_sudije) 
+VALUES (10, 8, 'Tehnički problem', TO_TIMESTAMP('2026-03-01 11:15:00', 'YYYY-MM-DD HH24:MI:SS'), 'Kvar na tastaturi igrača', 'Odobrena zamena opreme, pauza u trajanju od 5 minuta.');
+INSERT INTO Dogadjaj_Na_Mecu (dogadjaj_id, mec_id, tip_dogadjaja, vreme_dogadjaja, opis, odluka_sudije) 
+VALUES (2, 19, 'Odluka sudije', TO_TIMESTAMP('2026-03-12 19:40:00', 'YYYY-MM-DD HH24:MI:SS'), 'Neprimeren rečnik u opštem chat-u', 'Izrečeno upozorenje i novčana kazna za tim.');
+INSERT INTO Dogadjaj_Na_Mecu (dogadjaj_id, mec_id, tip_dogadjaja, vreme_dogadjaja, opis, odluka_sudije) 
+VALUES (8, 11, 'Tehnički problem', TO_TIMESTAMP('2026-04-15 15:05:00', 'YYYY-MM-DD HH24:MI:SS'), 'Kašnjenje tima na binu pre početka meča', 'Oduzet prvi ban u fazi izbora mapa.');

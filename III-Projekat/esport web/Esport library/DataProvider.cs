@@ -9,7 +9,6 @@ namespace Esport_library
 {
     public class DataProvider
     {
-        // --- ANALITIČAR CRUD ---
 
         public static List<AnaliticarDTO> VratiSveAnaliticare()
         {
@@ -30,7 +29,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka po potrebi
             }
             return spisak;
         }
@@ -146,7 +144,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -253,7 +250,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- ANGAŽMAN ZAPOSLENIH CRUD ---
 
         public static List<AngazmanZaposlenihDTO> VratiSveAngazmaneZaposlenih()
         {
@@ -281,7 +277,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -390,8 +385,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- DOGAĐAJ NA MEČU CRUD ---
-
         public static List<DogadjajNaMecuDTO> VratiSveDogadjajeNaMecu()
         {
             List<DogadjajNaMecuDTO> spisak = new List<DogadjajNaMecuDTO>();
@@ -416,7 +409,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -515,7 +507,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- FAZA TAKMIČENJA CRUD ---
 
         public static List<FazaTakmicenjaDTO> VratiSveFazeTakmicenja()
         {
@@ -540,7 +531,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -648,7 +638,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- FIZIOTERAPEUT CRUD ---
 
         public static List<FizioterapeutDTO> VratiSveFizioterapeute()
         {
@@ -669,7 +658,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -761,7 +749,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- IGRA CRUD ---
 
         public static List<IgraDTO> VratiSveIgre()
         {
@@ -781,7 +768,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -860,7 +846,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- IGRAČ CRUD ---
 
         public static List<IgracDTO> VratiSveIgrace()
         {
@@ -882,7 +867,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -979,7 +963,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- INDIVIDUALNI REZULTAT CRUD ---
 
         public static List<IndividualniRezultatDTO> VratiSveIndividualneRezultate()
         {
@@ -1003,7 +986,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -1039,7 +1021,7 @@ namespace Esport_library
                 using (ISession s = DataLayer.GetSession())
                 {
                     IndividualniRezultat r = new IndividualniRezultat();
-                    r.NazivPriznanja = "Rezultat / Priznanje"; // Podrazumevana vrednost
+                    r.NazivPriznanja = "Rezultat / Priznanje"; 
                     r.Opis = "";
 
                     if (p.IgracId > 0)
@@ -1093,7 +1075,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- KREATOR SADRŽAJA CRUD ---
 
         public static List<OsobaDTO> VratiSveKreatoreSadrzaja()
         {
@@ -1113,7 +1094,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -1200,7 +1180,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- LICENCA CRUD ---
 
         public static List<LicencaDTO> VratiSveLicence()
         {
@@ -1223,7 +1202,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -1259,7 +1237,7 @@ namespace Esport_library
                 {
                     Licenca l = new Licenca();
                     l.Naziv = p.Naziv;
-                    l.InstitucijaIzdavac = "Nepoznato"; // Podrazumevana vrednost ukoliko se ne prosleđuje dodatno kroz DTO
+                    l.InstitucijaIzdavac = "Nepoznato"; 
                     l.DatumSticanja = DateTime.Now;
 
                     if (p.OsobaId > 0)
@@ -1315,7 +1293,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- LIGA CRUD ---
 
         public static List<LigaDTO> VratiSveLige()
         {
@@ -1347,7 +1324,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -1456,7 +1432,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- MEČ CRUD ---
 
         public static List<MecDTO> VratiSveMeceve()
         {
@@ -1487,7 +1462,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -1601,7 +1575,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- MENADŽER CRUD ---
 
         public static List<MenadzerDTO> VratiSveMenadzere()
         {
@@ -1622,7 +1595,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -1712,7 +1684,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- OSOBA CRUD ---
 
         public static List<OsobaDTO> VratiSveOsobe()
         {
@@ -1732,7 +1703,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -1818,7 +1788,6 @@ namespace Esport_library
             }
             catch (Exception ex) { }
         }
-        // --- POZAJMICA CRUD ---
 
         public static List<PozajmicaDTO> VratiSvePozajmice()
         {
@@ -1848,7 +1817,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -1967,7 +1935,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- PSIHOLOG CRUD ---
 
         public static List<PsihologDTO> VratiSvePsihologe()
         {
@@ -1988,7 +1955,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -2080,7 +2046,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- SKAUT CRUD ---
 
         public static List<SkautDTO> VratiSveSkaute()
         {
@@ -2107,7 +2072,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -2153,8 +2117,6 @@ namespace Esport_library
                     sk.Email = p.Email;
                     sk.StatusAngazmana = p.StatusAngazmana;
 
-                    // Ukoliko se kroz naziv igre ili preko nekog ID-ja mapira igra, ovde to možemo povezati. 
-                    // Pošto DTO ima string NazivIgre, možemo potražiti igru po nazivu ako je potrebno, ili ostaviti null.
                     if (!string.IsNullOrEmpty(p.NazivIgre))
                     {
                         var igra = s.QueryOver<Igra>().Where(i => i.Naziv == p.NazivIgre).SingleOrDefault();
@@ -2225,7 +2187,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- SPONZOR KONTAKT CRUD ---
 
         public static List<SponzorKontaktDTO> VratiSveSponzorKontakte()
         {
@@ -2250,7 +2211,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -2348,7 +2308,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- SPONZOR CRUD ---
 
         public static List<SponzorDTO> VratiSveSponzore()
         {
@@ -2372,7 +2331,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -2459,7 +2417,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- SPONZORSKI UGOVOR CRUD ---
 
         public static List<SponzorskiUgovorDTO> VratiSveSponzorskeUgovore()
         {
@@ -2488,7 +2445,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -2593,7 +2549,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- STATISTIKA TIMA NA MEČU CRUD ---
 
         public static List<StatistikaTimaNaMecuDTO> VratiSveStatistikeTimovaNaMecu()
         {
@@ -2620,7 +2575,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -2743,7 +2697,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- TAKMIČENJE CRUD ---
 
         public static List<TakmicenjeDTO> VratiSvaTakmicenja()
         {
@@ -2775,7 +2728,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -2902,7 +2854,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- TELEFON CRUD ---
 
         public static List<OsobaDTO> VratiSveTelefoneOsoba()
         {
@@ -2926,7 +2877,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -2974,9 +2924,6 @@ namespace Esport_library
             }
             catch (Exception ex) { }
         }
-
-        // --- TIM CRUD ---
-
         public static List<TimDTO> VratiSveTimove()
         {
             List<TimDTO> spisak = new List<TimDTO>();
@@ -3002,7 +2949,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -3104,8 +3050,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- TRANSFER CRUD ---
-
         public static List<TransferDTO> VratiSveTransfere()
         {
             List<TransferDTO> spisak = new List<TransferDTO>();
@@ -3135,7 +3079,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -3261,7 +3204,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- TRENER CRUD ---
 
         public static List<TrenerDTO> VratiSveTreinere()
         {
@@ -3287,7 +3229,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -3378,7 +3319,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- TURNIR CRUD ---
 
         public static List<TurnirDTO> VratiSveTurnire()
         {
@@ -3412,7 +3352,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -3545,7 +3484,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- UČEŠĆE TIMA U FAZI CRUD ---
 
         public static List<UcesceTimaUFaziDTO> VratiSvaUcescaTimovaUFazi()
         {
@@ -3574,7 +3512,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -3703,7 +3640,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- UGOVOR IGRAČA CRUD ---
 
         public static List<UgovorIgracaDTO> VratiSveUgovoreIgraca()
         {
@@ -3735,7 +3671,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -3856,7 +3791,6 @@ namespace Esport_library
             catch (Exception ex) { }
         }
 
-        // --- UGOVOR SUBJEKAT CRUD ---
 
         public static List<UgovorSubjekatDTO> VratiSveUgovoreSubjekte()
         {
@@ -3882,7 +3816,6 @@ namespace Esport_library
             }
             catch (Exception ex)
             {
-                // Obrada izuzetaka
             }
             return spisak;
         }
@@ -3919,8 +3852,6 @@ namespace Esport_library
             {
                 using (ISession s = DataLayer.GetSession())
                 {
-                    // Budući da je UgovorSubjekat u 1:1 vezi preko primarnog ključa sa SponzorskiUgovor,
-                    // moramo pronaći i dodeliti postojeći SponzorskiUgovor po ID-ju.
                     var ugovor = s.Get<SponzorskiUgovor>(p.UgovorId);
                     if (ugovor != null)
                     {

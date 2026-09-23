@@ -41,6 +41,7 @@
             btndodajpshiloga = new Button();
             btnizmenipsihologa = new Button();
             btnobrisipsihologa = new Button();
+            btnlicenca = new Button();
             SuspendLayout();
             // 
             // listViewpsiholog
@@ -129,11 +130,22 @@
             btnobrisipsihologa.UseVisualStyleBackColor = true;
             btnobrisipsihologa.Click += btnobrisipsihologa_Click;
             // 
+            // btnlicenca
+            // 
+            btnlicenca.Location = new Point(2028, 643);
+            btnlicenca.Name = "btnlicenca";
+            btnlicenca.Size = new Size(268, 117);
+            btnlicenca.TabIndex = 5;
+            btnlicenca.Text = "Licenca";
+            btnlicenca.UseVisualStyleBackColor = true;
+            btnlicenca.Click += btnlicenca_Click;
+            // 
             // PsihologForma
             // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(2396, 1000);
+            Controls.Add(btnlicenca);
             Controls.Add(btnobrisipsihologa);
             Controls.Add(btnizmenipsihologa);
             Controls.Add(btndodajpshiloga);
@@ -159,5 +171,6 @@
         private Button btndodajpshiloga;
         private Button btnizmenipsihologa;
         private Button btnobrisipsihologa;
+        private Button btnlicenca;
     }
 }

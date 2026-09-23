@@ -13,46 +13,67 @@ namespace ESPORT.Forme
 {
     public partial class IzmeniIgruForma : Form
     {
+        private IgraBasic igra;
+
         public IzmeniIgruForma()
         {
             InitializeComponent();
         }
 
-        public IgraBasic Igra { get; set; }
-        // Konstruktor koji prima odabranu igru
-        public IzmeniIgruForma(IgraBasic i) : this()
+        public IzmeniIgruForma(IgraBasic i)
         {
-            this.Igra = i;
-            PopuniPolja();
+            InitializeComponent();
+            this.igra = i;
         }
 
-        private void PopuniPolja()
+        private void IzmeniIgruForma_Load(object sender, EventArgs e)
         {
-            if (Igra != null)
-            {
-                nazivtextBox.Text = Igra.Naziv;
-                zanrtextBox.Text = Igra.Zanr;
-            }
+            popuniPoljaPodacima();
         }
+
+        private void popuniPoljaPodacima()
+        {
+            if (igra == null) return;
+
+            nazivtextBox.Text = igra.Naziv ?? "";
+            zanrtextBox.Text = igra.Zanr ?? "";
+        }
+
+
+        
         private void dodajbtn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(nazivtextBox.Text))
+            if (string.IsNullOrWhiteSpace(nazivtextBox.Text) || string.IsNullOrWhiteSpace(zanrtextBox.Text))
             {
-                MessageBox.Show("Naziv ne sme biti prazan!", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Naziv i žanr su obavezni!",
+                                "Upozorenje",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
                 return;
             }
 
-            // Ažuriramo vrednosti u DTO objektu
-            Igra.Naziv = nazivtextBox.Text.Trim();
-            Igra.Zanr = zanrtextBox.Text.Trim();
+            DialogResult result = MessageBox.Show($"Da li ste sigurni da želite da sačuvate izmene za igru '{igra.Naziv}'?",
+                                                  "Potvrda izmene",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Question);
 
-            // Pozivamo DTOManager
-            DTOManager.azurirajIgru(Igra);
+            if (result == DialogResult.Yes)
+            {
+                igra.Naziv = nazivtextBox.Text.Trim();
+                igra.Zanr = zanrtextBox.Text.Trim();
 
-            MessageBox.Show("Izmene su uspešno sačuvane!", "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DTOManager.azurirajIgru(igra);
 
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+                MessageBox.Show("Podaci o igri su uspešno izmenjeni!",
+                                "Obaveštenje",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
+
+        
     }
 }

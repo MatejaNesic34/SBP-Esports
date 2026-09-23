@@ -19,47 +19,47 @@ namespace ESPORT.Forme
 
         private void btnsave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBoxIme.Text) || string.IsNullOrWhiteSpace(textBoxPrezime.Text))
+            if (string.IsNullOrWhiteSpace(textBoxIme.Text) ||
+                string.IsNullOrWhiteSpace(textBoxPrezime.Text))
             {
-                MessageBox.Show("Ime i prezime su obavezni!",
+                MessageBox.Show("Molimo vas da popunite sva tekstualna polja!",
                                 "Upozorenje",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
                 return;
             }
 
-            DialogResult result = MessageBox.Show("Da li ste sigurni da želite da dodate novog psihologa?",
-                                                  "Potvrda dodavanja",
-                                                  MessageBoxButtons.YesNo,
-                                                  MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
+            if (comboBoxstatusaranzmana.SelectedItem == null)
             {
-                PsihologBasic p = new PsihologBasic();
-
-                // Polja nasleđena iz Osoba
-                p.Ime = textBoxIme.Text.Trim();
-                p.Prezime = textBoxPrezime.Text.Trim();
-                p.DatumRodjenja = dtpdatum.Value;
-                p.Drzava = textBoxdrzava.Text.Trim();
-                p.Email = textBoxemail.Text.Trim();
-                p.StatusAngazmana = comboBoxstatusaranzmana.SelectedItem?.ToString() ?? "";
-
-                // Specifična polja za Psihologa
-                p.OblastRada = textBoxoblastrada.Text.Trim();
-                p.PeriodiDostupnosti = textBoxperioddostupnosti.Text.Trim();
-
-                // Poziv DTO menadžera za čuvanje
-                DTOManager.dodajPsihologa(p);
-
-                MessageBox.Show("Psiholog je uspešno dodat!",
-                                "Obaveštenje",
+                MessageBox.Show("Molimo vas da izaberete status angažmana!",
+                                "Upozorenje",
                                 MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
-
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                                MessageBoxIcon.Warning);
+                return;
             }
+
+            PsihologBasic p = new PsihologBasic();
+
+            p.Ime = textBoxIme.Text.Trim();
+            p.Prezime = textBoxPrezime.Text.Trim();
+            p.DatumRodjenja = dtpdatum.Value;
+            p.Drzava = textBoxdrzava.Text.Trim();
+            p.Email = textBoxemail.Text.Trim();
+            p.StatusAngazmana = comboBoxstatusaranzmana.SelectedItem.ToString();
+            p.DatumPrvogAngazovanja = DateTime.Now;
+
+            p.OblastRada = textBoxoblastrada.Text.Trim();
+            p.PeriodiDostupnosti = textBoxperioddostupnosti.Text.Trim();
+
+            DTOManager.dodajPsihologa(p);
+
+            MessageBox.Show("Psiholog je uspešno dodat!",
+                            "Obaveštenje",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

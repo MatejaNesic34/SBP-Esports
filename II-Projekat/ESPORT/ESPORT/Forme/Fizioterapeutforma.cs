@@ -101,5 +101,11 @@ namespace ESPORT.Forme
                 popuniPodacima();
             }
         }
+
+        private void btnlicenca_Click(object sender, EventArgs e)
+        {
+            LicencaForma forma=new LicencaForma();
+            forma.ShowDialog();
+        }
     }
 }

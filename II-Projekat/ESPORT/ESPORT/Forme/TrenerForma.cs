@@ -31,11 +31,16 @@ namespace ESPORT.Forme
             foreach (var t in treneri)
             {
                 ListViewItem item = new ListViewItem(t.OsobaId.ToString());
-                item.SubItems.Add(t.Ime);
-                item.SubItems.Add(t.Prezime);
-                item.SubItems.Add(t.TipUloge);
-                item.SubItems.Add(t.StilRada);
-                item.SubItems.Add(t.StatusAngazmana);
+                item.SubItems.Add(t.Ime ?? "");
+                item.SubItems.Add(t.Prezime ?? "");
+                item.SubItems.Add(t.DatumRodjenja?.ToString("dd.MM.yyyy.") ?? "");
+                item.SubItems.Add(t.DatumPrvogAngazovanja?.ToString("dd.MM.yyyy.") ?? "");
+                item.SubItems.Add(t.Drzava ?? "");
+                item.SubItems.Add(t.Email ?? "");
+                item.SubItems.Add(t.StatusAngazmana ?? "");
+                item.SubItems.Add(t.TipUloge ?? "");
+                item.SubItems.Add(t.StilRada ?? "");
+                //item.SubItems.Add(t.Telefoni.Count > 0 ? string.Join(", ", t.Telefoni) : ""); 
 
                 listViewTreneri.Items.Add(item);
             }
@@ -44,7 +49,10 @@ namespace ESPORT.Forme
         private void dodajtrenerabtn_Click(object sender, EventArgs e)
         {
             DodajTreneraForma form = new DodajTreneraForma();
-            form.ShowDialog();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                popuniPodacima();
+            }
         }
 
         private void izmenitrenerabtn_Click(object sender, EventArgs e)
@@ -55,13 +63,11 @@ namespace ESPORT.Forme
                                 "Upozorenje",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
-                return; // Prekida metodu, forma za izmenu se NE otvara
+                return; 
             }
 
-            // 2. Uzimanje ID-ja selektovanog trenera (prva kolona / SubItem[0])
             int idTrenera = int.Parse(listViewTreneri.SelectedItems[0].SubItems[0].Text);
 
-            // 3. Učitavanje podataka i otvaranje forme
             TrenerBasic odabraniTrener = DTOManager.vratiTrenera(idTrenera);
 
             if (odabraniTrener != null)
@@ -69,8 +75,34 @@ namespace ESPORT.Forme
                 IzmeniTreneraForm forma = new IzmeniTreneraForm(odabraniTrener);
                 if (forma.ShowDialog() == DialogResult.OK)
                 {
-                    popuniPodacima(); // Osvežava tabelu nakon uspešne izmene
+                    popuniPodacima(); 
                 }
+            }
+        }
+
+        private void obrisitrenerabtn_Click(object sender, EventArgs e)
+        {
+            if (listViewTreneri.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Morate prvo izabrati trenera iz liste za brisanje!",
+                                "Upozorenje",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            int idTrenera = int.Parse(listViewTreneri.SelectedItems[0].SubItems[0].Text);
+            string imeIPrezime = $"{listViewTreneri.SelectedItems[0].SubItems[1].Text} {listViewTreneri.SelectedItems[0].SubItems[2].Text}";
+
+            DialogResult result = MessageBox.Show($"Da li ste sigurni da želite da obrišete trenera {imeIPrezime}?",
+                                                  "Potvrda brisanja",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                DTOManager.obrisiTrenera(idTrenera);
+                popuniPodacima(); 
             }
         }
     }

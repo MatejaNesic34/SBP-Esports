@@ -20,26 +20,24 @@ namespace ESPORT.Forme
             InitializeComponent();
         }
 
-        public IzmeniTreneraForm(TrenerBasic trenerZaIzmenu) : this()
+        public IzmeniTreneraForm(TrenerBasic trenerZaIzmenu)
         {
+            InitializeComponent();
             this.trener = trenerZaIzmenu;
+            popuniPoljaPodacima();
         }
 
-        private void IzmeniTreneraForm_Load(object sender, EventArgs e)
-        {
-            popuniPolja();
-        }
-
-        private void popuniPolja()
+        private void popuniPoljaPodacima()
         {
             if (trener == null) return;
 
             // Popunjavanje kontrola na formi podacima izabranog trenera
-            textBoxIme.Text = trener.Ime;
-            textBoxPrezime.Text = trener.Prezime;
+            textBoxIme.Text = trener.Ime ?? "";
+            textBoxPrezime.Text = trener.Prezime ?? "";
             dtpdatum.Value = trener.DatumRodjenja ?? DateTime.Now;
-            textBoxdrzava.Text = trener.Drzava;
-            textBoxemail.Text = trener.Email;
+            dtpdatumprvogangazovanja.Value = trener.DatumPrvogAngazovanja ?? DateTime.Now;
+            textBoxdrzava.Text = trener.Drzava ?? "";
+            textBoxemail.Text = trener.Email ?? "";
 
             if (!string.IsNullOrEmpty(trener.StatusAngazmana))
             {
@@ -57,42 +55,51 @@ namespace ESPORT.Forme
                     comboBoxtipuloge.Text = trener.TipUloge;
             }
 
-            textboxstilrada.Text = trener.StilRada;
+            textboxstilrada.Text = trener.StilRada ?? "";
         }
 
         private void savebtn_Click(object sender, EventArgs e)
         {
             // Validacija obaveznih polja
-            if (string.IsNullOrWhiteSpace(textBoxIme.Text) ||
-                string.IsNullOrWhiteSpace(textBoxPrezime.Text))
+            if (string.IsNullOrWhiteSpace(textBoxIme.Text) || string.IsNullOrWhiteSpace(textBoxPrezime.Text))
             {
-                MessageBox.Show("Polja Ime i Prezime su obavezna!", "Upozorenje",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ime i prezime su obavezni!",
+                                "Upozorenje",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
                 return;
             }
 
-            // Kreiranje novog DTO objekta sa izmenjenim vrednostima sa forme
-            TrenerBasic tb = new TrenerBasic
+            // Provera da li je objekat spreman za izmenu
+            if (trener == null)
             {
-                // Prosleđivanje ID-a postojećeg trenera za NHibernate ažuriranje
-                OsobaId = this.trener.OsobaId,
+                MessageBox.Show("Došlo je do greške: podaci o treneru nisu učitani!",
+                                "Greška",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
 
-                Ime = textBoxIme.Text.Trim(),
-                Prezime = textBoxPrezime.Text.Trim(),
-                DatumRodjenja = dtpdatum.Value,
-                Drzava = textBoxdrzava.Text.Trim(),
-                Email = textBoxemail.Text.Trim(),
-                StatusAngazmana = comboBoxstatusaranzmana.SelectedItem?.ToString() ?? comboBoxstatusaranzmana.Text.Trim(),
-                TipUloge = comboBoxtipuloge.SelectedItem?.ToString() ?? comboBoxtipuloge.Text.Trim(),
-                StilRada = textboxstilrada.Text.Trim(),
-                DatumPrvogAngazovanja = this.trener.DatumPrvogAngazovanja
-            };
+            // Direktno ažuriranje vrednosti na postojećem objektu
+            trener.Ime = textBoxIme.Text.Trim();
+            trener.Prezime = textBoxPrezime.Text.Trim();
+            trener.DatumRodjenja = dtpdatum.Value;
+            trener.DatumPrvogAngazovanja = dtpdatumprvogangazovanja.Value;
+            trener.Drzava = textBoxdrzava.Text.Trim();
+            trener.Email = textBoxemail.Text.Trim();
+            trener.StatusAngazmana = comboBoxstatusaranzmana.SelectedItem?.ToString() ?? comboBoxstatusaranzmana.Text.Trim();
+
+            // Specifična polja za Trenera
+            trener.TipUloge = comboBoxtipuloge.SelectedItem?.ToString() ?? comboBoxtipuloge.Text.Trim();
+            trener.StilRada = textboxstilrada.Text.Trim();
 
             // Poziv DTOManager-a za izmenu u bazi
-            DTOManager.izmeniTrenera(tb);
+            DTOManager.izmeniTrenera(trener);
 
-            MessageBox.Show("Podaci o treneru su uspešno izmenjeni!", "Obaveštenje",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Podaci o treneru su uspešno izmenjeni!",
+                            "Obaveštenje",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
 
             this.DialogResult = DialogResult.OK;
             this.Close();

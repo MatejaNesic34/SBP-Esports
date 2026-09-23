@@ -100,6 +100,7 @@
             Controls.Add(nazivlbl);
             Name = "IzmeniIgruForma";
             Text = "IzmeniIgruForma";
+            Load += IzmeniIgruForma_Load;
             ResumeLayout(false);
             PerformLayout();
         }

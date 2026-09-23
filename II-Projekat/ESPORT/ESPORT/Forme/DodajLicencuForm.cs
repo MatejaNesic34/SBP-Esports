@@ -7,52 +7,49 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static ESPORT.LicencaDTO;
 
 namespace ESPORT.Forme
 {
-    public partial class DodajMenadzeraForma : Form
+    public partial class DodajLicencuForm : Form
     {
-        public DodajMenadzeraForma()
+        public DodajLicencuForm()
         {
             InitializeComponent();
         }
 
         private void btnsave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBoxIme.Text) ||
-                string.IsNullOrWhiteSpace(textBoxPrezime.Text))
+            if (string.IsNullOrWhiteSpace(textBoxnaziv.Text) ||
+                string.IsNullOrWhiteSpace(textBoxinstitucija.Text) ||
+                string.IsNullOrWhiteSpace(numid.Text))
             {
-                MessageBox.Show("Molimo vas da popunite sva tekstualna polja!",
+                MessageBox.Show("Obavezna polja: Naziv, Institucija izdavanja i ID osobe!",
                                 "Upozorenje",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
                 return;
             }
 
-            if (comboBoxstatusaranzmana.SelectedItem == null)
+            if (!int.TryParse(numid.Text.Trim(), out int osobaId))
             {
-                MessageBox.Show("Molimo vas da izaberete status angažmana!",
+                MessageBox.Show("ID osobe mora biti broj!",
                                 "Upozorenje",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
                 return;
             }
 
-            MenadzerBasic m = new MenadzerBasic();
+            LicencaBasic l = new LicencaBasic();
 
-            m.Ime = textBoxIme.Text.Trim();
-            m.Prezime = textBoxPrezime.Text.Trim();
-            m.DatumRodjenja = dtpdatum.Value;
-            m.Drzava = textBoxdrzava.Text.Trim();
-            m.Email = textBoxemail.Text.Trim();
-            m.StatusAngazmana = comboBoxstatusaranzmana.SelectedItem.ToString();
-            m.DatumPrvogAngazovanja = DateTime.Now;
+            l.Naziv = textBoxnaziv.Text.Trim();
+            l.InstitucijaIzdavac = textBoxinstitucija.Text.Trim();
+            l.DatumSticanja = dtpdatum.Value;
+            l.OsobaId = osobaId;
 
-            m.OblastOdgovornosti = textBoxoblastodgovornosti.Text.Trim();
+            DTOManager.dodajLicencu(l);
 
-            DTOManager.dodajMenadzera(m);
-
-            MessageBox.Show("Menadžer je uspešno dodat!",
+            MessageBox.Show("Licenca je uspešno dodata!",
                             "Obaveštenje",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);

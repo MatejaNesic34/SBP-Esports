@@ -241,21 +241,30 @@ namespace ESPORT
                 public int OsobaId { get; set; }
                 public string Ime { get; set; }
                 public string Prezime { get; set; }
-                public string Nadimak { get; set; }
+                public DateTime? DatumRodjenja { get; set; }
+                public DateTime? DatumPrvogAngazovanja { get; set; }
+                public string Drzava { get; set; }
+                public string Email { get; set; }
+                public string StatusAngazmana { get; set; }
                 public string TipUloge { get; set; }
                 public string StilRada { get; set; }
-                public string StatusAngazmana { get; set; }
+                public string Telefoni { get; set; }
 
                 public TrenerPregled() { }
 
-                public TrenerPregled(int id, string ime, string prezime, string tipUloge, string stilRada, string status)
+                public TrenerPregled(int id, string ime, string prezime, DateTime? datumrodjenja, DateTime? datumprvogangazovanja, string drzava, string email, string tipUloge, string stilRada, string status, string telefoni = "")
                 {
                     this.OsobaId = id;
                     this.Ime = ime;
                     this.Prezime = prezime;
+                    this.DatumRodjenja = datumrodjenja;
+                    this.DatumPrvogAngazovanja = datumprvogangazovanja;
+                    this.Drzava = drzava;
+                    this.Email = email;
                     this.TipUloge = tipUloge;
                     this.StilRada = stilRada;
                     this.StatusAngazmana = status;
+                    this.Telefoni = telefoni;
                 }
             }
 
@@ -288,7 +297,10 @@ namespace ESPORT
             public int OsobaId { get; set; }
             public string Ime { get; set; }
             public string Prezime { get; set; }
+            public DateTime? DatumRodjenja { get; set; }
+            public string Drzava { get; set; }
             public string Email { get; set; }
+            public DateTime? DatumPrvogAngazovanja { get; set; }
             public string StatusAngazmana { get; set; }
             public string OblastAnalize { get; set; }
             public string Alati { get; set; }
@@ -296,14 +308,18 @@ namespace ESPORT
 
             public AnaliticarPregled() { }
 
-            public AnaliticarPregled(int osobaId, string ime, string prezime, string email,
+            public AnaliticarPregled(int osobaId, string ime, string prezime, DateTime? datumRodjenja,
+                             string drzava, string email, DateTime? datumPrvogAngazovanja,
                                      string statusAngazmana, string oblastAnalize,
                                      string alati, string nivoIskustva)
             {
                 OsobaId = osobaId;
                 Ime = ime;
                 Prezime = prezime;
+                DatumRodjenja = datumRodjenja;
+                Drzava = drzava;
                 Email = email;
+                DatumPrvogAngazovanja = datumPrvogAngazovanja;
                 StatusAngazmana = statusAngazmana;
                 OblastAnalize = oblastAnalize;
                 Alati = alati;
@@ -577,6 +593,7 @@ namespace ESPORT
         public string Ime { get; set; }
         public string Prezime { get; set; }
         public DateTime? DatumRodjenja { get; set; }
+        public DateTime? DatumPrvogAngazovanja { get; set; }
         public string Drzava { get; set; }
         public string Email { get; set; }
         public string StatusAngazmana { get; set; }
@@ -584,12 +601,13 @@ namespace ESPORT
 
         public SkautPregled() { }
 
-        public SkautPregled(int osobaId, string ime, string prezime, DateTime? datumRodjenja, string drzava, string email, string statusAngazmana, string nazivIgre)
+        public SkautPregled(int osobaId, string ime, string prezime, DateTime? datumRodjenja, DateTime? datumPrvogAngazovanja, string drzava, string email, string statusAngazmana, string nazivIgre)
         {
             OsobaId = osobaId;
             Ime = ime;
             Prezime = prezime;
             DatumRodjenja = datumRodjenja;
+            DatumPrvogAngazovanja = datumPrvogAngazovanja;
             Drzava = drzava;
             Email = email;
             StatusAngazmana = statusAngazmana;
@@ -1462,6 +1480,55 @@ namespace ESPORT
                 ImePrezimeIgraca = imePrezimeIgraca;
                 TakmicenjeId = takmicenjeId;
                 NazivTakmicenja = nazivTakmicenja;
+            }
+        }
+
+
+    }
+
+    public class LicencaDTO
+    {
+        public class LicencaPregled
+        {
+            public int LicencaId { get; set; }
+            public int OsobaId { get; set; }
+            public string Naziv { get; set; }
+            public string InstitucijaIzdavac { get; set; }
+            public DateTime DatumSticanja { get; set; }
+            public string OsobaImePrezime { get; set; }
+
+            public LicencaPregled() { }
+
+            public LicencaPregled(int licencaId,int osobaid, string naziv, string institucijaIzdavac, DateTime datumSticanja, string osobaImePrezime)
+            {
+                LicencaId = licencaId;
+                OsobaId = osobaid;
+                Naziv = naziv;
+                InstitucijaIzdavac = institucijaIzdavac;
+                DatumSticanja = datumSticanja;
+                OsobaImePrezime = osobaImePrezime;
+            }
+        }
+
+        public class LicencaBasic
+        {
+            public int LicencaId { get; set; }
+            public string Naziv { get; set; }
+            public string InstitucijaIzdavac { get; set; }
+            public DateTime DatumSticanja { get; set; }
+            public int OsobaId { get; set; }
+            public string OsobaImePrezime { get; set; }
+
+            public LicencaBasic() { }
+
+            public LicencaBasic(int licencaId, string naziv, string institucijaIzdavac, DateTime datumSticanja, int osobaId, string osobaImePrezime = "")
+            {
+                LicencaId = licencaId;
+                Naziv = naziv;
+                InstitucijaIzdavac = institucijaIzdavac;
+                DatumSticanja = datumSticanja;
+                OsobaId = osobaId;
+                OsobaImePrezime = osobaImePrezime;
             }
         }
     }

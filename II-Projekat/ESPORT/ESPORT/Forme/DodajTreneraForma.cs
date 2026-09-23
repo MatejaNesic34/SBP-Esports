@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static ESPORT.IgracDTO;
 using static ESPORT.IgracDTO.TrenerDTO;
 
 namespace ESPORT.Forme
@@ -21,36 +20,48 @@ namespace ESPORT.Forme
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Validacija obaveznih polja
             if (string.IsNullOrWhiteSpace(textBoxIme.Text) ||
-                string.IsNullOrWhiteSpace(textBoxPrezime.Text))
+                string.IsNullOrWhiteSpace(textBoxPrezime.Text) ||
+                string.IsNullOrWhiteSpace(textBoxdrzava.Text) ||
+                string.IsNullOrWhiteSpace(textBoxemail.Text) ||
+                string.IsNullOrWhiteSpace(textboxstilrada.Text))
             {
-                MessageBox.Show("Polja Ime i Prezime su obavezna!",
-                                "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Molimo vas da popunite sva tekstualna polja!",
+                                "Upozorenje",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
                 return;
             }
 
-            // Kreiranje DTO objekta za Trenera
-            TrenerBasic tb = new TrenerBasic
+            if (comboBoxstatusaranzmana.SelectedItem == null ||
+                (comboBoxtipuloge.SelectedItem == null && string.IsNullOrWhiteSpace(comboBoxtipuloge.Text)))
             {
-                Ime = textBoxIme.Text.Trim(),
-                Prezime = textBoxPrezime.Text.Trim(),
-                DatumRodjenja = dtpdatum.Value,
-                Drzava = textBoxdrzava.Text.Trim(),
-                Email = textBoxemail.Text.Trim(),
-                StatusAngazmana = comboBoxstatusaranzmana.SelectedItem?.ToString() ?? "Aktivan",
-                TipUloge = comboBoxtipuloge.SelectedItem?.ToString() ?? comboBoxtipuloge.Text.Trim(),
-                StilRada = textboxstilrada.Text.Trim(),
-                DatumPrvogAngazovanja = DateTime.Now
-            };
+                MessageBox.Show("Molimo vas da izaberete status angažmana i tip uloge!",
+                                "Upozorenje",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
 
+            TrenerBasic tb = new TrenerBasic();
 
+            tb.Ime = textBoxIme.Text.Trim();
+            tb.Prezime = textBoxPrezime.Text.Trim();
+            tb.DatumRodjenja = dtpdatum.Value;
+            tb.Drzava = textBoxdrzava.Text.Trim();
+            tb.Email = textBoxemail.Text.Trim();
+            tb.StatusAngazmana = comboBoxstatusaranzmana.SelectedItem.ToString();
+            tb.DatumPrvogAngazovanja = dtpdatum.Value;
+            tb.TipUloge = comboBoxtipuloge.SelectedItem?.ToString() ?? comboBoxtipuloge.Text.Trim();
+            tb.StilRada = textboxstilrada.Text.Trim();
+            tb.DatumPrvogAngazovanja = DateTime.Now;
 
-            // Poziv DTOManager-a za upis u bazu
             DTOManager.dodajTrenera(tb);
 
-            MessageBox.Show("Trener je uspešno dodat!", "Obaveštenje",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Trener je uspešno dodat!",
+                            "Obaveštenje",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
 
             this.DialogResult = DialogResult.OK;
             this.Close();

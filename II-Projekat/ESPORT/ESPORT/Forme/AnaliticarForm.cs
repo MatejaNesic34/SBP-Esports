@@ -34,11 +34,14 @@ namespace ESPORT.Forme
                 ListViewItem item = new ListViewItem(a.OsobaId.ToString());
                 item.SubItems.Add(a.Ime ?? "");
                 item.SubItems.Add(a.Prezime ?? "");
+                item.SubItems.Add(a.DatumRodjenja?.ToString("dd.MM.yyyy.") ?? "");
+                item.SubItems.Add(a.Drzava ?? "");
                 item.SubItems.Add(a.Email ?? "");
+                item.SubItems.Add(a.DatumPrvogAngazovanja?.ToString("dd.MM.yyyy.") ?? "");
+                item.SubItems.Add(a.StatusAngazmana ?? "");
                 item.SubItems.Add(a.OblastAnalize ?? "");
                 item.SubItems.Add(a.Alati ?? "");
                 item.SubItems.Add(a.NivoIskustva ?? "");
-                item.SubItems.Add(a.StatusAngazmana ?? "");
 
                 listViewAnaliticari.Items.Add(item);
             }

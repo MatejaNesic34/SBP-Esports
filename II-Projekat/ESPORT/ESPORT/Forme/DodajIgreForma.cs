@@ -20,35 +20,30 @@ namespace ESPORT.Forme
 
         private void dodajbtn_Click(object sender, EventArgs e)
         {
-            // Validacija unosa
-            if (string.IsNullOrWhiteSpace(nazivtextBox.Text))
+            if (string.IsNullOrWhiteSpace(nazivtextBox.Text) ||
+                string.IsNullOrWhiteSpace(zanrtextBox.Text))
             {
-                MessageBox.Show("Polje 'Naziv' ne sme biti prazno!", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Molimo vas da popunite sva tekstualna polja!",
+                                "Upozorenje",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
                 return;
             }
 
-            try
-            {
-                // Kreiranje DTO objekta sa podacima iz forme
-                IgraBasic igra = new IgraBasic
-                {
-                    Naziv = nazivtextBox.Text.Trim(),
-                    Zanr = zanrtextBox.Text.Trim()
-                };
+            IgraBasic igra = new IgraBasic();
 
-                // Poziv DTOManager-a za upis u bazu
-                DTOManager.dodajIgru(igra);
+            igra.Naziv = nazivtextBox.Text.Trim();
+            igra.Zanr = zanrtextBox.Text.Trim();
 
-                MessageBox.Show("Igra je uspešno dodata!", "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DTOManager.dodajIgru(igra);
 
-                // Postavljamo DialogResult na OK kako bi glavna forma znala da treba da osveži ListView
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Greška pri dodavanju igre: {ex.Message}", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            MessageBox.Show("Igra je uspešno dodata!",
+                            "Obaveštenje",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

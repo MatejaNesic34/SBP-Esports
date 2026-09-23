@@ -41,6 +41,7 @@
             Status_aranzmana = new ColumnHeader();
             oblastrada = new ColumnHeader();
             perioddostupnosti = new ColumnHeader();
+            btnlicenca = new Button();
             SuspendLayout();
             // 
             // btnobrisifizio
@@ -129,11 +130,22 @@
             perioddostupnosti.Text = "Period dostupnosti";
             perioddostupnosti.Width = 200;
             // 
+            // btnlicenca
+            // 
+            btnlicenca.Location = new Point(2041, 866);
+            btnlicenca.Name = "btnlicenca";
+            btnlicenca.Size = new Size(268, 117);
+            btnlicenca.TabIndex = 9;
+            btnlicenca.Text = "Licenca";
+            btnlicenca.UseVisualStyleBackColor = true;
+            btnlicenca.Click += btnlicenca_Click;
+            // 
             // Fizioterapeutforma
             // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(2437, 1164);
+            Controls.Add(btnlicenca);
             Controls.Add(btnobrisifizio);
             Controls.Add(btnizmenifizio);
             Controls.Add(btndodajfizio);
@@ -159,5 +171,6 @@
         private ColumnHeader Status_aranzmana;
         private ColumnHeader oblastrada;
         private ColumnHeader perioddostupnosti;
+        private Button btnlicenca;
     }
 }

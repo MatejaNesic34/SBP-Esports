@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ESPORT.Entiteti;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,8 @@ using System.Threading.Tasks;
 using static ESPORT.AnaliticarDTO;
 using static ESPORT.DogadjajNaMecuDTO;
 using static ESPORT.FazaTakmicenjaDTO;
-using static ESPORT.IgraDTO;
 using static ESPORT.IgracDTO;
+using static ESPORT.IgraDTO;
 using static ESPORT.LigaDTO;
 using static ESPORT.MecDTO;
 using static ESPORT.OsobaDTO;
@@ -544,17 +545,25 @@ namespace ESPORT
                 {
                     if (s == null) return treneriDTO;
 
-                    IList<Trener> treneri = s.Query<Trener>().ToList();
+                    IList<Trener> treneri = s.Query<Trener>().OrderBy(i => i.OsobaId).ToList();
 
                     foreach (Trener t in treneri)
                     {
+                        // Ako entitet Trener ima listu telefona, spajamo ih u jedan string
+                        string telefoniString = t.Telefoni != null ? string.Join(", ", t.Telefoni) : "";
+
                         treneriDTO.Add(new TrenerDTO.TrenerPregled(
                             t.OsobaId,
                             t.Ime,
                             t.Prezime,
+                            t.DatumRodjenja,
+                            t.DatumPrvogAngazovanja,
+                            t.Drzava,
+                            t.Email,
                             t.TipUloge,
                             t.StilRada,
-                            t.StatusAngazmana
+                            t.StatusAngazmana,
+                            telefoniString
                         ));
                     }
                 }
@@ -667,6 +676,7 @@ namespace ESPORT
                             t.Ime = tb.Ime;
                             t.Prezime = tb.Prezime;
                             t.DatumRodjenja = tb.DatumRodjenja;
+                            t.DatumPrvogAngazovanja = tb.DatumPrvogAngazovanja;
                             t.Drzava = tb.Drzava;
                             t.Email = tb.Email;
                             t.StatusAngazmana = tb.StatusAngazmana;
@@ -740,7 +750,10 @@ namespace ESPORT
                             a.OsobaId,
                             a.Ime,
                             a.Prezime,
+                            a.DatumRodjenja,
+                            a.Drzava,
                             a.Email,
+                            a.DatumPrvogAngazovanja,
                             a.StatusAngazmana,
                             a.OblastAnalize,
                             a.Alati,
@@ -1526,6 +1539,7 @@ namespace ESPORT
                             sk.Ime,
                             sk.Prezime,
                             sk.DatumRodjenja,
+                            sk.DatumPrvogAngazovanja,
                             sk.Drzava,
                             sk.Email,
                             sk.StatusAngazmana,
@@ -5087,6 +5101,7 @@ namespace ESPORT
             }
         }
 
+<<<<<<< Updated upstream
         public static List<TransferDTO.TransferPregled> vratiSveTransfere()
         {
             List<TransferDTO.TransferPregled> transferi =
@@ -6880,5 +6895,177 @@ namespace ESPORT
                 s.Close();
             }
         }
+=======
+
+
+        public static List<LicencaDTO.LicencaPregled> vratiSveLicence()
+        {
+            List<LicencaDTO.LicencaPregled> licence = new List<LicencaDTO.LicencaPregled>();
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return licence;
+
+                    List<ESPORT.Entiteti.Licenca> sveLicence = s.Query<ESPORT.Entiteti.Licenca>()
+                                                                .OrderBy(l => l.LicencaId)
+                                                                .ToList();
+
+                    foreach (ESPORT.Entiteti.Licenca l in sveLicence)
+                    {
+                        int osobaId = l.OsobaId != null ? l.OsobaId.OsobaId : 0;
+                        string vlasnik = l.OsobaId != null ? $"{l.OsobaId.Ime} {l.OsobaId.Prezime}" : "";
+
+                        licence.Add(new LicencaDTO.LicencaPregled(
+                            l.LicencaId,
+                            osobaId,
+                            l.Naziv,
+                            l.InstitucijaIzdavac,
+                            l.DatumSticanja,
+                            vlasnik
+                        ));
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška u DTOManager-u (vratiSveLicence): {ec.Message}");
+            }
+
+            return licence;
+        }
+
+        public static LicencaDTO.LicencaBasic vratiLicencu(int id)
+        {
+            LicencaDTO.LicencaBasic lb = null;
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return null;
+
+                    ESPORT.Entiteti.Licenca l = s.Get<ESPORT.Entiteti.Licenca>(id);
+                    if (l != null)
+                    {
+                        int osobaId = l.OsobaId != null ? l.OsobaId.OsobaId : 0;
+                        string vlasnik = l.OsobaId != null ? $"{l.OsobaId.Ime} {l.OsobaId.Prezime}" : "";
+
+                        lb = new LicencaDTO.LicencaBasic(
+                            l.LicencaId,
+                            l.Naziv,
+                            l.InstitucijaIzdavac,
+                            l.DatumSticanja,
+                            osobaId,
+                            vlasnik
+                        );
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška pri učitavanju licence: {ec.Message}");
+            }
+
+            return lb;
+        }
+
+        public static void dodajLicencu(LicencaDTO.LicencaBasic lb)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return;
+
+                    using (ITransaction tx = s.BeginTransaction())
+                    {
+                        ESPORT.Entiteti.Licenca l = new ESPORT.Entiteti.Licenca
+                        {
+                            Naziv = lb.Naziv,
+                            InstitucijaIzdavac = lb.InstitucijaIzdavac,
+                            DatumSticanja = lb.DatumSticanja
+                        };
+
+                        if (lb.OsobaId > 0)
+                        {
+                            l.OsobaId = s.Load<ESPORT.Entiteti.Osoba>(lb.OsobaId);
+                        }
+
+                        s.Save(l);
+                        tx.Commit();
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška pri dodavanju licence: {ec.Message}\nInner: {ec.InnerException?.Message}");
+            }
+        }
+
+        public static void izmeniLicencu(LicencaDTO.LicencaBasic lb)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return;
+
+                    using (ITransaction tx = s.BeginTransaction())
+                    {
+                        ESPORT.Entiteti.Licenca l = s.Get<ESPORT.Entiteti.Licenca>(lb.LicencaId);
+
+                        if (l != null)
+                        {
+                            l.Naziv = lb.Naziv;
+                            l.InstitucijaIzdavac = lb.InstitucijaIzdavac;
+                            l.DatumSticanja = lb.DatumSticanja;
+
+                            if (lb.OsobaId > 0)
+                            {
+                                l.OsobaId = s.Load<ESPORT.Entiteti.Osoba>(lb.OsobaId);
+                            }
+                            else
+                            {
+                                l.OsobaId = null;
+                            }
+
+                            s.Update(l);
+                            tx.Commit();
+                        }
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška pri izmeni licence: {ec.Message}\nInner: {ec.InnerException?.Message}");
+            }
+        }
+
+        public static void obrisiLicencu(int id)
+        {
+            try
+            {
+                using (ISession s = DataLayer.GetSession())
+                {
+                    if (s == null) return;
+
+                    using (ITransaction tx = s.BeginTransaction())
+                    {
+                        ESPORT.Entiteti.Licenca l = s.Get<ESPORT.Entiteti.Licenca>(id);
+                        if (l != null)
+                        {
+                            s.Delete(l);
+                            tx.Commit();
+                        }
+                    }
+                }
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show($"Greška pri brisanju licence: {ec.Message}");
+            }
+        }
+
+>>>>>>> Stashed changes
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listViewfizio = new ListView();
+            listViewskaut = new ListView();
             ID = new ColumnHeader();
             Ime = new ColumnHeader();
             Prezime = new ColumnHeader();
@@ -36,19 +36,23 @@
             Drzava = new ColumnHeader();
             Email = new ColumnHeader();
             Status_aranzmana = new ColumnHeader();
+            datumprvogangazovanja = new ColumnHeader();
             Igra = new ColumnHeader();
+            btndodajskauta = new Button();
+            btnizmeniskauta = new Button();
+            btnobrisiskauta = new Button();
             SuspendLayout();
             // 
-            // listViewfizio
+            // listViewskaut
             // 
-            listViewfizio.Columns.AddRange(new ColumnHeader[] { ID, Ime, Prezime, Datum_Rodjenja, Drzava, Email, Status_aranzmana, Igra });
-            listViewfizio.FullRowSelect = true;
-            listViewfizio.Location = new Point(23, 152);
-            listViewfizio.Name = "listViewfizio";
-            listViewfizio.Size = new Size(1903, 820);
-            listViewfizio.TabIndex = 6;
-            listViewfizio.UseCompatibleStateImageBehavior = false;
-            listViewfizio.View = View.Details;
+            listViewskaut.Columns.AddRange(new ColumnHeader[] { ID, Ime, Prezime, Datum_Rodjenja, Drzava, Email, Status_aranzmana, datumprvogangazovanja, Igra });
+            listViewskaut.FullRowSelect = true;
+            listViewskaut.Location = new Point(23, 80);
+            listViewskaut.Name = "listViewskaut";
+            listViewskaut.Size = new Size(2085, 831);
+            listViewskaut.TabIndex = 6;
+            listViewskaut.UseCompatibleStateImageBehavior = false;
+            listViewskaut.View = View.Details;
             // 
             // ID
             // 
@@ -78,32 +82,73 @@
             // Email
             // 
             Email.Text = "Email";
-            Email.Width = 250;
+            Email.Width = 320;
             // 
             // Status_aranzmana
             // 
             Status_aranzmana.Text = "Status aranzmana";
             Status_aranzmana.Width = 250;
             // 
+            // datumprvogangazovanja
+            // 
+            datumprvogangazovanja.DisplayIndex = 8;
+            datumprvogangazovanja.Text = "Datum prvog angazovanja";
+            datumprvogangazovanja.Width = 300;
+            // 
             // Igra
             // 
+            Igra.DisplayIndex = 7;
             Igra.Text = "Igra";
-            Igra.Width = 200;
+            Igra.Width = 250;
+            // 
+            // btndodajskauta
+            // 
+            btndodajskauta.Location = new Point(2155, 123);
+            btndodajskauta.Name = "btndodajskauta";
+            btndodajskauta.Size = new Size(279, 102);
+            btndodajskauta.TabIndex = 7;
+            btndodajskauta.Text = "Dodaj skauta";
+            btndodajskauta.UseVisualStyleBackColor = true;
+            btndodajskauta.Click += btndodajskauta_Click;
+            // 
+            // btnizmeniskauta
+            // 
+            btnizmeniskauta.Location = new Point(2155, 266);
+            btnizmeniskauta.Name = "btnizmeniskauta";
+            btnizmeniskauta.Size = new Size(279, 102);
+            btnizmeniskauta.TabIndex = 8;
+            btnizmeniskauta.Text = "Izmeni skauta";
+            btnizmeniskauta.UseVisualStyleBackColor = true;
+            btnizmeniskauta.Click += btnizmeniskauta_Click;
+            // 
+            // btnobrisiskauta
+            // 
+            btnobrisiskauta.Location = new Point(2155, 404);
+            btnobrisiskauta.Name = "btnobrisiskauta";
+            btnobrisiskauta.Size = new Size(279, 102);
+            btnobrisiskauta.TabIndex = 9;
+            btnobrisiskauta.Text = "Obrisi skauta";
+            btnobrisiskauta.UseVisualStyleBackColor = true;
+            btnobrisiskauta.Click += btnobrisiskauta_Click;
             // 
             // SkautForma
             // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2372, 1124);
-            Controls.Add(listViewfizio);
+            ClientSize = new Size(2512, 954);
+            Controls.Add(btnobrisiskauta);
+            Controls.Add(btnizmeniskauta);
+            Controls.Add(btndodajskauta);
+            Controls.Add(listViewskaut);
             Name = "SkautForma";
             Text = "SkautForma";
+            Load += SkautForma_Load;
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ListView listViewfizio;
+        private ListView listViewskaut;
         private ColumnHeader ID;
         private ColumnHeader Ime;
         private ColumnHeader Prezime;
@@ -112,5 +157,9 @@
         private ColumnHeader Email;
         private ColumnHeader Status_aranzmana;
         private ColumnHeader Igra;
+        private ColumnHeader datumprvogangazovanja;
+        private Button btndodajskauta;
+        private Button btnizmeniskauta;
+        private Button btnobrisiskauta;
     }
 }

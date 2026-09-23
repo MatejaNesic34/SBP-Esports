@@ -39,7 +39,6 @@
             statusangazmana = new ColumnHeader();
             tipuloge = new ColumnHeader();
             stilrada = new ColumnHeader();
-            telefon = new ColumnHeader();
             dodajtrenerabtn = new Button();
             izmenitrenerabtn = new Button();
             obrisitrenerabtn = new Button();
@@ -47,11 +46,11 @@
             // 
             // listViewTreneri
             // 
-            listViewTreneri.Columns.AddRange(new ColumnHeader[] { ID, ime, Prezime, datumrodjenja, datumprvoganagazovanja, drzava, email, statusangazmana, tipuloge, stilrada, telefon });
+            listViewTreneri.Columns.AddRange(new ColumnHeader[] { ID, ime, Prezime, datumrodjenja, datumprvoganagazovanja, drzava, email, statusangazmana, tipuloge, stilrada });
             listViewTreneri.FullRowSelect = true;
             listViewTreneri.Location = new Point(37, 100);
             listViewTreneri.Name = "listViewTreneri";
-            listViewTreneri.Size = new Size(2117, 1012);
+            listViewTreneri.Size = new Size(2011, 1012);
             listViewTreneri.TabIndex = 0;
             listViewTreneri.UseCompatibleStateImageBehavior = false;
             listViewTreneri.View = View.Details;
@@ -106,11 +105,6 @@
             stilrada.Text = "Stil rada";
             stilrada.Width = 200;
             // 
-            // telefon
-            // 
-            telefon.Text = "Telefon";
-            telefon.Width = 200;
-            // 
             // dodajtrenerabtn
             // 
             dodajtrenerabtn.Location = new Point(2253, 153);
@@ -139,6 +133,7 @@
             obrisitrenerabtn.TabIndex = 3;
             obrisitrenerabtn.Text = "Obrisi trenera";
             obrisitrenerabtn.UseVisualStyleBackColor = true;
+            obrisitrenerabtn.Click += obrisitrenerabtn_Click;
             // 
             // TrenerForma
             // 
@@ -168,7 +163,6 @@
         private ColumnHeader statusangazmana;
         private ColumnHeader tipuloge;
         private ColumnHeader stilrada;
-        private ColumnHeader telefon;
         private Button dodajtrenerabtn;
         private Button izmenitrenerabtn;
         private Button obrisitrenerabtn;

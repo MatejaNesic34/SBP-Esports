@@ -46,28 +46,30 @@
             comboBoxtipuloge = new ComboBox();
             button1 = new Button();
             button2 = new Button();
+            dtpdatumprvogangazovanja = new DateTimePicker();
+            label8 = new Label();
             SuspendLayout();
             // 
             // comboBoxstatusaranzmana
             // 
             comboBoxstatusaranzmana.FormattingEnabled = true;
             comboBoxstatusaranzmana.Items.AddRange(new object[] { "Aktivno", "Neaktivno" });
-            comboBoxstatusaranzmana.Location = new Point(402, 487);
+            comboBoxstatusaranzmana.Location = new Point(402, 543);
             comboBoxstatusaranzmana.Name = "comboBoxstatusaranzmana";
             comboBoxstatusaranzmana.Size = new Size(302, 49);
             comboBoxstatusaranzmana.TabIndex = 39;
             // 
             // dtpdatum
             // 
-            dtpdatum.Location = new Point(402, 236);
+            dtpdatum.Location = new Point(427, 240);
             dtpdatum.Name = "dtpdatum";
-            dtpdatum.Size = new Size(520, 47);
+            dtpdatum.Size = new Size(507, 47);
             dtpdatum.TabIndex = 38;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(120, 487);
+            label6.Location = new Point(120, 543);
             label6.Name = "label6";
             label6.Size = new Size(250, 41);
             label6.TabIndex = 37;
@@ -76,7 +78,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(120, 398);
+            label5.Location = new Point(120, 454);
             label5.Name = "label5";
             label5.Size = new Size(88, 41);
             label5.TabIndex = 36;
@@ -85,7 +87,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(120, 333);
+            label4.Location = new Point(120, 389);
             label4.Name = "label4";
             label4.Size = new Size(107, 41);
             label4.TabIndex = 35;
@@ -120,28 +122,28 @@
             // 
             // textBoxemail
             // 
-            textBoxemail.Location = new Point(402, 411);
+            textBoxemail.Location = new Point(402, 467);
             textBoxemail.Name = "textBoxemail";
             textBoxemail.Size = new Size(520, 47);
             textBoxemail.TabIndex = 30;
             // 
             // textBoxdrzava
             // 
-            textBoxdrzava.Location = new Point(402, 327);
+            textBoxdrzava.Location = new Point(402, 383);
             textBoxdrzava.Name = "textBoxdrzava";
             textBoxdrzava.Size = new Size(520, 47);
             textBoxdrzava.TabIndex = 29;
             // 
             // textBoxPrezime
             // 
-            textBoxPrezime.Location = new Point(402, 155);
+            textBoxPrezime.Location = new Point(380, 153);
             textBoxPrezime.Name = "textBoxPrezime";
             textBoxPrezime.Size = new Size(520, 47);
             textBoxPrezime.TabIndex = 28;
             // 
             // textBoxIme
             // 
-            textBoxIme.Location = new Point(402, 81);
+            textBoxIme.Location = new Point(380, 81);
             textBoxIme.Name = "textBoxIme";
             textBoxIme.Size = new Size(520, 47);
             textBoxIme.TabIndex = 27;
@@ -149,7 +151,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(120, 569);
+            label1.Location = new Point(120, 625);
             label1.Name = "label1";
             label1.Size = new Size(143, 41);
             label1.TabIndex = 40;
@@ -158,7 +160,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(120, 643);
+            label7.Location = new Point(120, 699);
             label7.Name = "label7";
             label7.Size = new Size(123, 41);
             label7.TabIndex = 41;
@@ -166,7 +168,7 @@
             // 
             // textboxstilrada
             // 
-            textboxstilrada.Location = new Point(402, 643);
+            textboxstilrada.Location = new Point(402, 699);
             textboxstilrada.Name = "textboxstilrada";
             textboxstilrada.Size = new Size(520, 47);
             textboxstilrada.TabIndex = 42;
@@ -175,7 +177,7 @@
             // 
             comboBoxtipuloge.FormattingEnabled = true;
             comboBoxtipuloge.Items.AddRange(new object[] { "Glavni", "Pomoćni", "Strateški" });
-            comboBoxtipuloge.Location = new Point(404, 563);
+            comboBoxtipuloge.Location = new Point(404, 619);
             comboBoxtipuloge.Name = "comboBoxtipuloge";
             comboBoxtipuloge.Size = new Size(302, 49);
             comboBoxtipuloge.TabIndex = 43;
@@ -199,11 +201,29 @@
             button2.Text = "Otkazi";
             button2.UseVisualStyleBackColor = true;
             // 
+            // dtpdatumprvogangazovanja
+            // 
+            dtpdatumprvogangazovanja.Location = new Point(427, 315);
+            dtpdatumprvogangazovanja.Name = "dtpdatumprvogangazovanja";
+            dtpdatumprvogangazovanja.Size = new Size(507, 47);
+            dtpdatumprvogangazovanja.TabIndex = 47;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(120, 321);
+            label8.Name = "label8";
+            label8.Size = new Size(304, 41);
+            label8.TabIndex = 46;
+            label8.Text = "Datum 1 angazovanja";
+            // 
             // DodajTreneraForma
             // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1075, 984);
+            Controls.Add(dtpdatumprvogangazovanja);
+            Controls.Add(label8);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(comboBoxtipuloge);
@@ -248,5 +268,7 @@
         private ComboBox comboBoxtipuloge;
         private Button button1;
         private Button button2;
+        private DateTimePicker dtpdatumprvogangazovanja;
+        private Label label8;
     }
 }

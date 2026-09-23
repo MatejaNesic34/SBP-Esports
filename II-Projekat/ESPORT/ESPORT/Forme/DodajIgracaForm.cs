@@ -30,7 +30,6 @@ namespace ESPORT.Forme
                 return;
             }
 
-            // Kreiranje DTO objekta
             IgracBasic ib = new IgracBasic
             {
                 Ime = textBoxIme.Text.Trim(),
@@ -52,7 +51,6 @@ namespace ESPORT.Forme
                 ib.Telefoni.Add(brojTelefona);
             }
 
-            // Poziv DTOManager-a za upis u bazu
             DTOManager.dodajIgraca(ib);
 
             MessageBox.Show("Igrač je uspešno dodat!", "Obaveštenje",

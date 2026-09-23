@@ -1,5 +1,4 @@
 ﻿using System;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,7 +27,6 @@ namespace ESPORT.Forme
             popuniPoljaPodacima();
         }
 
-
         private void popuniPoljaPodacima()
         {
             if (analiticar == null) return;
@@ -38,6 +36,7 @@ namespace ESPORT.Forme
             dtpdatum.Value = analiticar.DatumRodjenja ?? DateTime.Now;
             textBoxdrzava.Text = analiticar.Drzava ?? "";
             textBoxemail.Text = analiticar.Email ?? "";
+            dtpdatumprvogangazovanja.Value = analiticar.DatumPrvogAngazovanja ?? DateTime.Now;
             comboBoxstatusaranzmana.SelectedItem = analiticar.StatusAngazmana;
 
             textBoxoblastanalize.Text = analiticar.OblastAnalize ?? "";
@@ -47,43 +46,40 @@ namespace ESPORT.Forme
 
         private void savebtn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBoxIme.Text) || string.IsNullOrWhiteSpace(textBoxPrezime.Text))
+            if (string.IsNullOrWhiteSpace(textBoxIme.Text) ||
+                string.IsNullOrWhiteSpace(textBoxPrezime.Text) ||
+                string.IsNullOrWhiteSpace(textBoxemail.Text))
+
             {
-                MessageBox.Show("Ime i prezime su obavezni!",
+                MessageBox.Show("Obavezna polja: Ime, prezime, email",
                                 "Upozorenje",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
                 return;
             }
 
-            DialogResult result = MessageBox.Show($"Da li ste sigurni da želite da sačuvate izmene za analitičara '{analiticar.Ime} {analiticar.Prezime}'?",
-                                                  "Potvrda izmene",
-                                                  MessageBoxButtons.YesNo,
-                                                  MessageBoxIcon.Question);
+            analiticar.Ime = textBoxIme.Text.Trim();
+            analiticar.Prezime = textBoxPrezime.Text.Trim();
+            analiticar.DatumRodjenja = dtpdatum.Value;
+            analiticar.Drzava = textBoxdrzava.Text.Trim();
+            analiticar.Email = textBoxemail.Text.Trim();
+            analiticar.DatumPrvogAngazovanja = dtpdatumprvogangazovanja.Value;
+            analiticar.StatusAngazmana = comboBoxstatusaranzmana.SelectedItem.ToString();
 
-            if (result == DialogResult.Yes)
-            {
-                analiticar.Ime = textBoxIme.Text.Trim();
-                analiticar.Prezime = textBoxPrezime.Text.Trim();
-                analiticar.DatumRodjenja = dtpdatum.Value;
-                analiticar.Drzava = textBoxdrzava.Text.Trim();
-                analiticar.Email = textBoxemail.Text.Trim();
-                analiticar.StatusAngazmana = comboBoxstatusaranzmana.SelectedItem?.ToString() ?? "";
+            analiticar.OblastAnalize = textBoxoblastanalize.Text.Trim();
+            analiticar.Alati = textBoxalati.Text.Trim();
+            analiticar.NivoIskustva = textBoxnivoiskustva.Text.Trim();
 
-                analiticar.OblastAnalize = textBoxoblastanalize.Text.Trim();
-                analiticar.Alati = textBoxalati.Text.Trim();
-                analiticar.NivoIskustva = textBoxnivoiskustva.Text.Trim();
+            // Čuvanje u bazi
+            DTOManager.azurirajAnaliticara(analiticar);
 
-                DTOManager.azurirajAnaliticara(analiticar);
+            MessageBox.Show("Podaci o analitičaru su uspešno izmenjeni!",
+                            "Obaveštenje",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
 
-                MessageBox.Show("Podaci o analitičaru su uspešno izmenjeni!",
-                                "Obaveštenje",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
-
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

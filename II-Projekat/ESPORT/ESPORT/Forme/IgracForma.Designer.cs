@@ -73,10 +73,10 @@
             });
 
             listViewIgraci.FullRowSelect = true;
-            listViewIgraci.Location = new Point(20, 51);
-            listViewIgraci.Margin = new Padding(1, 1, 1, 1);
+            listViewIgraci.Location = new Point(42, 105);
+            listViewIgraci.Margin = new Padding(2);
             listViewIgraci.Name = "listViewIgraci";
-            listViewIgraci.Size = new Size(1102, 458);
+            listViewIgraci.Size = new Size(2337, 935);
             listViewIgraci.TabIndex = 0;
             listViewIgraci.UseCompatibleStateImageBehavior = false;
             listViewIgraci.View = View.Details;
@@ -156,10 +156,10 @@
             // 
             // dodajigracabtn
             // 
-            dodajigracabtn.Location = new Point(1148, 70);
-            dodajigracabtn.Margin = new Padding(1, 1, 1, 1);
+            dodajigracabtn.Location = new Point(2440, 144);
+            dodajigracabtn.Margin = new Padding(2);
             dodajigracabtn.Name = "dodajigracabtn";
-            dodajigracabtn.Size = new Size(104, 48);
+            dodajigracabtn.Size = new Size(221, 98);
             dodajigracabtn.TabIndex = 1;
             dodajigracabtn.Text = "Dodaj igraca";
             dodajigracabtn.UseVisualStyleBackColor = true;
@@ -168,10 +168,10 @@
             // 
             // izmeniigracabtn
             // 
-            izmeniigracabtn.Location = new Point(1148, 140);
-            izmeniigracabtn.Margin = new Padding(1, 1, 1, 1);
+            izmeniigracabtn.Location = new Point(2440, 287);
+            izmeniigracabtn.Margin = new Padding(2);
             izmeniigracabtn.Name = "izmeniigracabtn";
-            izmeniigracabtn.Size = new Size(104, 48);
+            izmeniigracabtn.Size = new Size(221, 98);
             izmeniigracabtn.TabIndex = 2;
             izmeniigracabtn.Text = "Izmeni igraca";
             izmeniigracabtn.UseVisualStyleBackColor = true;
@@ -180,10 +180,10 @@
             // 
             // obrisiigracabtn
             // 
-            obrisiigracabtn.Location = new Point(1148, 210);
-            obrisiigracabtn.Margin = new Padding(1, 1, 1, 1);
+            obrisiigracabtn.Location = new Point(2440, 430);
+            obrisiigracabtn.Margin = new Padding(2);
             obrisiigracabtn.Name = "obrisiigracabtn";
-            obrisiigracabtn.Size = new Size(104, 48);
+            obrisiigracabtn.Size = new Size(221, 98);
             obrisiigracabtn.TabIndex = 3;
             obrisiigracabtn.Text = "Obrisi igraca";
             obrisiigracabtn.UseVisualStyleBackColor = true;
@@ -192,10 +192,10 @@
             // 
             // btnUgovoriIgraca
             // 
-            btnUgovoriIgraca.Location = new Point(1148, 285);
-            btnUgovoriIgraca.Margin = new Padding(1);
+            btnUgovoriIgraca.Location = new Point(2440, 584);
+            btnUgovoriIgraca.Margin = new Padding(2);
             btnUgovoriIgraca.Name = "btnUgovoriIgraca";
-            btnUgovoriIgraca.Size = new Size(104, 48);
+            btnUgovoriIgraca.Size = new Size(221, 98);
             btnUgovoriIgraca.TabIndex = 4;
             btnUgovoriIgraca.Text = "Ugovori Igraca";
             btnUgovoriIgraca.UseVisualStyleBackColor = true;
@@ -240,18 +240,22 @@
             // 
             // IgracForma
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
+<<<<<<< Updated upstream
             ClientSize = new Size(1320, 589);
             Controls.Add(btnIndividualniRezultati);
             Controls.Add(btnPozajmice);
+=======
+            ClientSize = new Size(2805, 1064);
+>>>>>>> Stashed changes
             Controls.Add(btnUgovoriIgraca);
             Controls.Add(btnTransferi);
             Controls.Add(obrisiigracabtn);
             Controls.Add(izmeniigracabtn);
             Controls.Add(dodajigracabtn);
             Controls.Add(listViewIgraci);
-            Margin = new Padding(1, 1, 1, 1);
+            Margin = new Padding(2);
             Name = "IgracForma";
             Text = "IgracForma";
             Load += IgracForma_Load;

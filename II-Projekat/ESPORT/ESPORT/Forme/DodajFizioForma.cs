@@ -19,47 +19,47 @@ namespace ESPORT.Forme
 
         private void btnsave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBoxIme.Text) || string.IsNullOrWhiteSpace(textBoxPrezime.Text))
+            if (string.IsNullOrWhiteSpace(textBoxIme.Text) ||
+                string.IsNullOrWhiteSpace(textBoxPrezime.Text))
             {
-                MessageBox.Show("Ime i prezime su obavezni!",
+                MessageBox.Show("Molimo vas da popunite sva tekstualna polja!",
                                 "Upozorenje",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
                 return;
             }
 
-            DialogResult result = MessageBox.Show("Da li ste sigurni da želite da dodate novog fizioterapeuta?",
-                                                  "Potvrda dodavanja",
-                                                  MessageBoxButtons.YesNo,
-                                                  MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
+            if (comboBoxstatusaranzmana.SelectedItem == null)
             {
-                FizioterapeutBasic f = new FizioterapeutBasic();
-
-                // Polja nasleđena iz Osoba
-                f.Ime = textBoxIme.Text.Trim();
-                f.Prezime = textBoxPrezime.Text.Trim();
-                f.DatumRodjenja = dtpdatum.Value;
-                f.Drzava = textBoxdrzava.Text.Trim();
-                f.Email = textBoxemail.Text.Trim();
-                f.StatusAngazmana = comboBoxstatusaranzmana.SelectedItem?.ToString() ?? "";
-
-                // Specifična polja za Fizioterapeuta
-                f.OblastRada = textBoxoblastrada.Text.Trim();
-                f.PeriodiDostupnosti = textBoxperioddostupnosti.Text.Trim();
-
-                // Poziv DTO menadžera za čuvanje
-                DTOManager.dodajFizioterapeuta(f);
-
-                MessageBox.Show("Fizioterapeut je uspešno dodat!",
-                                "Obaveštenje",
+                MessageBox.Show("Molimo vas da izaberete status angažmana!",
+                                "Upozorenje",
                                 MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
-
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                                MessageBoxIcon.Warning);
+                return;
             }
+
+            FizioterapeutBasic f = new FizioterapeutBasic();
+
+            f.Ime = textBoxIme.Text.Trim();
+            f.Prezime = textBoxPrezime.Text.Trim();
+            f.DatumRodjenja = dtpdatum.Value;
+            f.Drzava = textBoxdrzava.Text.Trim();
+            f.Email = textBoxemail.Text.Trim();
+            f.StatusAngazmana = comboBoxstatusaranzmana.SelectedItem.ToString();
+            f.DatumPrvogAngazovanja = DateTime.Now;
+
+            f.OblastRada = textBoxoblastrada.Text.Trim();
+            f.PeriodiDostupnosti = textBoxperioddostupnosti.Text.Trim();
+
+            DTOManager.dodajFizioterapeuta(f);
+
+            MessageBox.Show("Fizioterapeut je uspešno dodat!",
+                            "Obaveštenje",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

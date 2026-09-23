@@ -23,24 +23,17 @@ namespace ESPORT.Forme
             popuniPodacima();
         }
 
-        public void popuniPodacima()
+        private void popuniPodacima()
         {
-            // Očisti prethodne stavke iz ListView kontrole
             listViewIgre.Items.Clear();
-
-            // Učitavanje liste iz baze preko DTOManager-a
             List<IgraPregled> podaci = DTOManager.vratiSveIgre();
 
             foreach (IgraPregled i in podaci)
             {
-                // Kreiramo stavku sa prvom kolonom (ID)
                 ListViewItem item = new ListViewItem(i.IgraId.ToString());
+                item.SubItems.Add(i.Naziv ?? "");
+                item.SubItems.Add(i.Zanr ?? "");
 
-                // Dodajemo ostale kolone
-                item.SubItems.Add(i.Naziv);
-                item.SubItems.Add(i.Zanr);
-
-                // Ubacujemo red u ListView
                 listViewIgre.Items.Add(item);
             }
 
@@ -50,41 +43,9 @@ namespace ESPORT.Forme
         private void dodajigrubtn_Click(object sender, EventArgs e)
         {
             DodajIgreForma forma = new DodajIgreForma();
-            forma.ShowDialog();
-
             if (forma.ShowDialog() == DialogResult.OK)
             {
-                popuniPodacima();
-            }
-        }
-
-        private void obrisiigrubtn_Click(object sender, EventArgs e)
-        {
-            // Provera da li je korisnik izabrao red u ListView-u
-            if (listViewIgre.SelectedItems.Count == 0)
-            {
-                MessageBox.Show("Molimo vas da izaberete igru koju želite da obrišete!",
-                                "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            // Uzimamo ID izabranog reda (prva kolona u ListView-u)
-            int idIgre = int.Parse(listViewIgre.SelectedItems[0].SubItems[0].Text);
-            string nazivIgre = listViewIgre.SelectedItems[0].SubItems[1].Text;
-
-            // Potvrda pre brisanja
-            DialogResult result = MessageBox.Show($"Da li ste sigurni da želite da obrišete igru '{nazivIgre}'?",
-                                                  "Potvrda brisanja", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                // Poziv DTOManager-a za brisanje
-                DTOManager.obrisiIgru(idIgre);
-
-                MessageBox.Show("Igra je uspešno obrisana!", "Obaveštenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Osvežavamo prikaz u ListView-u
-                popuniPodacima();
+                popuniPodacima(); 
             }
         }
 
@@ -92,30 +53,50 @@ namespace ESPORT.Forme
         {
             if (listViewIgre.SelectedItems.Count == 0)
             {
-                MessageBox.Show("Molimo vas da izaberete igru koju želite da izmenite!",
-                                "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Morate prvo izabrati igru iz liste da biste je izmenili!",
+                                "Upozorenje",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return; 
+            }
+
+            int idIgre = int.Parse(listViewIgre.SelectedItems[0].SubItems[0].Text);
+
+            IgraBasic odabranaIgra = DTOManager.vratiIgru(idIgre);
+
+            if (odabranaIgra != null)
+            {
+                IzmeniIgruForma forma = new IzmeniIgruForma(odabranaIgra);
+                if (forma.ShowDialog() == DialogResult.OK)
+                {
+                    popuniPodacima(); 
+                }
+            }
+        }
+
+        private void obrisiigrubtn_Click(object sender, EventArgs e)
+        {
+            if (listViewIgre.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Morate prvo izabrati igru iz liste za brisanje!",
+                                "Upozorenje",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
                 return;
             }
 
-            // Očitavanje podataka iz selektovanog reda
             int idIgre = int.Parse(listViewIgre.SelectedItems[0].SubItems[0].Text);
-            string naziv = listViewIgre.SelectedItems[0].SubItems[1].Text;
-            string zanr = listViewIgre.SelectedItems[0].SubItems[2].Text;
+            string nazivIgre = listViewIgre.SelectedItems[0].SubItems[1].Text;
 
-            IgraBasic odabranaIgra = new IgraBasic
+            DialogResult result = MessageBox.Show($"Da li ste sigurni da želite da obrišete igru '{nazivIgre}'?",
+                                                  "Potvrda brisanja",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
             {
-                IgraId = idIgre,
-                Naziv = naziv,
-                Zanr = zanr
-            };
-
-            // Otvaranje forme za izmenu i prosleđivanje selektovanih podataka
-            IzmeniIgruForma forma = new IzmeniIgruForma(odabranaIgra);
-
-            if (forma.ShowDialog() == DialogResult.OK)
-            {
-                // Osvežavanje prikazanih podataka nakon izmene
-                popuniPodacima();
+                DTOManager.obrisiIgru(idIgre);
+                popuniPodacima(); 
             }
         }
     }

@@ -1654,4 +1654,327 @@ namespace ESPORT
             }
         }
     }
+
+    public class StatistikaTimaNaMecuDTO
+    {
+        public class StatistikaTimaNaMecuPregled
+        {
+            public int MecId { get; set; }
+            public int TimId { get; set; }
+
+            public string Mec { get; set; }
+            public string Tim { get; set; }
+
+            public int Kills { get; set; }
+            public int Deaths { get; set; }
+            public int Assists { get; set; }
+            public int Damage { get; set; }
+            public int ObjectiveScore { get; set; }
+            public int Gold { get; set; }
+
+            public StatistikaTimaNaMecuPregled()
+            {
+            }
+
+            public StatistikaTimaNaMecuPregled(
+                int mecId,
+                int timId,
+                string mec,
+                string tim,
+                int kills,
+                int deaths,
+                int assists,
+                int damage,
+                int objectiveScore,
+                int gold)
+            {
+                MecId = mecId;
+                TimId = timId;
+                Mec = mec;
+                Tim = tim;
+
+                Kills = kills;
+                Deaths = deaths;
+                Assists = assists;
+                Damage = damage;
+                ObjectiveScore = objectiveScore;
+                Gold = gold;
+            }
+        }
+
+        public class StatistikaTimaNaMecuBasic
+        {
+            public int MecId { get; set; }
+            public int TimId { get; set; }
+
+            public int Kills { get; set; }
+            public int Deaths { get; set; }
+            public int Assists { get; set; }
+            public int Damage { get; set; }
+            public int ObjectiveScore { get; set; }
+            public int Gold { get; set; }
+
+            public StatistikaTimaNaMecuBasic()
+            {
+            }
+
+            public StatistikaTimaNaMecuBasic(
+                int mecId,
+                int timId,
+                int kills,
+                int deaths,
+                int assists,
+                int damage,
+                int objectiveScore,
+                int gold)
+            {
+                MecId = mecId;
+                TimId = timId;
+
+                Kills = kills;
+                Deaths = deaths;
+                Assists = assists;
+                Damage = damage;
+                ObjectiveScore = objectiveScore;
+                Gold = gold;
+            }
+        }
+    }
+
+    public class IndividualniRezultatDTO
+    {
+        public class IndividualniRezultatPregled
+        {
+            public int RezultatId { get; set; }
+
+            public int IgracId { get; set; }
+            public string Igrac { get; set; }
+
+            public string NazivPriznanja { get; set; }
+            public DateTime? DatumOstvarivanja { get; set; }
+
+            public int? TakmicenjeId { get; set; }
+            public string Takmicenje { get; set; }
+
+            public string Opis { get; set; }
+
+            public IndividualniRezultatPregled()
+            {
+            }
+
+            public IndividualniRezultatPregled(
+                int rezultatId,
+                int igracId,
+                string igrac,
+                string nazivPriznanja,
+                DateTime? datumOstvarivanja,
+                int? takmicenjeId,
+                string takmicenje,
+                string opis)
+            {
+                RezultatId = rezultatId;
+                IgracId = igracId;
+                Igrac = igrac;
+                NazivPriznanja = nazivPriznanja;
+                DatumOstvarivanja = datumOstvarivanja;
+                TakmicenjeId = takmicenjeId;
+                Takmicenje = takmicenje;
+                Opis = opis;
+            }
+        }
+
+        public class IndividualniRezultatBasic
+        {
+            public int RezultatId { get; set; }
+
+            public int IgracId { get; set; }
+
+            public string NazivPriznanja { get; set; }
+            public DateTime? DatumOstvarivanja { get; set; }
+
+            public int? TakmicenjeId { get; set; }
+
+            public string Opis { get; set; }
+
+            public IndividualniRezultatBasic()
+            {
+            }
+
+            public IndividualniRezultatBasic(
+                int rezultatId,
+                int igracId,
+                string nazivPriznanja,
+                DateTime? datumOstvarivanja,
+                int? takmicenjeId,
+                string opis)
+            {
+                RezultatId = rezultatId;
+                IgracId = igracId;
+                NazivPriznanja = nazivPriznanja;
+                DatumOstvarivanja = datumOstvarivanja;
+                TakmicenjeId = takmicenjeId;
+                Opis = opis;
+            }
+        }
+    }
+
+    public class AngazmanTreneraDTO
+    {
+        public class AngazmanTreneraPregled
+        {
+            public int AngazmanTreneraId { get; set; }
+
+            public int TrenerId { get; set; }
+            public string Trener { get; set; }
+
+            public int TimId { get; set; }
+            public string Tim { get; set; }
+
+            public string TipUloge { get; set; }
+
+            public DateTime DatumOd { get; set; }
+            public DateTime? DatumDo { get; set; }
+
+            public AngazmanTreneraPregled()
+            {
+            }
+
+            public AngazmanTreneraPregled(
+                int angazmanTreneraId,
+                int trenerId,
+                string trener,
+                int timId,
+                string tim,
+                string tipUloge,
+                DateTime datumOd,
+                DateTime? datumDo)
+            {
+                AngazmanTreneraId = angazmanTreneraId;
+                TrenerId = trenerId;
+                Trener = trener;
+                TimId = timId;
+                Tim = tim;
+                TipUloge = tipUloge;
+                DatumOd = datumOd;
+                DatumDo = datumDo;
+            }
+        }
+
+        public class AngazmanTreneraBasic
+        {
+            public int AngazmanTreneraId { get; set; }
+
+            public int TrenerId { get; set; }
+            public int TimId { get; set; }
+
+            public string TipUloge { get; set; }
+
+            public DateTime DatumOd { get; set; }
+            public DateTime? DatumDo { get; set; }
+
+            public AngazmanTreneraBasic()
+            {
+            }
+
+            public AngazmanTreneraBasic(
+                int angazmanTreneraId,
+                int trenerId,
+                int timId,
+                string tipUloge,
+                DateTime datumOd,
+                DateTime? datumDo)
+            {
+                AngazmanTreneraId = angazmanTreneraId;
+                TrenerId = trenerId;
+                TimId = timId;
+                TipUloge = tipUloge;
+                DatumOd = datumOd;
+                DatumDo = datumDo;
+            }
+        }
+    }
+
+    public class AngazmanZaposlenihDTO
+    {
+        public class AngazmanZaposlenihPregled
+        {
+            public int AngazmanOsobljaId { get; set; }
+
+            public int OsobaId { get; set; }
+            public string Osoba { get; set; }
+
+            public int TimId { get; set; }
+            public string Tim { get; set; }
+
+            public string NazivUloge { get; set; }
+
+            public DateTime DatumOd { get; set; }
+            public DateTime? DatumDo { get; set; }
+
+            public decimal? Plata { get; set; }
+
+            public AngazmanZaposlenihPregled()
+            {
+            }
+
+            public AngazmanZaposlenihPregled(
+                int angazmanOsobljaId,
+                int osobaId,
+                string osoba,
+                int timId,
+                string tim,
+                string nazivUloge,
+                DateTime datumOd,
+                DateTime? datumDo,
+                decimal? plata)
+            {
+                AngazmanOsobljaId = angazmanOsobljaId;
+                OsobaId = osobaId;
+                Osoba = osoba;
+                TimId = timId;
+                Tim = tim;
+                NazivUloge = nazivUloge;
+                DatumOd = datumOd;
+                DatumDo = datumDo;
+                Plata = plata;
+            }
+        }
+
+        public class AngazmanZaposlenihBasic
+        {
+            public int AngazmanOsobljaId { get; set; }
+
+            public int OsobaId { get; set; }
+            public int TimId { get; set; }
+
+            public string NazivUloge { get; set; }
+
+            public DateTime DatumOd { get; set; }
+            public DateTime? DatumDo { get; set; }
+
+            public decimal? Plata { get; set; }
+
+            public AngazmanZaposlenihBasic()
+            {
+            }
+
+            public AngazmanZaposlenihBasic(
+                int angazmanOsobljaId,
+                int osobaId,
+                int timId,
+                string nazivUloge,
+                DateTime datumOd,
+                DateTime? datumDo,
+                decimal? plata)
+            {
+                AngazmanOsobljaId = angazmanOsobljaId;
+                OsobaId = osobaId;
+                TimId = timId;
+                NazivUloge = nazivUloge;
+                DatumOd = datumOd;
+                DatumDo = datumDo;
+                Plata = plata;
+            }
+        }
+    }
 }

@@ -14,7 +14,7 @@ namespace ESPORT.Mapiranje
             Table("INDIVIDUALNI_REZULTAT");
 
             // Primarni ključ
-            Id(x => x.RezultatId).Column("REZULTAT_ID").GeneratedBy.TriggerIdentity();
+            Id(x => x.RezultatId).Column("REZULTAT_ID").GeneratedBy.Increment();
 
             // Obična polja / atributi
             Map(x => x.NazivPriznanja).Column("NAZIV_PRIZNANJA").Not.Nullable();

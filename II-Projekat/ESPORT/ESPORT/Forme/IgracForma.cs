@@ -31,7 +31,9 @@ namespace ESPORT.Forme
 
             foreach (IgracPregled i in podaci)
             {
-                ListViewItem item = new ListViewItem(i.OsobaId.ToString());
+                ListViewItem item =
+                    new ListViewItem(i.OsobaId.ToString());
+
                 item.SubItems.Add(i.Ime ?? "");
                 item.SubItems.Add(i.Prezime ?? "");
                 item.SubItems.Add(i.Nadimak ?? "");
@@ -52,7 +54,9 @@ namespace ESPORT.Forme
 
         private void dodajigracabtn_Click(object sender, EventArgs e)
         {
-            DodajIgracaForm form = new DodajIgracaForm();
+            DodajIgracaForm form =
+                new DodajIgracaForm();
+
             form.ShowDialog();
         }
 
@@ -60,10 +64,12 @@ namespace ESPORT.Forme
         {
             if (listViewIgraci.SelectedItems.Count == 0)
             {
-                MessageBox.Show("Morate prvo izabrati igrača iz liste da biste ga izmenili!",
-                                "Upozorenje",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Morate prvo izabrati igrača iz liste da biste ga izmenili!",
+                    "Upozorenje",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 return;
             }
 
@@ -104,11 +110,12 @@ namespace ESPORT.Forme
             string nadimak =
                 listViewIgraci.SelectedItems[0].SubItems[3].Text;
 
-            DialogResult potvrdio = MessageBox.Show(
-                $"Da li ste sigurni da želite da obrišete igrača '{nadimak}'?",
-                "Potvrda brisanja",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
+            DialogResult potvrdio =
+                MessageBox.Show(
+                    $"Da li ste sigurni da želite da obrišete igrača '{nadimak}'?",
+                    "Potvrda brisanja",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
 
             if (potvrdio == DialogResult.Yes)
             {
@@ -137,8 +144,9 @@ namespace ESPORT.Forme
                 return;
             }
 
-            int idIgraca = int.Parse(
-                listViewIgraci.SelectedItems[0].SubItems[0].Text);
+            int idIgraca =
+                int.Parse(
+                    listViewIgraci.SelectedItems[0].SubItems[0].Text);
 
             string imeIgraca =
                 listViewIgraci.SelectedItems[0].SubItems[1].Text;
@@ -156,13 +164,25 @@ namespace ESPORT.Forme
 
         private void btnTransferi_Click(object sender, EventArgs e)
         {
-            TransferForma forma = new TransferForma();
+            TransferForma forma =
+                new TransferForma();
+
             forma.ShowDialog();
         }
 
         private void btnPozajmice_Click(object sender, EventArgs e)
         {
-            PozajmicaForma forma = new PozajmicaForma();
+            PozajmicaForma forma =
+                new PozajmicaForma();
+
+            forma.ShowDialog();
+        }
+
+        private void btnIndividualniRezultati_Click(object sender, EventArgs e)
+        {
+            IndividualniRezultatForma forma =
+                new IndividualniRezultatForma();
+
             forma.ShowDialog();
         }
     }

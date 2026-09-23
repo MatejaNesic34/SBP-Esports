@@ -49,6 +49,7 @@
             btnUgovoriIgraca = new Button();
             btnTransferi = new Button();
             btnPozajmice = new Button();
+            btnIndividualniRezultati = new Button();
 
             SuspendLayout();
 
@@ -225,11 +226,24 @@
             btnPozajmice.Click += btnPozajmice_Click;
 
             // 
+            // btnIndividualniRezultati
+            // 
+            btnIndividualniRezultati.Location = new Point(1148, 495);
+            btnIndividualniRezultati.Margin = new Padding(1);
+            btnIndividualniRezultati.Name = "btnIndividualniRezultati";
+            btnIndividualniRezultati.Size = new Size(104, 48);
+            btnIndividualniRezultati.TabIndex = 7;
+            btnIndividualniRezultati.Text = "Individualni rezultati";
+            btnIndividualniRezultati.UseVisualStyleBackColor = true;
+            btnIndividualniRezultati.Click += btnIndividualniRezultati_Click;
+
+            // 
             // IgracForma
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1320, 519);
+            ClientSize = new Size(1320, 589);
+            Controls.Add(btnIndividualniRezultati);
             Controls.Add(btnPozajmice);
             Controls.Add(btnUgovoriIgraca);
             Controls.Add(btnTransferi);
@@ -267,5 +281,6 @@
         private Button btnUgovoriIgraca;
         private Button btnTransferi;
         private Button btnPozajmice;
+        private Button btnIndividualniRezultati;
     }
 }

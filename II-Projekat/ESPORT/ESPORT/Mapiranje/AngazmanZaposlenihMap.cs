@@ -14,7 +14,7 @@ namespace ESPORT.Mapiranje
             Table("ANGAZMAN_ZAPOSLENIH");
 
             // Primarni ključ
-            Id(x => x.AngazmanOsobljaId).Column("ANGAZMAN_OSOBLJA_ID").GeneratedBy.TriggerIdentity();
+            Id(x => x.AngazmanOsobljaId).Column("ANGAZMAN_OSOBLJA_ID").GeneratedBy.Increment();
 
             // Obična polja / atributi
             Map(x => x.NazivUloge).Column("NAZIV_ULOGE").Not.Nullable();

@@ -145,5 +145,13 @@ namespace ESPORT.Forme
 
             forma.ShowDialog();
         }
+
+        private void statistikaBtn_Click(object sender, EventArgs e)
+        {
+            StatistikaForma forma =
+                new StatistikaForma();
+
+            forma.ShowDialog();
+        }
     }
 }

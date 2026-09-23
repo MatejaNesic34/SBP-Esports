@@ -14,7 +14,7 @@ namespace ESPORT.Mapiranje
             Table("ANGAZMAN_TRENERA");
 
             // Primarni ključ
-            Id(x => x.AngazmanTreneraId).Column("ANGAZMAN_TRENERA_ID").GeneratedBy.TriggerIdentity();
+            Id(x => x.AngazmanTreneraId).Column("ANGAZMAN_TRENERA_ID").GeneratedBy.Increment();
 
             // Obična polja / atributi
             Map(x => x.TipUloge).Column("TIP_ULOGE").Not.Nullable();

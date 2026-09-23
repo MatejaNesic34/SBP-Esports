@@ -38,6 +38,7 @@
             izmeniMecBtn = new Button();
             obrisiMecBtn = new Button();
             dogadjajiBtn = new Button();
+            statistikaBtn = new Button();
 
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -136,8 +137,6 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Akcije meča";
 
-            Controls.Add(dogadjajiBtn);
-
             // 
             // dodajMecBtn
             // 
@@ -183,12 +182,25 @@
             dogadjajiBtn.Click += dogadjajiBtn_Click;
 
             // 
+            // statistikaBtn
+            // 
+            statistikaBtn.Location = new Point(1220, 690);
+            statistikaBtn.Name = "statistikaBtn";
+            statistikaBtn.Size = new Size(350, 80);
+            statistikaBtn.TabIndex = 4;
+            statistikaBtn.Text = "Statistika";
+            statistikaBtn.UseVisualStyleBackColor = true;
+            statistikaBtn.Click += statistikaBtn_Click;
+
+            // 
             // MecForma
             // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1600, 900);
 
+            Controls.Add(statistikaBtn);
+            Controls.Add(dogadjajiBtn);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
 
@@ -225,7 +237,7 @@
         private Button dodajMecBtn;
         private Button izmeniMecBtn;
         private Button obrisiMecBtn;
-
         private Button dogadjajiBtn;
+        private Button statistikaBtn;
     }
 }

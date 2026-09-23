@@ -1,7 +1,4 @@
-﻿using System.Xml.Linq;
-using static System.Net.Mime.MediaTypeNames;
-
-namespace ESPORT.Forme
+﻿namespace ESPORT.Forme
 {
     partial class TimoviForma
     {
@@ -20,15 +17,12 @@ namespace ESPORT.Forme
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             listViewTimovi = new ListView();
@@ -39,18 +33,34 @@ namespace ESPORT.Forme
             Drzava = new ColumnHeader();
             Status = new ColumnHeader();
             Nivo = new ColumnHeader();
+
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
+
             obrisitimbtn = new Button();
             izmenitimbtn = new Button();
             dodajtimbtn = new Button();
+            btnAngazmaniTrenera = new Button();
+            btnAngazmaniZaposlenih = new Button();
+
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
+
             // 
             // listViewTimovi
             // 
-            listViewTimovi.Columns.AddRange(new ColumnHeader[] { ID, Naziv, Igra, DatumOsnivanja, Drzava, Status, Nivo });
+            listViewTimovi.Columns.AddRange(new ColumnHeader[]
+            {
+                ID,
+                Naziv,
+                Igra,
+                DatumOsnivanja,
+                Drzava,
+                Status,
+                Nivo
+            });
+
             listViewTimovi.FullRowSelect = true;
             listViewTimovi.Location = new Point(24, 56);
             listViewTimovi.MultiSelect = false;
@@ -59,41 +69,49 @@ namespace ESPORT.Forme
             listViewTimovi.TabIndex = 0;
             listViewTimovi.UseCompatibleStateImageBehavior = false;
             listViewTimovi.View = View.Details;
+
             // 
             // ID
             // 
             ID.Text = "ID";
             ID.Width = 80;
+
             // 
             // Naziv
             // 
             Naziv.Text = "Naziv";
             Naziv.Width = 230;
+
             // 
             // Igra
             // 
             Igra.Text = "Igra";
             Igra.Width = 200;
+
             // 
             // DatumOsnivanja
             // 
             DatumOsnivanja.Text = "Datum osnivanja";
             DatumOsnivanja.Width = 170;
+
             // 
             // Drzava
             // 
             Drzava.Text = "Država registracije";
             Drzava.Width = 200;
+
             // 
             // Status
             // 
             Status.Text = "Status";
             Status.Width = 150;
+
             // 
             // Nivo
             // 
             Nivo.Text = "Nivo takmičenja";
             Nivo.Width = 160;
+
             // 
             // groupBox1
             // 
@@ -104,18 +122,22 @@ namespace ESPORT.Forme
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Prikaz timova";
+
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(btnAngazmaniZaposlenih);
+            groupBox2.Controls.Add(btnAngazmaniTrenera);
             groupBox2.Controls.Add(obrisitimbtn);
             groupBox2.Controls.Add(izmenitimbtn);
             groupBox2.Controls.Add(dodajtimbtn);
             groupBox2.Location = new Point(1340, 80);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(350, 494);
+            groupBox2.Size = new Size(350, 600);
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "Timovi akcije";
+
             // 
             // obrisitimbtn
             // 
@@ -126,6 +148,7 @@ namespace ESPORT.Forme
             obrisitimbtn.Text = "Obrisi tim";
             obrisitimbtn.UseVisualStyleBackColor = true;
             obrisitimbtn.Click += obrisitimbtn_Click;
+
             // 
             // izmenitimbtn
             // 
@@ -136,6 +159,7 @@ namespace ESPORT.Forme
             izmenitimbtn.Text = "Izmeni tim";
             izmenitimbtn.UseVisualStyleBackColor = true;
             izmenitimbtn.Click += izmenitimbtn_Click;
+
             // 
             // dodajtimbtn
             // 
@@ -146,6 +170,29 @@ namespace ESPORT.Forme
             dodajtimbtn.Text = "Dodaj tim";
             dodajtimbtn.UseVisualStyleBackColor = true;
             dodajtimbtn.Click += dodajtimbtn_Click;
+
+            // 
+            // btnAngazmaniTrenera
+            // 
+            btnAngazmaniTrenera.Location = new Point(62, 425);
+            btnAngazmaniTrenera.Name = "btnAngazmaniTrenera";
+            btnAngazmaniTrenera.Size = new Size(243, 77);
+            btnAngazmaniTrenera.TabIndex = 3;
+            btnAngazmaniTrenera.Text = "Angažmani trenera";
+            btnAngazmaniTrenera.UseVisualStyleBackColor = true;
+            btnAngazmaniTrenera.Click += btnAngazmaniTrenera_Click;
+
+            // 
+            // btnAngazmaniZaposlenih
+            // 
+            btnAngazmaniZaposlenih.Location = new Point(62, 520);
+            btnAngazmaniZaposlenih.Name = "btnAngazmaniZaposlenih";
+            btnAngazmaniZaposlenih.Size = new Size(243, 77);
+            btnAngazmaniZaposlenih.TabIndex = 4;
+            btnAngazmaniZaposlenih.Text = "Angažmani zaposlenih";
+            btnAngazmaniZaposlenih.UseVisualStyleBackColor = true;
+            btnAngazmaniZaposlenih.Click += btnAngazmaniZaposlenih_Click;
+
             // 
             // TimoviForma
             // 
@@ -157,6 +204,7 @@ namespace ESPORT.Forme
             Name = "TimoviForma";
             Text = "TimoviForma";
             Load += TimoviForma_Load;
+
             groupBox1.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             ResumeLayout(false);
@@ -165,6 +213,7 @@ namespace ESPORT.Forme
         #endregion
 
         private ListView listViewTimovi;
+
         private ColumnHeader ID;
         private ColumnHeader Naziv;
         private ColumnHeader Igra;
@@ -172,10 +221,14 @@ namespace ESPORT.Forme
         private ColumnHeader Drzava;
         private ColumnHeader Status;
         private ColumnHeader Nivo;
+
         private GroupBox groupBox1;
         private GroupBox groupBox2;
+
         private Button obrisitimbtn;
         private Button izmenitimbtn;
         private Button dodajtimbtn;
+        private Button btnAngazmaniTrenera;
+        private Button btnAngazmaniZaposlenih;
     }
 }

@@ -242,13 +242,10 @@
             // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
-<<<<<<< Updated upstream
             ClientSize = new Size(1320, 589);
             Controls.Add(btnIndividualniRezultati);
             Controls.Add(btnPozajmice);
-=======
             ClientSize = new Size(2805, 1064);
->>>>>>> Stashed changes
             Controls.Add(btnUgovoriIgraca);
             Controls.Add(btnTransferi);
             Controls.Add(obrisiigracabtn);

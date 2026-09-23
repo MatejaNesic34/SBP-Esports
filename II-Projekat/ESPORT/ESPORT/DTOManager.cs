@@ -5101,7 +5101,6 @@ namespace ESPORT
             }
         }
 
-<<<<<<< Updated upstream
         public static List<TransferDTO.TransferPregled> vratiSveTransfere()
         {
             List<TransferDTO.TransferPregled> transferi =
@@ -6895,7 +6894,6 @@ namespace ESPORT
                 s.Close();
             }
         }
-=======
 
 
         public static List<LicencaDTO.LicencaPregled> vratiSveLicence()
@@ -7066,6 +7064,5 @@ namespace ESPORT
             }
         }
 
->>>>>>> Stashed changes
     }
 }

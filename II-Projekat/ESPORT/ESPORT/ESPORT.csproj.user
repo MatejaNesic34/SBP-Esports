@@ -7,7 +7,19 @@
     <Compile Update="Forme\AnaliticarForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\AngazmanTreneraForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\AngazmanZaposlenihForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\DodajAnaliticaraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajAngazmanTreneraForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajAngazmanZaposlenihForma.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\DodajDogadjajForma.cs">
@@ -25,6 +37,12 @@
     <Compile Update="Forme\DodajIgreForma.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\DodajIndividualniForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajLicencuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\DodajLiguForma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -34,7 +52,13 @@
     <Compile Update="Forme\DodajMenadzeraForma.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\DodajPozajmicuForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\DodajPsihologaForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajSkautaForma.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\DodajSponzoraForma.cs">
@@ -46,10 +70,16 @@
     <Compile Update="Forme\DodajSponzorskiUgovorForma.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\DodajStatistikuForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\DodajTakmicenjeForma.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\DodajtimForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\DodajTransferForma.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\DodajTreneraForma.cs">
@@ -82,7 +112,16 @@
     <Compile Update="Forme\IgreForma.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\IndividualniRezultatForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\IzmeniAnaliticaraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniAngazmanTreneraForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniAngazmanZaposlenihForma.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\IzmeniDogadjajForma.cs">
@@ -100,6 +139,12 @@
     <Compile Update="Forme\IzmeniIgruForma.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\IzmeniIndividualniForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniLicencuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\IzmeniLiguForma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,7 +154,13 @@
     <Compile Update="Forme\IzmeniMenadzerForma.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\IzmeniPozajmicuForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\IzmeniPsihologaForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniSkautaForma.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\IzmeniSponzoraForma.cs">
@@ -121,10 +172,16 @@
     <Compile Update="Forme\IzmeniSponzorskiUgovorForma.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\IzmeniStatistikuForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\IzmeniTakmicenjeForma.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\IzmenitimForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\IzmeniTransferForma.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\IzmeniTreneraForm.cs">
@@ -142,6 +199,9 @@
     <Compile Update="Forme\IzmeniUgovorSubjekatForma.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\LicencaForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\LigaForma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +212,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\OsobaForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\PozajmicaForma.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\PsihologForma.cs">
@@ -169,10 +232,16 @@
     <Compile Update="Forme\SponzorskiUgovoriForma.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forme\StatistikaForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forme\TakmicenjeForma.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\Timoviforma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forme\TransferForma.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forme\TrenerForma.cs">

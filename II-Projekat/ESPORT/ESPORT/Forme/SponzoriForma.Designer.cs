@@ -53,7 +53,7 @@
             listViewSponzori.Margin = new Padding(1);
             listViewSponzori.MultiSelect = false;
             listViewSponzori.Name = "listViewSponzori";
-            listViewSponzori.Size = new Size(567, 324);
+            listViewSponzori.Size = new Size(654, 324);
             listViewSponzori.TabIndex = 0;
             listViewSponzori.UseCompatibleStateImageBehavior = false;
             listViewSponzori.View = View.Details;
@@ -61,27 +61,27 @@
             // ID
             // 
             ID.Text = "ID";
-            ID.Width = 80;
+            ID.Width = 50;
             // 
             // Naziv
             // 
             Naziv.Text = "Naziv";
-            Naziv.Width = 280;
+            Naziv.Width = 150;
             // 
             // Drzava
             // 
             Drzava.Text = "Država";
-            Drzava.Width = 220;
+            Drzava.Width = 80;
             // 
             // TipSponzora
             // 
             TipSponzora.Text = "Tip sponzora";
-            TipSponzora.Width = 260;
+            TipSponzora.Width = 150;
             // 
             // OblastPoslovanja
             // 
             OblastPoslovanja.Text = "Oblast poslovanja";
-            OblastPoslovanja.Width = 320;
+            OblastPoslovanja.Width = 200;
             // 
             // groupBox1
             // 
@@ -90,7 +90,7 @@
             groupBox1.Margin = new Padding(1);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(1);
-            groupBox1.Size = new Size(588, 363);
+            groupBox1.Size = new Size(675, 363);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Prikaz sponzora";
@@ -102,7 +102,7 @@
             groupBox2.Controls.Add(obrisiSponzorbtn);
             groupBox2.Controls.Add(izmeniSponzorbtn);
             groupBox2.Controls.Add(dodajSponzorbtn);
-            groupBox2.Location = new Point(631, 39);
+            groupBox2.Location = new Point(722, 39);
             groupBox2.Margin = new Padding(1);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(1);
@@ -170,7 +170,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(819, 439);
+            ClientSize = new Size(912, 439);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Margin = new Padding(1);

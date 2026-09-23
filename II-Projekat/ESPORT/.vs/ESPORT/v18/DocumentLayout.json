@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\mateja\\desktop\\sbp\\sbp-esports\\ii-projekat\\esport\\esport\\forme\\igracforma.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\forme\\igracforma.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\mateja\\desktop\\sbp\\sbp-esports\\ii-projekat\\esport\\esport\\dtomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\dtomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\mateja\\desktop\\sbp\\sbp-esports\\ii-projekat\\esport\\esport\\forme\\timoviforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\forme\\timoviforma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,28 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "IgracForma.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\IgracForma.Designer.cs",
-              "RelativeDocumentMoniker": "ESPORT\\Forme\\IgracForma.Designer.cs",
-              "ToolTip": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\IgracForma.Designer.cs*",
-              "RelativeToolTip": "ESPORT\\Forme\\IgracForma.Designer.cs*",
-              "ViewState": "AgIAAOsAAAAAAAAAAAAnwPgAAAAXAAAAAAAAAA==",
+              "Title": "Timoviforma.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\Timoviforma.cs",
+              "RelativeDocumentMoniker": "ESPORT\\Forme\\Timoviforma.cs",
+              "ToolTip": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Forme\\Timoviforma.cs [Design]*",
+              "RelativeToolTip": "ESPORT\\Forme\\Timoviforma.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-23T17:51:47.697Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DTOManager.cs",
-              "DocumentMoniker": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\DTOManager.cs",
-              "RelativeDocumentMoniker": "ESPORT\\DTOManager.cs",
-              "ToolTip": "C:\\Users\\MATEJA\\Desktop\\SBP\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\DTOManager.cs*",
-              "RelativeToolTip": "ESPORT\\DTOManager.cs*",
-              "ViewState": "AgIAAJIbAAAAAAAAAAAjwJobAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-23T17:51:32.533Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-23T18:46:27.634Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

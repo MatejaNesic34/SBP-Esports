@@ -26,7 +26,6 @@ namespace ESPORT
             }
         }
 
-        // Koristi se za izmenu, unos i detaljan prikaz sa relacijama
         public class IgraBasic
         {
             public int IgraId { get; set; }
@@ -52,7 +51,6 @@ namespace ESPORT
             }
         }
 
-        // Pomoćne Basic klase za relacije
         public class TimBasic
         {
             public int TimId { get; set; }
@@ -291,7 +289,6 @@ namespace ESPORT
 
     public class AnaliticarDTO
     {
-        // DTO za prikaz u listama / DataGridView
         public class AnaliticarPregled
         {
             public int OsobaId { get; set; }
@@ -327,7 +324,6 @@ namespace ESPORT
             }
         }
 
-        // DTO za detaljan prikaz, izmenu i dodavanje novog analitičara
         public class AnaliticarBasic
         {
             public int OsobaId { get; set; }
@@ -339,12 +335,10 @@ namespace ESPORT
             public DateTime? DatumPrvogAngazovanja { get; set; }
             public string StatusAngazmana { get; set; }
 
-            // Polja specifična za Analitičara
             public string OblastAnalize { get; set; }
             public string Alati { get; set; }
             public string NivoIskustva { get; set; }
 
-            // Kolekcije nasledjene iz klase Osoba
             public IList<OsobaDTO.TelefonBasic> Telefoni { get; set; } = new List<OsobaDTO.TelefonBasic>();
             public IList<OsobaDTO.LicencaBasic> Licence { get; set; } = new List<OsobaDTO.LicencaBasic>();
             public IList<OsobaDTO.AngazmanZaposlenihBasic> AngazmaniZaposlenog { get; set; } = new List<OsobaDTO.AngazmanZaposlenihBasic>();
@@ -397,7 +391,6 @@ namespace ESPORT
         }
     }
 
-    // DTO za detaljan prikaz, kreiranje i izmenu menadžera
     public class MenadzerBasic
     {
         public int OsobaId { get; set; }
@@ -409,10 +402,8 @@ namespace ESPORT
         public DateTime? DatumPrvogAngazovanja { get; set; }
         public string StatusAngazmana { get; set; }
 
-        // Specifično polje za Menadžera
         public string OblastOdgovornosti { get; set; }
 
-        // Kolekcije
         public IList<OsobaDTO.TelefonBasic> Telefoni { get; set; }
         public IList<OsobaDTO.LicencaBasic> Licence { get; set; }
         public IList<OsobaDTO.AngazmanZaposlenihBasic> AngazmaniZaposlenog { get; set; }
@@ -468,7 +459,6 @@ namespace ESPORT
         }
     }
 
-    // DTO za detalje, kreiranje i izmenu
     public class PsihologBasic
     {
         public int OsobaId { get; set; }
@@ -480,11 +470,9 @@ namespace ESPORT
         public DateTime? DatumPrvogAngazovanja { get; set; }
         public string StatusAngazmana { get; set; }
 
-        // Specifična polja za Psihologa
         public string OblastRada { get; set; }
         public string PeriodiDostupnosti { get; set; }
 
-        // Kolekcije
         public IList<OsobaDTO.TelefonBasic> Telefoni { get; set; }
         public IList<OsobaDTO.LicencaBasic> Licence { get; set; }
         public IList<OsobaDTO.AngazmanZaposlenihBasic> AngazmaniZaposlenog { get; set; }
@@ -541,7 +529,6 @@ namespace ESPORT
         }
     }
 
-    // DTO za detalje, kreiranje i izmenu
     public class FizioterapeutBasic
     {
         public int OsobaId { get; set; }
@@ -553,11 +540,9 @@ namespace ESPORT
         public DateTime? DatumPrvogAngazovanja { get; set; }
         public string StatusAngazmana { get; set; }
 
-        // Specifična polja za Fizioterapeuta
         public string OblastRada { get; set; }
         public string PeriodiDostupnosti { get; set; }
 
-        // Kolekcije
         public IList<OsobaDTO.TelefonBasic> Telefoni { get; set; }
         public IList<OsobaDTO.LicencaBasic> Licence { get; set; }
         public IList<OsobaDTO.AngazmanZaposlenihBasic> AngazmaniZaposlenog { get; set; }
@@ -597,7 +582,7 @@ namespace ESPORT
         public string Drzava { get; set; }
         public string Email { get; set; }
         public string StatusAngazmana { get; set; }
-        public string NazivIgre { get; set; } // Naziv povezane igre za skauta
+        public string NazivIgre { get; set; }
 
         public SkautPregled() { }
 
@@ -615,7 +600,6 @@ namespace ESPORT
         }
     }
 
-    // DTO za detalje, kreiranje i izmenu
     public class SkautBasic
     {
         public int OsobaId { get; set; }
@@ -627,11 +611,9 @@ namespace ESPORT
         public DateTime? DatumPrvogAngazovanja { get; set; }
         public string StatusAngazmana { get; set; }
 
-        // Referenca na igru
         public int? IgraId { get; set; }
         public string NazivIgre { get; set; }
 
-        // Kolekcije nasleđene iz Osobe
         public IList<OsobaDTO.TelefonBasic> Telefoni { get; set; }
         public IList<OsobaDTO.LicencaBasic> Licence { get; set; }
         public IList<OsobaDTO.AngazmanZaposlenihBasic> AngazmaniZaposlenog { get; set; }
@@ -1253,7 +1235,6 @@ namespace ESPORT
             {
             }
 
-            // Zadržan zbog postojećih combobox-ova (Naziv se prikazuje preko ToString)
             public TimPregled(
                 int timId,
                 string naziv)
@@ -1419,7 +1400,6 @@ namespace ESPORT
 
     public class UgovorDTO
     {
-        // ================= UGOVOR IGRAČA =================
         public class UgovorIgracaBasic
         {
             public int UgovorId { get; set; }
@@ -1458,10 +1438,9 @@ namespace ESPORT
             }
         }
 
-        // ================= UGOVOR SUBJEKAT (Sponzorski subjekti) =================
         public class UgovorSubjekatBasic
         {
-            public int UgovorId { get; set; } // Istovremeno ID sponzorskog ugovora
+            public int UgovorId { get; set; }
             public int? TimId { get; set; }
             public string NazivTima { get; set; }
             public int? IgracId { get; set; }
@@ -1499,7 +1478,7 @@ namespace ESPORT
 
             public LicencaPregled() { }
 
-            public LicencaPregled(int licencaId,int osobaid, string naziv, string institucijaIzdavac, DateTime datumSticanja, string osobaImePrezime)
+            public LicencaPregled(int licencaId, int osobaid, string naziv, string institucijaIzdavac, DateTime datumSticanja, string osobaImePrezime)
             {
                 LicencaId = licencaId;
                 OsobaId = osobaid;

@@ -33,9 +33,8 @@ namespace ESPORT
             {
                 using (ISession s = DataLayer.GetSession())
                 {
-                    if (s == null) return igre; // Zaštita ako je konekcija pukla
+                    if (s == null) return igre;
 
-                    // Umesto LINQ sintakse, moderniji i kraći zapis:
                     List<ESPORT.Entiteti.Igra> sveIgre = s.Query<ESPORT.Entiteti.Igra>().OrderBy(i => i.IgraId).ToList();
 
                     foreach (ESPORT.Entiteti.Igra i in sveIgre)
@@ -60,7 +59,6 @@ namespace ESPORT
                 {
                     if (s == null) return;
 
-                    // Pokretanje transakcije je obavezno za upis u bazu
                     using (ITransaction tx = s.BeginTransaction())
                     {
                         Igra o = new Igra();
@@ -70,7 +68,6 @@ namespace ESPORT
 
                         s.Save(o);
 
-                        // Potvrđivanje upisa u Oracle bazu
                         tx.Commit();
                     }
                 }
@@ -97,7 +94,6 @@ namespace ESPORT
             }
             catch (Exception ec)
             {
-                //handle exceptions
             }
 
             return ib;
@@ -113,13 +109,10 @@ namespace ESPORT
 
                     using (ITransaction tx = s.BeginTransaction())
                     {
-                        // Učitavamo objekat iz baze po ID-ju
                         ESPORT.Entiteti.Igra o = s.Load<ESPORT.Entiteti.Igra>(id);
 
-                        // Brišemo objekat
                         s.Delete(o);
 
-                        // Potvrđujemo izmene u bazi
                         tx.Commit();
                     }
                 }
@@ -130,7 +123,6 @@ namespace ESPORT
             }
         }
 
-        // IZMENA IGRE
         public static void azurirajIgru(IgraBasic i)
         {
             try
@@ -141,17 +133,13 @@ namespace ESPORT
 
                     using (ITransaction tx = s.BeginTransaction())
                     {
-                        // Učitavamo postojeći objekat
                         ESPORT.Entiteti.Igra o = s.Load<ESPORT.Entiteti.Igra>(i.IgraId);
 
-                        // Ažuriramo njegova svojstva
                         o.Naziv = i.Naziv;
                         o.Zanr = i.Zanr;
 
-                        // Cuvamo izmene
                         s.Update(o);
 
-                        // Potvrđujemo transakciju
                         tx.Commit();
                     }
                 }
@@ -189,7 +177,6 @@ namespace ESPORT
             return osobe;
         }
 
-        // 2. DODAVANJE NOVE OSOBE
         public static void dodajOsobu(OsobaBasic oBasic)
         {
             try
@@ -221,7 +208,6 @@ namespace ESPORT
             }
         }
 
-        // 3. PRIKAZ JEDNE OSOBE (Detalji / Izmena)
         public static OsobaBasic vratiOsobu(int id)
         {
             OsobaBasic ob = null;
@@ -245,7 +231,6 @@ namespace ESPORT
                         o.StatusAngazmana
                     );
 
-                    // 1. Telefoni (BrojTelefona)
                     foreach (var tel in o.Telefoni)
                     {
                         ob.Telefoni.Add(new TelefonBasic
@@ -254,7 +239,6 @@ namespace ESPORT
                         });
                     }
 
-                    // 2. Licence
                     foreach (var lic in o.Licence)
                     {
                         ob.Licence.Add(new LicencaBasic
@@ -264,7 +248,6 @@ namespace ESPORT
                         });
                     }
 
-                    // 3. Angažmani Zaposlenog (AngazmanOsobljaId)
                     foreach (var ang in o.AngazmaniZaposlenog)
                     {
                         ob.AngazmaniZaposlenog.Add(new AngazmanZaposlenihBasic
@@ -287,7 +270,6 @@ namespace ESPORT
             return ob;
         }
 
-        // 4. AŽURIRANJE OSOBE
         public static void azurirajOsobu(OsobaBasic oBasic)
         {
             try
@@ -319,7 +301,6 @@ namespace ESPORT
             }
         }
 
-        // 5. BRISANJE OSOBE
         public static void obrisiOsobu(int id)
         {
             try
@@ -472,12 +453,10 @@ namespace ESPORT
 
                     using (ITransaction tx = s.BeginTransaction())
                     {
-                        // 1. Učitavamo postojeci entitet iz baze
                         Igrac i = s.Get<Igrac>(ib.OsobaId);
 
                         if (i != null)
                         {
-                            // 2. Ažuriramo polja klase Osoba/Igrac
                             i.Ime = ib.Ime;
                             i.Prezime = ib.Prezime;
                             i.DatumRodjenja = ib.DatumRodjenja;
@@ -490,7 +469,6 @@ namespace ESPORT
                             i.DominantniStil = ib.DominantniStil;
                             i.Rang = ib.Rang;
 
-                            // 3. Ažuriramo telefone
                             i.Telefoni.Clear();
                             if (ib.Telefoni != null)
                             {
@@ -500,7 +478,6 @@ namespace ESPORT
                                 }
                             }
 
-                            // 4. EKSPLICITNO sprovodimo i potvrdjujemo izmene
                             s.Update(i);
                             tx.Commit();
                         }
@@ -549,7 +526,6 @@ namespace ESPORT
 
                     foreach (Trener t in treneri)
                     {
-                        // Ako entitet Trener ima listu telefona, spajamo ih u jedan string
                         string telefoniString = t.Telefoni != null ? string.Join(", ", t.Telefoni) : "";
 
                         treneriDTO.Add(new TrenerDTO.TrenerPregled(
@@ -575,7 +551,6 @@ namespace ESPORT
             return treneriDTO;
         }
 
-        // Učitavanje pojedinačnog trenera za izmenu
         public static TrenerDTO.TrenerBasic vratiTrenera(int id)
         {
             TrenerDTO.TrenerBasic tb = null;
@@ -616,7 +591,6 @@ namespace ESPORT
             return tb;
         }
 
-        // Dodavanje novog trenera
         public static void dodajTrenera(TrenerDTO.TrenerBasic tb)
         {
             try
@@ -659,7 +633,6 @@ namespace ESPORT
             }
         }
 
-        // Izmena trenera
         public static void izmeniTrenera(TrenerDTO.TrenerBasic tb)
         {
             try
@@ -704,7 +677,6 @@ namespace ESPORT
             }
         }
 
-        // Brisanje trenera
         public static void obrisiTrenera(int id)
         {
             try
@@ -770,7 +742,6 @@ namespace ESPORT
             return analiticari;
         }
 
-        // 2. DODAJ NOVOG ANALITIČARA
         public static void dodajAnaliticara(AnaliticarBasic aBasic)
         {
             try
@@ -783,7 +754,6 @@ namespace ESPORT
                     {
                         ESPORT.Entiteti.Analiticar a = new ESPORT.Entiteti.Analiticar();
 
-                        // Polja nasledjena iz Osoba
                         a.Ime = aBasic.Ime;
                         a.Prezime = aBasic.Prezime;
                         a.DatumRodjenja = aBasic.DatumRodjenja;
@@ -792,7 +762,6 @@ namespace ESPORT
                         a.DatumPrvogAngazovanja = aBasic.DatumPrvogAngazovanja;
                         a.StatusAngazmana = aBasic.StatusAngazmana;
 
-                        // Polja specifična za Analitičara
                         a.OblastAnalize = aBasic.OblastAnalize;
                         a.Alati = aBasic.Alati;
                         a.NivoIskustva = aBasic.NivoIskustva;
@@ -808,7 +777,6 @@ namespace ESPORT
             }
         }
 
-        // 3. VRATI JEDNOG ANALITIČARA (sa svim detaljima i kolekcijama)
         public static AnaliticarBasic vratiAnaliticara(int id)
         {
             AnaliticarBasic ab = null;
@@ -835,7 +803,6 @@ namespace ESPORT
                         a.NivoIskustva
                     );
 
-                    // Telefoni
                     foreach (var tel in a.Telefoni)
                     {
                         ab.Telefoni.Add(new OsobaDTO.TelefonBasic
@@ -844,7 +811,6 @@ namespace ESPORT
                         });
                     }
 
-                    // Licence
                     foreach (var lic in a.Licence)
                     {
                         ab.Licence.Add(new OsobaDTO.LicencaBasic
@@ -854,7 +820,6 @@ namespace ESPORT
                         });
                     }
 
-                    // Angažmani
                     foreach (var ang in a.AngazmaniZaposlenog)
                     {
                         ab.AngazmaniZaposlenog.Add(new OsobaDTO.AngazmanZaposlenihBasic
@@ -877,7 +842,6 @@ namespace ESPORT
             return ab;
         }
 
-        // 4. AŽURIRAJ ANALITIČARA
         public static void azurirajAnaliticara(AnaliticarBasic aBasic)
         {
             try
@@ -890,7 +854,6 @@ namespace ESPORT
                     {
                         ESPORT.Entiteti.Analiticar a = s.Load<ESPORT.Entiteti.Analiticar>(aBasic.OsobaId);
 
-                        // Polja nasledjena iz Osoba
                         a.Ime = aBasic.Ime;
                         a.Prezime = aBasic.Prezime;
                         a.DatumRodjenja = aBasic.DatumRodjenja;
@@ -899,7 +862,6 @@ namespace ESPORT
                         a.DatumPrvogAngazovanja = aBasic.DatumPrvogAngazovanja;
                         a.StatusAngazmana = aBasic.StatusAngazmana;
 
-                        // Polja specifična za Analitičara
                         a.OblastAnalize = aBasic.OblastAnalize;
                         a.Alati = aBasic.Alati;
                         a.NivoIskustva = aBasic.NivoIskustva;
@@ -915,7 +877,6 @@ namespace ESPORT
             }
         }
 
-        // 5. OBRIŠI ANALITIČARA
         public static void obrisiAnaliticara(int id)
         {
             try
@@ -938,7 +899,6 @@ namespace ESPORT
                 System.Windows.Forms.MessageBox.Show($"Greška pri brisanju analitičara: {ec.Message}\nInner: {ec.InnerException?.Message}");
             }
         }
-        // 1. VRATI SVE MENADŽERE (za tabelarni prikaz)
         public static List<MenadzerPregled> vratiSveMenadzere()
         {
             List<MenadzerPregled> menadzeri = new List<MenadzerPregled>();
@@ -975,7 +935,6 @@ namespace ESPORT
             return menadzeri;
         }
 
-        // 2. DODAJ NOVOG MENADŽERA
         public static void dodajMenadzera(MenadzerBasic mBasic)
         {
             try
@@ -988,7 +947,6 @@ namespace ESPORT
                     {
                         ESPORT.Entiteti.Menadzer m = new ESPORT.Entiteti.Menadzer();
 
-                        // Polja nasleđena iz Osoba
                         m.Ime = mBasic.Ime;
                         m.Prezime = mBasic.Prezime;
                         m.DatumRodjenja = mBasic.DatumRodjenja;
@@ -997,7 +955,6 @@ namespace ESPORT
                         m.DatumPrvogAngazovanja = mBasic.DatumPrvogAngazovanja;
                         m.StatusAngazmana = mBasic.StatusAngazmana;
 
-                        // Polje specifično za Menadžera
                         m.OblastOdgovornosti = mBasic.OblastOdgovornosti;
 
                         s.Save(m);
@@ -1011,7 +968,6 @@ namespace ESPORT
             }
         }
 
-        // 3. VRATI JEDNOG MENADŽERA (sa detaljima i kolekcijama)
         public static MenadzerBasic vratiMenadzera(int id)
         {
             MenadzerBasic mb = null;
@@ -1036,7 +992,6 @@ namespace ESPORT
                         m.OblastOdgovornosti
                     );
 
-                    // Telefoni
                     foreach (var tel in m.Telefoni)
                     {
                         mb.Telefoni.Add(new OsobaDTO.TelefonBasic
@@ -1045,7 +1000,6 @@ namespace ESPORT
                         });
                     }
 
-                    // Licence
                     foreach (var lic in m.Licence)
                     {
                         mb.Licence.Add(new OsobaDTO.LicencaBasic
@@ -1055,7 +1009,6 @@ namespace ESPORT
                         });
                     }
 
-                    // Angažmani
                     foreach (var ang in m.AngazmaniZaposlenog)
                     {
                         mb.AngazmaniZaposlenog.Add(new OsobaDTO.AngazmanZaposlenihBasic
@@ -1078,7 +1031,6 @@ namespace ESPORT
             return mb;
         }
 
-        // 4. AŽURIRAJ MENADŽERA
         public static void azurirajMenadzera(MenadzerBasic mBasic)
         {
             try
@@ -1091,7 +1043,6 @@ namespace ESPORT
                     {
                         ESPORT.Entiteti.Menadzer m = s.Load<ESPORT.Entiteti.Menadzer>(mBasic.OsobaId);
 
-                        // Polja nasleđena iz Osoba
                         m.Ime = mBasic.Ime;
                         m.Prezime = mBasic.Prezime;
                         m.DatumRodjenja = mBasic.DatumRodjenja;
@@ -1100,7 +1051,6 @@ namespace ESPORT
                         m.DatumPrvogAngazovanja = mBasic.DatumPrvogAngazovanja;
                         m.StatusAngazmana = mBasic.StatusAngazmana;
 
-                        // Polje specifično za Menadžera
                         m.OblastOdgovornosti = mBasic.OblastOdgovornosti;
 
                         s.Update(m);
@@ -1114,7 +1064,6 @@ namespace ESPORT
             }
         }
 
-        // 5. OBRIŠI MENADŽERA
         public static void obrisiMenadzera(int id)
         {
             try
@@ -1175,7 +1124,6 @@ namespace ESPORT
             return psiholozi;
         }
 
-        // 2. DODAJ NOVOG PSIHOLOGA
         public static void dodajPsihologa(PsihologBasic pBasic)
         {
             try
@@ -1196,7 +1144,6 @@ namespace ESPORT
                         p.DatumPrvogAngazovanja = pBasic.DatumPrvogAngazovanja;
                         p.StatusAngazmana = pBasic.StatusAngazmana;
 
-                        // Specifična polja
                         p.OblastRada = pBasic.OblastRada;
                         p.PeriodiDostupnosti = pBasic.PeriodiDostupnosti;
 
@@ -1211,7 +1158,6 @@ namespace ESPORT
             }
         }
 
-        // 3. VRATI JEDNOG PSIHOLOGA
         public static PsihologBasic vratiPsihologa(int id)
         {
             PsihologBasic pb = null;
@@ -1269,7 +1215,6 @@ namespace ESPORT
             return pb;
         }
 
-        // 4. AŽURIRAJ PSIHOLOGA
         public static void azurirajPsihologa(PsihologBasic pBasic)
         {
             try
@@ -1304,7 +1249,6 @@ namespace ESPORT
             }
         }
 
-        // 5. OBRIŠI PSIHOLOGA
         public static void obrisiPsihologa(int id)
         {
             try
@@ -1365,7 +1309,6 @@ namespace ESPORT
             return fizioterapeuti;
         }
 
-        // 2. DODAJ NOVOG FIZIOTERAPEUTA
         public static void dodajFizioterapeuta(FizioterapeutBasic fBasic)
         {
             try
@@ -1386,7 +1329,6 @@ namespace ESPORT
                         f.DatumPrvogAngazovanja = fBasic.DatumPrvogAngazovanja;
                         f.StatusAngazmana = fBasic.StatusAngazmana;
 
-                        // Specifična polja
                         f.OblastRada = fBasic.OblastRada;
                         f.PeriodiDostupnosti = fBasic.PeriodiDostupnosti;
 
@@ -1401,7 +1343,6 @@ namespace ESPORT
             }
         }
 
-        // 3. VRATI JEDNOG FIZIOTERAPEUTA
         public static FizioterapeutBasic vratiFizioterapeuta(int id)
         {
             FizioterapeutBasic fb = null;
@@ -1459,7 +1400,6 @@ namespace ESPORT
             return fb;
         }
 
-        // 4. AŽURIRAJ FIZIOTERAPEUTA
         public static void azurirajFizioterapeuta(FizioterapeutBasic fBasic)
         {
             try
@@ -1494,7 +1434,6 @@ namespace ESPORT
             }
         }
 
-        // 5. OBRIŠI FIZIOTERAPEUTA
         public static void obrisiFizioterapeuta(int id)
         {
             try
@@ -1556,7 +1495,6 @@ namespace ESPORT
             return skauti;
         }
 
-        // 2. DODAJ NOVOG SKAUTA
         public static void dodajSkauta(SkautBasic sBasic)
         {
             try
@@ -1577,7 +1515,6 @@ namespace ESPORT
                         sk.DatumPrvogAngazovanja = sBasic.DatumPrvogAngazovanja;
                         sk.StatusAngazmana = sBasic.StatusAngazmana;
 
-                        // Povezivanje sa Igrom ako je izabrana
                         if (sBasic.IgraId.HasValue && sBasic.IgraId.Value > 0)
                         {
                             Igra igra = s.Load<Igra>(sBasic.IgraId.Value);
@@ -1595,7 +1532,6 @@ namespace ESPORT
             }
         }
 
-        // 3. VRATI JEDNOG SKAUTA
         public static SkautBasic vratiSkauta(int id)
         {
             SkautBasic sb = null;
@@ -1653,7 +1589,6 @@ namespace ESPORT
             return sb;
         }
 
-        // 4. AŽURIRAJ SKAUTA
         public static void azurirajSkauta(SkautBasic sBasic)
         {
             try
@@ -1674,7 +1609,6 @@ namespace ESPORT
                         sk.DatumPrvogAngazovanja = sBasic.DatumPrvogAngazovanja;
                         sk.StatusAngazmana = sBasic.StatusAngazmana;
 
-                        // Ažuriranje veze sa Igrom
                         if (sBasic.IgraId.HasValue && sBasic.IgraId.Value > 0)
                         {
                             Igra igra = s.Load<Igra>(sBasic.IgraId.Value);
@@ -1696,7 +1630,6 @@ namespace ESPORT
             }
         }
 
-        // 5. OBRIŠI SKAUTA
         public static void obrisiSkauta(int id)
         {
             try
@@ -4167,7 +4100,6 @@ namespace ESPORT
             }
         }
 
-        // ===================== TIM =====================
 
         public static List<TimDTO.TimPregled> vratiSveTimove()
         {
@@ -4411,9 +4343,6 @@ namespace ESPORT
             }
         }
 
-        // =========================================================================
-        // SPONZORI - METODE
-        // =========================================================================
 
         public static List<SponzorDTO.Sponzor> vratiSveSponzore()
         {
@@ -4585,9 +4514,6 @@ namespace ESPORT
             }
         }
 
-        // =========================================================================
-        // SPONZOR KONTAKT - METODE
-        // =========================================================================
 
         public static bool dodajSponzorKontakt(SponzorDTO.SponzorKontaktBasic kb)
         {
@@ -4677,9 +4603,6 @@ namespace ESPORT
             }
         }
 
-        // =========================================================================
-        // SPONZORSKI UGOVOR - METODE
-        // =========================================================================
 
         public static bool dodajSponzorskiUgovor(SponzorDTO.SponzorskiUgovorBasic ub)
         {
@@ -4816,9 +4739,6 @@ namespace ESPORT
             return lista;
         }
 
-        // =========================================================================
-        // UGOVORI IGRAČA - METODE
-        // =========================================================================
 
         public static List<UgovorDTO.UgovorIgracaBasic> vratiSveUgovoreIgraca()
         {
@@ -4967,9 +4887,6 @@ namespace ESPORT
         }
 
 
-        // =========================================================================
-        // UGOVOR SUBJEKAT - METODE
-        // =========================================================================
 
         public static UgovorDTO.UgovorSubjekatBasic vratiUgovorSubjekat(int ugovorId)
         {
@@ -5052,11 +4969,6 @@ namespace ESPORT
             }
         }
 
-        // dodajUgovorSubjekat / azurirajUgovorSubjekat su uklonjeni - bili su nedovršeni
-        // (nisu ni postavljali Tim/Igrac/Takmicenje, a "UgovorSubjekat" tip nije
-        // ni imao potreban using ESPORT.Entiteti, pa se nisu ni kompajlirali).
-        // Umesto njih koristi vratiUgovorSubjekat / sacuvajUgovorSubjekat iznad -
-        // sacuvajUgovorSubjekat radi i dodavanje i izmenu (upsert po UgovorId).
 
         public static bool obrisiUgovorSubjekat(int ugovorId)
         {
@@ -5833,7 +5745,6 @@ namespace ESPORT
                     return false;
                 }
 
-                // Provera da li statistika već postoji
                 var postojeca =
                     s.Query<ESPORT.Entiteti.StatistikaTimaNaMecu>()
                      .FirstOrDefault(x =>

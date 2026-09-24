@@ -122,5 +122,11 @@ namespace ESPORT.Forme
                 popuniPodacima();
             }
         }
+
+        private void btnangazmanzaposlenih_Click(object sender, EventArgs e)
+        {
+            AngazmanZaposlenihForma form = new AngazmanZaposlenihForma();
+            form.ShowDialog();
+        }
     }
 }

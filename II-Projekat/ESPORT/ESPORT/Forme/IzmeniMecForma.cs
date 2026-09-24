@@ -67,8 +67,10 @@ namespace ESPORT.Forme
             txtSudije.Text =
                 mec.Sudije;
 
-            txtStatusMeca.Text =
-                mec.StatusMeca;
+            if (!string.IsNullOrEmpty(mec.StatusMeca))
+            {
+                cmbStatusMeca.Text = mec.StatusMeca;
+            }
 
             for (int i = 0; i < cmbTakmicenje.Items.Count; i++)
             {
@@ -92,6 +94,17 @@ namespace ESPORT.Forme
             {
                 MessageBox.Show(
                     "Izaberite takmičenje!",
+                    "Upozorenje",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            if (cmbStatusMeca.SelectedItem == null && string.IsNullOrWhiteSpace(cmbStatusMeca.Text))
+            {
+                MessageBox.Show(
+                    "Izaberite ili unesite status meča!",
                     "Upozorenje",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -179,7 +192,7 @@ namespace ESPORT.Forme
                 txtSudije.Text;
 
             mec.StatusMeca =
-                txtStatusMeca.Text;
+                cmbStatusMeca.SelectedItem?.ToString() ?? cmbStatusMeca.Text.Trim();
 
             bool uspesno =
                 DTOManager.azurirajMec(mec);

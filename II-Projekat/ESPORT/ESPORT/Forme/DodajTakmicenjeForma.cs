@@ -69,6 +69,16 @@ namespace ESPORT.Forme
 
                 return;
             }
+            if (cmbTipTakmicenja.SelectedItem == null && string.IsNullOrWhiteSpace(cmbTipTakmicenja.Text))
+            {
+                MessageBox.Show(
+                    "Izaberite ili unesite tip takmičenja.",
+                    "Upozorenje",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
 
             if (dtpDatumZavrsetka.Value < dtpDatumPocetka.Value)
             {
@@ -94,12 +104,23 @@ namespace ESPORT.Forme
                 return;
             }
 
+            if (cmbStatus.SelectedItem == null && string.IsNullOrWhiteSpace(cmbStatus.Text))
+            {
+                MessageBox.Show(
+                    "Izaberite ili unesite status takmičenja.",
+                    "Upozorenje",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
             IgraDTO.IgraPregled izabranaIgra =
                 (IgraDTO.IgraPregled)cmbIgra.SelectedItem;
 
             this.takmicenje.Naziv = txtNaziv.Text;
             this.takmicenje.Organizator = txtOrganizator.Text;
-            this.takmicenje.TipTakmicenja = txtTipTakmicenja.Text;
+            this.takmicenje.TipTakmicenja = cmbTipTakmicenja.SelectedItem?.ToString() ?? cmbTipTakmicenja.Text.Trim();
             this.takmicenje.IgraId = izabranaIgra.IgraId;
             this.takmicenje.Region = txtRegion.Text;
             this.takmicenje.Lokacija = txtLokacija.Text;
@@ -108,7 +129,7 @@ namespace ESPORT.Forme
             this.takmicenje.DatumZavrsetka = dtpDatumZavrsetka.Value;
             this.takmicenje.NagradniFond = nagradniFond;
             this.takmicenje.ValutaNagrade = txtValutaNagrade.Text;
-            this.takmicenje.Status = txtStatus.Text;
+            this.takmicenje.Status =cmbStatus.SelectedItem?.ToString() ?? cmbStatus.Text.Trim();
 
             if (DTOManager.dodajTakmicenje(this.takmicenje))
             {

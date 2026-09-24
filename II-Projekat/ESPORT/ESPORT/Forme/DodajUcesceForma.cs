@@ -81,6 +81,17 @@ namespace ESPORT.Forme
                 return;
             }
 
+            if (cmbStatus.SelectedItem == null && string.IsNullOrWhiteSpace(cmbStatus.Text))
+            {
+                MessageBox.Show(
+                    "Izaberite ili unesite status!",
+                    "Upozorenje",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
             if (!int.TryParse(
                 txtPobede.Text,
                 out int pobede) ||
@@ -150,11 +161,13 @@ namespace ESPORT.Forme
             TimPregled izabraniTim =
                 (TimPregled)cmbTim.SelectedItem;
 
+            string statusVrednost = cmbStatus.SelectedItem?.ToString() ?? cmbStatus.Text.Trim();
+
             UcesceBasic ucesce =
                 new UcesceBasic(
                     izabranaFaza.FazaId,
                     izabraniTim.TimId,
-                    txtStatus.Text,
+                    statusVrednost, 
                     txtRezultat.Text,
                     pobede,
                     porazi,

@@ -75,8 +75,8 @@ namespace ESPORT.Forme
                 if (igre != null && igre.Count > 0)
                 {
                     cmbigre.DataSource = igre;
-                    cmbigre.DisplayMember = "Naziv";  
-                    cmbigre.ValueMember = "IgraId";  
+                    cmbigre.DisplayMember = "Naziv";
+                    cmbigre.ValueMember = "IgraId";
 
                     cmbigre.SelectedIndex = -1;
                 }
@@ -93,6 +93,20 @@ namespace ESPORT.Forme
         private void DodajSkautaForma_Load(object sender, EventArgs e)
         {
             popuniComboBoxIgre();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Da li ste sigurni da želite da odustanete?",
+                "Potvrda otkazivanja",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

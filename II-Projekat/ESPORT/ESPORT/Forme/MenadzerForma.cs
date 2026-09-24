@@ -48,7 +48,7 @@ namespace ESPORT.Forme
             DodajMenadzeraForma form = new DodajMenadzeraForma();
             if (form.ShowDialog() == DialogResult.OK)
             {
-                popuniPodacima(); 
+                popuniPodacima();
             }
         }
 
@@ -71,7 +71,7 @@ namespace ESPORT.Forme
                 IzmeniMenadzerForma forma = new IzmeniMenadzerForma(odabraniMenadzer);
                 if (forma.ShowDialog() == DialogResult.OK)
                 {
-                    popuniPodacima(); 
+                    popuniPodacima();
                 }
             }
         }
@@ -98,8 +98,14 @@ namespace ESPORT.Forme
             if (result == DialogResult.Yes)
             {
                 DTOManager.obrisiMenadzera(idMenadzera);
-                popuniPodacima(); 
+                popuniPodacima();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AngazmanZaposlenihForma form=new AngazmanZaposlenihForma();
+            form.ShowDialog();
         }
     }
 }

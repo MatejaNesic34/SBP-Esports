@@ -21,11 +21,18 @@ namespace ESPORT.Forme
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txtTipPodrske.Text))
+            if (cmbTipPodrske.SelectedItem == null && string.IsNullOrWhiteSpace(cmbTipPodrske.Text))
             {
                 MessageBox.Show("Tip podrške je obavezan!");
                 return;
             }
+
+            if (cmbValuta.SelectedItem == null && string.IsNullOrWhiteSpace(cmbValuta.Text))
+            {
+                MessageBox.Show("Valuta je obavezna!");
+                return;
+            }
+
 
             SponzorDTO.SponzorskiUgovorBasic noviUgovor = new SponzorDTO.SponzorskiUgovorBasic
             {
@@ -33,8 +40,8 @@ namespace ESPORT.Forme
                 DatumOd = dtpDatumOd.Value,
                 DatumDo = dtpDatumDo.Value,
                 Iznos = iznos,
-                Valuta = txtValuta.Text,
-                TipPodrske = txtTipPodrske.Text,
+                Valuta = cmbValuta.SelectedItem?.ToString() ?? cmbValuta.Text.Trim(),
+                TipPodrske = cmbTipPodrske.SelectedItem?.ToString() ?? cmbTipPodrske.Text.Trim(),
                 MarketinskeObaveze = txtMarketinskeObaveze.Text
             };
 

@@ -51,10 +51,9 @@ namespace ESPORT.Forme
             tb.Drzava = textBoxdrzava.Text.Trim();
             tb.Email = textBoxemail.Text.Trim();
             tb.StatusAngazmana = comboBoxstatusaranzmana.SelectedItem.ToString();
-            tb.DatumPrvogAngazovanja = dtpdatum.Value;
+            tb.DatumPrvogAngazovanja = dtpdatumprvogangazovanja.Value;
             tb.TipUloge = comboBoxtipuloge.SelectedItem?.ToString() ?? comboBoxtipuloge.Text.Trim();
             tb.StilRada = textboxstilrada.Text.Trim();
-            tb.DatumPrvogAngazovanja = DateTime.Now;
 
             DTOManager.dodajTrenera(tb);
 
@@ -65,6 +64,20 @@ namespace ESPORT.Forme
 
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Da li ste sigurni da želite da odustanete?",
+                "Potvrda otkazivanja",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

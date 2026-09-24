@@ -32,77 +32,121 @@
             dodajanaliticarabtn = new Button();
             izmenianaliticarabtn = new Button();
             obrisianaliticarabtn = new Button();
+            btnangazmanzaposlenih = new Button();
             SuspendLayout();
-
+            // 
+            // listViewAnaliticari
+            // 
             listViewAnaliticari.Columns.AddRange(new ColumnHeader[] { ID, Ime, Prezime, datumrodjenja, drzava, email, datumprvogangazovanja, statusangazmana, oblastanalize, alati, nivoiskustva });
             listViewAnaliticari.FullRowSelect = true;
             listViewAnaliticari.Location = new Point(32, 96);
             listViewAnaliticari.Name = "listViewAnaliticari";
-            listViewAnaliticari.Size = new Size(2002, 1080);
+            listViewAnaliticari.Size = new Size(2002, 870);
             listViewAnaliticari.TabIndex = 0;
             listViewAnaliticari.UseCompatibleStateImageBehavior = false;
             listViewAnaliticari.View = View.Details;
-
+            // 
+            // ID
+            // 
             ID.Text = "ID";
             ID.Width = 80;
-
+            // 
+            // Ime
+            // 
             Ime.Text = "Ime";
             Ime.Width = 150;
-
+            // 
+            // Prezime
+            // 
             Prezime.Text = "Prezime";
             Prezime.Width = 150;
-
+            // 
+            // datumrodjenja
+            // 
             datumrodjenja.Text = "Datum rodjenja";
             datumrodjenja.Width = 200;
-
+            // 
+            // drzava
+            // 
             drzava.Text = "Drzava";
             drzava.Width = 200;
-
+            // 
+            // email
+            // 
             email.Text = "Email";
             email.Width = 200;
-
+            // 
+            // datumprvogangazovanja
+            // 
             datumprvogangazovanja.Text = "Datum prvog angazovanja";
             datumprvogangazovanja.Width = 200;
-
+            // 
+            // statusangazmana
+            // 
             statusangazmana.Text = "Status angazmana";
             statusangazmana.Width = 200;
-
+            // 
+            // oblastanalize
+            // 
             oblastanalize.Text = "Oblast analize";
             oblastanalize.Width = 200;
-
+            // 
+            // alati
+            // 
             alati.Text = "Alati";
             alati.Width = 200;
-
+            // 
+            // nivoiskustva
+            // 
             nivoiskustva.Text = "Nivo iskustva";
             nivoiskustva.Width = 200;
-
-            dodajanaliticarabtn.Location = new Point(2135, 120);
+            // 
+            // dodajanaliticarabtn
+            // 
+            dodajanaliticarabtn.Location = new Point(2088, 156);
             dodajanaliticarabtn.Name = "dodajanaliticarabtn";
             dodajanaliticarabtn.Size = new Size(330, 111);
             dodajanaliticarabtn.TabIndex = 1;
             dodajanaliticarabtn.Text = "Dodaj analiticara";
             dodajanaliticarabtn.UseVisualStyleBackColor = true;
             dodajanaliticarabtn.Click += dodajanaliticarabtn_Click;
-
-            izmenianaliticarabtn.Location = new Point(2135, 268);
+            // 
+            // izmenianaliticarabtn
+            // 
+            izmenianaliticarabtn.Location = new Point(2088, 304);
             izmenianaliticarabtn.Name = "izmenianaliticarabtn";
             izmenianaliticarabtn.Size = new Size(330, 111);
             izmenianaliticarabtn.TabIndex = 2;
             izmenianaliticarabtn.Text = "Izmeni analiticara";
             izmenianaliticarabtn.UseVisualStyleBackColor = true;
             izmenianaliticarabtn.Click += izmenianaliticarabtn_Click;
-
-            obrisianaliticarabtn.Location = new Point(2135, 413);
+            // 
+            // obrisianaliticarabtn
+            // 
+            obrisianaliticarabtn.Location = new Point(2088, 449);
             obrisianaliticarabtn.Name = "obrisianaliticarabtn";
             obrisianaliticarabtn.Size = new Size(330, 111);
             obrisianaliticarabtn.TabIndex = 3;
             obrisianaliticarabtn.Text = "Obrisi analiticara";
             obrisianaliticarabtn.UseVisualStyleBackColor = true;
             obrisianaliticarabtn.Click += obrisianaliticarabtn_Click;
-
+            // 
+            // btnangazmanzaposlenih
+            // 
+            btnangazmanzaposlenih.Location = new Point(2088, 597);
+            btnangazmanzaposlenih.Name = "btnangazmanzaposlenih";
+            btnangazmanzaposlenih.Size = new Size(330, 109);
+            btnangazmanzaposlenih.TabIndex = 6;
+            btnangazmanzaposlenih.Text = "Angazman zaposlenih";
+            btnangazmanzaposlenih.UseVisualStyleBackColor = true;
+            btnangazmanzaposlenih.Click += btnangazmanzaposlenih_Click;
+            // 
+            // AnaliticarForm
+            // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2582, 1258);
+            ClientSize = new Size(2503, 999);
+            Controls.Add(btnangazmanzaposlenih);
             Controls.Add(obrisianaliticarabtn);
             Controls.Add(izmenianaliticarabtn);
             Controls.Add(dodajanaliticarabtn);
@@ -130,5 +174,6 @@
         private Button dodajanaliticarabtn;
         private Button izmenianaliticarabtn;
         private Button obrisianaliticarabtn;
+        private Button btnangazmanzaposlenih;
     }
 }

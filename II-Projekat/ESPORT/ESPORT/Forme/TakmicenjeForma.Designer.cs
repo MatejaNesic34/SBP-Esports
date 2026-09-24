@@ -19,7 +19,6 @@
         private void InitializeComponent()
         {
             listViewTakmicenja = new ListView();
-
             ID = new ColumnHeader();
             Naziv = new ColumnHeader();
             Organizator = new ColumnHeader();
@@ -33,103 +32,118 @@
             NagradniFond = new ColumnHeader();
             ValutaNagrade = new ColumnHeader();
             Status = new ColumnHeader();
-
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
-
             obrisiTakmicenjeBtn = new Button();
             izmeniTakmicenjeBtn = new Button();
             dodajTakmicenjeBtn = new Button();
             ligeBtn = new Button();
             turniriBtn = new Button();
-
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
-
-            listViewTakmicenja.Columns.AddRange(new ColumnHeader[]
-            {
-                ID,
-                Naziv,
-                Organizator,
-                TipTakmicenja,
-                Igra,
-                Region,
-                Lokacija,
-                FormatTakmicenja,
-                DatumPocetka,
-                DatumZavrsetka,
-                NagradniFond,
-                ValutaNagrade,
-                Status
-            });
-
+            // 
+            // listViewTakmicenja
+            // 
+            listViewTakmicenja.Columns.AddRange(new ColumnHeader[] { ID, Naziv, Organizator, TipTakmicenja, Igra, Region, Lokacija, FormatTakmicenja, DatumPocetka, DatumZavrsetka, NagradniFond, ValutaNagrade, Status });
             listViewTakmicenja.FullRowSelect = true;
-            listViewTakmicenja.Location = new Point(24, 56);
+            listViewTakmicenja.Location = new Point(20, 56);
             listViewTakmicenja.MultiSelect = false;
             listViewTakmicenja.Name = "listViewTakmicenja";
-            listViewTakmicenja.Size = new Size(1100, 659);
+            listViewTakmicenja.Size = new Size(2094, 805);
             listViewTakmicenja.TabIndex = 0;
             listViewTakmicenja.UseCompatibleStateImageBehavior = false;
             listViewTakmicenja.View = View.Details;
-
+            // 
+            // ID
+            // 
             ID.Text = "ID";
             ID.Width = 70;
-
+            // 
+            // Naziv
+            // 
             Naziv.Text = "Naziv";
             Naziv.Width = 180;
-
+            // 
+            // Organizator
+            // 
             Organizator.Text = "Organizator";
-            Organizator.Width = 150;
-
+            Organizator.Width = 190;
+            // 
+            // TipTakmicenja
+            // 
             TipTakmicenja.Text = "Tip";
             TipTakmicenja.Width = 100;
-
+            // 
+            // Igra
+            // 
             Igra.Text = "Igra";
             Igra.Width = 150;
-
+            // 
+            // Region
+            // 
             Region.Text = "Region";
-            Region.Width = 100;
-
+            Region.Width = 180;
+            // 
+            // Lokacija
+            // 
             Lokacija.Text = "Lokacija";
-            Lokacija.Width = 130;
-
+            Lokacija.Width = 150;
+            // 
+            // FormatTakmicenja
+            // 
             FormatTakmicenja.Text = "Format";
-            FormatTakmicenja.Width = 120;
-
+            FormatTakmicenja.Width = 150;
+            // 
+            // DatumPocetka
+            // 
             DatumPocetka.Text = "Datum početka";
-            DatumPocetka.Width = 120;
-
+            DatumPocetka.Width = 230;
+            // 
+            // DatumZavrsetka
+            // 
             DatumZavrsetka.Text = "Datum završetka";
-            DatumZavrsetka.Width = 120;
-
+            DatumZavrsetka.Width = 240;
+            // 
+            // NagradniFond
+            // 
             NagradniFond.Text = "Nagradni fond";
-            NagradniFond.Width = 120;
-
+            NagradniFond.Width = 220;
+            // 
+            // ValutaNagrade
+            // 
             ValutaNagrade.Text = "Valuta";
-            ValutaNagrade.Width = 80;
-
+            ValutaNagrade.Width = 110;
+            // 
+            // Status
+            // 
             Status.Text = "Status";
-            Status.Width = 100;
-
+            Status.Width = 110;
+            // 
+            // groupBox1
+            // 
             groupBox1.Controls.Add(listViewTakmicenja);
-            groupBox1.Location = new Point(40, 50);
+            groupBox1.Location = new Point(28, 50);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1150, 745);
+            groupBox1.Size = new Size(2120, 883);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Prikaz takmičenja";
-
+            // 
+            // groupBox2
+            // 
             groupBox2.Controls.Add(obrisiTakmicenjeBtn);
             groupBox2.Controls.Add(izmeniTakmicenjeBtn);
             groupBox2.Controls.Add(dodajTakmicenjeBtn);
-            groupBox2.Location = new Point(1220, 65);
+            groupBox2.Location = new Point(2183, 84);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(350, 494);
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "Akcije takmičenja";
-
+            // 
+            // obrisiTakmicenjeBtn
+            // 
             obrisiTakmicenjeBtn.Location = new Point(62, 320);
             obrisiTakmicenjeBtn.Name = "obrisiTakmicenjeBtn";
             obrisiTakmicenjeBtn.Size = new Size(243, 77);
@@ -137,7 +151,9 @@
             obrisiTakmicenjeBtn.Text = "Obriši takmičenje";
             obrisiTakmicenjeBtn.UseVisualStyleBackColor = true;
             obrisiTakmicenjeBtn.Click += obrisiTakmicenjeBtn_Click;
-
+            // 
+            // izmeniTakmicenjeBtn
+            // 
             izmeniTakmicenjeBtn.Location = new Point(62, 200);
             izmeniTakmicenjeBtn.Name = "izmeniTakmicenjeBtn";
             izmeniTakmicenjeBtn.Size = new Size(243, 76);
@@ -145,7 +161,9 @@
             izmeniTakmicenjeBtn.Text = "Izmeni takmičenje";
             izmeniTakmicenjeBtn.UseVisualStyleBackColor = true;
             izmeniTakmicenjeBtn.Click += izmeniTakmicenjeBtn_Click;
-
+            // 
+            // dodajTakmicenjeBtn
+            // 
             dodajTakmicenjeBtn.Location = new Point(62, 76);
             dodajTakmicenjeBtn.Name = "dodajTakmicenjeBtn";
             dodajTakmicenjeBtn.Size = new Size(243, 76);
@@ -153,37 +171,39 @@
             dodajTakmicenjeBtn.Text = "Dodaj takmičenje";
             dodajTakmicenjeBtn.UseVisualStyleBackColor = true;
             dodajTakmicenjeBtn.Click += dodajTakmicenjeBtn_Click;
-
-            ligeBtn.Location = new Point(1220, 580);
+            // 
+            // ligeBtn
+            // 
+            ligeBtn.Location = new Point(2183, 599);
             ligeBtn.Name = "ligeBtn";
             ligeBtn.Size = new Size(350, 80);
             ligeBtn.TabIndex = 3;
             ligeBtn.Text = "Lige";
             ligeBtn.UseVisualStyleBackColor = true;
             ligeBtn.Click += ligeBtn_Click;
-
-            turniriBtn.Location = new Point(1220, 680);
+            // 
+            // turniriBtn
+            // 
+            turniriBtn.Location = new Point(2183, 699);
             turniriBtn.Name = "turniriBtn";
             turniriBtn.Size = new Size(350, 80);
             turniriBtn.TabIndex = 4;
             turniriBtn.Text = "Turniri";
             turniriBtn.UseVisualStyleBackColor = true;
             turniriBtn.Click += turniriBtn_Click;
-
+            // 
+            // TakmicenjeForma
+            // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1600, 900);
-
+            ClientSize = new Size(2577, 990);
             Controls.Add(turniriBtn);
             Controls.Add(ligeBtn);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-
             Name = "TakmicenjeForma";
             Text = "Takmičenja";
-
             Load += TakmicenjeForma_Load;
-
             groupBox1.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             ResumeLayout(false);

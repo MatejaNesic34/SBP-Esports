@@ -106,5 +106,11 @@ namespace ESPORT.Forme
             LicencaForma forma = new LicencaForma();
             forma.ShowDialog();
         }
+
+        private void btnangazmanzaposlenih_Click(object sender, EventArgs e)
+        {
+            AngazmanZaposlenihForma form=new AngazmanZaposlenihForma();
+            form.ShowDialog();
+        }
     }
 }

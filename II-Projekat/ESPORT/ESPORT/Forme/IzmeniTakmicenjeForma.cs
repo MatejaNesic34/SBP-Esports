@@ -49,7 +49,10 @@ namespace ESPORT.Forme
         {
             txtNaziv.Text = this.takmicenje.Naziv;
             txtOrganizator.Text = this.takmicenje.Organizator;
-            txtTipTakmicenja.Text = this.takmicenje.TipTakmicenja;
+            if (!string.IsNullOrEmpty(this.takmicenje.TipTakmicenja))
+            {
+                cmbTipTakmicenja.Text = this.takmicenje.TipTakmicenja;
+            }
             txtRegion.Text = this.takmicenje.Region;
             txtLokacija.Text = this.takmicenje.Lokacija;
             txtFormatTakmicenja.Text = this.takmicenje.FormatTakmicenja;
@@ -63,8 +66,10 @@ namespace ESPORT.Forme
             txtValutaNagrade.Text =
                 this.takmicenje.ValutaNagrade;
 
-            txtStatus.Text =
-                this.takmicenje.Status;
+            if (!string.IsNullOrEmpty(this.takmicenje.Status))
+            {
+                cmbStatus.Text = this.takmicenje.Status;
+            }
 
             for (int i = 0; i < cmbIgra.Items.Count; i++)
             {
@@ -114,10 +119,32 @@ namespace ESPORT.Forme
                 return;
             }
 
+            if (cmbTipTakmicenja.SelectedItem == null && string.IsNullOrWhiteSpace(cmbTipTakmicenja.Text))
+            {
+                MessageBox.Show(
+                    "Izaberite ili unesite tip takmičenja.",
+                    "Upozorenje",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
             if (dtpDatumZavrsetka.Value < dtpDatumPocetka.Value)
             {
                 MessageBox.Show(
                     "Datum završetka ne može biti pre datuma početka.",
+                    "Upozorenje",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            if (cmbStatus.SelectedItem == null && string.IsNullOrWhiteSpace(cmbStatus.Text))
+            {
+                MessageBox.Show(
+                    "Izaberite ili unesite status takmičenja.",
                     "Upozorenje",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -143,7 +170,7 @@ namespace ESPORT.Forme
 
             this.takmicenje.Naziv = txtNaziv.Text;
             this.takmicenje.Organizator = txtOrganizator.Text;
-            this.takmicenje.TipTakmicenja = txtTipTakmicenja.Text;
+            this.takmicenje.TipTakmicenja = cmbTipTakmicenja.SelectedItem?.ToString() ?? cmbTipTakmicenja.Text.Trim();
             this.takmicenje.IgraId = izabranaIgra.IgraId;
             this.takmicenje.Region = txtRegion.Text;
             this.takmicenje.Lokacija = txtLokacija.Text;
@@ -152,7 +179,7 @@ namespace ESPORT.Forme
             this.takmicenje.DatumZavrsetka = dtpDatumZavrsetka.Value;
             this.takmicenje.NagradniFond = nagradniFond;
             this.takmicenje.ValutaNagrade = txtValutaNagrade.Text;
-            this.takmicenje.Status = txtStatus.Text;
+            this.takmicenje.Status = cmbStatus.SelectedItem?.ToString() ?? cmbStatus.Text.Trim();
 
             if (DTOManager.azurirajTakmicenje(this.takmicenje))
             {

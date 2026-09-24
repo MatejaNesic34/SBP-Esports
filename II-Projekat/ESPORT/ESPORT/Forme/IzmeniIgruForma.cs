@@ -40,7 +40,7 @@ namespace ESPORT.Forme
         }
 
 
-        
+
         private void dodajbtn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(nazivtextBox.Text) || string.IsNullOrWhiteSpace(zanrtextBox.Text))
@@ -74,6 +74,18 @@ namespace ESPORT.Forme
             }
         }
 
-        
+        private void otkazibtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Da li ste sigurni da želite da odustanete?",
+                "Potvrda otkazivanja",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }

@@ -54,10 +54,11 @@ namespace ESPORT.Forme
 
         private void dodajigracabtn_Click(object sender, EventArgs e)
         {
-            DodajIgracaForm form =
-                new DodajIgracaForm();
-
-            form.ShowDialog();
+            DodajIgracaForm form = new DodajIgracaForm();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                popuniPodacima();
+            }
         }
 
         private void izmeniigracabtn_Click(object sender, EventArgs e)

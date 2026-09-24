@@ -61,5 +61,19 @@ namespace ESPORT.Forme
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private void otkazibtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Da li ste sigurni da želite da odustanete?",
+                "Potvrda otkazivanja",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }

@@ -11,7 +11,6 @@
         private System.Windows.Forms.TextBox txtTim;
 
         private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.TextBox txtStatus;
 
         private System.Windows.Forms.Label lblRezultat;
         private System.Windows.Forms.TextBox txtRezultat;
@@ -45,162 +44,228 @@
 
         private void InitializeComponent()
         {
-            this.lblFaza = new System.Windows.Forms.Label();
-            this.txtFaza = new System.Windows.Forms.TextBox();
-
-            this.lblTim = new System.Windows.Forms.Label();
-            this.txtTim = new System.Windows.Forms.TextBox();
-
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.txtStatus = new System.Windows.Forms.TextBox();
-
-            this.lblRezultat = new System.Windows.Forms.Label();
-            this.txtRezultat = new System.Windows.Forms.TextBox();
-
-            this.lblPobede = new System.Windows.Forms.Label();
-            this.txtPobede = new System.Windows.Forms.TextBox();
-
-            this.lblPorazi = new System.Windows.Forms.Label();
-            this.txtPorazi = new System.Windows.Forms.TextBox();
-
-            this.lblBodovi = new System.Windows.Forms.Label();
-            this.txtBodovi = new System.Windows.Forms.TextBox();
-
-            this.lblPlasman = new System.Windows.Forms.Label();
-            this.txtPlasman = new System.Windows.Forms.TextBox();
-
-            this.izmeniUcesceBtn = new System.Windows.Forms.Button();
-            this.odustaniBtn = new System.Windows.Forms.Button();
-
-            this.SuspendLayout();
-
-            this.lblFaza.AutoSize = true;
-            this.lblFaza.Location = new System.Drawing.Point(30, 30);
-            this.lblFaza.Name = "lblFaza";
-            this.lblFaza.Size = new System.Drawing.Size(38, 16);
-            this.lblFaza.Text = "Faza:";
-
-            this.txtFaza.Location = new System.Drawing.Point(180, 27);
-            this.txtFaza.Name = "txtFaza";
-            this.txtFaza.ReadOnly = true;
-            this.txtFaza.Size = new System.Drawing.Size(280, 22);
-
-            this.lblTim.AutoSize = true;
-            this.lblTim.Location = new System.Drawing.Point(30, 75);
-            this.lblTim.Name = "lblTim";
-            this.lblTim.Size = new System.Drawing.Size(30, 16);
-            this.lblTim.Text = "Tim:";
-
-            this.txtTim.Location = new System.Drawing.Point(180, 72);
-            this.txtTim.Name = "txtTim";
-            this.txtTim.ReadOnly = true;
-            this.txtTim.Size = new System.Drawing.Size(280, 22);
-
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(30, 120);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(47, 16);
-            this.lblStatus.Text = "Status:";
-
-            this.txtStatus.Location = new System.Drawing.Point(180, 117);
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(280, 22);
-
-            this.lblRezultat.AutoSize = true;
-            this.lblRezultat.Location = new System.Drawing.Point(30, 165);
-            this.lblRezultat.Name = "lblRezultat";
-            this.lblRezultat.Size = new System.Drawing.Size(116, 16);
-            this.lblRezultat.Text = "Ostvareni rezultat:";
-
-            this.txtRezultat.Location = new System.Drawing.Point(180, 162);
-            this.txtRezultat.Name = "txtRezultat";
-            this.txtRezultat.Size = new System.Drawing.Size(280, 22);
-
-            this.lblPobede.AutoSize = true;
-            this.lblPobede.Location = new System.Drawing.Point(30, 210);
-            this.lblPobede.Name = "lblPobede";
-            this.lblPobede.Size = new System.Drawing.Size(58, 16);
-            this.lblPobede.Text = "Pobede:";
-
-            this.txtPobede.Location = new System.Drawing.Point(180, 207);
-            this.txtPobede.Name = "txtPobede";
-            this.txtPobede.Size = new System.Drawing.Size(280, 22);
-
-            this.lblPorazi.AutoSize = true;
-            this.lblPorazi.Location = new System.Drawing.Point(30, 255);
-            this.lblPorazi.Name = "lblPorazi";
-            this.lblPorazi.Size = new System.Drawing.Size(51, 16);
-            this.lblPorazi.Text = "Porazi:";
-
-            this.txtPorazi.Location = new System.Drawing.Point(180, 252);
-            this.txtPorazi.Name = "txtPorazi";
-            this.txtPorazi.Size = new System.Drawing.Size(280, 22);
-
-            this.lblBodovi.AutoSize = true;
-            this.lblBodovi.Location = new System.Drawing.Point(30, 300);
-            this.lblBodovi.Name = "lblBodovi";
-            this.lblBodovi.Size = new System.Drawing.Size(52, 16);
-            this.lblBodovi.Text = "Bodovi:";
-
-            this.txtBodovi.Location = new System.Drawing.Point(180, 297);
-            this.txtBodovi.Name = "txtBodovi";
-            this.txtBodovi.Size = new System.Drawing.Size(280, 22);
-
-            this.lblPlasman.AutoSize = true;
-            this.lblPlasman.Location = new System.Drawing.Point(30, 345);
-            this.lblPlasman.Name = "lblPlasman";
-            this.lblPlasman.Size = new System.Drawing.Size(114, 16);
-            this.lblPlasman.Text = "Konačan plasman:";
-
-            this.txtPlasman.Location = new System.Drawing.Point(180, 342);
-            this.txtPlasman.Name = "txtPlasman";
-            this.txtPlasman.Size = new System.Drawing.Size(280, 22);
-
-            this.izmeniUcesceBtn.Location = new System.Drawing.Point(30, 395);
-            this.izmeniUcesceBtn.Name = "izmeniUcesceBtn";
-            this.izmeniUcesceBtn.Size = new System.Drawing.Size(200, 50);
-            this.izmeniUcesceBtn.Text = "Izmeni učešće";
-            this.izmeniUcesceBtn.UseVisualStyleBackColor = true;
-            this.izmeniUcesceBtn.Click += new System.EventHandler(this.izmeniUcesceBtn_Click);
-
-            this.odustaniBtn.Location = new System.Drawing.Point(260, 395);
-            this.odustaniBtn.Name = "odustaniBtn";
-            this.odustaniBtn.Size = new System.Drawing.Size(200, 50);
-            this.odustaniBtn.Text = "Odustani";
-            this.odustaniBtn.UseVisualStyleBackColor = true;
-            this.odustaniBtn.Click += new System.EventHandler(this.odustaniBtn_Click);
-
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 480);
-
-            this.Controls.Add(this.lblFaza);
-            this.Controls.Add(this.txtFaza);
-            this.Controls.Add(this.lblTim);
-            this.Controls.Add(this.txtTim);
-            this.Controls.Add(this.lblStatus);
-            this.Controls.Add(this.txtStatus);
-            this.Controls.Add(this.lblRezultat);
-            this.Controls.Add(this.txtRezultat);
-            this.Controls.Add(this.lblPobede);
-            this.Controls.Add(this.txtPobede);
-            this.Controls.Add(this.lblPorazi);
-            this.Controls.Add(this.txtPorazi);
-            this.Controls.Add(this.lblBodovi);
-            this.Controls.Add(this.txtBodovi);
-            this.Controls.Add(this.lblPlasman);
-            this.Controls.Add(this.txtPlasman);
-            this.Controls.Add(this.izmeniUcesceBtn);
-            this.Controls.Add(this.odustaniBtn);
-
-            this.Name = "IzmeniUcesceForma";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Izmena učešća tima u fazi";
-
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            lblFaza = new Label();
+            txtFaza = new TextBox();
+            lblTim = new Label();
+            txtTim = new TextBox();
+            lblStatus = new Label();
+            lblRezultat = new Label();
+            txtRezultat = new TextBox();
+            lblPobede = new Label();
+            txtPobede = new TextBox();
+            lblPorazi = new Label();
+            txtPorazi = new TextBox();
+            lblBodovi = new Label();
+            txtBodovi = new TextBox();
+            lblPlasman = new Label();
+            txtPlasman = new TextBox();
+            izmeniUcesceBtn = new Button();
+            odustaniBtn = new Button();
+            cmbStatus = new ComboBox();
+            SuspendLayout();
+            // 
+            // lblFaza
+            // 
+            lblFaza.AutoSize = true;
+            lblFaza.Location = new Point(64, 77);
+            lblFaza.Margin = new Padding(6, 0, 6, 0);
+            lblFaza.Name = "lblFaza";
+            lblFaza.Size = new Size(83, 41);
+            lblFaza.TabIndex = 0;
+            lblFaza.Text = "Faza:";
+            // 
+            // txtFaza
+            // 
+            txtFaza.Location = new Point(382, 69);
+            txtFaza.Margin = new Padding(6, 8, 6, 8);
+            txtFaza.Name = "txtFaza";
+            txtFaza.ReadOnly = true;
+            txtFaza.Size = new Size(590, 47);
+            txtFaza.TabIndex = 1;
+            // 
+            // lblTim
+            // 
+            lblTim.AutoSize = true;
+            lblTim.Location = new Point(64, 192);
+            lblTim.Margin = new Padding(6, 0, 6, 0);
+            lblTim.Name = "lblTim";
+            lblTim.Size = new Size(74, 41);
+            lblTim.TabIndex = 2;
+            lblTim.Text = "Tim:";
+            // 
+            // txtTim
+            // 
+            txtTim.Location = new Point(382, 184);
+            txtTim.Margin = new Padding(6, 8, 6, 8);
+            txtTim.Name = "txtTim";
+            txtTim.ReadOnly = true;
+            txtTim.Size = new Size(590, 47);
+            txtTim.TabIndex = 3;
+            // 
+            // lblStatus
+            // 
+            lblStatus.AutoSize = true;
+            lblStatus.Location = new Point(64, 308);
+            lblStatus.Margin = new Padding(6, 0, 6, 0);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(105, 41);
+            lblStatus.TabIndex = 4;
+            lblStatus.Text = "Status:";
+            // 
+            // lblRezultat
+            // 
+            lblRezultat.AutoSize = true;
+            lblRezultat.Location = new Point(64, 423);
+            lblRezultat.Margin = new Padding(6, 0, 6, 0);
+            lblRezultat.Name = "lblRezultat";
+            lblRezultat.Size = new Size(257, 41);
+            lblRezultat.TabIndex = 6;
+            lblRezultat.Text = "Ostvareni rezultat:";
+            // 
+            // txtRezultat
+            // 
+            txtRezultat.Location = new Point(382, 415);
+            txtRezultat.Margin = new Padding(6, 8, 6, 8);
+            txtRezultat.Name = "txtRezultat";
+            txtRezultat.Size = new Size(590, 47);
+            txtRezultat.TabIndex = 7;
+            // 
+            // lblPobede
+            // 
+            lblPobede.AutoSize = true;
+            lblPobede.Location = new Point(64, 538);
+            lblPobede.Margin = new Padding(6, 0, 6, 0);
+            lblPobede.Name = "lblPobede";
+            lblPobede.Size = new Size(127, 41);
+            lblPobede.TabIndex = 8;
+            lblPobede.Text = "Pobede:";
+            // 
+            // txtPobede
+            // 
+            txtPobede.Location = new Point(382, 530);
+            txtPobede.Margin = new Padding(6, 8, 6, 8);
+            txtPobede.Name = "txtPobede";
+            txtPobede.Size = new Size(590, 47);
+            txtPobede.TabIndex = 9;
+            // 
+            // lblPorazi
+            // 
+            lblPorazi.AutoSize = true;
+            lblPorazi.Location = new Point(64, 653);
+            lblPorazi.Margin = new Padding(6, 0, 6, 0);
+            lblPorazi.Name = "lblPorazi";
+            lblPorazi.Size = new Size(105, 41);
+            lblPorazi.TabIndex = 10;
+            lblPorazi.Text = "Porazi:";
+            // 
+            // txtPorazi
+            // 
+            txtPorazi.Location = new Point(382, 646);
+            txtPorazi.Margin = new Padding(6, 8, 6, 8);
+            txtPorazi.Name = "txtPorazi";
+            txtPorazi.Size = new Size(590, 47);
+            txtPorazi.TabIndex = 11;
+            // 
+            // lblBodovi
+            // 
+            lblBodovi.AutoSize = true;
+            lblBodovi.Location = new Point(64, 769);
+            lblBodovi.Margin = new Padding(6, 0, 6, 0);
+            lblBodovi.Name = "lblBodovi";
+            lblBodovi.Size = new Size(117, 41);
+            lblBodovi.TabIndex = 12;
+            lblBodovi.Text = "Bodovi:";
+            // 
+            // txtBodovi
+            // 
+            txtBodovi.Location = new Point(382, 761);
+            txtBodovi.Margin = new Padding(6, 8, 6, 8);
+            txtBodovi.Name = "txtBodovi";
+            txtBodovi.Size = new Size(590, 47);
+            txtBodovi.TabIndex = 13;
+            // 
+            // lblPlasman
+            // 
+            lblPlasman.AutoSize = true;
+            lblPlasman.Location = new Point(64, 884);
+            lblPlasman.Margin = new Padding(6, 0, 6, 0);
+            lblPlasman.Name = "lblPlasman";
+            lblPlasman.Size = new Size(256, 41);
+            lblPlasman.TabIndex = 14;
+            lblPlasman.Text = "Konačan plasman:";
+            // 
+            // txtPlasman
+            // 
+            txtPlasman.Location = new Point(382, 876);
+            txtPlasman.Margin = new Padding(6, 8, 6, 8);
+            txtPlasman.Name = "txtPlasman";
+            txtPlasman.Size = new Size(590, 47);
+            txtPlasman.TabIndex = 15;
+            // 
+            // izmeniUcesceBtn
+            // 
+            izmeniUcesceBtn.Location = new Point(64, 1012);
+            izmeniUcesceBtn.Margin = new Padding(6, 8, 6, 8);
+            izmeniUcesceBtn.Name = "izmeniUcesceBtn";
+            izmeniUcesceBtn.Size = new Size(425, 128);
+            izmeniUcesceBtn.TabIndex = 16;
+            izmeniUcesceBtn.Text = "Izmeni učešće";
+            izmeniUcesceBtn.UseVisualStyleBackColor = true;
+            izmeniUcesceBtn.Click += izmeniUcesceBtn_Click;
+            // 
+            // odustaniBtn
+            // 
+            odustaniBtn.Location = new Point(552, 1012);
+            odustaniBtn.Margin = new Padding(6, 8, 6, 8);
+            odustaniBtn.Name = "odustaniBtn";
+            odustaniBtn.Size = new Size(425, 128);
+            odustaniBtn.TabIndex = 17;
+            odustaniBtn.Text = "Odustani";
+            odustaniBtn.UseVisualStyleBackColor = true;
+            odustaniBtn.Click += odustaniBtn_Click;
+            // 
+            // cmbStatus
+            // 
+            cmbStatus.FormattingEnabled = true;
+            cmbStatus.Items.AddRange(new object[] { "Učestvuje", "Kvalifikovan", "Eliminisan", "Diskvalifikovan" });
+            cmbStatus.Location = new Point(382, 300);
+            cmbStatus.Name = "cmbStatus";
+            cmbStatus.Size = new Size(595, 49);
+            cmbStatus.TabIndex = 19;
+            // 
+            // IzmeniUcesceForma
+            // 
+            AutoScaleDimensions = new SizeF(17F, 41F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1062, 1230);
+            Controls.Add(cmbStatus);
+            Controls.Add(lblFaza);
+            Controls.Add(txtFaza);
+            Controls.Add(lblTim);
+            Controls.Add(txtTim);
+            Controls.Add(lblStatus);
+            Controls.Add(lblRezultat);
+            Controls.Add(txtRezultat);
+            Controls.Add(lblPobede);
+            Controls.Add(txtPobede);
+            Controls.Add(lblPorazi);
+            Controls.Add(txtPorazi);
+            Controls.Add(lblBodovi);
+            Controls.Add(txtBodovi);
+            Controls.Add(lblPlasman);
+            Controls.Add(txtPlasman);
+            Controls.Add(izmeniUcesceBtn);
+            Controls.Add(odustaniBtn);
+            Margin = new Padding(6, 8, 6, 8);
+            Name = "IzmeniUcesceForma";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Izmena učešća tima u fazi";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private ComboBox cmbStatus;
     }
 }

@@ -17,7 +17,6 @@
         private void InitializeComponent()
         {
             listViewMecevi = new ListView();
-
             MecId = new ColumnHeader();
             TakmicenjeId = new ColumnHeader();
             Takmicenje = new ColumnHeader();
@@ -30,116 +29,114 @@
             LokacijaIgranja = new ColumnHeader();
             Sudije = new ColumnHeader();
             StatusMeca = new ColumnHeader();
-
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
-
-            dodajMecBtn = new Button();
-            izmeniMecBtn = new Button();
             obrisiMecBtn = new Button();
+            izmeniMecBtn = new Button();
+            dodajMecBtn = new Button();
             dogadjajiBtn = new Button();
             statistikaBtn = new Button();
-
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
-
-            listViewMecevi.Columns.AddRange(new ColumnHeader[]
-            {
-                MecId,
-                TakmicenjeId,
-                Takmicenje,
-                RedniBroj,
-                DatumVremePocetka,
-                FormatMeca,
-                BrojOdigranihMapa,
-                Rezultat,
-                Trajanje,
-                LokacijaIgranja,
-                Sudije,
-                StatusMeca
-            });
-
+            // 
+            // listViewMecevi
+            // 
+            listViewMecevi.Columns.AddRange(new ColumnHeader[] { MecId, TakmicenjeId, Takmicenje, RedniBroj, DatumVremePocetka, FormatMeca, BrojOdigranihMapa, Rezultat, Trajanje, LokacijaIgranja, Sudije, StatusMeca });
             listViewMecevi.FullRowSelect = true;
             listViewMecevi.GridLines = true;
-            listViewMecevi.Location = new Point(24, 56);
+            listViewMecevi.Location = new Point(24, 67);
             listViewMecevi.MultiSelect = false;
             listViewMecevi.Name = "listViewMecevi";
-            listViewMecevi.Size = new Size(1100, 659);
+            listViewMecevi.Size = new Size(2149, 763);
             listViewMecevi.TabIndex = 0;
             listViewMecevi.UseCompatibleStateImageBehavior = false;
             listViewMecevi.View = View.Details;
-
+            // 
+            // MecId
+            // 
             MecId.Text = "Meč ID";
-            MecId.Width = 70;
-
+            MecId.Width = 150;
+            // 
+            // TakmicenjeId
+            // 
             TakmicenjeId.Text = "Takmičenje ID";
-            TakmicenjeId.Width = 110;
-
+            TakmicenjeId.Width = 200;
+            // 
+            // Takmicenje
+            // 
             Takmicenje.Text = "Takmičenje";
-            Takmicenje.Width = 220;
-
-            RedniBroj.Text = "Redni broj";
+            Takmicenje.Width = 250;
+            // 
+            // RedniBroj
+            // 
+            RedniBroj.Text = "Rbr.";
             RedniBroj.Width = 90;
-
+            // 
+            // DatumVremePocetka
+            // 
             DatumVremePocetka.Text = "Datum i vreme";
-            DatumVremePocetka.Width = 140;
-
+            DatumVremePocetka.Width = 280;
+            // 
+            // FormatMeca
+            // 
             FormatMeca.Text = "Format meča";
-            FormatMeca.Width = 120;
-
+            FormatMeca.Width = 200;
+            // 
+            // BrojOdigranihMapa
+            // 
             BrojOdigranihMapa.Text = "Broj mapa";
-            BrojOdigranihMapa.Width = 100;
-
+            BrojOdigranihMapa.Width = 180;
+            // 
+            // Rezultat
+            // 
             Rezultat.Text = "Rezultat";
-            Rezultat.Width = 100;
-
+            Rezultat.Width = 180;
+            // 
+            // Trajanje
+            // 
             Trajanje.Text = "Trajanje";
-            Trajanje.Width = 90;
-
+            Trajanje.Width = 160;
+            // 
+            // LokacijaIgranja
+            // 
             LokacijaIgranja.Text = "Lokacija";
-            LokacijaIgranja.Width = 150;
-
+            LokacijaIgranja.Width = 230;
+            // 
+            // Sudije
+            // 
             Sudije.Text = "Sudije";
-            Sudije.Width = 150;
-
+            Sudije.Width = 250;
+            // 
+            // StatusMeca
+            // 
             StatusMeca.Text = "Status";
-            StatusMeca.Width = 100;
-
+            StatusMeca.Width = 220;
+            // 
+            // groupBox1
+            // 
             groupBox1.Controls.Add(listViewMecevi);
-            groupBox1.Location = new Point(40, 50);
+            groupBox1.Location = new Point(21, 50);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1150, 745);
+            groupBox1.Size = new Size(2204, 856);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Prikaz mečeva";
-
+            // 
+            // groupBox2
+            // 
             groupBox2.Controls.Add(obrisiMecBtn);
             groupBox2.Controls.Add(izmeniMecBtn);
             groupBox2.Controls.Add(dodajMecBtn);
-            groupBox2.Location = new Point(1220, 65);
+            groupBox2.Location = new Point(2253, 50);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(350, 494);
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "Akcije meča";
-
-            dodajMecBtn.Location = new Point(62, 76);
-            dodajMecBtn.Name = "dodajMecBtn";
-            dodajMecBtn.Size = new Size(243, 76);
-            dodajMecBtn.TabIndex = 0;
-            dodajMecBtn.Text = "Dodaj meč";
-            dodajMecBtn.UseVisualStyleBackColor = true;
-            dodajMecBtn.Click += dodajMecBtn_Click;
-
-            izmeniMecBtn.Location = new Point(62, 200);
-            izmeniMecBtn.Name = "izmeniMecBtn";
-            izmeniMecBtn.Size = new Size(243, 76);
-            izmeniMecBtn.TabIndex = 1;
-            izmeniMecBtn.Text = "Izmeni meč";
-            izmeniMecBtn.UseVisualStyleBackColor = true;
-            izmeniMecBtn.Click += izmeniMecBtn_Click;
-
+            // 
+            // obrisiMecBtn
+            // 
             obrisiMecBtn.Location = new Point(62, 320);
             obrisiMecBtn.Name = "obrisiMecBtn";
             obrisiMecBtn.Size = new Size(243, 77);
@@ -147,37 +144,59 @@
             obrisiMecBtn.Text = "Obriši meč";
             obrisiMecBtn.UseVisualStyleBackColor = true;
             obrisiMecBtn.Click += obrisiMecBtn_Click;
-
-            dogadjajiBtn.Location = new Point(1220, 590);
+            // 
+            // izmeniMecBtn
+            // 
+            izmeniMecBtn.Location = new Point(62, 200);
+            izmeniMecBtn.Name = "izmeniMecBtn";
+            izmeniMecBtn.Size = new Size(243, 76);
+            izmeniMecBtn.TabIndex = 1;
+            izmeniMecBtn.Text = "Izmeni meč";
+            izmeniMecBtn.UseVisualStyleBackColor = true;
+            izmeniMecBtn.Click += izmeniMecBtn_Click;
+            // 
+            // dodajMecBtn
+            // 
+            dodajMecBtn.Location = new Point(62, 76);
+            dodajMecBtn.Name = "dodajMecBtn";
+            dodajMecBtn.Size = new Size(243, 76);
+            dodajMecBtn.TabIndex = 0;
+            dodajMecBtn.Text = "Dodaj meč";
+            dodajMecBtn.UseVisualStyleBackColor = true;
+            dodajMecBtn.Click += dodajMecBtn_Click;
+            // 
+            // dogadjajiBtn
+            // 
+            dogadjajiBtn.Location = new Point(2253, 575);
             dogadjajiBtn.Name = "dogadjajiBtn";
             dogadjajiBtn.Size = new Size(350, 80);
             dogadjajiBtn.TabIndex = 3;
             dogadjajiBtn.Text = "Događaji na meču";
             dogadjajiBtn.UseVisualStyleBackColor = true;
             dogadjajiBtn.Click += dogadjajiBtn_Click;
-
-            statistikaBtn.Location = new Point(1220, 690);
+            // 
+            // statistikaBtn
+            // 
+            statistikaBtn.Location = new Point(2253, 675);
             statistikaBtn.Name = "statistikaBtn";
             statistikaBtn.Size = new Size(350, 80);
             statistikaBtn.TabIndex = 4;
             statistikaBtn.Text = "Statistika";
             statistikaBtn.UseVisualStyleBackColor = true;
             statistikaBtn.Click += statistikaBtn_Click;
-
+            // 
+            // MecForma
+            // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1600, 900);
-
+            ClientSize = new Size(2633, 945);
             Controls.Add(statistikaBtn);
             Controls.Add(dogadjajiBtn);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-
             Name = "MecForma";
             Text = "Mečevi";
-
             Load += MecForma_Load;
-
             groupBox1.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             ResumeLayout(false);

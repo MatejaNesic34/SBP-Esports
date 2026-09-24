@@ -606,7 +606,7 @@ namespace ESPORT
                             Ime = tb.Ime,
                             Prezime = tb.Prezime,
                             DatumRodjenja = tb.DatumRodjenja,
-                            DatumPrvogAngazovanja = tb.DatumPrvogAngazovanja ?? DateTime.Now,
+                            DatumPrvogAngazovanja = tb.DatumPrvogAngazovanja,
                             Drzava = tb.Drzava,
                             Email = tb.Email,
                             StatusAngazmana = tb.StatusAngazmana,

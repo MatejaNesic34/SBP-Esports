@@ -33,108 +33,136 @@
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
-
+            // 
+            // listViewSponzori
+            // 
             listViewSponzori.Columns.AddRange(new ColumnHeader[] { ID, Naziv, Drzava, TipSponzora, OblastPoslovanja });
             listViewSponzori.FullRowSelect = true;
-            listViewSponzori.Location = new Point(11, 27);
-            listViewSponzori.Margin = new Padding(1);
+            listViewSponzori.Location = new Point(23, 55);
+            listViewSponzori.Margin = new Padding(2, 2, 2, 2);
             listViewSponzori.MultiSelect = false;
             listViewSponzori.Name = "listViewSponzori";
-            listViewSponzori.Size = new Size(654, 324);
+            listViewSponzori.Size = new Size(1385, 660);
             listViewSponzori.TabIndex = 0;
             listViewSponzori.UseCompatibleStateImageBehavior = false;
             listViewSponzori.View = View.Details;
-
+            // 
+            // ID
+            // 
             ID.Text = "ID";
             ID.Width = 50;
-
+            // 
+            // Naziv
+            // 
             Naziv.Text = "Naziv";
-            Naziv.Width = 150;
-
+            Naziv.Width = 250;
+            // 
+            // Drzava
+            // 
             Drzava.Text = "Država";
-            Drzava.Width = 80;
-
+            Drzava.Width = 250;
+            // 
+            // TipSponzora
+            // 
             TipSponzora.Text = "Tip sponzora";
-            TipSponzora.Width = 150;
-
+            TipSponzora.Width = 250;
+            // 
+            // OblastPoslovanja
+            // 
             OblastPoslovanja.Text = "Oblast poslovanja";
-            OblastPoslovanja.Width = 200;
-
+            OblastPoslovanja.Width = 250;
+            // 
+            // groupBox1
+            // 
             groupBox1.Controls.Add(listViewSponzori);
-            groupBox1.Location = new Point(19, 31);
-            groupBox1.Margin = new Padding(1);
+            groupBox1.Location = new Point(40, 64);
+            groupBox1.Margin = new Padding(2, 2, 2, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(1);
-            groupBox1.Size = new Size(675, 363);
+            groupBox1.Padding = new Padding(2, 2, 2, 2);
+            groupBox1.Size = new Size(1434, 744);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Prikaz sponzora";
-
+            // 
+            // groupBox2
+            // 
             groupBox2.Controls.Add(btnUgovori);
             groupBox2.Controls.Add(btnKontakti);
             groupBox2.Controls.Add(obrisiSponzorbtn);
             groupBox2.Controls.Add(izmeniSponzorbtn);
             groupBox2.Controls.Add(dodajSponzorbtn);
-            groupBox2.Location = new Point(722, 39);
-            groupBox2.Margin = new Padding(1);
+            groupBox2.Location = new Point(1534, 80);
+            groupBox2.Margin = new Padding(2, 2, 2, 2);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(1);
-            groupBox2.Size = new Size(165, 355);
+            groupBox2.Padding = new Padding(2, 2, 2, 2);
+            groupBox2.Size = new Size(351, 728);
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "Sponzori akcije";
-
-            btnUgovori.Location = new Point(29, 289);
-            btnUgovori.Margin = new Padding(1);
+            // 
+            // btnUgovori
+            // 
+            btnUgovori.Location = new Point(62, 592);
+            btnUgovori.Margin = new Padding(2, 2, 2, 2);
             btnUgovori.Name = "btnUgovori";
-            btnUgovori.Size = new Size(114, 38);
+            btnUgovori.Size = new Size(242, 78);
             btnUgovori.TabIndex = 4;
             btnUgovori.Text = "Ugovori";
             btnUgovori.UseVisualStyleBackColor = true;
             btnUgovori.Click += btnUgovori_Click;
-
-            btnKontakti.Location = new Point(29, 224);
-            btnKontakti.Margin = new Padding(1);
+            // 
+            // btnKontakti
+            // 
+            btnKontakti.Location = new Point(62, 459);
+            btnKontakti.Margin = new Padding(2, 2, 2, 2);
             btnKontakti.Name = "btnKontakti";
-            btnKontakti.Size = new Size(114, 38);
+            btnKontakti.Size = new Size(242, 78);
             btnKontakti.TabIndex = 3;
             btnKontakti.Text = "Kontakti";
             btnKontakti.UseVisualStyleBackColor = true;
             btnKontakti.Click += btnKontakti_Click;
-
-            obrisiSponzorbtn.Location = new Point(29, 156);
-            obrisiSponzorbtn.Margin = new Padding(1);
+            // 
+            // obrisiSponzorbtn
+            // 
+            obrisiSponzorbtn.Location = new Point(62, 320);
+            obrisiSponzorbtn.Margin = new Padding(2, 2, 2, 2);
             obrisiSponzorbtn.Name = "obrisiSponzorbtn";
-            obrisiSponzorbtn.Size = new Size(114, 38);
+            obrisiSponzorbtn.Size = new Size(242, 78);
             obrisiSponzorbtn.TabIndex = 2;
             obrisiSponzorbtn.Text = "Obrisi sponzora";
             obrisiSponzorbtn.UseVisualStyleBackColor = true;
             obrisiSponzorbtn.Click += obrisiSponzorbtn_Click;
-
-            izmeniSponzorbtn.Location = new Point(29, 98);
-            izmeniSponzorbtn.Margin = new Padding(1);
+            // 
+            // izmeniSponzorbtn
+            // 
+            izmeniSponzorbtn.Location = new Point(62, 201);
+            izmeniSponzorbtn.Margin = new Padding(2, 2, 2, 2);
             izmeniSponzorbtn.Name = "izmeniSponzorbtn";
-            izmeniSponzorbtn.Size = new Size(114, 37);
+            izmeniSponzorbtn.Size = new Size(242, 76);
             izmeniSponzorbtn.TabIndex = 1;
             izmeniSponzorbtn.Text = "Izmeni sponzora";
             izmeniSponzorbtn.UseVisualStyleBackColor = true;
             izmeniSponzorbtn.Click += izmeniSponzorbtn_Click;
-
-            dodajSponzorbtn.Location = new Point(29, 37);
-            dodajSponzorbtn.Margin = new Padding(1);
+            // 
+            // dodajSponzorbtn
+            // 
+            dodajSponzorbtn.Location = new Point(62, 76);
+            dodajSponzorbtn.Margin = new Padding(2, 2, 2, 2);
             dodajSponzorbtn.Name = "dodajSponzorbtn";
-            dodajSponzorbtn.Size = new Size(114, 37);
+            dodajSponzorbtn.Size = new Size(242, 76);
             dodajSponzorbtn.TabIndex = 0;
             dodajSponzorbtn.Text = "Dodaj sponzora";
             dodajSponzorbtn.UseVisualStyleBackColor = true;
             dodajSponzorbtn.Click += dodajSponzorbtn_Click;
-
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            // 
+            // SponzoriForma
+            // 
+            AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(912, 439);
+            ClientSize = new Size(1938, 900);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Margin = new Padding(1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "SponzoriForma";
             Text = "SponzoriForma";
             Load += SponzoriForma_Load;

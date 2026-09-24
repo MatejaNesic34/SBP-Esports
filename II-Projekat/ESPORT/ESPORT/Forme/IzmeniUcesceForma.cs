@@ -25,8 +25,11 @@ namespace ESPORT.Forme
             txtTim.Text =
                 ucesce.TimId.ToString();
 
-            txtStatus.Text =
-                ucesce.Status;
+            if (!string.IsNullOrEmpty(ucesce.Status))
+            {
+                cmbStatus.Text = ucesce.Status;
+            }
+
 
             txtRezultat.Text =
                 ucesce.OstvareniRezultat;
@@ -57,6 +60,17 @@ namespace ESPORT.Forme
             {
                 MessageBox.Show(
                     "Broj pobeda mora biti ceo broj veći ili jednak nuli!",
+                    "Upozorenje",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            if (cmbStatus.SelectedItem == null && string.IsNullOrWhiteSpace(cmbStatus.Text))
+            {
+                MessageBox.Show(
+                    "Izaberite ili unesite status!",
                     "Upozorenje",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -114,7 +128,7 @@ namespace ESPORT.Forme
             }
 
             ucesce.Status =
-                txtStatus.Text;
+                cmbStatus.SelectedItem?.ToString() ?? cmbStatus.Text.Trim();
 
             ucesce.OstvareniRezultat =
                 txtRezultat.Text;

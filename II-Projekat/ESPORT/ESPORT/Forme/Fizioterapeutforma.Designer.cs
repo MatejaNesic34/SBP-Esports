@@ -31,8 +31,11 @@
             oblastrada = new ColumnHeader();
             perioddostupnosti = new ColumnHeader();
             btnlicenca = new Button();
+            btnangazmanzaposlenih = new Button();
             SuspendLayout();
-
+            // 
+            // btnobrisifizio
+            // 
             btnobrisifizio.Location = new Point(2041, 476);
             btnobrisifizio.Name = "btnobrisifizio";
             btnobrisifizio.Size = new Size(268, 117);
@@ -40,7 +43,9 @@
             btnobrisifizio.Text = "Obrisi fizioterapeuta";
             btnobrisifizio.UseVisualStyleBackColor = true;
             btnobrisifizio.Click += btnobrisifizio_Click;
-
+            // 
+            // btnizmenifizio
+            // 
             btnizmenifizio.Location = new Point(2041, 322);
             btnizmenifizio.Name = "btnizmenifizio";
             btnizmenifizio.Size = new Size(268, 117);
@@ -48,7 +53,9 @@
             btnizmenifizio.Text = "Izmeni fizioterapeuta";
             btnizmenifizio.UseVisualStyleBackColor = true;
             btnizmenifizio.Click += btnizmenifizio_Click;
-
+            // 
+            // btndodajfizio
+            // 
             btndodajfizio.Location = new Point(2041, 163);
             btndodajfizio.Name = "btndodajfizio";
             btndodajfizio.Size = new Size(268, 117);
@@ -56,7 +63,9 @@
             btndodajfizio.Text = "Dodaj fizioterapeuta";
             btndodajfizio.UseVisualStyleBackColor = true;
             btndodajfizio.Click += btndodajfizio_Click;
-
+            // 
+            // listViewfizio
+            // 
             listViewfizio.Columns.AddRange(new ColumnHeader[] { ID, Ime, Prezime, Datum_Rodjenja, Drzava, Email, Status_aranzmana, oblastrada, perioddostupnosti });
             listViewfizio.FullRowSelect = true;
             listViewfizio.Location = new Point(82, 115);
@@ -65,34 +74,54 @@
             listViewfizio.TabIndex = 5;
             listViewfizio.UseCompatibleStateImageBehavior = false;
             listViewfizio.View = View.Details;
-
+            // 
+            // ID
+            // 
             ID.Text = "ID";
             ID.Width = 80;
-
+            // 
+            // Ime
+            // 
             Ime.Text = "Ime";
             Ime.Width = 220;
-
+            // 
+            // Prezime
+            // 
             Prezime.Text = "Prezime";
             Prezime.Width = 220;
-
+            // 
+            // Datum_Rodjenja
+            // 
             Datum_Rodjenja.Text = "Datum rodjenja";
             Datum_Rodjenja.Width = 230;
-
+            // 
+            // Drzava
+            // 
             Drzava.Text = "Drzava";
             Drzava.Width = 200;
-
+            // 
+            // Email
+            // 
             Email.Text = "Email";
             Email.Width = 250;
-
+            // 
+            // Status_aranzmana
+            // 
             Status_aranzmana.Text = "Status aranzmana";
             Status_aranzmana.Width = 250;
-
+            // 
+            // oblastrada
+            // 
             oblastrada.Text = "Oblast rada";
             oblastrada.Width = 200;
-
+            // 
+            // perioddostupnosti
+            // 
             perioddostupnosti.Text = "Period dostupnosti";
             perioddostupnosti.Width = 200;
-
+            // 
+            // btnlicenca
+            // 
             btnlicenca.Location = new Point(2041, 866);
             btnlicenca.Name = "btnlicenca";
             btnlicenca.Size = new Size(268, 117);
@@ -100,10 +129,23 @@
             btnlicenca.Text = "Licenca";
             btnlicenca.UseVisualStyleBackColor = true;
             btnlicenca.Click += btnlicenca_Click;
-
+            // 
+            // btnangazmanzaposlenih
+            // 
+            btnangazmanzaposlenih.Location = new Point(2041, 731);
+            btnangazmanzaposlenih.Name = "btnangazmanzaposlenih";
+            btnangazmanzaposlenih.Size = new Size(268, 109);
+            btnangazmanzaposlenih.TabIndex = 10;
+            btnangazmanzaposlenih.Text = "Angazman zaposlenih";
+            btnangazmanzaposlenih.UseVisualStyleBackColor = true;
+            btnangazmanzaposlenih.Click += btnangazmanzaposlenih_Click;
+            // 
+            // Fizioterapeutforma
+            // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(2437, 1164);
+            Controls.Add(btnangazmanzaposlenih);
             Controls.Add(btnlicenca);
             Controls.Add(btnobrisifizio);
             Controls.Add(btnizmenifizio);
@@ -131,5 +173,6 @@
         private ColumnHeader oblastrada;
         private ColumnHeader perioddostupnosti;
         private Button btnlicenca;
+        private Button btnangazmanzaposlenih;
     }
 }

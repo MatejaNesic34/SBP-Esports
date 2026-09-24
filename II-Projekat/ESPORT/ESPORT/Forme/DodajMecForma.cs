@@ -69,6 +69,17 @@ namespace ESPORT.Forme
                 return;
             }
 
+            if (cmbStatusMeca.SelectedItem == null && string.IsNullOrWhiteSpace(cmbStatusMeca.Text))
+            {
+                MessageBox.Show(
+                    "Izaberite ili unesite status meča!",
+                    "Upozorenje",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
             if (!string.IsNullOrWhiteSpace(txtTrajanje.Text) &&
                 !int.TryParse(txtTrajanje.Text, out int trajanje))
             {
@@ -119,7 +130,7 @@ namespace ESPORT.Forme
                     txtSudije.Text,
 
                 StatusMeca =
-                    txtStatusMeca.Text
+                    cmbStatusMeca.SelectedItem?.ToString() ?? cmbStatusMeca.Text.Trim()
             };
 
             bool uspesno =

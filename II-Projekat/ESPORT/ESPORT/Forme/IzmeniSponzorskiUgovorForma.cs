@@ -26,8 +26,16 @@ namespace ESPORT.Forme
                     dtpDatumOd.Value = ugovor.DatumOd;
                     dtpDatumDo.Value = ugovor.DatumDo;
                     txtIznos.Text = ugovor.Iznos.ToString();
-                    txtValuta.Text = ugovor.Valuta;
-                    txtTipPodrske.Text = ugovor.TipPodrske;
+                    if (!string.IsNullOrEmpty(ugovor.Valuta))
+                    {
+                        cmbValuta.Text = ugovor.Valuta;
+                    }
+
+                    if (!string.IsNullOrEmpty(ugovor.TipPodrske))
+                    {
+                        cmbTipPodrske.Text = ugovor.TipPodrske;
+                    }
+
                     txtMarketinskeObaveze.Text = ugovor.MarketinskeObaveze;
                 }
             }
@@ -44,8 +52,8 @@ namespace ESPORT.Forme
             ugovor.DatumOd = dtpDatumOd.Value;
             ugovor.DatumDo = dtpDatumDo.Value;
             ugovor.Iznos = iznos;
-            ugovor.Valuta = txtValuta.Text;
-            ugovor.TipPodrske = txtTipPodrske.Text;
+            ugovor.Valuta = cmbValuta.SelectedItem?.ToString() ?? cmbValuta.Text.Trim();
+            ugovor.TipPodrske = cmbTipPodrske.SelectedItem?.ToString() ?? cmbTipPodrske.Text.Trim();
             ugovor.MarketinskeObaveze = txtMarketinskeObaveze.Text;
 
             if (DTOManager.azurirajSponzorskiUgovor(ugovor))

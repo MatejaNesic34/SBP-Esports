@@ -65,7 +65,7 @@ namespace ESPORT.Forme
                                 "Upozorenje",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
-                return; 
+                return;
             }
 
             int idSkauta = int.Parse(listViewskaut.SelectedItems[0].SubItems[0].Text);
@@ -106,6 +106,12 @@ namespace ESPORT.Forme
                 DTOManager.obrisiSkauta(idSkauta);
                 popuniPodacima();
             }
+        }
+
+        private void btnangazmanzaposlenih_Click(object sender, EventArgs e)
+        {
+            AngazmanZaposlenihForma form=new AngazmanZaposlenihForma();
+            form.ShowDialog();
         }
     }
 }

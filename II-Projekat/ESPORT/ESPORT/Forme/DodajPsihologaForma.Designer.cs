@@ -34,8 +34,11 @@
             textBoxIme = new TextBox();
             textBoxperioddostupnosti = new TextBox();
             label7 = new Label();
+            otkazibtn = new Button();
             SuspendLayout();
-
+            // 
+            // btnsave
+            // 
             btnsave.Location = new Point(756, 1003);
             btnsave.Name = "btnsave";
             btnsave.Size = new Size(188, 58);
@@ -43,108 +46,153 @@
             btnsave.Text = "Save";
             btnsave.UseVisualStyleBackColor = true;
             btnsave.Click += btnsave_Click;
-
+            // 
+            // textBoxoblastrada
+            // 
             textBoxoblastrada.Location = new Point(387, 619);
             textBoxoblastrada.Name = "textBoxoblastrada";
             textBoxoblastrada.Size = new Size(520, 47);
             textBoxoblastrada.TabIndex = 79;
-
+            // 
+            // label1
+            // 
             label1.AutoSize = true;
             label1.Location = new Point(90, 619);
             label1.Name = "label1";
             label1.Size = new Size(170, 41);
             label1.TabIndex = 78;
             label1.Text = "Oblast rada";
-
+            // 
+            // comboBoxstatusaranzmana
+            // 
             comboBoxstatusaranzmana.FormattingEnabled = true;
             comboBoxstatusaranzmana.Items.AddRange(new object[] { "Aktivno", "Neaktivno" });
             comboBoxstatusaranzmana.Location = new Point(404, 522);
             comboBoxstatusaranzmana.Name = "comboBoxstatusaranzmana";
             comboBoxstatusaranzmana.Size = new Size(302, 49);
             comboBoxstatusaranzmana.TabIndex = 77;
-
+            // 
+            // dtpdatum
+            // 
             dtpdatum.Location = new Point(387, 271);
             dtpdatum.Name = "dtpdatum";
             dtpdatum.Size = new Size(520, 47);
             dtpdatum.TabIndex = 76;
-
+            // 
+            // label6
+            // 
             label6.AutoSize = true;
             label6.Location = new Point(105, 522);
             label6.Name = "label6";
             label6.Size = new Size(250, 41);
             label6.TabIndex = 75;
             label6.Text = "Status aranzmana";
-
+            // 
+            // label5
+            // 
             label5.AutoSize = true;
             label5.Location = new Point(105, 433);
             label5.Name = "label5";
             label5.Size = new Size(88, 41);
             label5.TabIndex = 74;
             label5.Text = "Email";
-
+            // 
+            // label4
+            // 
             label4.AutoSize = true;
             label4.Location = new Point(105, 368);
             label4.Name = "label4";
             label4.Size = new Size(107, 41);
             label4.TabIndex = 73;
             label4.Text = "Drzava";
-
+            // 
+            // label3
+            // 
             label3.AutoSize = true;
             label3.Location = new Point(105, 280);
             label3.Name = "label3";
             label3.Size = new Size(223, 41);
             label3.TabIndex = 72;
             label3.Text = "Datum rodjenja";
-
+            // 
+            // label2
+            // 
             label2.AutoSize = true;
             label2.Location = new Point(105, 194);
             label2.Name = "label2";
             label2.Size = new Size(124, 41);
             label2.TabIndex = 71;
             label2.Text = "Prezime";
-
+            // 
+            // imelbl
+            // 
             imelbl.AutoSize = true;
             imelbl.Location = new Point(105, 122);
             imelbl.Name = "imelbl";
             imelbl.Size = new Size(68, 41);
             imelbl.TabIndex = 70;
             imelbl.Text = "Ime";
-
+            // 
+            // textBoxemail
+            // 
             textBoxemail.Location = new Point(387, 446);
             textBoxemail.Name = "textBoxemail";
             textBoxemail.Size = new Size(520, 47);
             textBoxemail.TabIndex = 69;
-
+            // 
+            // textBoxdrzava
+            // 
             textBoxdrzava.Location = new Point(387, 362);
             textBoxdrzava.Name = "textBoxdrzava";
             textBoxdrzava.Size = new Size(520, 47);
             textBoxdrzava.TabIndex = 68;
-
+            // 
+            // textBoxPrezime
+            // 
             textBoxPrezime.Location = new Point(387, 190);
             textBoxPrezime.Name = "textBoxPrezime";
             textBoxPrezime.Size = new Size(520, 47);
             textBoxPrezime.TabIndex = 67;
-
+            // 
+            // textBoxIme
+            // 
             textBoxIme.Location = new Point(387, 116);
             textBoxIme.Name = "textBoxIme";
             textBoxIme.Size = new Size(520, 47);
             textBoxIme.TabIndex = 66;
-
+            // 
+            // textBoxperioddostupnosti
+            // 
             textBoxperioddostupnosti.Location = new Point(387, 704);
             textBoxperioddostupnosti.Name = "textBoxperioddostupnosti";
             textBoxperioddostupnosti.Size = new Size(520, 47);
             textBoxperioddostupnosti.TabIndex = 82;
-
+            // 
+            // label7
+            // 
             label7.AutoSize = true;
             label7.Location = new Point(90, 704);
             label7.Name = "label7";
             label7.Size = new Size(270, 41);
             label7.TabIndex = 81;
             label7.Text = "Period dostupnosti";
-
+            // 
+            // otkazibtn
+            // 
+            otkazibtn.Location = new Point(505, 1003);
+            otkazibtn.Name = "otkazibtn";
+            otkazibtn.Size = new Size(188, 58);
+            otkazibtn.TabIndex = 101;
+            otkazibtn.Text = "Otkazi";
+            otkazibtn.UseVisualStyleBackColor = true;
+            otkazibtn.Click += otkazibtn_Click;
+            // 
+            // DodajPsihologaForma
+            // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1015, 1141);
+            Controls.Add(otkazibtn);
             Controls.Add(textBoxperioddostupnosti);
             Controls.Add(label7);
             Controls.Add(btnsave);
@@ -187,5 +235,6 @@
         private TextBox textBoxIme;
         private TextBox textBoxperioddostupnosti;
         private Label label7;
+        private Button otkazibtn;
     }
 }

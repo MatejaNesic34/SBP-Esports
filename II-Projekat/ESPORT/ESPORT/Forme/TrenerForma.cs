@@ -40,7 +40,6 @@ namespace ESPORT.Forme
                 item.SubItems.Add(t.StatusAngazmana ?? "");
                 item.SubItems.Add(t.TipUloge ?? "");
                 item.SubItems.Add(t.StilRada ?? "");
-                //item.SubItems.Add(t.Telefoni.Count > 0 ? string.Join(", ", t.Telefoni) : ""); 
 
                 listViewTreneri.Items.Add(item);
             }
@@ -63,7 +62,7 @@ namespace ESPORT.Forme
                                 "Upozorenje",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
-                return; 
+                return;
             }
 
             int idTrenera = int.Parse(listViewTreneri.SelectedItems[0].SubItems[0].Text);
@@ -75,7 +74,7 @@ namespace ESPORT.Forme
                 IzmeniTreneraForm forma = new IzmeniTreneraForm(odabraniTrener);
                 if (forma.ShowDialog() == DialogResult.OK)
                 {
-                    popuniPodacima(); 
+                    popuniPodacima();
                 }
             }
         }
@@ -102,8 +101,20 @@ namespace ESPORT.Forme
             if (result == DialogResult.Yes)
             {
                 DTOManager.obrisiTrenera(idTrenera);
-                popuniPodacima(); 
+                popuniPodacima();
             }
+        }
+
+        private void btnangazovanjetrenera_Click(object sender, EventArgs e)
+        {
+            AngazmanTreneraForma form = new AngazmanTreneraForma();
+            form.ShowDialog();
+        }
+
+        private void btnlicenca_Click(object sender, EventArgs e)
+        {
+            LicencaForma form = new LicencaForma();
+            form.ShowDialog();
         }
     }
 }

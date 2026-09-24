@@ -24,38 +24,51 @@
             otkazibtn = new Button();
             dodajbtn = new Button();
             SuspendLayout();
-
+            // 
+            // nazivlbl
+            // 
             nazivlbl.AutoSize = true;
             nazivlbl.Location = new Point(60, 120);
             nazivlbl.Name = "nazivlbl";
             nazivlbl.Size = new Size(97, 41);
             nazivlbl.TabIndex = 0;
             nazivlbl.Text = "Naziv:";
-
+            // 
+            // zanrlbl
+            // 
             zanrlbl.AutoSize = true;
             zanrlbl.Location = new Point(73, 231);
             zanrlbl.Name = "zanrlbl";
             zanrlbl.Size = new Size(84, 41);
             zanrlbl.TabIndex = 1;
             zanrlbl.Text = "Zanr:";
-
+            // 
+            // nazivtextBox
+            // 
             nazivtextBox.Location = new Point(188, 117);
             nazivtextBox.Name = "nazivtextBox";
             nazivtextBox.Size = new Size(488, 47);
             nazivtextBox.TabIndex = 2;
-
+            // 
+            // zanrtextBox
+            // 
             zanrtextBox.Location = new Point(188, 228);
             zanrtextBox.Name = "zanrtextBox";
             zanrtextBox.Size = new Size(488, 47);
             zanrtextBox.TabIndex = 3;
-
+            // 
+            // otkazibtn
+            // 
             otkazibtn.Location = new Point(281, 633);
             otkazibtn.Name = "otkazibtn";
             otkazibtn.Size = new Size(188, 58);
             otkazibtn.TabIndex = 4;
             otkazibtn.Text = "Otkazi";
             otkazibtn.UseVisualStyleBackColor = true;
-
+            otkazibtn.Click += otkazibtn_Click;
+            // 
+            // dodajbtn
+            // 
             dodajbtn.Location = new Point(508, 633);
             dodajbtn.Name = "dodajbtn";
             dodajbtn.Size = new Size(188, 58);
@@ -63,7 +76,9 @@
             dodajbtn.Text = "Dodaj";
             dodajbtn.UseVisualStyleBackColor = true;
             dodajbtn.Click += dodajbtn_Click;
-
+            // 
+            // DodajIgreForma
+            // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(755, 740);

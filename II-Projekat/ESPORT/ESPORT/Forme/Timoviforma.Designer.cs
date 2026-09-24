@@ -36,114 +36,146 @@
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
-
+            // 
+            // listViewTimovi
+            // 
             listViewTimovi.Columns.AddRange(new ColumnHeader[] { ID, Naziv, Igra, DatumOsnivanja, Drzava, Status, Nivo });
             listViewTimovi.FullRowSelect = true;
-            listViewTimovi.Location = new Point(11, 27);
-            listViewTimovi.Margin = new Padding(1);
+            listViewTimovi.Location = new Point(23, 55);
+            listViewTimovi.Margin = new Padding(2, 2, 2, 2);
             listViewTimovi.MultiSelect = false;
             listViewTimovi.Name = "listViewTimovi";
-            listViewTimovi.Size = new Size(636, 324);
+            listViewTimovi.Size = new Size(1347, 660);
             listViewTimovi.TabIndex = 0;
             listViewTimovi.UseCompatibleStateImageBehavior = false;
             listViewTimovi.View = View.Details;
-
+            // 
+            // ID
+            // 
             ID.Text = "ID";
             ID.Width = 50;
-
+            // 
+            // Naziv
+            // 
             Naziv.Text = "Naziv";
             Naziv.Width = 220;
-
+            // 
+            // Igra
+            // 
             Igra.Text = "Igra";
             Igra.Width = 180;
-
+            // 
+            // DatumOsnivanja
+            // 
             DatumOsnivanja.Text = "Datum osnivanja";
-            DatumOsnivanja.Width = 200;
-
+            DatumOsnivanja.Width = 250;
+            // 
+            // Drzava
+            // 
             Drzava.Text = "Država registracije";
-            Drzava.Width = 100;
-
+            Drzava.Width = 250;
+            // 
+            // Status
+            // 
             Status.Text = "Status";
             Status.Width = 150;
-
+            // 
+            // Nivo
+            // 
             Nivo.Text = "Nivo takmičenja";
-            Nivo.Width = 160;
-
+            Nivo.Width = 240;
+            // 
+            // groupBox1
+            // 
             groupBox1.Controls.Add(listViewTimovi);
-            groupBox1.Location = new Point(19, 31);
-            groupBox1.Margin = new Padding(1);
+            groupBox1.Location = new Point(40, 64);
+            groupBox1.Margin = new Padding(2, 2, 2, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(1);
-            groupBox1.Size = new Size(665, 363);
+            groupBox1.Padding = new Padding(2, 2, 2, 2);
+            groupBox1.Size = new Size(1413, 744);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Prikaz timova";
-
+            // 
+            // groupBox2
+            // 
             groupBox2.Controls.Add(btnAngazmaniZaposlenih);
             groupBox2.Controls.Add(btnAngazmaniTrenera);
             groupBox2.Controls.Add(obrisitimbtn);
             groupBox2.Controls.Add(izmenitimbtn);
             groupBox2.Controls.Add(dodajtimbtn);
-            groupBox2.Location = new Point(697, 58);
-            groupBox2.Margin = new Padding(1);
+            groupBox2.Location = new Point(1481, 119);
+            groupBox2.Margin = new Padding(2, 2, 2, 2);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(1);
-            groupBox2.Size = new Size(234, 322);
+            groupBox2.Padding = new Padding(2, 2, 2, 2);
+            groupBox2.Size = new Size(497, 660);
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "Timovi akcije";
-
-            btnAngazmaniZaposlenih.Location = new Point(29, 254);
-            btnAngazmaniZaposlenih.Margin = new Padding(1);
+            // 
+            // btnAngazmaniZaposlenih
+            // 
+            btnAngazmaniZaposlenih.Location = new Point(62, 521);
+            btnAngazmaniZaposlenih.Margin = new Padding(2, 2, 2, 2);
             btnAngazmaniZaposlenih.Name = "btnAngazmaniZaposlenih";
-            btnAngazmaniZaposlenih.Size = new Size(180, 45);
+            btnAngazmaniZaposlenih.Size = new Size(382, 92);
             btnAngazmaniZaposlenih.TabIndex = 4;
             btnAngazmaniZaposlenih.Text = "Angažmani zaposlenih";
             btnAngazmaniZaposlenih.UseVisualStyleBackColor = true;
             btnAngazmaniZaposlenih.Click += btnAngazmaniZaposlenih_Click;
-
-            btnAngazmaniTrenera.Location = new Point(29, 207);
-            btnAngazmaniTrenera.Margin = new Padding(1);
+            // 
+            // btnAngazmaniTrenera
+            // 
+            btnAngazmaniTrenera.Location = new Point(62, 424);
+            btnAngazmaniTrenera.Margin = new Padding(2, 2, 2, 2);
             btnAngazmaniTrenera.Name = "btnAngazmaniTrenera";
-            btnAngazmaniTrenera.Size = new Size(180, 38);
+            btnAngazmaniTrenera.Size = new Size(382, 78);
             btnAngazmaniTrenera.TabIndex = 3;
             btnAngazmaniTrenera.Text = "Angažmani trenera";
             btnAngazmaniTrenera.UseVisualStyleBackColor = true;
             btnAngazmaniTrenera.Click += btnAngazmaniTrenera_Click;
-
-            obrisitimbtn.Location = new Point(29, 156);
-            obrisitimbtn.Margin = new Padding(1);
+            // 
+            // obrisitimbtn
+            // 
+            obrisitimbtn.Location = new Point(62, 320);
+            obrisitimbtn.Margin = new Padding(2, 2, 2, 2);
             obrisitimbtn.Name = "obrisitimbtn";
-            obrisitimbtn.Size = new Size(114, 38);
+            obrisitimbtn.Size = new Size(242, 78);
             obrisitimbtn.TabIndex = 2;
             obrisitimbtn.Text = "Obrisi tim";
             obrisitimbtn.UseVisualStyleBackColor = true;
             obrisitimbtn.Click += obrisitimbtn_Click;
-
-            izmenitimbtn.Location = new Point(29, 98);
-            izmenitimbtn.Margin = new Padding(1);
+            // 
+            // izmenitimbtn
+            // 
+            izmenitimbtn.Location = new Point(62, 201);
+            izmenitimbtn.Margin = new Padding(2, 2, 2, 2);
             izmenitimbtn.Name = "izmenitimbtn";
-            izmenitimbtn.Size = new Size(114, 37);
+            izmenitimbtn.Size = new Size(242, 76);
             izmenitimbtn.TabIndex = 1;
             izmenitimbtn.Text = "Izmeni tim";
             izmenitimbtn.UseVisualStyleBackColor = true;
             izmenitimbtn.Click += izmenitimbtn_Click;
-
-            dodajtimbtn.Location = new Point(29, 37);
-            dodajtimbtn.Margin = new Padding(1);
+            // 
+            // dodajtimbtn
+            // 
+            dodajtimbtn.Location = new Point(62, 76);
+            dodajtimbtn.Margin = new Padding(2, 2, 2, 2);
             dodajtimbtn.Name = "dodajtimbtn";
-            dodajtimbtn.Size = new Size(114, 37);
+            dodajtimbtn.Size = new Size(242, 76);
             dodajtimbtn.TabIndex = 0;
             dodajtimbtn.Text = "Dodaj tim";
             dodajtimbtn.UseVisualStyleBackColor = true;
             dodajtimbtn.Click += dodajtimbtn_Click;
-
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            // 
+            // TimoviForma
+            // 
+            AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(941, 438);
+            ClientSize = new Size(2000, 898);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Margin = new Padding(1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "TimoviForma";
             Text = "TimoviForma";
             Load += TimoviForma_Load;

@@ -336,26 +336,7 @@ INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nad
 VALUES (11, 18, 'Grupna faza', 1, NULL);
 INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
 VALUES (12, 18, 'Plej-of', 2, 11);
-INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
-VALUES (13, 4, 'Regularni deo', 1, NULL);
-INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
-VALUES (14, 4, 'Plej-of', 2, 13);
-INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
-VALUES (15, 5, 'Regularni deo', 1, NULL);
-INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
-VALUES (16, 5, 'Plej-of', 2, 15);
-INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
-VALUES (17, 12, 'Regularni deo', 1, NULL);
-INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
-VALUES (18, 12, 'Plej-of', 2, 17);
-INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
-VALUES (19, 13, 'Regularni deo', 1, NULL);
-INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
-VALUES (20, 13, 'Plej-of', 2, 19);
-INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
-VALUES (21, 20, 'Regularni deo', 1, NULL);
-INSERT INTO Faza_Takmicenja (faza_id, takmicenje_id, naziv_faze, redni_broj, nadfaza_id) 
-VALUES (22, 20, 'Plej-of', 2, 21);
+
 
 INSERT INTO Mec (mec_id, takmicenje_id, redni_broj, datum_vreme_pocetka, format_meca, broj_odigranih_mapa, rezultat, trajanje, lokacija_igranja, sudije, status_meca) 
 VALUES (1, 1, 1, TO_TIMESTAMP('2026-02-01 14:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'BO3', 3, '2:1', 145, 'Katowice Arena', 'Glavni sudija A', 'Završen');
@@ -596,10 +577,6 @@ INSERT INTO Ucesce_Tima_U_Fazi (faza_id, tim_id, status, ostvareni_rezultat, bro
 VALUES (2, 1, 'Kvalifikovan', 'Pobednik turnira', 3, 0, 9, 1);
 INSERT INTO Ucesce_Tima_U_Fazi (faza_id, tim_id, status, ostvareni_rezultat, broj_pobeda, broj_poraza, osvojeni_bodovi, konacan_plasman) 
 VALUES (3, 1, 'Kvalifikovan', 'Prolaz u 1/4 finala', 3, 2, 9, 2);
-INSERT INTO Ucesce_Tima_U_Fazi (faza_id, tim_id, status, ostvareni_rezultat, broj_pobeda, broj_poraza, osvojeni_bodovi, konacan_plasman) 
-VALUES (15, 2, 'Kvalifikovan', 'Prvo mesto u grupi', 14, 4, 42, 1);
-INSERT INTO Ucesce_Tima_U_Fazi (faza_id, tim_id, status, ostvareni_rezultat, broj_pobeda, broj_poraza, osvojeni_bodovi, konacan_plasman) 
-VALUES (16, 2, 'Kvalifikovan', 'Šampion lige', 3, 1, 9, 1);
 INSERT INTO Ucesce_Tima_U_Fazi (faza_id, tim_id, status, ostvareni_rezultat, broj_pobeda, broj_poraza, osvojeni_bodovi, konacan_plasman) 
 VALUES (7, 3, 'Eliminisan', 'Ispadanje u grupnoj fazi', 1, 2, 3, 5);
 INSERT INTO Ucesce_Tima_U_Fazi (faza_id, tim_id, status, ostvareni_rezultat, broj_pobeda, broj_poraza, osvojeni_bodovi, konacan_plasman) 

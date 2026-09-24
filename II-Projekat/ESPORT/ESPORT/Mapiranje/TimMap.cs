@@ -20,20 +20,20 @@ namespace ESPORT.Mapiranje
             Map(x => x.StatusTima).Column("STATUS_TIMA").Nullable();
             Map(x => x.NivoTakmicenja).Column("NIVO_TAKMICENJA").Nullable();
 
-            
+
             References(x => x.IgraId)
                 .Column("IGRA_ID")
                 .Not.Nullable()
                 .LazyLoad();
 
-           
+
             HasMany(x => x.UgovoriIgraca)
-                .KeyColumn("TIMID")
+                .KeyColumn("TIM_ID")
                 .LazyLoad()
                 .Cascade.All()
                 .Inverse();
 
-            
+
             HasMany(x => x.Odlasci)
                 .KeyColumn("PRETHODNI_TIM_ID")
                 .LazyLoad()
@@ -46,7 +46,7 @@ namespace ESPORT.Mapiranje
                 .Cascade.All()
                 .Inverse();
 
-           
+
             HasMany(x => x.PozajmiceIzTima)
                 .KeyColumn("MATIČNI_TIM_ID")
                 .LazyLoad()
@@ -65,26 +65,20 @@ namespace ESPORT.Mapiranje
                 .Cascade.All()
                 .Inverse();
 
-            HasMany(x => x.Treneri)
-                .KeyColumn("TIMID")
-                .LazyLoad()
-                .Cascade.All()
-                .Inverse();
-
             HasMany(x => x.UcescaNaTakmicenjima)
-                .KeyColumn("TIMID")
+                .KeyColumn("TIM_ID")
                 .LazyLoad()
                 .Cascade.All()
                 .Inverse();
 
             HasMany(x => x.StatistikeNaMecevima)
-                .KeyColumn("TIMID")
+                .KeyColumn("TIM_ID")
                 .LazyLoad()
                 .Cascade.All()
                 .Inverse();
 
             HasMany(x => x.SponzorskiUgovoriKaoSubjekat)
-                .KeyColumn("TIMID")
+                .KeyColumn("TIM_ID")
                 .LazyLoad()
                 .Cascade.All()
                 .Inverse();

@@ -11,7 +11,6 @@ namespace ESPORT.Entiteti
         public virtual string TipUloge { get; set; }
         public virtual string StilRada { get; set; }
 
-        // One-to-Many
         public virtual IList<AngazmanTrenera> AngazmaniTrenera { get; set; } = new List<AngazmanTrenera>();
     }
 }

@@ -54,36 +54,24 @@
 
             SuspendLayout();
 
-            // 
-            // lblTakmicenje
-            // 
             lblTakmicenje.AutoSize = true;
             lblTakmicenje.Location = new Point(20, 25);
             lblTakmicenje.Name = "lblTakmicenje";
             lblTakmicenje.Size = new Size(75, 15);
             lblTakmicenje.Text = "Takmičenje:";
 
-            // 
-            // cmbTakmicenje
-            // 
             cmbTakmicenje.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTakmicenje.FormattingEnabled = true;
             cmbTakmicenje.Location = new Point(180, 20);
             cmbTakmicenje.Name = "cmbTakmicenje";
             cmbTakmicenje.Size = new Size(280, 23);
 
-            // 
-            // lblRedniBroj
-            // 
             lblRedniBroj.AutoSize = true;
             lblRedniBroj.Location = new Point(20, 65);
             lblRedniBroj.Name = "lblRedniBroj";
             lblRedniBroj.Size = new Size(67, 15);
             lblRedniBroj.Text = "Redni broj:";
 
-            // 
-            // numRedniBroj
-            // 
             numRedniBroj.Location = new Point(180, 60);
             numRedniBroj.Maximum = new decimal(new int[]
             {
@@ -109,52 +97,34 @@
                 0
             });
 
-            // 
-            // lblDatumVremePocetka
-            // 
             lblDatumVremePocetka.AutoSize = true;
             lblDatumVremePocetka.Location = new Point(20, 105);
             lblDatumVremePocetka.Name = "lblDatumVremePocetka";
             lblDatumVremePocetka.Size = new Size(130, 15);
             lblDatumVremePocetka.Text = "Datum i vreme:";
 
-            // 
-            // dtpDatumVremePocetka
-            // 
             dtpDatumVremePocetka.Format = DateTimePickerFormat.Custom;
             dtpDatumVremePocetka.CustomFormat = "dd.MM.yyyy HH:mm";
             dtpDatumVremePocetka.Location = new Point(180, 100);
             dtpDatumVremePocetka.Name = "dtpDatumVremePocetka";
             dtpDatumVremePocetka.Size = new Size(280, 23);
 
-            // 
-            // lblFormatMeca
-            // 
             lblFormatMeca.AutoSize = true;
             lblFormatMeca.Location = new Point(20, 145);
             lblFormatMeca.Name = "lblFormatMeca";
             lblFormatMeca.Size = new Size(78, 15);
             lblFormatMeca.Text = "Format meča:";
 
-            // 
-            // txtFormatMeca
-            // 
             txtFormatMeca.Location = new Point(180, 140);
             txtFormatMeca.Name = "txtFormatMeca";
             txtFormatMeca.Size = new Size(280, 23);
 
-            // 
-            // lblBrojMapa
-            // 
             lblBrojMapa.AutoSize = true;
             lblBrojMapa.Location = new Point(20, 185);
             lblBrojMapa.Name = "lblBrojMapa";
             lblBrojMapa.Size = new Size(65, 15);
             lblBrojMapa.Text = "Broj mapa:";
 
-            // 
-            // numBrojMapa
-            // 
             numBrojMapa.Location = new Point(180, 180);
             numBrojMapa.Maximum = new decimal(new int[]
             {
@@ -173,89 +143,56 @@
             numBrojMapa.Name = "numBrojMapa";
             numBrojMapa.Size = new Size(280, 23);
 
-            // 
-            // lblRezultat
-            // 
             lblRezultat.AutoSize = true;
             lblRezultat.Location = new Point(20, 225);
             lblRezultat.Name = "lblRezultat";
             lblRezultat.Size = new Size(55, 15);
             lblRezultat.Text = "Rezultat:";
 
-            // 
-            // txtRezultat
-            // 
             txtRezultat.Location = new Point(180, 220);
             txtRezultat.Name = "txtRezultat";
             txtRezultat.Size = new Size(280, 23);
 
-            // 
-            // lblTrajanje
-            // 
             lblTrajanje.AutoSize = true;
             lblTrajanje.Location = new Point(20, 265);
             lblTrajanje.Name = "lblTrajanje";
             lblTrajanje.Size = new Size(53, 15);
             lblTrajanje.Text = "Trajanje:";
 
-            // 
-            // txtTrajanje
-            // 
             txtTrajanje.Location = new Point(180, 260);
             txtTrajanje.Name = "txtTrajanje";
             txtTrajanje.Size = new Size(280, 23);
 
-            // 
-            // lblLokacijaIgranja
-            // 
             lblLokacijaIgranja.AutoSize = true;
             lblLokacijaIgranja.Location = new Point(20, 305);
             lblLokacijaIgranja.Name = "lblLokacijaIgranja";
             lblLokacijaIgranja.Size = new Size(96, 15);
             lblLokacijaIgranja.Text = "Lokacija igranja:";
 
-            // 
-            // txtLokacijaIgranja
-            // 
             txtLokacijaIgranja.Location = new Point(180, 300);
             txtLokacijaIgranja.Name = "txtLokacijaIgranja";
             txtLokacijaIgranja.Size = new Size(280, 23);
 
-            // 
-            // lblSudije
-            // 
             lblSudije.AutoSize = true;
             lblSudije.Location = new Point(20, 345);
             lblSudije.Name = "lblSudije";
             lblSudije.Size = new Size(43, 15);
             lblSudije.Text = "Sudije:";
 
-            // 
-            // txtSudije
-            // 
             txtSudije.Location = new Point(180, 340);
             txtSudije.Name = "txtSudije";
             txtSudije.Size = new Size(280, 23);
 
-            // 
-            // lblStatusMeca
-            // 
             lblStatusMeca.AutoSize = true;
             lblStatusMeca.Location = new Point(20, 385);
             lblStatusMeca.Name = "lblStatusMeca";
             lblStatusMeca.Size = new Size(75, 15);
             lblStatusMeca.Text = "Status meča:";
 
-            // 
-            // txtStatusMeca
-            // 
             txtStatusMeca.Location = new Point(180, 380);
             txtStatusMeca.Name = "txtStatusMeca";
             txtStatusMeca.Size = new Size(280, 23);
 
-            // 
-            // dodajMecBtn
-            // 
             dodajMecBtn.Location = new Point(180, 430);
             dodajMecBtn.Name = "dodajMecBtn";
             dodajMecBtn.Size = new Size(130, 35);
@@ -264,9 +201,6 @@
             dodajMecBtn.UseVisualStyleBackColor = true;
             dodajMecBtn.Click += dodajMecBtn_Click;
 
-            // 
-            // odustaniBtn
-            // 
             odustaniBtn.Location = new Point(330, 430);
             odustaniBtn.Name = "odustaniBtn";
             odustaniBtn.Size = new Size(130, 35);
@@ -275,9 +209,6 @@
             odustaniBtn.UseVisualStyleBackColor = true;
             odustaniBtn.Click += odustaniBtn_Click;
 
-            // 
-            // DodajMecForma
-            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(500, 500);

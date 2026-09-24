@@ -47,9 +47,6 @@
             groupBox2.SuspendLayout();
             SuspendLayout();
 
-            // 
-            // listViewTurniri
-            // 
             listViewTurniri.Columns.AddRange(new ColumnHeader[]
             {
                 ID,
@@ -79,9 +76,6 @@
             listViewTurniri.UseCompatibleStateImageBehavior = false;
             listViewTurniri.View = View.Details;
 
-            // 
-            // Kolone
-            // 
             ID.Text = "ID";
             ID.Width = 70;
 
@@ -127,9 +121,6 @@
             BrojMecevaPoRundi.Text = "Mečevi po rundi";
             BrojMecevaPoRundi.Width = 130;
 
-            // 
-            // groupBox1
-            // 
             groupBox1.Controls.Add(listViewTurniri);
             groupBox1.Location = new Point(40, 50);
             groupBox1.Name = "groupBox1";
@@ -138,9 +129,6 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Prikaz turnira";
 
-            // 
-            // groupBox2
-            // 
             groupBox2.Controls.Add(obrisiTurnirBtn);
             groupBox2.Controls.Add(izmeniTurnirBtn);
             groupBox2.Controls.Add(dodajTurnirBtn);
@@ -153,9 +141,6 @@
 
             Controls.Add(fazeBtn);
 
-            // 
-            // obrisiTurnirBtn
-            // 
             obrisiTurnirBtn.Location = new Point(62, 320);
             obrisiTurnirBtn.Name = "obrisiTurnirBtn";
             obrisiTurnirBtn.Size = new Size(243, 77);
@@ -164,9 +149,6 @@
             obrisiTurnirBtn.UseVisualStyleBackColor = true;
             obrisiTurnirBtn.Click += obrisiTurnirBtn_Click;
 
-            // 
-            // izmeniTurnirBtn
-            // 
             izmeniTurnirBtn.Location = new Point(62, 200);
             izmeniTurnirBtn.Name = "izmeniTurnirBtn";
             izmeniTurnirBtn.Size = new Size(243, 76);
@@ -175,9 +157,6 @@
             izmeniTurnirBtn.UseVisualStyleBackColor = true;
             izmeniTurnirBtn.Click += izmeniTurnirBtn_Click;
 
-            // 
-            // dodajTurnirBtn
-            // 
             dodajTurnirBtn.Location = new Point(62, 76);
             dodajTurnirBtn.Name = "dodajTurnirBtn";
             dodajTurnirBtn.Size = new Size(243, 76);
@@ -186,9 +165,6 @@
             dodajTurnirBtn.UseVisualStyleBackColor = true;
             dodajTurnirBtn.Click += dodajTurnirBtn_Click;
 
-            // 
-            // fazeBtn
-            // 
             fazeBtn.Location = new Point(1220, 580);
             fazeBtn.Name = "fazeBtn";
             fazeBtn.Size = new Size(350, 60);
@@ -197,9 +173,6 @@
             fazeBtn.UseVisualStyleBackColor = true;
             fazeBtn.Click += fazeBtn_Click;
 
-            // 
-            // TurnirForma
-            // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1600, 900);

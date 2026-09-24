@@ -12,12 +12,10 @@ namespace ESPORT.Mapiranje
         {
             Table("STATISTIKA_TIMA_NA_MECU");
 
-            // Kompozitni primarni ključ sastavljen od dva strana ključa (MEC_ID i TIM_ID)
             CompositeId()
                 .KeyReference(x => x.MecId, "MEC_ID")
                 .KeyReference(x => x.TimId, "TIM_ID");
 
-            // Obična polja / atributi
             Map(x => x.Kills).Column("KILLS").Not.Nullable();
             Map(x => x.Deaths).Column("DEATHS").Not.Nullable();
             Map(x => x.Assists).Column("ASSISTS").Not.Nullable();

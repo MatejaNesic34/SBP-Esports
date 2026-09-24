@@ -33,9 +33,6 @@
 
             SuspendLayout();
 
-            // 
-            // lblTakmicenjeId
-            // 
             lblTakmicenjeId.AutoSize = true;
             lblTakmicenjeId.Location = new Point(12, 20);
             lblTakmicenjeId.Name = "lblTakmicenjeId";
@@ -43,17 +40,11 @@
             lblTakmicenjeId.TabIndex = 0;
             lblTakmicenjeId.Text = "Takmičenje ID:";
 
-            // 
-            // txtTakmicenjeId
-            // 
             txtTakmicenjeId.Location = new Point(160, 17);
             txtTakmicenjeId.Name = "txtTakmicenjeId";
             txtTakmicenjeId.Size = new Size(160, 23);
             txtTakmicenjeId.TabIndex = 1;
 
-            // 
-            // lblTipKostura
-            // 
             lblTipKostura.AutoSize = true;
             lblTipKostura.Location = new Point(12, 55);
             lblTipKostura.Name = "lblTipKostura";
@@ -61,17 +52,11 @@
             lblTipKostura.TabIndex = 2;
             lblTipKostura.Text = "Tip kostura:";
 
-            // 
-            // txtTipKostura
-            // 
             txtTipKostura.Location = new Point(160, 52);
             txtTipKostura.Name = "txtTipKostura";
             txtTipKostura.Size = new Size(160, 23);
             txtTipKostura.TabIndex = 3;
 
-            // 
-            // lblPravilaNapredovanja
-            // 
             lblPravilaNapredovanja.AutoSize = true;
             lblPravilaNapredovanja.Location = new Point(12, 90);
             lblPravilaNapredovanja.Name = "lblPravilaNapredovanja";
@@ -79,17 +64,11 @@
             lblPravilaNapredovanja.TabIndex = 4;
             lblPravilaNapredovanja.Text = "Pravila napredovanja:";
 
-            // 
-            // txtPravilaNapredovanja
-            // 
             txtPravilaNapredovanja.Location = new Point(160, 87);
             txtPravilaNapredovanja.Name = "txtPravilaNapredovanja";
             txtPravilaNapredovanja.Size = new Size(160, 23);
             txtPravilaNapredovanja.TabIndex = 5;
 
-            // 
-            // lblBrojMecevaPoRundi
-            // 
             lblBrojMecevaPoRundi.AutoSize = true;
             lblBrojMecevaPoRundi.Location = new Point(12, 125);
             lblBrojMecevaPoRundi.Name = "lblBrojMecevaPoRundi";
@@ -97,17 +76,11 @@
             lblBrojMecevaPoRundi.TabIndex = 6;
             lblBrojMecevaPoRundi.Text = "Mečevi po rundi:";
 
-            // 
-            // txtBrojMecevaPoRundi
-            // 
             txtBrojMecevaPoRundi.Location = new Point(160, 122);
             txtBrojMecevaPoRundi.Name = "txtBrojMecevaPoRundi";
             txtBrojMecevaPoRundi.Size = new Size(160, 23);
             txtBrojMecevaPoRundi.TabIndex = 7;
 
-            // 
-            // dodajTurnirBtn
-            // 
             dodajTurnirBtn.Location = new Point(160, 165);
             dodajTurnirBtn.Name = "dodajTurnirBtn";
             dodajTurnirBtn.Size = new Size(75, 25);
@@ -116,9 +89,6 @@
             dodajTurnirBtn.UseVisualStyleBackColor = true;
             dodajTurnirBtn.Click += dodajTurnirBtn_Click;
 
-            // 
-            // odustaniBtn
-            // 
             odustaniBtn.Location = new Point(245, 165);
             odustaniBtn.Name = "odustaniBtn";
             odustaniBtn.Size = new Size(75, 25);
@@ -127,9 +97,6 @@
             odustaniBtn.UseVisualStyleBackColor = true;
             odustaniBtn.Click += odustaniBtn_Click;
 
-            // 
-            // DodajTurnirForma
-            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(350, 220);
@@ -156,16 +123,12 @@
 
         private Label lblTakmicenjeId;
         private TextBox txtTakmicenjeId;
-
         private Label lblTipKostura;
         private TextBox txtTipKostura;
-
         private Label lblPravilaNapredovanja;
         private TextBox txtPravilaNapredovanja;
-
         private Label lblBrojMecevaPoRundi;
         private TextBox txtBrojMecevaPoRundi;
-
         private Button dodajTurnirBtn;
         private Button odustaniBtn;
     }

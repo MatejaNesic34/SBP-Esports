@@ -18,10 +18,8 @@ namespace ESPORT.Entiteti
         public virtual DateTime? DatumPrvogAngazovanja { get; set; }
         public virtual string StatusAngazmana { get; set; }
 
-        // Element Collection
         public virtual IList<Telefon> Telefoni { get; set; } = new List<Telefon>();
 
-        // One-to-Many
         public virtual IList<Licenca> Licence { get; set; } = new List<Licenca>();
         public virtual IList<AngazmanZaposlenih> AngazmaniZaposlenog { get; set; } = new List<AngazmanZaposlenih>();
     }

@@ -17,7 +17,6 @@ namespace ESPORT.Entiteti
         public virtual int ObjectiveScore { get; set; }
         public virtual int Gold { get; set; }
 
-        // Neophodno za NHibernate kompozitne ključeve
         public override bool Equals(object obj)
         {
             if (obj == null) return false;

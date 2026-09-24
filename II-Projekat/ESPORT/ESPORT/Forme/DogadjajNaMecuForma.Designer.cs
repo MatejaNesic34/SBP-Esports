@@ -37,9 +37,6 @@
             groupBox2.SuspendLayout();
             SuspendLayout();
 
-            // 
-            // listViewDogadjaji
-            // 
             listViewDogadjaji.Columns.AddRange(new ColumnHeader[]
             {
                 DogadjajId,
@@ -60,10 +57,6 @@
             listViewDogadjaji.TabIndex = 0;
             listViewDogadjaji.UseCompatibleStateImageBehavior = false;
             listViewDogadjaji.View = View.Details;
-
-            // 
-            // Kolone
-            // 
 
             DogadjajId.Text = "Događaj ID";
             DogadjajId.Width = 90;
@@ -86,9 +79,6 @@
             OdlukaSudije.Text = "Odluka sudije";
             OdlukaSudije.Width = 200;
 
-            // 
-            // groupBox1
-            // 
             groupBox1.Controls.Add(listViewDogadjaji);
             groupBox1.Location = new Point(40, 50);
             groupBox1.Name = "groupBox1";
@@ -97,9 +87,6 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Prikaz događaja na meču";
 
-            // 
-            // groupBox2
-            // 
             groupBox2.Controls.Add(obrisiDogadjajBtn);
             groupBox2.Controls.Add(izmeniDogadjajBtn);
             groupBox2.Controls.Add(dodajDogadjajBtn);
@@ -110,9 +97,6 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Akcije događaja";
 
-            // 
-            // dodajDogadjajBtn
-            // 
             dodajDogadjajBtn.Location = new Point(62, 76);
             dodajDogadjajBtn.Name = "dodajDogadjajBtn";
             dodajDogadjajBtn.Size = new Size(243, 76);
@@ -121,9 +105,6 @@
             dodajDogadjajBtn.UseVisualStyleBackColor = true;
             dodajDogadjajBtn.Click += dodajDogadjajBtn_Click;
 
-            // 
-            // izmeniDogadjajBtn
-            // 
             izmeniDogadjajBtn.Location = new Point(62, 200);
             izmeniDogadjajBtn.Name = "izmeniDogadjajBtn";
             izmeniDogadjajBtn.Size = new Size(243, 76);
@@ -132,9 +113,6 @@
             izmeniDogadjajBtn.UseVisualStyleBackColor = true;
             izmeniDogadjajBtn.Click += izmeniDogadjajBtn_Click;
 
-            // 
-            // obrisiDogadjajBtn
-            // 
             obrisiDogadjajBtn.Location = new Point(62, 320);
             obrisiDogadjajBtn.Name = "obrisiDogadjajBtn";
             obrisiDogadjajBtn.Size = new Size(243, 77);
@@ -143,9 +121,6 @@
             obrisiDogadjajBtn.UseVisualStyleBackColor = true;
             obrisiDogadjajBtn.Click += obrisiDogadjajBtn_Click;
 
-            // 
-            // DogadjajNaMecuForma
-            // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1600, 900);

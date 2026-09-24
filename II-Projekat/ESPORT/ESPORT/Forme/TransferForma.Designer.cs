@@ -42,9 +42,6 @@
             groupBox2.SuspendLayout();
             SuspendLayout();
 
-            // 
-            // listViewTransferi
-            // 
             listViewTransferi.Columns.AddRange(new ColumnHeader[]
             {
                 TransferId,
@@ -70,10 +67,6 @@
             listViewTransferi.TabIndex = 0;
             listViewTransferi.UseCompatibleStateImageBehavior = false;
             listViewTransferi.View = View.Details;
-
-            // 
-            // Kolone
-            // 
 
             TransferId.Text = "Transfer ID";
             TransferId.Width = 90;
@@ -111,9 +104,6 @@
             PosebneKlauzule.Text = "Posebne klauzule";
             PosebneKlauzule.Width = 180;
 
-            // 
-            // groupBox1
-            // 
             groupBox1.Controls.Add(listViewTransferi);
             groupBox1.Location = new Point(40, 50);
             groupBox1.Name = "groupBox1";
@@ -122,9 +112,6 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Prikaz transfera";
 
-            // 
-            // groupBox2
-            // 
             groupBox2.Controls.Add(obrisiTransferBtn);
             groupBox2.Controls.Add(izmeniTransferBtn);
             groupBox2.Controls.Add(dodajTransferBtn);
@@ -135,9 +122,6 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Akcije transfera";
 
-            // 
-            // dodajTransferBtn
-            // 
             dodajTransferBtn.Location = new Point(62, 76);
             dodajTransferBtn.Name = "dodajTransferBtn";
             dodajTransferBtn.Size = new Size(243, 76);
@@ -146,9 +130,6 @@
             dodajTransferBtn.UseVisualStyleBackColor = true;
             dodajTransferBtn.Click += dodajTransferBtn_Click;
 
-            // 
-            // izmeniTransferBtn
-            // 
             izmeniTransferBtn.Location = new Point(62, 200);
             izmeniTransferBtn.Name = "izmeniTransferBtn";
             izmeniTransferBtn.Size = new Size(243, 76);
@@ -157,9 +138,6 @@
             izmeniTransferBtn.UseVisualStyleBackColor = true;
             izmeniTransferBtn.Click += izmeniTransferBtn_Click;
 
-            // 
-            // obrisiTransferBtn
-            // 
             obrisiTransferBtn.Location = new Point(62, 320);
             obrisiTransferBtn.Name = "obrisiTransferBtn";
             obrisiTransferBtn.Size = new Size(243, 77);
@@ -168,9 +146,6 @@
             obrisiTransferBtn.UseVisualStyleBackColor = true;
             obrisiTransferBtn.Click += obrisiTransferBtn_Click;
 
-            // 
-            // TransferForma
-            // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1600, 900);

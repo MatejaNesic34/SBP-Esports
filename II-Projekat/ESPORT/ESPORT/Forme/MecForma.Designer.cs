@@ -44,9 +44,6 @@
             groupBox2.SuspendLayout();
             SuspendLayout();
 
-            // 
-            // listViewMecevi
-            // 
             listViewMecevi.Columns.AddRange(new ColumnHeader[]
             {
                 MecId,
@@ -72,10 +69,6 @@
             listViewMecevi.TabIndex = 0;
             listViewMecevi.UseCompatibleStateImageBehavior = false;
             listViewMecevi.View = View.Details;
-
-            // 
-            // Kolone
-            // 
 
             MecId.Text = "Meč ID";
             MecId.Width = 70;
@@ -113,9 +106,6 @@
             StatusMeca.Text = "Status";
             StatusMeca.Width = 100;
 
-            // 
-            // groupBox1
-            // 
             groupBox1.Controls.Add(listViewMecevi);
             groupBox1.Location = new Point(40, 50);
             groupBox1.Name = "groupBox1";
@@ -124,9 +114,6 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Prikaz mečeva";
 
-            // 
-            // groupBox2
-            // 
             groupBox2.Controls.Add(obrisiMecBtn);
             groupBox2.Controls.Add(izmeniMecBtn);
             groupBox2.Controls.Add(dodajMecBtn);
@@ -137,9 +124,6 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Akcije meča";
 
-            // 
-            // dodajMecBtn
-            // 
             dodajMecBtn.Location = new Point(62, 76);
             dodajMecBtn.Name = "dodajMecBtn";
             dodajMecBtn.Size = new Size(243, 76);
@@ -148,9 +132,6 @@
             dodajMecBtn.UseVisualStyleBackColor = true;
             dodajMecBtn.Click += dodajMecBtn_Click;
 
-            // 
-            // izmeniMecBtn
-            // 
             izmeniMecBtn.Location = new Point(62, 200);
             izmeniMecBtn.Name = "izmeniMecBtn";
             izmeniMecBtn.Size = new Size(243, 76);
@@ -159,9 +140,6 @@
             izmeniMecBtn.UseVisualStyleBackColor = true;
             izmeniMecBtn.Click += izmeniMecBtn_Click;
 
-            // 
-            // obrisiMecBtn
-            // 
             obrisiMecBtn.Location = new Point(62, 320);
             obrisiMecBtn.Name = "obrisiMecBtn";
             obrisiMecBtn.Size = new Size(243, 77);
@@ -170,9 +148,6 @@
             obrisiMecBtn.UseVisualStyleBackColor = true;
             obrisiMecBtn.Click += obrisiMecBtn_Click;
 
-            // 
-            // dogadjajiBtn
-            // 
             dogadjajiBtn.Location = new Point(1220, 590);
             dogadjajiBtn.Name = "dogadjajiBtn";
             dogadjajiBtn.Size = new Size(350, 80);
@@ -181,9 +156,6 @@
             dogadjajiBtn.UseVisualStyleBackColor = true;
             dogadjajiBtn.Click += dogadjajiBtn_Click;
 
-            // 
-            // statistikaBtn
-            // 
             statistikaBtn.Location = new Point(1220, 690);
             statistikaBtn.Name = "statistikaBtn";
             statistikaBtn.Size = new Size(350, 80);
@@ -192,9 +164,6 @@
             statistikaBtn.UseVisualStyleBackColor = true;
             statistikaBtn.Click += statistikaBtn_Click;
 
-            // 
-            // MecForma
-            // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1600, 900);

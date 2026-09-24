@@ -12,10 +12,8 @@ namespace ESPORT.Mapiranje
         {
             Table("PSIHOLOG");
 
-            // Primarni ključ koji je ujedno strani ključ ka tabeli OSOBA
             KeyColumn("OSOBAID");
 
-            // Specifična polja za Psihologa
             Map(x => x.OblastRada).Column("OBLAST_RADA").Nullable();
             Map(x => x.PeriodiDostupnosti).Column("PERIODI_DOSTUPNOSTI").Nullable();
         }

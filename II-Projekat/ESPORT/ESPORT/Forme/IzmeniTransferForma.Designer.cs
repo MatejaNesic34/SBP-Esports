@@ -45,9 +45,6 @@
 
             SuspendLayout();
 
-            // 
-            // igracLbl
-            // 
             igracLbl.AutoSize = true;
             igracLbl.Location = new Point(1, 13);
             igracLbl.Margin = new Padding(1, 0, 1, 0);
@@ -56,9 +53,6 @@
             igracLbl.TabIndex = 0;
             igracLbl.Text = "Igrač:";
 
-            // 
-            // igracCB
-            // 
             igracCB.DropDownStyle = ComboBoxStyle.DropDownList;
             igracCB.FormattingEnabled = true;
             igracCB.Location = new Point(130, 10);
@@ -67,9 +61,6 @@
             igracCB.Size = new Size(167, 23);
             igracCB.TabIndex = 1;
 
-            // 
-            // prethodniTimLbl
-            // 
             prethodniTimLbl.AutoSize = true;
             prethodniTimLbl.Location = new Point(1, 38);
             prethodniTimLbl.Margin = new Padding(1, 0, 1, 0);
@@ -78,9 +69,6 @@
             prethodniTimLbl.TabIndex = 2;
             prethodniTimLbl.Text = "Prethodni tim:";
 
-            // 
-            // prethodniTimCB
-            // 
             prethodniTimCB.DropDownStyle = ComboBoxStyle.DropDownList;
             prethodniTimCB.FormattingEnabled = true;
             prethodniTimCB.Location = new Point(130, 35);
@@ -89,9 +77,6 @@
             prethodniTimCB.Size = new Size(167, 23);
             prethodniTimCB.TabIndex = 3;
 
-            // 
-            // noviTimLbl
-            // 
             noviTimLbl.AutoSize = true;
             noviTimLbl.Location = new Point(1, 63);
             noviTimLbl.Margin = new Padding(1, 0, 1, 0);
@@ -100,9 +85,6 @@
             noviTimLbl.TabIndex = 4;
             noviTimLbl.Text = "Novi tim:";
 
-            // 
-            // noviTimCB
-            // 
             noviTimCB.DropDownStyle = ComboBoxStyle.DropDownList;
             noviTimCB.FormattingEnabled = true;
             noviTimCB.Location = new Point(130, 60);
@@ -111,9 +93,6 @@
             noviTimCB.Size = new Size(167, 23);
             noviTimCB.TabIndex = 5;
 
-            // 
-            // datumPrelaskaLbl
-            // 
             datumPrelaskaLbl.AutoSize = true;
             datumPrelaskaLbl.Location = new Point(1, 88);
             datumPrelaskaLbl.Margin = new Padding(1, 0, 1, 0);
@@ -122,9 +101,6 @@
             datumPrelaskaLbl.TabIndex = 6;
             datumPrelaskaLbl.Text = "Datum prelaska:";
 
-            // 
-            // datumPrelaskaDTP
-            // 
             datumPrelaskaDTP.Format = DateTimePickerFormat.Short;
             datumPrelaskaDTP.Location = new Point(130, 85);
             datumPrelaskaDTP.Margin = new Padding(1);
@@ -132,9 +108,6 @@
             datumPrelaskaDTP.Size = new Size(167, 23);
             datumPrelaskaDTP.TabIndex = 7;
 
-            // 
-            // iznosTransferaLbl
-            // 
             iznosTransferaLbl.AutoSize = true;
             iznosTransferaLbl.Location = new Point(1, 113);
             iznosTransferaLbl.Margin = new Padding(1, 0, 1, 0);
@@ -143,18 +116,12 @@
             iznosTransferaLbl.TabIndex = 8;
             iznosTransferaLbl.Text = "Iznos transfera:";
 
-            // 
-            // iznosTransferaTB
-            // 
             iznosTransferaTB.Location = new Point(130, 110);
             iznosTransferaTB.Margin = new Padding(1);
             iznosTransferaTB.Name = "iznosTransferaTB";
             iznosTransferaTB.Size = new Size(167, 23);
             iznosTransferaTB.TabIndex = 9;
 
-            // 
-            // valutaLbl
-            // 
             valutaLbl.AutoSize = true;
             valutaLbl.Location = new Point(1, 138);
             valutaLbl.Margin = new Padding(1, 0, 1, 0);
@@ -163,18 +130,12 @@
             valutaLbl.TabIndex = 10;
             valutaLbl.Text = "Valuta:";
 
-            // 
-            // valutaTB
-            // 
             valutaTB.Location = new Point(130, 135);
             valutaTB.Margin = new Padding(1);
             valutaTB.Name = "valutaTB";
             valutaTB.Size = new Size(167, 23);
             valutaTB.TabIndex = 11;
 
-            // 
-            // trajanjeUgovoraLbl
-            // 
             trajanjeUgovoraLbl.AutoSize = true;
             trajanjeUgovoraLbl.Location = new Point(1, 163);
             trajanjeUgovoraLbl.Margin = new Padding(1, 0, 1, 0);
@@ -183,18 +144,12 @@
             trajanjeUgovoraLbl.TabIndex = 12;
             trajanjeUgovoraLbl.Text = "Trajanje ugovora (mes.):";
 
-            // 
-            // trajanjeUgovoraTB
-            // 
             trajanjeUgovoraTB.Location = new Point(130, 160);
             trajanjeUgovoraTB.Margin = new Padding(1);
             trajanjeUgovoraTB.Name = "trajanjeUgovoraTB";
             trajanjeUgovoraTB.Size = new Size(167, 23);
             trajanjeUgovoraTB.TabIndex = 13;
 
-            // 
-            // posebneKlauzuleLbl
-            // 
             posebneKlauzuleLbl.AutoSize = true;
             posebneKlauzuleLbl.Location = new Point(1, 188);
             posebneKlauzuleLbl.Margin = new Padding(1, 0, 1, 0);
@@ -203,9 +158,6 @@
             posebneKlauzuleLbl.TabIndex = 14;
             posebneKlauzuleLbl.Text = "Posebne klauzule:";
 
-            // 
-            // posebneKlauzuleTB
-            // 
             posebneKlauzuleTB.Location = new Point(130, 185);
             posebneKlauzuleTB.Margin = new Padding(1);
             posebneKlauzuleTB.Multiline = true;
@@ -213,9 +165,6 @@
             posebneKlauzuleTB.Size = new Size(167, 45);
             posebneKlauzuleTB.TabIndex = 15;
 
-            // 
-            // sacuvajBtn
-            // 
             sacuvajBtn.Location = new Point(130, 240);
             sacuvajBtn.Margin = new Padding(1);
             sacuvajBtn.Name = "sacuvajBtn";
@@ -225,9 +174,6 @@
             sacuvajBtn.UseVisualStyleBackColor = true;
             sacuvajBtn.Click += sacuvajBtn_Click;
 
-            // 
-            // odustaniBtn
-            // 
             odustaniBtn.Location = new Point(219, 240);
             odustaniBtn.Margin = new Padding(1);
             odustaniBtn.Name = "odustaniBtn";
@@ -237,9 +183,6 @@
             odustaniBtn.UseVisualStyleBackColor = true;
             odustaniBtn.Click += odustaniBtn_Click;
 
-            // 
-            // IzmeniTransferForma
-            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
 

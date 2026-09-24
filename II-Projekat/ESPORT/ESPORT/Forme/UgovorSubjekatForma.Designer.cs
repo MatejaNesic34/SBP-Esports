@@ -24,9 +24,7 @@
             this.btnIzmeniUgovorSubjekat = new System.Windows.Forms.Button();
             this.btnObrisiUgovorSubjekat = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // listViewUgovorSubjekat
-            // 
+
             this.listViewUgovorSubjekat.FullRowSelect = true;
             this.listViewUgovorSubjekat.GridLines = true;
             this.listViewUgovorSubjekat.HideSelection = false;
@@ -36,9 +34,7 @@
             this.listViewUgovorSubjekat.TabIndex = 0;
             this.listViewUgovorSubjekat.UseCompatibleStateImageBehavior = false;
             this.listViewUgovorSubjekat.View = System.Windows.Forms.View.Details;
-            // 
-            // btnDodajUgovorSubjekat
-            // 
+
             this.btnDodajUgovorSubjekat.Location = new System.Drawing.Point(12, 350);
             this.btnDodajUgovorSubjekat.Name = "btnDodajUgovorSubjekat";
             this.btnDodajUgovorSubjekat.Size = new System.Drawing.Size(100, 30);
@@ -46,9 +42,7 @@
             this.btnDodajUgovorSubjekat.Text = "Dodaj";
             this.btnDodajUgovorSubjekat.UseVisualStyleBackColor = true;
             this.btnDodajUgovorSubjekat.Click += new System.EventHandler(this.btnDodajUgovorSubjekat_Click);
-            // 
-            // btnIzmeniUgovorSubjekat
-            // 
+
             this.btnIzmeniUgovorSubjekat.Location = new System.Drawing.Point(130, 350);
             this.btnIzmeniUgovorSubjekat.Name = "btnIzmeniUgovorSubjekat";
             this.btnIzmeniUgovorSubjekat.Size = new System.Drawing.Size(100, 30);
@@ -56,9 +50,7 @@
             this.btnIzmeniUgovorSubjekat.Text = "Izmeni";
             this.btnIzmeniUgovorSubjekat.UseVisualStyleBackColor = true;
             this.btnIzmeniUgovorSubjekat.Click += new System.EventHandler(this.btnIzmeniUgovorSubjekat_Click);
-            // 
-            // btnObrisiUgovorSubjekat
-            // 
+
             this.btnObrisiUgovorSubjekat.Location = new System.Drawing.Point(248, 350);
             this.btnObrisiUgovorSubjekat.Name = "btnObrisiUgovorSubjekat";
             this.btnObrisiUgovorSubjekat.Size = new System.Drawing.Size(100, 30);
@@ -66,9 +58,7 @@
             this.btnObrisiUgovorSubjekat.Text = "Obriši";
             this.btnObrisiUgovorSubjekat.UseVisualStyleBackColor = true;
             this.btnObrisiUgovorSubjekat.Click += new System.EventHandler(this.btnObrisiUgovorSubjekat_Click);
-            // 
-            // UgovorSubjekatForma
-            // 
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(674, 401);

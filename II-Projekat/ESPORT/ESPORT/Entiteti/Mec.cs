@@ -20,7 +20,6 @@ namespace ESPORT.Entiteti
         public virtual string Sudije { get; set; }
         public virtual string StatusMeca { get; set; }
 
-        // One-to-Many
         public virtual IList<StatistikaTimaNaMecu> StatistikeTimova { get; set; } = new List<StatistikaTimaNaMecu>();
         public virtual IList<DogadjajNaMecu> Dogadjaji { get; set; } = new List<DogadjajNaMecu>();
     }

@@ -15,7 +15,6 @@ namespace ESPORT.Entiteti
         public virtual string DominantniStil { get; set; }
         public virtual string Rang { get; set; }
 
-        // One-to-Many
         public virtual IList<UgovorIgraca> Ugovori { get; set; } = new List<UgovorIgraca>();
         public virtual IList<Transfer> Transferi { get; set; } = new List<Transfer>();
         public virtual IList<Pozajmica> Pozajmice { get; set; } = new List<Pozajmica>();

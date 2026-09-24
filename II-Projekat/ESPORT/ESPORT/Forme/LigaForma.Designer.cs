@@ -2,15 +2,8 @@
 {
     partial class LigaForma
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -52,9 +45,6 @@
             groupBox2.SuspendLayout();
             SuspendLayout();
 
-            // 
-            // listViewLige
-            // 
             listViewLige.Columns.AddRange(new ColumnHeader[]
             {
                 ID,
@@ -82,87 +72,45 @@
             listViewLige.UseCompatibleStateImageBehavior = false;
             listViewLige.View = View.Details;
 
-            // 
-            // ID
-            // 
             ID.Text = "ID";
             ID.Width = 70;
 
-            // 
-            // Naziv
-            // 
             Naziv.Text = "Naziv";
             Naziv.Width = 180;
 
-            // 
-            // Organizator
-            // 
             Organizator.Text = "Organizator";
             Organizator.Width = 150;
 
-            // 
-            // Igra
-            // 
             Igra.Text = "Igra";
             Igra.Width = 150;
 
-            // 
-            // Region
-            // 
             Region.Text = "Region";
             Region.Width = 100;
 
-            // 
-            // Lokacija
-            // 
             Lokacija.Text = "Lokacija";
             Lokacija.Width = 130;
 
-            // 
-            // FormatTakmicenja
-            // 
             FormatTakmicenja.Text = "Format";
             FormatTakmicenja.Width = 120;
 
-            // 
-            // DatumPocetka
-            // 
             DatumPocetka.Text = "Datum početka";
             DatumPocetka.Width = 120;
 
-            // 
-            // DatumZavrsetka
-            // 
             DatumZavrsetka.Text = "Datum završetka";
             DatumZavrsetka.Width = 120;
 
-            // 
-            // NagradniFond
-            // 
             NagradniFond.Text = "Nagradni fond";
             NagradniFond.Width = 120;
 
-            // 
-            // ValutaNagrade
-            // 
             ValutaNagrade.Text = "Valuta";
             ValutaNagrade.Width = 80;
 
-            // 
-            // Status
-            // 
             Status.Text = "Status";
             Status.Width = 100;
 
-            // 
-            // SistemBodovanja
-            // 
             SistemBodovanja.Text = "Sistem bodovanja";
             SistemBodovanja.Width = 150;
 
-            // 
-            // groupBox1
-            // 
             groupBox1.Controls.Add(listViewLige);
             groupBox1.Location = new Point(40, 50);
             groupBox1.Name = "groupBox1";
@@ -171,9 +119,6 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Prikaz liga";
 
-            // 
-            // groupBox2
-            // 
             groupBox2.Controls.Add(obrisiLiguBtn);
             groupBox2.Controls.Add(izmeniLiguBtn);
             groupBox2.Controls.Add(dodajLiguBtn);
@@ -184,9 +129,6 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Akcije liga";
 
-            // 
-            // obrisiLiguBtn
-            // 
             obrisiLiguBtn.Location = new Point(62, 320);
             obrisiLiguBtn.Name = "obrisiLiguBtn";
             obrisiLiguBtn.Size = new Size(243, 77);
@@ -195,9 +137,6 @@
             obrisiLiguBtn.UseVisualStyleBackColor = true;
             obrisiLiguBtn.Click += obrisiLiguBtn_Click;
 
-            // 
-            // izmeniLiguBtn
-            // 
             izmeniLiguBtn.Location = new Point(62, 200);
             izmeniLiguBtn.Name = "izmeniLiguBtn";
             izmeniLiguBtn.Size = new Size(243, 76);
@@ -206,9 +145,6 @@
             izmeniLiguBtn.UseVisualStyleBackColor = true;
             izmeniLiguBtn.Click += izmeniLiguBtn_Click;
 
-            // 
-            // dodajLiguBtn
-            // 
             dodajLiguBtn.Location = new Point(62, 76);
             dodajLiguBtn.Name = "dodajLiguBtn";
             dodajLiguBtn.Size = new Size(243, 76);
@@ -217,9 +153,6 @@
             dodajLiguBtn.UseVisualStyleBackColor = true;
             dodajLiguBtn.Click += dodajLiguBtn_Click;
 
-            // 
-            // LigaForma
-            // 
             AutoScaleDimensions = new SizeF(17F, 41F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1600, 900);

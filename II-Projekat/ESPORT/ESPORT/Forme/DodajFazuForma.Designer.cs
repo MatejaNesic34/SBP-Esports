@@ -34,18 +34,12 @@
             ((System.ComponentModel.ISupportInitialize)numRedniBroj).BeginInit();
             SuspendLayout();
 
-            // 
-            // lblTurnir
-            // 
             lblTurnir.AutoSize = true;
             lblTurnir.Location = new Point(20, 25);
             lblTurnir.Name = "lblTurnir";
             lblTurnir.Size = new Size(42, 15);
             lblTurnir.Text = "Turnir:";
 
-            // 
-            // cmbTurnir
-            // 
             cmbTurnir.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTurnir.FormattingEnabled = true;
             cmbTurnir.Location = new Point(160, 20);
@@ -54,34 +48,22 @@
             cmbTurnir.SelectedIndexChanged +=
                 cmbTurnir_SelectedIndexChanged;
 
-            // 
-            // lblNazivFaze
-            // 
             lblNazivFaze.AutoSize = true;
             lblNazivFaze.Location = new Point(20, 65);
             lblNazivFaze.Name = "lblNazivFaze";
             lblNazivFaze.Size = new Size(67, 15);
             lblNazivFaze.Text = "Naziv faze:";
 
-            // 
-            // txtNazivFaze
-            // 
             txtNazivFaze.Location = new Point(160, 60);
             txtNazivFaze.Name = "txtNazivFaze";
             txtNazivFaze.Size = new Size(280, 23);
 
-            // 
-            // lblRedniBroj
-            // 
             lblRedniBroj.AutoSize = true;
             lblRedniBroj.Location = new Point(20, 105);
             lblRedniBroj.Name = "lblRedniBroj";
             lblRedniBroj.Size = new Size(67, 15);
             lblRedniBroj.Text = "Redni broj:";
 
-            // 
-            // numRedniBroj
-            // 
             numRedniBroj.Location = new Point(160, 100);
             numRedniBroj.Maximum = new decimal(new int[]
             {
@@ -107,27 +89,18 @@
                 0
             });
 
-            // 
-            // lblNadfaza
-            // 
             lblNadfaza.AutoSize = true;
             lblNadfaza.Location = new Point(20, 145);
             lblNadfaza.Name = "lblNadfaza";
             lblNadfaza.Size = new Size(55, 15);
             lblNadfaza.Text = "Nadfaza:";
 
-            // 
-            // cmbNadfaza
-            // 
             cmbNadfaza.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbNadfaza.FormattingEnabled = true;
             cmbNadfaza.Location = new Point(160, 140);
             cmbNadfaza.Name = "cmbNadfaza";
             cmbNadfaza.Size = new Size(280, 23);
 
-            // 
-            // dodajFazuBtn
-            // 
             dodajFazuBtn.Location = new Point(160, 190);
             dodajFazuBtn.Name = "dodajFazuBtn";
             dodajFazuBtn.Size = new Size(130, 35);
@@ -135,9 +108,6 @@
             dodajFazuBtn.UseVisualStyleBackColor = true;
             dodajFazuBtn.Click += dodajFazuBtn_Click;
 
-            // 
-            // odustaniBtn
-            // 
             odustaniBtn.Location = new Point(310, 190);
             odustaniBtn.Name = "odustaniBtn";
             odustaniBtn.Size = new Size(130, 35);
@@ -145,9 +115,6 @@
             odustaniBtn.UseVisualStyleBackColor = true;
             odustaniBtn.Click += odustaniBtn_Click;
 
-            // 
-            // DodajFazuForma
-            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(480, 260);

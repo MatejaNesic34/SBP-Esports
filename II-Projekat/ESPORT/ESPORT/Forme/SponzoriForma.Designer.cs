@@ -2,15 +2,8 @@
 {
     partial class SponzoriForma
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,10 +15,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             listViewSponzori = new ListView();
@@ -44,9 +33,7 @@
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
-            // 
-            // listViewSponzori
-            // 
+
             listViewSponzori.Columns.AddRange(new ColumnHeader[] { ID, Naziv, Drzava, TipSponzora, OblastPoslovanja });
             listViewSponzori.FullRowSelect = true;
             listViewSponzori.Location = new Point(11, 27);
@@ -57,34 +44,22 @@
             listViewSponzori.TabIndex = 0;
             listViewSponzori.UseCompatibleStateImageBehavior = false;
             listViewSponzori.View = View.Details;
-            // 
-            // ID
-            // 
+
             ID.Text = "ID";
             ID.Width = 50;
-            // 
-            // Naziv
-            // 
+
             Naziv.Text = "Naziv";
             Naziv.Width = 150;
-            // 
-            // Drzava
-            // 
+
             Drzava.Text = "Država";
             Drzava.Width = 80;
-            // 
-            // TipSponzora
-            // 
+
             TipSponzora.Text = "Tip sponzora";
             TipSponzora.Width = 150;
-            // 
-            // OblastPoslovanja
-            // 
+
             OblastPoslovanja.Text = "Oblast poslovanja";
             OblastPoslovanja.Width = 200;
-            // 
-            // groupBox1
-            // 
+
             groupBox1.Controls.Add(listViewSponzori);
             groupBox1.Location = new Point(19, 31);
             groupBox1.Margin = new Padding(1);
@@ -94,9 +69,7 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Prikaz sponzora";
-            // 
-            // groupBox2
-            // 
+
             groupBox2.Controls.Add(btnUgovori);
             groupBox2.Controls.Add(btnKontakti);
             groupBox2.Controls.Add(obrisiSponzorbtn);
@@ -110,9 +83,7 @@
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "Sponzori akcije";
-            // 
-            // btnUgovori
-            // 
+
             btnUgovori.Location = new Point(29, 289);
             btnUgovori.Margin = new Padding(1);
             btnUgovori.Name = "btnUgovori";
@@ -121,9 +92,7 @@
             btnUgovori.Text = "Ugovori";
             btnUgovori.UseVisualStyleBackColor = true;
             btnUgovori.Click += btnUgovori_Click;
-            // 
-            // btnKontakti
-            // 
+
             btnKontakti.Location = new Point(29, 224);
             btnKontakti.Margin = new Padding(1);
             btnKontakti.Name = "btnKontakti";
@@ -132,9 +101,7 @@
             btnKontakti.Text = "Kontakti";
             btnKontakti.UseVisualStyleBackColor = true;
             btnKontakti.Click += btnKontakti_Click;
-            // 
-            // obrisiSponzorbtn
-            // 
+
             obrisiSponzorbtn.Location = new Point(29, 156);
             obrisiSponzorbtn.Margin = new Padding(1);
             obrisiSponzorbtn.Name = "obrisiSponzorbtn";
@@ -143,9 +110,7 @@
             obrisiSponzorbtn.Text = "Obrisi sponzora";
             obrisiSponzorbtn.UseVisualStyleBackColor = true;
             obrisiSponzorbtn.Click += obrisiSponzorbtn_Click;
-            // 
-            // izmeniSponzorbtn
-            // 
+
             izmeniSponzorbtn.Location = new Point(29, 98);
             izmeniSponzorbtn.Margin = new Padding(1);
             izmeniSponzorbtn.Name = "izmeniSponzorbtn";
@@ -154,9 +119,7 @@
             izmeniSponzorbtn.Text = "Izmeni sponzora";
             izmeniSponzorbtn.UseVisualStyleBackColor = true;
             izmeniSponzorbtn.Click += izmeniSponzorbtn_Click;
-            // 
-            // dodajSponzorbtn
-            // 
+
             dodajSponzorbtn.Location = new Point(29, 37);
             dodajSponzorbtn.Margin = new Padding(1);
             dodajSponzorbtn.Name = "dodajSponzorbtn";
@@ -165,9 +128,7 @@
             dodajSponzorbtn.Text = "Dodaj sponzora";
             dodajSponzorbtn.UseVisualStyleBackColor = true;
             dodajSponzorbtn.Click += dodajSponzorbtn_Click;
-            // 
-            // SponzoriForma
-            // 
+
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(912, 439);

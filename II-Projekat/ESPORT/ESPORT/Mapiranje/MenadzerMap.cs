@@ -12,10 +12,8 @@ namespace ESPORT.Mapiranje
         {
             Table("MENADZER");
 
-            // Povezivanje sa roditeljskom tabelom (Osoba)
             KeyColumn("OSOBAID");
 
-            // Specifično polje za menadžera
             Map(x => x.OblastOdgovornosti).Column("OBLAST_ODGOVORNOSTI").Nullable();
         }
     }

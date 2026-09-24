@@ -34,9 +34,6 @@
             btnOdustani = new Button();
             SuspendLayout();
 
-            // 
-            // lblIgrac
-            // 
             lblIgrac.AutoSize = true;
             lblIgrac.Location = new Point(1, 13);
             lblIgrac.Name = "lblIgrac";
@@ -44,9 +41,6 @@
             lblIgrac.TabIndex = 0;
             lblIgrac.Text = "Igrač:";
 
-            // 
-            // cmbIgrac
-            // 
             cmbIgrac.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbIgrac.FormattingEnabled = true;
             cmbIgrac.Location = new Point(130, 10);
@@ -54,9 +48,6 @@
             cmbIgrac.Size = new Size(167, 23);
             cmbIgrac.TabIndex = 1;
 
-            // 
-            // lblMaticniTim
-            // 
             lblMaticniTim.AutoSize = true;
             lblMaticniTim.Location = new Point(1, 38);
             lblMaticniTim.Name = "lblMaticniTim";
@@ -64,9 +55,6 @@
             lblMaticniTim.TabIndex = 2;
             lblMaticniTim.Text = "Matični tim:";
 
-            // 
-            // cmbMaticniTim
-            // 
             cmbMaticniTim.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMaticniTim.FormattingEnabled = true;
             cmbMaticniTim.Location = new Point(130, 35);
@@ -74,9 +62,6 @@
             cmbMaticniTim.Size = new Size(167, 23);
             cmbMaticniTim.TabIndex = 3;
 
-            // 
-            // lblTimNaPozajmici
-            // 
             lblTimNaPozajmici.AutoSize = true;
             lblTimNaPozajmici.Location = new Point(1, 63);
             lblTimNaPozajmici.Name = "lblTimNaPozajmici";
@@ -84,9 +69,6 @@
             lblTimNaPozajmici.TabIndex = 4;
             lblTimNaPozajmici.Text = "Tim na pozajmici:";
 
-            // 
-            // cmbTimNaPozajmici
-            // 
             cmbTimNaPozajmici.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTimNaPozajmici.FormattingEnabled = true;
             cmbTimNaPozajmici.Location = new Point(130, 60);
@@ -94,9 +76,6 @@
             cmbTimNaPozajmici.Size = new Size(167, 23);
             cmbTimNaPozajmici.TabIndex = 5;
 
-            // 
-            // lblDatumOd
-            // 
             lblDatumOd.AutoSize = true;
             lblDatumOd.Location = new Point(1, 88);
             lblDatumOd.Name = "lblDatumOd";
@@ -104,18 +83,12 @@
             lblDatumOd.TabIndex = 6;
             lblDatumOd.Text = "Datum od:";
 
-            // 
-            // dtpDatumOd
-            // 
             dtpDatumOd.Format = DateTimePickerFormat.Short;
             dtpDatumOd.Location = new Point(130, 85);
             dtpDatumOd.Name = "dtpDatumOd";
             dtpDatumOd.Size = new Size(167, 23);
             dtpDatumOd.TabIndex = 7;
 
-            // 
-            // lblDatumDo
-            // 
             lblDatumDo.AutoSize = true;
             lblDatumDo.Location = new Point(1, 113);
             lblDatumDo.Name = "lblDatumDo";
@@ -123,18 +96,12 @@
             lblDatumDo.TabIndex = 8;
             lblDatumDo.Text = "Datum do:";
 
-            // 
-            // dtpDatumDo
-            // 
             dtpDatumDo.Format = DateTimePickerFormat.Short;
             dtpDatumDo.Location = new Point(130, 110);
             dtpDatumDo.Name = "dtpDatumDo";
             dtpDatumDo.Size = new Size(167, 23);
             dtpDatumDo.TabIndex = 9;
 
-            // 
-            // lblFinansijskiUslovi
-            // 
             lblFinansijskiUslovi.AutoSize = true;
             lblFinansijskiUslovi.Location = new Point(1, 138);
             lblFinansijskiUslovi.Name = "lblFinansijskiUslovi";
@@ -142,17 +109,11 @@
             lblFinansijskiUslovi.TabIndex = 10;
             lblFinansijskiUslovi.Text = "Finansijski uslovi:";
 
-            // 
-            // txtFinansijskiUslovi
-            // 
             txtFinansijskiUslovi.Location = new Point(130, 135);
             txtFinansijskiUslovi.Name = "txtFinansijskiUslovi";
             txtFinansijskiUslovi.Size = new Size(167, 23);
             txtFinansijskiUslovi.TabIndex = 11;
 
-            // 
-            // lblPravoOtkupa
-            // 
             lblPravoOtkupa.AutoSize = true;
             lblPravoOtkupa.Location = new Point(1, 163);
             lblPravoOtkupa.Name = "lblPravoOtkupa";
@@ -160,9 +121,6 @@
             lblPravoOtkupa.TabIndex = 12;
             lblPravoOtkupa.Text = "Pravo otkupa:";
 
-            // 
-            // cmbPravoOtkupa
-            // 
             cmbPravoOtkupa.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPravoOtkupa.FormattingEnabled = true;
             cmbPravoOtkupa.Items.AddRange(new object[] {
@@ -173,9 +131,6 @@
             cmbPravoOtkupa.Size = new Size(167, 23);
             cmbPravoOtkupa.TabIndex = 13;
 
-            // 
-            // btnSacuvaj
-            // 
             btnSacuvaj.Location = new Point(130, 195);
             btnSacuvaj.Name = "btnSacuvaj";
             btnSacuvaj.Size = new Size(78, 22);
@@ -184,9 +139,6 @@
             btnSacuvaj.UseVisualStyleBackColor = true;
             btnSacuvaj.Click += btnSacuvaj_Click;
 
-            // 
-            // btnOdustani
-            // 
             btnOdustani.Location = new Point(219, 195);
             btnOdustani.Name = "btnOdustani";
             btnOdustani.Size = new Size(78, 22);
@@ -195,9 +147,6 @@
             btnOdustani.UseVisualStyleBackColor = true;
             btnOdustani.Click += btnOdustani_Click;
 
-            // 
-            // DodajPozajmicuForma
-            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(320, 240);

@@ -12,7 +12,6 @@ namespace ESPORT.Entiteti
         public virtual string PravilaNapredovanja { get; set; }
         public virtual string BrojMecevaPoRundi { get; set; }
 
-        // One-to-Many
         public virtual IList<FazaTakmicenja> Faze { get; set; } = new List<FazaTakmicenja>();
     }
 }

@@ -2,9 +2,6 @@
 {
     partial class UcesceTimaUFaziForma
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         private System.Windows.Forms.ListView listViewUcesca;
@@ -24,9 +21,6 @@
         private System.Windows.Forms.Button izmeniUcesceBtn;
         private System.Windows.Forms.Button obrisiUcesceBtn;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -39,10 +33,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.listViewUcesca = new System.Windows.Forms.ListView();
@@ -65,9 +55,6 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
 
-            // 
-            // listViewUcesca
-            // 
             this.listViewUcesca.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
                 this.colFazaId,
                 this.colTimId,
@@ -91,69 +78,36 @@
             this.listViewUcesca.UseCompatibleStateImageBehavior = false;
             this.listViewUcesca.View = System.Windows.Forms.View.Details;
 
-            // 
-            // colFazaId
-            // 
             this.colFazaId.Text = "Faza ID";
             this.colFazaId.Width = 80;
 
-            // 
-            // colTimId
-            // 
             this.colTimId.Text = "Tim ID";
             this.colTimId.Width = 80;
 
-            // 
-            // colNazivFaze
-            // 
             this.colNazivFaze.Text = "Naziv faze";
             this.colNazivFaze.Width = 180;
 
-            // 
-            // colNazivTima
-            // 
             this.colNazivTima.Text = "Naziv tima";
             this.colNazivTima.Width = 180;
 
-            // 
-            // colStatus
-            // 
             this.colStatus.Text = "Status";
             this.colStatus.Width = 150;
 
-            // 
-            // colRezultat
-            // 
             this.colRezultat.Text = "Ostvareni rezultat";
             this.colRezultat.Width = 180;
 
-            // 
-            // colPobede
-            // 
             this.colPobede.Text = "Pobede";
             this.colPobede.Width = 80;
 
-            // 
-            // colPorazi
-            // 
             this.colPorazi.Text = "Porazi";
             this.colPorazi.Width = 80;
 
-            // 
-            // colBodovi
-            // 
             this.colBodovi.Text = "Bodovi";
             this.colBodovi.Width = 90;
 
-            // 
-            // colPlasman
-            // 
             this.colPlasman.Text = "Konačan plasman";
             this.colPlasman.Width = 140;
 
-            // 
-            // groupBox1
-            // 
             this.groupBox1.Controls.Add(this.dodajUcesceBtn);
             this.groupBox1.Controls.Add(this.izmeniUcesceBtn);
             this.groupBox1.Controls.Add(this.obrisiUcesceBtn);
@@ -164,9 +118,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Akcije";
 
-            // 
-            // dodajUcesceBtn
-            // 
             this.dodajUcesceBtn.Location = new System.Drawing.Point(30, 25);
             this.dodajUcesceBtn.Name = "dodajUcesceBtn";
             this.dodajUcesceBtn.Size = new System.Drawing.Size(300, 60);
@@ -175,9 +126,6 @@
             this.dodajUcesceBtn.UseVisualStyleBackColor = true;
             this.dodajUcesceBtn.Click += new System.EventHandler(this.dodajUcesceBtn_Click);
 
-            // 
-            // izmeniUcesceBtn
-            // 
             this.izmeniUcesceBtn.Location = new System.Drawing.Point(360, 25);
             this.izmeniUcesceBtn.Name = "izmeniUcesceBtn";
             this.izmeniUcesceBtn.Size = new System.Drawing.Size(300, 60);
@@ -186,9 +134,6 @@
             this.izmeniUcesceBtn.UseVisualStyleBackColor = true;
             this.izmeniUcesceBtn.Click += new System.EventHandler(this.izmeniUcesceBtn_Click);
 
-            // 
-            // obrisiUcesceBtn
-            // 
             this.obrisiUcesceBtn.Location = new System.Drawing.Point(690, 25);
             this.obrisiUcesceBtn.Name = "obrisiUcesceBtn";
             this.obrisiUcesceBtn.Size = new System.Drawing.Size(300, 60);
@@ -197,9 +142,6 @@
             this.obrisiUcesceBtn.UseVisualStyleBackColor = true;
             this.obrisiUcesceBtn.Click += new System.EventHandler(this.obrisiUcesceBtn_Click);
 
-            // 
-            // UcesceTimaUFaziForma
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1600, 850);

@@ -26,61 +26,47 @@
             this.btnIzmeni = new System.Windows.Forms.Button();
             this.btnOtkazi = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // cmbUgovor
-            // 
+
             this.cmbUgovor.FormattingEnabled = true;
             this.cmbUgovor.Location = new System.Drawing.Point(150, 30);
             this.cmbUgovor.Name = "cmbUgovor";
             this.cmbUgovor.Size = new System.Drawing.Size(250, 24);
             this.cmbUgovor.TabIndex = 0;
-            // 
-            // cmbTipSubjekta
-            // 
+
             this.cmbTipSubjekta.FormattingEnabled = true;
             this.cmbTipSubjekta.Location = new System.Drawing.Point(150, 80);
             this.cmbTipSubjekta.Name = "cmbTipSubjekta";
             this.cmbTipSubjekta.Size = new System.Drawing.Size(250, 24);
             this.cmbTipSubjekta.TabIndex = 1;
             this.cmbTipSubjekta.SelectedIndexChanged += new System.EventHandler(this.cmbTipSubjekta_SelectedIndexChanged);
-            // 
-            // cmbKonkretanSubjekat
-            // 
+
             this.cmbKonkretanSubjekat.FormattingEnabled = true;
             this.cmbKonkretanSubjekat.Location = new System.Drawing.Point(150, 130);
             this.cmbKonkretanSubjekat.Name = "cmbKonkretanSubjekat";
             this.cmbKonkretanSubjekat.Size = new System.Drawing.Size(250, 24);
             this.cmbKonkretanSubjekat.TabIndex = 2;
-            // 
-            // lblUgovor
-            // 
+
             this.lblUgovor.AutoSize = true;
             this.lblUgovor.Location = new System.Drawing.Point(30, 33);
             this.lblUgovor.Name = "lblUgovor";
             this.lblUgovor.Size = new System.Drawing.Size(54, 16);
             this.lblUgovor.TabIndex = 3;
             this.lblUgovor.Text = "Ugovor:";
-            // 
-            // lblTipSubjekta
-            // 
+
             this.lblTipSubjekta.AutoSize = true;
             this.lblTipSubjekta.Location = new System.Drawing.Point(30, 83);
             this.lblTipSubjekta.Name = "lblTipSubjekta";
             this.lblTipSubjekta.Size = new System.Drawing.Size(84, 16);
             this.lblTipSubjekta.TabIndex = 4;
             this.lblTipSubjekta.Text = "Tip subjekta:";
-            // 
-            // lblSubjekat
-            // 
+
             this.lblSubjekat.AutoSize = true;
             this.lblSubjekat.Location = new System.Drawing.Point(30, 133);
             this.lblSubjekat.Name = "lblSubjekat";
             this.lblSubjekat.Size = new System.Drawing.Size(63, 16);
             this.lblSubjekat.TabIndex = 5;
             this.lblSubjekat.Text = "Subjekat:";
-            // 
-            // btnIzmeni
-            // 
+
             this.btnIzmeni.Location = new System.Drawing.Point(150, 190);
             this.btnIzmeni.Name = "btnIzmeni";
             this.btnIzmeni.Size = new System.Drawing.Size(110, 30);
@@ -88,9 +74,7 @@
             this.btnIzmeni.Text = "Izmeni";
             this.btnIzmeni.UseVisualStyleBackColor = true;
             this.btnIzmeni.Click += new System.EventHandler(this.btnIzmeni_Click);
-            // 
-            // btnOtkazi
-            // 
+
             this.btnOtkazi.Location = new System.Drawing.Point(290, 190);
             this.btnOtkazi.Name = "btnOtkazi";
             this.btnOtkazi.Size = new System.Drawing.Size(110, 30);
@@ -98,9 +82,7 @@
             this.btnOtkazi.Text = "Otkaži";
             this.btnOtkazi.UseVisualStyleBackColor = true;
             this.btnOtkazi.Click += new System.EventHandler(this.btnOtkazi_Click);
-            // 
-            // IzmeniUgovorSubjekatForma
-            // 
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(440, 250);

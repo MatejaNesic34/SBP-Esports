@@ -2,15 +2,8 @@
 {
     partial class DodajLiguForma
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -33,9 +26,6 @@
             odustaniBtn = new Button();
             SuspendLayout();
 
-            // 
-            // lblTakmicenjeId
-            // 
             lblTakmicenjeId.AutoSize = true;
             lblTakmicenjeId.Location = new Point(12, 20);
             lblTakmicenjeId.Name = "lblTakmicenjeId";
@@ -43,17 +33,11 @@
             lblTakmicenjeId.TabIndex = 0;
             lblTakmicenjeId.Text = "Takmičenje ID:";
 
-            // 
-            // txtTakmicenjeId
-            // 
             txtTakmicenjeId.Location = new Point(120, 17);
             txtTakmicenjeId.Name = "txtTakmicenjeId";
             txtTakmicenjeId.Size = new Size(160, 23);
             txtTakmicenjeId.TabIndex = 1;
 
-            // 
-            // lblSistemBodovanja
-            // 
             lblSistemBodovanja.AutoSize = true;
             lblSistemBodovanja.Location = new Point(12, 55);
             lblSistemBodovanja.Name = "lblSistemBodovanja";
@@ -61,17 +45,11 @@
             lblSistemBodovanja.TabIndex = 2;
             lblSistemBodovanja.Text = "Sistem bodovanja:";
 
-            // 
-            // txtSistemBodovanja
-            // 
             txtSistemBodovanja.Location = new Point(120, 52);
             txtSistemBodovanja.Name = "txtSistemBodovanja";
             txtSistemBodovanja.Size = new Size(160, 23);
             txtSistemBodovanja.TabIndex = 3;
 
-            // 
-            // dodajLiguBtn
-            // 
             dodajLiguBtn.Location = new Point(120, 95);
             dodajLiguBtn.Name = "dodajLiguBtn";
             dodajLiguBtn.Size = new Size(75, 25);
@@ -80,9 +58,6 @@
             dodajLiguBtn.UseVisualStyleBackColor = true;
             dodajLiguBtn.Click += dodajLiguBtn_Click;
 
-            // 
-            // odustaniBtn
-            // 
             odustaniBtn.Location = new Point(205, 95);
             odustaniBtn.Name = "odustaniBtn";
             odustaniBtn.Size = new Size(75, 25);
@@ -91,9 +66,6 @@
             odustaniBtn.UseVisualStyleBackColor = true;
             odustaniBtn.Click += odustaniBtn_Click;
 
-            // 
-            // DodajLiguForma
-            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(300, 145);

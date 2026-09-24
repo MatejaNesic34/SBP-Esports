@@ -31,9 +31,6 @@
 
             SuspendLayout();
 
-            // 
-            // listViewRezultati
-            // 
             listViewRezultati.Columns.AddRange(new ColumnHeader[]
             {
                 RezultatId,
@@ -54,10 +51,6 @@
             listViewRezultati.UseCompatibleStateImageBehavior = false;
             listViewRezultati.View = View.Details;
 
-            // 
-            // Kolone
-            // 
-
             RezultatId.Text = "ID";
             RezultatId.Width = 60;
 
@@ -76,9 +69,6 @@
             Opis.Text = "Opis";
             Opis.Width = 230;
 
-            // 
-            // btnDodaj
-            // 
             btnDodaj.Location = new Point(20, 460);
             btnDodaj.Name = "btnDodaj";
             btnDodaj.Size = new Size(120, 40);
@@ -87,9 +77,6 @@
             btnDodaj.UseVisualStyleBackColor = true;
             btnDodaj.Click += btnDodaj_Click;
 
-            // 
-            // btnIzmeni
-            // 
             btnIzmeni.Location = new Point(160, 460);
             btnIzmeni.Name = "btnIzmeni";
             btnIzmeni.Size = new Size(120, 40);
@@ -98,9 +85,6 @@
             btnIzmeni.UseVisualStyleBackColor = true;
             btnIzmeni.Click += btnIzmeni_Click;
 
-            // 
-            // btnObrisi
-            // 
             btnObrisi.Location = new Point(300, 460);
             btnObrisi.Name = "btnObrisi";
             btnObrisi.Size = new Size(120, 40);
@@ -109,9 +93,6 @@
             btnObrisi.UseVisualStyleBackColor = true;
             btnObrisi.Click += btnObrisi_Click;
 
-            // 
-            // IndividualniRezultatForma
-            // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(950, 530);

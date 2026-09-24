@@ -14,7 +14,6 @@ namespace ESPORT.Mapiranja
         {
             Table("OSOBA_TELEFON");
 
-            // Definisanjem kompozitnog primarnog ključa (osobaid + telefon)
             CompositeId()
                 .KeyReference(x => x.OsobaId, "OSOBAID")
                 .KeyProperty(x => x.BrojTelefona, "TELEFON");

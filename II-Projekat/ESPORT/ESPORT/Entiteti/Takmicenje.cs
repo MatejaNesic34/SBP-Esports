@@ -22,7 +22,6 @@ namespace ESPORT.Entiteti
         public virtual string ValutaNagrade { get; set; }
         public virtual string Status { get; set; }
 
-        // One-to-Many
         public virtual IList<Mec> Mecevi { get; set; } = new List<Mec>();
         public virtual IList<IndividualniRezultat> IndividualnaPriznanja { get; set; } = new List<IndividualniRezultat>();
         public virtual IList<UgovorSubjekat> SponzorskiUgovoriKaoSubjekat { get; set; } = new List<UgovorSubjekat>();

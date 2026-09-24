@@ -7,15 +7,8 @@ namespace ESPORT.Forme
 {
     partial class AngazmanTreneraForma
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -28,10 +21,6 @@ namespace ESPORT.Forme
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             listViewAngazmani = new ListView();
@@ -48,9 +37,6 @@ namespace ESPORT.Forme
 
             SuspendLayout();
 
-            // 
-            // listViewAngazmani
-            // 
             listViewAngazmani.Columns.AddRange(new ColumnHeader[]
             {
                 ID,
@@ -70,45 +56,24 @@ namespace ESPORT.Forme
             listViewAngazmani.UseCompatibleStateImageBehavior = false;
             listViewAngazmani.View = View.Details;
 
-            // 
-            // ID
-            // 
             ID.Text = "ID";
             ID.Width = 70;
 
-            // 
-            // trener
-            // 
             trener.Text = "Trener";
             trener.Width = 200;
 
-            // 
-            // tim
-            // 
             tim.Text = "Tim";
             tim.Width = 180;
 
-            // 
-            // tipUloge
-            // 
             tipUloge.Text = "Tip uloge";
             tipUloge.Width = 160;
 
-            // 
-            // datumOd
-            // 
             datumOd.Text = "Datum od";
             datumOd.Width = 120;
 
-            // 
-            // datumDo
-            // 
             datumDo.Text = "Datum do";
             datumDo.Width = 120;
 
-            // 
-            // btnDodaj
-            // 
             btnDodaj.Location = new Point(20, 440);
             btnDodaj.Margin = new Padding(1);
             btnDodaj.Name = "btnDodaj";
@@ -118,9 +83,6 @@ namespace ESPORT.Forme
             btnDodaj.UseVisualStyleBackColor = true;
             btnDodaj.Click += btnDodaj_Click;
 
-            // 
-            // btnIzmeni
-            // 
             btnIzmeni.Location = new Point(160, 440);
             btnIzmeni.Margin = new Padding(1);
             btnIzmeni.Name = "btnIzmeni";
@@ -130,9 +92,6 @@ namespace ESPORT.Forme
             btnIzmeni.UseVisualStyleBackColor = true;
             btnIzmeni.Click += btnIzmeni_Click;
 
-            // 
-            // btnObrisi
-            // 
             btnObrisi.Location = new Point(300, 440);
             btnObrisi.Margin = new Padding(1);
             btnObrisi.Name = "btnObrisi";
@@ -142,9 +101,6 @@ namespace ESPORT.Forme
             btnObrisi.UseVisualStyleBackColor = true;
             btnObrisi.Click += btnObrisi_Click;
 
-            // 
-            // AngazmanTreneraForma
-            // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(900, 510);

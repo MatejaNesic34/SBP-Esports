@@ -12,10 +12,8 @@ namespace ESPORT.Mapiranje
         {
             Table("TAKMICENJE");
 
-            // Primarni ključ
             Id(x => x.TakmicenjeId).Column("TAKMICENJE_ID").GeneratedBy.Increment();
 
-            // Obična polja / atributi
             Map(x => x.Naziv).Column("NAZIV").Not.Nullable();
             Map(x => x.Organizator).Column("ORGANIZATOR").Not.Nullable();
             Map(x => x.TipTakmicenja).Column("TIP_TAKMICENJA").Not.Nullable();
@@ -28,35 +26,24 @@ namespace ESPORT.Mapiranje
             Map(x => x.ValutaNagrade).Column("VALUTA_NAGRADE").Nullable();
             Map(x => x.Status).Column("STATUS").Nullable();
 
-            // ----------------------------------------------------
-            // RELACIJA (Many-to-One)
-            // ----------------------------------------------------
-
-            // Strani ključ ka Igra (IGRA_ID)
+           
             References(x => x.Igra)
                 .Column("IGRA_ID")
                 .Not.Nullable()
                 .LazyLoad();
 
-            // ----------------------------------------------------
-            // VEZE / KOLEKCIJE (One-to-Many)
-            // ----------------------------------------------------
-
-            // 1. Mecevi
             HasMany(x => x.Mecevi)
                 .KeyColumn("TAKMICENJE_ID")
                 .LazyLoad()
                 .Cascade.All()
                 .Inverse();
 
-            // 2. IndividualnaPriznanja (IndividualniRezultat)
             HasMany(x => x.IndividualnaPriznanja)
                 .KeyColumn("TAKMICENJE_ID")
                 .LazyLoad()
                 .Cascade.All()
                 .Inverse();
 
-            // 3. SponzorskiUgovoriKaoSubjekat
             HasMany(x => x.SponzorskiUgovoriKaoSubjekat)
                 .KeyColumn("TAKMICENJE_ID")
                 .LazyLoad()

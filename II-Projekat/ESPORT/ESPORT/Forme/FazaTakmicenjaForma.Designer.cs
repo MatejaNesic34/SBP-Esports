@@ -36,9 +36,6 @@
             groupBoxFaze.SuspendLayout();
             SuspendLayout();
 
-            // 
-            // listViewFaze
-            // 
             listViewFaze.Columns.AddRange(new ColumnHeader[]
             {
                 columnFazaId,
@@ -58,45 +55,24 @@
             listViewFaze.UseCompatibleStateImageBehavior = false;
             listViewFaze.View = View.Details;
 
-            // 
-            // columnFazaId
-            // 
             columnFazaId.Text = "Faza ID";
             columnFazaId.Width = 80;
 
-            // 
-            // columnTakmicenjeId
-            // 
             columnTakmicenjeId.Text = "Takmičenje ID";
             columnTakmicenjeId.Width = 110;
 
-            // 
-            // columnTakmicenje
-            // 
             columnTakmicenje.Text = "Takmičenje";
             columnTakmicenje.Width = 250;
 
-            // 
-            // columnNazivFaze
-            // 
             columnNazivFaze.Text = "Naziv faze";
             columnNazivFaze.Width = 200;
 
-            // 
-            // columnRedniBroj
-            // 
             columnRedniBroj.Text = "Redni broj";
             columnRedniBroj.Width = 100;
 
-            // 
-            // columnNadfazaId
-            // 
             columnNadfazaId.Text = "Nadfaza ID";
             columnNadfazaId.Width = 100;
 
-            // 
-            // groupBoxFaze
-            // 
             groupBoxFaze.Controls.Add(listViewFaze);
             groupBoxFaze.Location = new Point(20, 20);
             groupBoxFaze.Name = "groupBoxFaze";
@@ -105,9 +81,6 @@
             groupBoxFaze.TabStop = false;
             groupBoxFaze.Text = "Faze takmičenja";
 
-            // 
-            // dodajFazuBtn
-            // 
             dodajFazuBtn.Location = new Point(20, 600);
             dodajFazuBtn.Name = "dodajFazuBtn";
             dodajFazuBtn.Size = new Size(200, 60);
@@ -116,9 +89,6 @@
             dodajFazuBtn.UseVisualStyleBackColor = true;
             dodajFazuBtn.Click += dodajFazuBtn_Click;
 
-            // 
-            // izmeniFazuBtn
-            // 
             izmeniFazuBtn.Location = new Point(240, 600);
             izmeniFazuBtn.Name = "izmeniFazuBtn";
             izmeniFazuBtn.Size = new Size(200, 60);
@@ -127,9 +97,6 @@
             izmeniFazuBtn.UseVisualStyleBackColor = true;
             izmeniFazuBtn.Click += izmeniFazuBtn_Click;
 
-            // 
-            // obrisiFazuBtn
-            // 
             obrisiFazuBtn.Location = new Point(460, 600);
             obrisiFazuBtn.Name = "obrisiFazuBtn";
             obrisiFazuBtn.Size = new Size(200, 60);
@@ -138,9 +105,6 @@
             obrisiFazuBtn.UseVisualStyleBackColor = true;
             obrisiFazuBtn.Click += obrisiFazuBtn_Click;
 
-            // 
-            // ucescaBtn
-            // 
             ucescaBtn.Location = new Point(680, 600);
             ucescaBtn.Name = "ucescaBtn";
             ucescaBtn.Size = new Size(200, 60);
@@ -149,9 +113,6 @@
             ucescaBtn.UseVisualStyleBackColor = true;
             ucescaBtn.Click += ucescaBtn_Click;
 
-            // 
-            // FazaTakmicenjaForma
-            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 700);

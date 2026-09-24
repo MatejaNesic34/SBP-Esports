@@ -31,9 +31,7 @@
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
-            // 
-            // listViewKontakti
-            // 
+
             listViewKontakti.Columns.AddRange(new ColumnHeader[] { columnHeaderId, columnHeaderIme, columnHeaderPrezime, columnHeaderTelefon, columnHeaderEmail });
             listViewKontakti.FullRowSelect = true;
             listViewKontakti.Location = new Point(11, 27);
@@ -44,34 +42,22 @@
             listViewKontakti.TabIndex = 0;
             listViewKontakti.UseCompatibleStateImageBehavior = false;
             listViewKontakti.View = View.Details;
-            // 
-            // columnHeaderId
-            // 
+
             columnHeaderId.Text = "ID";
             columnHeaderId.Width = 50;
-            // 
-            // columnHeaderIme
-            // 
+
             columnHeaderIme.Text = "Ime";
             columnHeaderIme.Width = 120;
-            // 
-            // columnHeaderPrezime
-            // 
+
             columnHeaderPrezime.Text = "Prezime";
             columnHeaderPrezime.Width = 120;
-            // 
-            // columnHeaderTelefon
-            // 
+
             columnHeaderTelefon.Text = "Telefon";
             columnHeaderTelefon.Width = 150;
-            // 
-            // columnHeaderEmail
-            // 
+
             columnHeaderEmail.Text = "Email";
             columnHeaderEmail.Width = 200;
-            // 
-            // groupBox1
-            // 
+
             groupBox1.Controls.Add(listViewKontakti);
             groupBox1.Location = new Point(19, 31);
             groupBox1.Margin = new Padding(1);
@@ -81,9 +67,7 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Lista kontakata";
-            // 
-            // groupBox2
-            // 
+
             groupBox2.Controls.Add(btnObrisiKontakt);
             groupBox2.Controls.Add(btnIzmeniKontakt);
             groupBox2.Controls.Add(btnDodajKontakt);
@@ -95,9 +79,7 @@
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "Akcije sa kontaktima";
-            // 
-            // btnObrisiKontakt
-            // 
+
             btnObrisiKontakt.Location = new Point(25, 156);
             btnObrisiKontakt.Margin = new Padding(1);
             btnObrisiKontakt.Name = "btnObrisiKontakt";
@@ -106,9 +88,7 @@
             btnObrisiKontakt.Text = "Obriši kontakt";
             btnObrisiKontakt.UseVisualStyleBackColor = true;
             btnObrisiKontakt.Click += btnObrisiKontakt_Click;
-            // 
-            // btnIzmeniKontakt
-            // 
+
             btnIzmeniKontakt.Location = new Point(25, 98);
             btnIzmeniKontakt.Margin = new Padding(1);
             btnIzmeniKontakt.Name = "btnIzmeniKontakt";
@@ -117,9 +97,7 @@
             btnIzmeniKontakt.Text = "Izmeni kontakt";
             btnIzmeniKontakt.UseVisualStyleBackColor = true;
             btnIzmeniKontakt.Click += btnIzmeniKontakt_Click;
-            // 
-            // btnDodajKontakt
-            // 
+
             btnDodajKontakt.Location = new Point(25, 37);
             btnDodajKontakt.Margin = new Padding(1);
             btnDodajKontakt.Name = "btnDodajKontakt";
@@ -128,9 +106,7 @@
             btnDodajKontakt.Text = "Dodaj kontakt";
             btnDodajKontakt.UseVisualStyleBackColor = true;
             btnDodajKontakt.Click += btnDodajKontakt_Click;
-            // 
-            // SponzorKontaktiForma
-            // 
+
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(918, 439);

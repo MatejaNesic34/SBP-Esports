@@ -2,15 +2,8 @@
 {
     partial class DodajAngazmanTreneraForma
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -45,9 +38,6 @@
 
             SuspendLayout();
 
-            // 
-            // lblTrener
-            // 
             lblTrener.AutoSize = true;
             lblTrener.Location = new Point(20, 20);
             lblTrener.Name = "lblTrener";
@@ -55,9 +45,6 @@
             lblTrener.TabIndex = 0;
             lblTrener.Text = "Trener:";
 
-            // 
-            // cmbTrener
-            // 
             cmbTrener.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTrener.FormattingEnabled = true;
             cmbTrener.Location = new Point(130, 17);
@@ -65,9 +52,6 @@
             cmbTrener.Size = new Size(240, 28);
             cmbTrener.TabIndex = 1;
 
-            // 
-            // lblTim
-            // 
             lblTim.AutoSize = true;
             lblTim.Location = new Point(20, 60);
             lblTim.Name = "lblTim";
@@ -75,9 +59,6 @@
             lblTim.TabIndex = 2;
             lblTim.Text = "Tim:";
 
-            // 
-            // cmbTim
-            // 
             cmbTim.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTim.FormattingEnabled = true;
             cmbTim.Location = new Point(130, 57);
@@ -85,9 +66,6 @@
             cmbTim.Size = new Size(240, 28);
             cmbTim.TabIndex = 3;
 
-            // 
-            // lblTipUloge
-            // 
             lblTipUloge.AutoSize = true;
             lblTipUloge.Location = new Point(20, 100);
             lblTipUloge.Name = "lblTipUloge";
@@ -95,17 +73,11 @@
             lblTipUloge.TabIndex = 4;
             lblTipUloge.Text = "Tip uloge:";
 
-            // 
-            // txtTipUloge
-            // 
             txtTipUloge.Location = new Point(130, 97);
             txtTipUloge.Name = "txtTipUloge";
             txtTipUloge.Size = new Size(240, 27);
             txtTipUloge.TabIndex = 5;
 
-            // 
-            // lblDatumOd
-            // 
             lblDatumOd.AutoSize = true;
             lblDatumOd.Location = new Point(20, 140);
             lblDatumOd.Name = "lblDatumOd";
@@ -113,18 +85,12 @@
             lblDatumOd.TabIndex = 6;
             lblDatumOd.Text = "Datum od:";
 
-            // 
-            // dtpDatumOd
-            // 
             dtpDatumOd.Format = DateTimePickerFormat.Short;
             dtpDatumOd.Location = new Point(130, 137);
             dtpDatumOd.Name = "dtpDatumOd";
             dtpDatumOd.Size = new Size(240, 27);
             dtpDatumOd.TabIndex = 7;
 
-            // 
-            // chkDatumDo
-            // 
             chkDatumDo.AutoSize = true;
             chkDatumDo.Location = new Point(20, 180);
             chkDatumDo.Name = "chkDatumDo";
@@ -134,9 +100,6 @@
             chkDatumDo.UseVisualStyleBackColor = true;
             chkDatumDo.CheckedChanged += chkDatumDo_CheckedChanged;
 
-            // 
-            // dtpDatumDo
-            // 
             dtpDatumDo.Enabled = false;
             dtpDatumDo.Format = DateTimePickerFormat.Short;
             dtpDatumDo.Location = new Point(130, 177);
@@ -144,9 +107,6 @@
             dtpDatumDo.Size = new Size(240, 27);
             dtpDatumDo.TabIndex = 9;
 
-            // 
-            // btnSacuvaj
-            // 
             btnSacuvaj.Location = new Point(130, 225);
             btnSacuvaj.Name = "btnSacuvaj";
             btnSacuvaj.Size = new Size(110, 40);
@@ -155,9 +115,6 @@
             btnSacuvaj.UseVisualStyleBackColor = true;
             btnSacuvaj.Click += btnSacuvaj_Click;
 
-            // 
-            // btnOdustani
-            // 
             btnOdustani.Location = new Point(260, 225);
             btnOdustani.Name = "btnOdustani";
             btnOdustani.Size = new Size(110, 40);
@@ -166,9 +123,6 @@
             btnOdustani.UseVisualStyleBackColor = true;
             btnOdustani.Click += btnOdustani_Click;
 
-            // 
-            // DodajAngazmanTreneraForma
-            // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(400, 290);

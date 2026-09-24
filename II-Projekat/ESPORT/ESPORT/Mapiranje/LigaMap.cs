@@ -12,10 +12,8 @@ namespace ESPORT.Mapiranje
         {
             Table("LIGA");
 
-            // Povezivanje sa roditeljskom tabelom (Takmicenje) preko primarnog/stranog ključa
             KeyColumn("TAKMICENJE_ID");
 
-            // Specifično polje za Ligu
             Map(x => x.SistemBodovanja).Column("SISTEM_BODOVANJA").Not.Nullable();
         }
     }

@@ -13,25 +13,18 @@ namespace ESPORT.Mapiranje
         {
             Table("ANGAZMAN_TRENERA");
 
-            // Primarni ključ
             Id(x => x.AngazmanTreneraId).Column("ANGAZMAN_TRENERA_ID").GeneratedBy.Increment();
 
-            // Obična polja / atributi
             Map(x => x.TipUloge).Column("TIP_ULOGE").Not.Nullable();
             Map(x => x.DatumOd).Column("DATUM_OD").Not.Nullable();
             Map(x => x.DatumDo).Column("DATUM_DO").Nullable();
 
-            // ----------------------------------------------------
-            // RELACIJE (Many-to-One)
-            // ----------------------------------------------------
-
-            // Strani ključ ka Trener (TRENER_ID)
+           
             References(x => x.Trener)
                 .Column("TRENER_ID")
                 .Not.Nullable()
                 .LazyLoad();
 
-            // Strani ključ ka Tim (TIM_ID)
             References(x => x.Tim)
                 .Column("TIM_ID")
                 .Not.Nullable()

@@ -44,9 +44,6 @@
 
             SuspendLayout();
 
-            // 
-            // listViewAngazmaniZaposlenih
-            // 
             listViewAngazmaniZaposlenih.Columns.AddRange(
                 new ColumnHeader[]
                 {
@@ -70,51 +67,27 @@
             listViewAngazmaniZaposlenih.UseCompatibleStateImageBehavior = false;
             listViewAngazmaniZaposlenih.View = View.Details;
 
-            // 
-            // columnHeader1
-            // 
             columnHeader1.Text = "ID";
             columnHeader1.Width = 60;
 
-            // 
-            // columnHeader2
-            // 
             columnHeader2.Text = "Osoba";
             columnHeader2.Width = 180;
 
-            // 
-            // columnHeader3
-            // 
             columnHeader3.Text = "Tim";
             columnHeader3.Width = 150;
 
-            // 
-            // columnHeader4
-            // 
             columnHeader4.Text = "Uloga";
             columnHeader4.Width = 150;
 
-            // 
-            // columnHeader5
-            // 
             columnHeader5.Text = "Datum od";
             columnHeader5.Width = 110;
 
-            // 
-            // columnHeader6
-            // 
             columnHeader6.Text = "Datum do";
             columnHeader6.Width = 110;
 
-            // 
-            // columnHeader7
-            // 
             columnHeader7.Text = "Plata";
             columnHeader7.Width = 100;
 
-            // 
-            // btnDodaj
-            // 
             btnDodaj.Location = new Point(12, 430);
             btnDodaj.Name = "btnDodaj";
             btnDodaj.Size = new Size(130, 45);
@@ -123,9 +96,6 @@
             btnDodaj.UseVisualStyleBackColor = true;
             btnDodaj.Click += btnDodaj_Click;
 
-            // 
-            // btnIzmeni
-            // 
             btnIzmeni.Location = new Point(158, 430);
             btnIzmeni.Name = "btnIzmeni";
             btnIzmeni.Size = new Size(130, 45);
@@ -134,9 +104,6 @@
             btnIzmeni.UseVisualStyleBackColor = true;
             btnIzmeni.Click += btnIzmeni_Click;
 
-            // 
-            // btnObrisi
-            // 
             btnObrisi.Location = new Point(304, 430);
             btnObrisi.Name = "btnObrisi";
             btnObrisi.Size = new Size(130, 45);
@@ -145,9 +112,6 @@
             btnObrisi.UseVisualStyleBackColor = true;
             btnObrisi.Click += btnObrisi_Click;
 
-            // 
-            // AngazmanZaposlenihForma
-            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(930, 500);

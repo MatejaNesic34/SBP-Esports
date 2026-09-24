@@ -17,7 +17,6 @@ namespace ESPORT.Entiteti
         public virtual string StatusTima { get; set; }
         public virtual string NivoTakmicenja { get; set; }
 
-        // One-to-Many
         public virtual IList<UgovorIgraca> UgovoriIgraca { get; set; } = new List<UgovorIgraca>();
         public virtual IList<Transfer> Odlasci { get; set; } = new List<Transfer>();
         public virtual IList<Transfer> Dolasci { get; set; } = new List<Transfer>();

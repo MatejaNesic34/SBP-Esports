@@ -14,7 +14,6 @@ namespace ESPORT.Entiteti
         public virtual string TipSponzora { get; set; }
         public virtual string OblastPoslovanja { get; set; }
 
-        // One-to-Many
         public virtual IList<SponzorKontakt> Kontakti { get; set; } = new List<SponzorKontakt>();
         public virtual IList<SponzorskiUgovor> Ugovori { get; set; } = new List<SponzorskiUgovor>();
     }

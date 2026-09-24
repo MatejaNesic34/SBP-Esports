@@ -45,9 +45,6 @@
 
             SuspendLayout();
 
-            // 
-            // lblMec
-            // 
             lblMec.AutoSize = true;
             lblMec.Location = new Point(1, 13);
             lblMec.Name = "lblMec";
@@ -55,9 +52,6 @@
             lblMec.TabIndex = 0;
             lblMec.Text = "Meč:";
 
-            // 
-            // lblMecVrednost
-            // 
             lblMecVrednost.AutoSize = true;
             lblMecVrednost.Location = new Point(130, 13);
             lblMecVrednost.Name = "lblMecVrednost";
@@ -65,9 +59,6 @@
             lblMecVrednost.TabIndex = 1;
             lblMecVrednost.Text = "-";
 
-            // 
-            // lblTim
-            // 
             lblTim.AutoSize = true;
             lblTim.Location = new Point(1, 38);
             lblTim.Name = "lblTim";
@@ -75,9 +66,6 @@
             lblTim.TabIndex = 2;
             lblTim.Text = "Tim:";
 
-            // 
-            // lblTimVrednost
-            // 
             lblTimVrednost.AutoSize = true;
             lblTimVrednost.Location = new Point(130, 38);
             lblTimVrednost.Name = "lblTimVrednost";
@@ -85,9 +73,6 @@
             lblTimVrednost.TabIndex = 3;
             lblTimVrednost.Text = "-";
 
-            // 
-            // lblKills
-            // 
             lblKills.AutoSize = true;
             lblKills.Location = new Point(1, 63);
             lblKills.Name = "lblKills";
@@ -95,17 +80,11 @@
             lblKills.TabIndex = 4;
             lblKills.Text = "Kills:";
 
-            // 
-            // txtKills
-            // 
             txtKills.Location = new Point(130, 60);
             txtKills.Name = "txtKills";
             txtKills.Size = new Size(167, 23);
             txtKills.TabIndex = 5;
 
-            // 
-            // lblDeaths
-            // 
             lblDeaths.AutoSize = true;
             lblDeaths.Location = new Point(1, 88);
             lblDeaths.Name = "lblDeaths";
@@ -113,17 +92,11 @@
             lblDeaths.TabIndex = 6;
             lblDeaths.Text = "Deaths:";
 
-            // 
-            // txtDeaths
-            // 
             txtDeaths.Location = new Point(130, 85);
             txtDeaths.Name = "txtDeaths";
             txtDeaths.Size = new Size(167, 23);
             txtDeaths.TabIndex = 7;
 
-            // 
-            // lblAssists
-            // 
             lblAssists.AutoSize = true;
             lblAssists.Location = new Point(1, 113);
             lblAssists.Name = "lblAssists";
@@ -131,17 +104,11 @@
             lblAssists.TabIndex = 8;
             lblAssists.Text = "Assists:";
 
-            // 
-            // txtAssists
-            // 
             txtAssists.Location = new Point(130, 110);
             txtAssists.Name = "txtAssists";
             txtAssists.Size = new Size(167, 23);
             txtAssists.TabIndex = 9;
 
-            // 
-            // lblDamage
-            // 
             lblDamage.AutoSize = true;
             lblDamage.Location = new Point(1, 138);
             lblDamage.Name = "lblDamage";
@@ -149,17 +116,11 @@
             lblDamage.TabIndex = 10;
             lblDamage.Text = "Damage:";
 
-            // 
-            // txtDamage
-            // 
             txtDamage.Location = new Point(130, 135);
             txtDamage.Name = "txtDamage";
             txtDamage.Size = new Size(167, 23);
             txtDamage.TabIndex = 11;
 
-            // 
-            // lblObjectiveScore
-            // 
             lblObjectiveScore.AutoSize = true;
             lblObjectiveScore.Location = new Point(1, 163);
             lblObjectiveScore.Name = "lblObjectiveScore";
@@ -167,17 +128,11 @@
             lblObjectiveScore.TabIndex = 12;
             lblObjectiveScore.Text = "Objective Score:";
 
-            // 
-            // txtObjectiveScore
-            // 
             txtObjectiveScore.Location = new Point(130, 160);
             txtObjectiveScore.Name = "txtObjectiveScore";
             txtObjectiveScore.Size = new Size(167, 23);
             txtObjectiveScore.TabIndex = 13;
 
-            // 
-            // lblGold
-            // 
             lblGold.AutoSize = true;
             lblGold.Location = new Point(1, 188);
             lblGold.Name = "lblGold";
@@ -185,17 +140,11 @@
             lblGold.TabIndex = 14;
             lblGold.Text = "Gold:";
 
-            // 
-            // txtGold
-            // 
             txtGold.Location = new Point(130, 185);
             txtGold.Name = "txtGold";
             txtGold.Size = new Size(167, 23);
             txtGold.TabIndex = 15;
 
-            // 
-            // btnSacuvaj
-            // 
             btnSacuvaj.Location = new Point(130, 220);
             btnSacuvaj.Name = "btnSacuvaj";
             btnSacuvaj.Size = new Size(78, 22);
@@ -204,9 +153,6 @@
             btnSacuvaj.UseVisualStyleBackColor = true;
             btnSacuvaj.Click += btnSacuvaj_Click;
 
-            // 
-            // btnOdustani
-            // 
             btnOdustani.Location = new Point(219, 220);
             btnOdustani.Name = "btnOdustani";
             btnOdustani.Size = new Size(78, 22);
@@ -215,9 +161,6 @@
             btnOdustani.UseVisualStyleBackColor = true;
             btnOdustani.Click += btnOdustani_Click;
 
-            // 
-            // IzmeniStatistikuForma
-            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(320, 265);

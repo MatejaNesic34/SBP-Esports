@@ -3,26 +3,26 @@
     public class IndividualniRezultatDTO
     {
         public int RezultatId { get; set; }
-        public int MecId { get; set; }
+        public string NazivPriznanja { get; set; }
+        public DateTime? DatumOstvarivanja { get; set; }
+        public string Opis { get; set; }
         public int IgracId { get; set; }
         public string ImePrezimeIgraca { get; set; }
-        public int BrojUbijanja { get; set; }
-        public int BrojSmrti { get; set; }
-        public int BrojAsistencija { get; set; }
-        public decimal OcenaUcinka { get; set; }
+        public int TakmicenjeId { get; set; }
+        public string NazivTakmicenja { get; set; }
 
         public IndividualniRezultatDTO() { }
 
-        public IndividualniRezultatDTO(int rezultatId, int mecId, int igracId, string imePrezimeIgraca, int brojUbijanja, int brojSmrti, int brojAsistencija, decimal ocenaUcinka)
+        public IndividualniRezultatDTO(int rezultatId, string nazivPriznanja, DateTime? datumOstvarivanja, string opis, int igracId, string imePrezimeIgraca, int takmicenjeId, string nazivTakmicenja)
         {
             RezultatId = rezultatId;
-            MecId = mecId;
+            NazivPriznanja = nazivPriznanja;
+            DatumOstvarivanja = datumOstvarivanja;
+            Opis = opis;
             IgracId = igracId;
             ImePrezimeIgraca = imePrezimeIgraca;
-            BrojUbijanja = brojUbijanja;
-            BrojSmrti = brojSmrti;
-            BrojAsistencija = brojAsistencija;
-            OcenaUcinka = ocenaUcinka;
+            TakmicenjeId = takmicenjeId;
+            NazivTakmicenja = nazivTakmicenja;
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using ESPORT;
 using ESPORT.Entiteti;
 using NHibernate;
+using NHibernate.Linq;
 
 namespace Esport_library
 {
@@ -971,47 +972,59 @@ namespace Esport_library
             {
                 using (ISession s = DataLayer.GetSession())
                 {
-                    var rezultati = s.QueryOver<IndividualniRezultat>().List();
+                    var rezultati = s.Query<IndividualniRezultat>()
+                                     .Fetch(x => x.Igrac)
+                                     .Fetch(x => x.Takmicenje)
+                                     .ToList();
+
                     foreach (var r in rezultati)
                     {
                         spisak.Add(new IndividualniRezultatDTO(
                             r.RezultatId,
-                            0,
+                            r.NazivPriznanja,
+                            r.DatumOstvarivanja,
+                            r.Opis,
                             r.Igrac != null ? r.Igrac.OsobaId : 0,
                             r.Igrac != null ? $"{r.Igrac.Ime} {r.Igrac.Prezime}" : "",
-                            0, 0, 0, 0
+                            r.Takmicenje != null ? r.Takmicenje.TakmicenjeId : 0,
+                            r.Takmicenje != null ? r.Takmicenje.Naziv : ""
                         ));
                     }
                 }
             }
             catch (Exception ex)
             {
+                throw new Exception("Greška prilikom preuzimanja rezultata: " + ex.Message, ex);
             }
             return spisak;
         }
 
         public static IndividualniRezultatDTO VratiIndividualniRezultat(int id)
         {
-            IndividualniRezultatDTO dto = null;
             try
             {
                 using (ISession s = DataLayer.GetSession())
                 {
                     var r = s.Get<IndividualniRezultat>(id);
-                    if (r != null)
-                    {
-                        dto = new IndividualniRezultatDTO(
-                            r.RezultatId,
-                            0,
-                            r.Igrac != null ? r.Igrac.OsobaId : 0,
-                            r.Igrac != null ? $"{r.Igrac.Ime} {r.Igrac.Prezime}" : "",
-                            0, 0, 0, 0
-                        );
-                    }
+
+                    if (r == null) return null;
+
+                    return new IndividualniRezultatDTO(
+                        r.RezultatId,
+                        r.NazivPriznanja,
+                        r.DatumOstvarivanja,
+                        r.Opis,
+                        r.Igrac != null ? r.Igrac.OsobaId : 0,
+                        r.Igrac != null ? $"{r.Igrac.Ime} {r.Igrac.Prezime}" : "",
+                        r.Takmicenje != null ? r.Takmicenje.TakmicenjeId : 0,
+                        r.Takmicenje != null ? r.Takmicenje.Naziv : ""
+                    );
                 }
             }
-            catch (Exception ex) { }
-            return dto;
+            catch (Exception ex)
+            {
+                throw new Exception($"Greška pri preuzimanju rezultata {id}: " + ex.Message, ex);
+            }
         }
 
         public static void DodajIndividualniRezultat(IndividualniRezultatDTO p)
@@ -1019,60 +1032,97 @@ namespace Esport_library
             try
             {
                 using (ISession s = DataLayer.GetSession())
+                using (ITransaction tx = s.BeginTransaction()) 
                 {
-                    IndividualniRezultat r = new IndividualniRezultat();
-                    r.NazivPriznanja = "Rezultat / Priznanje"; 
-                    r.Opis = "";
+                    IndividualniRezultat r = new IndividualniRezultat
+                    {
+                        NazivPriznanja = p.NazivPriznanja,
+                        Opis = p.Opis,
+                        DatumOstvarivanja = p.DatumOstvarivanja ?? DateTime.Now
+                    };
 
                     if (p.IgracId > 0)
                     {
                         r.Igrac = s.Get<Igrac>(p.IgracId);
                     }
 
+                    if (p.TakmicenjeId > 0)
+                    {
+                        r.Takmicenje = s.Get<Takmicenje>(p.TakmicenjeId);
+                    }
+
                     s.Save(r);
-                    s.Flush();
+                    tx.Commit(); 
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                throw new Exception("Greška pri dodavanju rezultata: " + ex.Message, ex);
+            }
         }
 
-        public static void IzmeniIndividualniRezultat(IndividualniRezultatDTO p)
+        public static bool IzmeniIndividualniRezultat(IndividualniRezultatDTO p)
         {
             try
             {
                 using (ISession s = DataLayer.GetSession())
+                using (ITransaction tx = s.BeginTransaction())
                 {
                     IndividualniRezultat r = s.Get<IndividualniRezultat>(p.RezultatId);
-                    if (r != null)
-                    {
-                        if (p.IgracId > 0)
-                        {
-                            r.Igrac = s.Get<Igrac>(p.IgracId);
-                        }
+                    if (r == null) return false;
 
-                        s.Update(r);
-                        s.Flush();
+                    r.NazivPriznanja = p.NazivPriznanja;
+                    r.Opis = p.Opis;
+                    r.DatumOstvarivanja = p.DatumOstvarivanja;
+
+                    if (p.IgracId > 0)
+                    {
+                        r.Igrac = s.Get<Igrac>(p.IgracId);
                     }
+                    else
+                    {
+                        r.Igrac = null;
+                    }
+
+                    if (p.TakmicenjeId > 0)
+                    {
+                        r.Takmicenje = s.Get<Takmicenje>(p.TakmicenjeId);
+                    }
+                    else
+                    {
+                        r.Takmicenje = null;
+                    }
+
+                    s.Update(r);
+                    tx.Commit();
+                    return true;
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                throw new Exception("Greška pri izmeni rezultata: " + ex.Message, ex);
+            }
         }
 
-        public static void ObrisiIndividualniRezultat(int id)
+        public static bool ObrisiIndividualniRezultat(int id)
         {
             try
             {
                 using (ISession s = DataLayer.GetSession())
+                using (ITransaction tx = s.BeginTransaction())
                 {
                     IndividualniRezultat r = s.Get<IndividualniRezultat>(id);
-                    if (r != null)
-                    {
-                        s.Delete(r);
-                        s.Flush();
-                    }
+                    if (r == null) return false;
+
+                    s.Delete(r);
+                    tx.Commit();
+                    return true;
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                throw new Exception("Greška pri brisanju rezultata: " + ex.Message, ex);
+            }
         }
 
 
@@ -1365,10 +1415,12 @@ namespace Esport_library
             try
             {
                 using (ISession s = DataLayer.GetSession())
+                using (ITransaction tx = s.BeginTransaction())
                 {
                     Liga l = new Liga();
                     l.Naziv = p.NazivTakmicenja;
                     l.Organizator = p.Organizator;
+                    l.TipTakmicenja = "Liga";
                     l.Region = p.Region;
                     l.Lokacija = p.Lokacija;
                     l.FormatTakmicenja = p.FormatTakmicenja;
@@ -1377,12 +1429,24 @@ namespace Esport_library
                     l.NagradniFond = p.NagradniFond;
                     l.ValutaNagrade = p.ValutaNagrade;
                     l.Status = p.Status;
+
                     l.SistemBodovanja = p.SistemBodovanja;
 
-                    s.Save(l);
-                    s.Flush();
+                    if (!string.IsNullOrEmpty(p.Igra))
+                    {
+                        var igra = s.QueryOver<Igra>().Where(i => i.Naziv == p.Igra).SingleOrDefault();
+                        if (igra != null)
+                        {
+                            l.Igra = igra;
+                        }
+                        else
+                        {
+                            throw new Exception($"Igra sa nazivom '{p.Igra}' nije pronađena u bazi!");
+                        }
+                    }
                 }
             }
+
             catch (Exception ex) { }
         }
 
@@ -2561,11 +2625,11 @@ namespace Esport_library
                     foreach (var st in statistike)
                     {
                         spisak.Add(new StatistikaTimaNaMecuDTO(
-                            0,
+                            0, 
                             st.MecId != null ? st.MecId.MecId : 0,
                             st.TimId != null ? st.TimId.TimId : 0,
-                            st.TimId != null ? st.TimId.Naziv : "",
-                            0,
+                            st.TimId != null ? st.TimId.Naziv : "Nepoznat tim",
+                            st.Kills, 
                             st.Gold,
                             st.ObjectiveScore,
                             false
@@ -2619,6 +2683,7 @@ namespace Esport_library
             try
             {
                 using (ISession s = DataLayer.GetSession())
+                using (ITransaction tx = s.BeginTransaction())
                 {
                     StatistikaTimaNaMecu st = new StatistikaTimaNaMecu();
                     st.Gold = p.UkupnoZlato;
@@ -2637,10 +2702,16 @@ namespace Esport_library
                         st.TimId = s.Get<Tim>(p.TimId);
                     }
 
+                    if (st.MecId == null || st.TimId == null)
+                    {
+                        throw new Exception("Meč ili tim ne postoje u bazi!");
+                    }
+
                     s.Save(st);
-                    s.Flush();
+                    tx.Commit();
                 }
             }
+
             catch (Exception ex) { }
         }
 
@@ -2769,11 +2840,12 @@ namespace Esport_library
             try
             {
                 using (ISession s = DataLayer.GetSession())
+                using (ITransaction tx = s.BeginTransaction())
                 {
                     Takmicenje t = new Takmicenje();
                     t.Naziv = p.Naziv;
                     t.Organizator = p.Organizator;
-                    t.TipTakmicenja = p.TipTakmicenja;
+                    t.TipTakmicenja = string.IsNullOrEmpty(p.TipTakmicenja) ? "Turnir" : p.TipTakmicenja;
                     t.Region = p.Region;
                     t.Lokacija = p.Lokacija;
                     t.FormatTakmicenja = p.FormatTakmicenja;
@@ -2790,12 +2862,21 @@ namespace Esport_library
                         {
                             t.Igra = igra;
                         }
+                        else
+                        {
+                            throw new Exception($"Igra sa nazivom '{p.Igra}' nije pronađena u bazi!");
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception("Naziv igre je obavezan!");
                     }
 
                     s.Save(t);
-                    s.Flush();
+                    tx.Commit();
                 }
             }
+
             catch (Exception ex) { }
         }
 
@@ -3395,10 +3476,12 @@ namespace Esport_library
             try
             {
                 using (ISession s = DataLayer.GetSession())
+                using (ITransaction tx = s.BeginTransaction())
                 {
                     Turnir t = new Turnir();
                     t.Naziv = p.NazivTakmicenja;
                     t.Organizator = p.Organizator;
+                    t.TipTakmicenja = "Turnir"; 
                     t.Region = p.Region;
                     t.Lokacija = p.Lokacija;
                     t.FormatTakmicenja = p.FormatTakmicenja;
@@ -3407,6 +3490,7 @@ namespace Esport_library
                     t.NagradniFond = p.NagradniFond;
                     t.ValutaNagrade = p.ValutaNagrade;
                     t.Status = p.Status;
+
                     t.TipKostura = p.TipKostura;
                     t.PravilaNapredovanja = p.PravilaNapredovanja;
                     t.BrojMecevaPoRundi = p.BrojMecevaPoRundi;
@@ -3418,10 +3502,18 @@ namespace Esport_library
                         {
                             t.Igra = igra;
                         }
+                        else
+                        {
+                            throw new Exception($"Igra pod nazivom '{p.Igra}' nije pronađena u bazi!");
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception("Naziv igre je obavezan!");
                     }
 
                     s.Save(t);
-                    s.Flush();
+                    tx.Commit();
                 }
             }
             catch (Exception ex) { }
@@ -3432,6 +3524,7 @@ namespace Esport_library
             try
             {
                 using (ISession s = DataLayer.GetSession())
+                using (ITransaction tx = s.BeginTransaction())
                 {
                     Turnir t = s.Get<Turnir>(p.TakmicenjeId);
                     if (t != null)
@@ -3460,7 +3553,7 @@ namespace Esport_library
                         }
 
                         s.Update(t);
-                        s.Flush();
+                        tx.Commit();
                     }
                 }
             }
@@ -3851,30 +3944,33 @@ namespace Esport_library
             try
             {
                 using (ISession s = DataLayer.GetSession())
+                using (ITransaction tx = s.BeginTransaction())
                 {
                     var ugovor = s.Get<SponzorskiUgovor>(p.UgovorId);
-                    if (ugovor != null)
+                    if (ugovor == null)
                     {
-                        UgovorSubjekat us = new UgovorSubjekat();
-                        us.UgovorId = p.UgovorId;
-                        us.Ugovor = ugovor;
-
-                        if (p.TimId.HasValue && p.TimId.Value > 0)
-                        {
-                            us.Tim = s.Get<Tim>(p.TimId.Value);
-                        }
-                        if (p.IgracId.HasValue && p.IgracId.Value > 0)
-                        {
-                            us.Igrac = s.Get<Igrac>(p.IgracId.Value);
-                        }
-                        if (p.TakmicenjeId.HasValue && p.TakmicenjeId.Value > 0)
-                        {
-                            us.Takmicenje = s.Get<Takmicenje>(p.TakmicenjeId.Value);
-                        }
-
-                        s.Save(us);
-                        s.Flush();
+                        throw new Exception($"Sponzorski ugovor sa ID {p.UgovorId} ne postoji!");
                     }
+
+                    UgovorSubjekat us = new UgovorSubjekat();
+                    us.UgovorId = p.UgovorId;
+                    us.Ugovor = ugovor;
+
+                    if (p.TimId.HasValue && p.TimId.Value > 0)
+                    {
+                        us.Tim = s.Get<Tim>(p.TimId.Value);
+                    }
+                    if (p.IgracId.HasValue && p.IgracId.Value > 0)
+                    {
+                        us.Igrac = s.Get<Igrac>(p.IgracId.Value);
+                    }
+                    if (p.TakmicenjeId.HasValue && p.TakmicenjeId.Value > 0)
+                    {
+                        us.Takmicenje = s.Get<Takmicenje>(p.TakmicenjeId.Value);
+                    }
+
+                    s.Save(us);
+                    tx.Commit();
                 }
             }
             catch (Exception ex) { }
@@ -3885,6 +3981,7 @@ namespace Esport_library
             try
             {
                 using (ISession s = DataLayer.GetSession())
+                using (ITransaction tx = s.BeginTransaction())
                 {
                     UgovorSubjekat us = s.Get<UgovorSubjekat>(p.UgovorId);
                     if (us != null)
@@ -3894,7 +3991,11 @@ namespace Esport_library
                         us.Takmicenje = (p.TakmicenjeId.HasValue && p.TakmicenjeId.Value > 0) ? s.Get<Takmicenje>(p.TakmicenjeId.Value) : null;
 
                         s.Update(us);
-                        s.Flush();
+                        tx.Commit(); 
+                    }
+                    else
+                    {
+                        throw new Exception($"UgovorSubjekat sa ID {p.UgovorId} nije pronađen!");
                     }
                 }
             }

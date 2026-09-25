@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\pavle\\downloads\\sbp_esport_projekat\\sbp-esports\\ii-projekat\\esport\\esport\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|c:\\users\\pavle\\downloads\\sbp_esport_projekat\\sbp-esports\\ii-projekat\\esport\\esport\\entiteti\\analiticar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\entiteti\\analiticar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\esport\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{BCAF064D-F8A1-48C5-9262-A707424FE19A}|ESPORT\\ESPORT.csproj|solutionrelative:esport\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -23,14 +27,26 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Analiticar.cs",
+              "DocumentMoniker": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Entiteti\\Analiticar.cs",
+              "RelativeDocumentMoniker": "ESPORT\\Entiteti\\Analiticar.cs",
+              "ToolTip": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Entiteti\\Analiticar.cs",
+              "RelativeToolTip": "ESPORT\\Entiteti\\Analiticar.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-25T12:38:23.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Form1.cs",
               "RelativeDocumentMoniker": "ESPORT\\Form1.cs",
               "ToolTip": "C:\\Users\\pavle\\Downloads\\SBP_ESPORT_PROJEKAT\\SBP-Esports\\II-Projekat\\ESPORT\\ESPORT\\Form1.cs [Design]",
               "RelativeToolTip": "ESPORT\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-24T18:35:12.275Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-09-24T18:35:12.275Z"
             }
           ]
         }
